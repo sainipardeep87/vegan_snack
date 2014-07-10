@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bbks/svn/!svn/ver/49983/VeganSnack/app/views/users
+END
+_credit_card.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bbks/svn/!svn/ver/49913/VeganSnack/app/views/users/_credit_card.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bbks/svn/!svn/ver/46878/VeganSnack/app/views/users/_form.html.erb
+END
+edit_address.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bbks/svn/!svn/ver/48743/VeganSnack/app/views/users/edit_address.js.erb
+END
+_my_address_book.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/46909/VeganSnack/app/views/users/_my_address_book.html.erb
+END
+_address_edit_modal.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bbks/svn/!svn/ver/46878/VeganSnack/app/views/users/_address_edit_modal.html.erb
+END
+_delete_address.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bbks/svn/!svn/ver/46875/VeganSnack/app/views/users/_delete_address.html.erb
+END
+update_account.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bbks/svn/!svn/ver/49983/VeganSnack/app/views/users/update_account.js.erb
+END
+_account_contact.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/46606/VeganSnack/app/views/users/_account_contact.html.erb
+END
+fetch_address.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bbks/svn/!svn/ver/47984/VeganSnack/app/views/users/fetch_address.js.erb
+END
+_account_edit_modal.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bbks/svn/!svn/ver/49982/VeganSnack/app/views/users/_account_edit_modal.html.erb
+END
+update_password.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bbks/svn/!svn/ver/48792/VeganSnack/app/views/users/update_password.js.erb
+END
+new_acc_address.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bbks/svn/!svn/ver/48746/VeganSnack/app/views/users/new_acc_address.js.erb
+END
+_password_edit_modal.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bbks/svn/!svn/ver/48226/VeganSnack/app/views/users/_password_edit_modal.html.erb
+END
+create_acc_address.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/46877/VeganSnack/app/views/users/create_acc_address.js.erb
+END
+_payment_info.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bbks/svn/!svn/ver/48150/VeganSnack/app/views/users/_payment_info.html.erb
+END
+_my_subscription.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/49856/VeganSnack/app/views/users/_my_subscription.html.erb
+END
+_dash_personal_profile_view.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bbks/svn/!svn/ver/49581/VeganSnack/app/views/users/_dash_personal_profile_view.html.erb
+END
+_dash_address_book.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bbks/svn/!svn/ver/48239/VeganSnack/app/views/users/_dash_address_book.html.erb
+END
+_new_address.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bbks/svn/!svn/ver/46876/VeganSnack/app/views/users/_new_address.html.erb
+END
+new_billing_address.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bbks/svn/!svn/ver/47987/VeganSnack/app/views/users/new_billing_address.html.erb
+END
+update_address.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bbks/svn/!svn/ver/49382/VeganSnack/app/views/users/update_address.js.erb
+END
+profile.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bbks/svn/!svn/ver/49824/VeganSnack/app/views/users/profile.html.erb
+END

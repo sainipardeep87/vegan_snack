@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bbks/svn/!svn/ver/48633/VeganSnack/app/views/spree/products
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bbks/svn/!svn/ver/48633/VeganSnack/app/views/spree/products/index.html.erb
+END
+snack_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bbks/svn/!svn/ver/45712/VeganSnack/app/views/spree/products/snack_list.html.erb
+END
+snack_show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bbks/svn/!svn/ver/42338/VeganSnack/app/views/spree/products/snack_show.html.erb
+END
+index.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bbks/svn/!svn/ver/42557/VeganSnack/app/views/spree/products/index.js.erb
+END
+_snack_details.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/bbks/svn/!svn/ver/48626/VeganSnack/app/views/spree/products/_snack_details.html.erb
+END

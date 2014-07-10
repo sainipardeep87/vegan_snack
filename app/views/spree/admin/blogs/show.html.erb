@@ -1,0 +1,16 @@
+<%= javascript_include_tag "posts/blog_posts" %>
+<div class="left_content">
+  <div id='post_content'>
+    <% content_for :page_title do %>
+      <%= Spree.t(@post.title) %>
+    <% end %>
+
+    <% content_for :page_actions do %>
+        <li id="new_product_link">
+          <%= button_link_to Spree.t(:back), '/spree/admin/blogs', {:icon => 'icon-default' } %>
+        </li>
+    <% end%>
+
+    <%= raw @post.content %>
+  </div>
+</div>

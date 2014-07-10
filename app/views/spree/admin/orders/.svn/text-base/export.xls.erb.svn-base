@@ -1,0 +1,33 @@
+<table border="1">
+  <tr>
+    <th> Number</th>
+    <th>Order date</th>
+    <th>Delivery Date</th>
+    <th>Lockdown date</th>
+    <th>state</th>
+    <th>payment state</th>
+    <th>shipment state</th>
+    <th>Customer Email</th>
+    <th>total</th>
+    <th> subscription </th>
+
+  </tr>
+  <% @orders.each do |order| %>
+  <tr>
+    <td> <%= order.number %> </td>
+    <td> <%= order.delivery_date.to_date %> </td>
+    <td> <%= lockdown_date(order.delivery_date) %>
+    <%#= (order.delivery_date - 7.days).to_date %>
+     </td>
+    <td> <%= order.state %> </td>
+    <td> <%= order.payment_state %> </td>
+    <td> <%= order.shipment_state %> </td>
+    <td> <%= order.email %> </td>
+    <td> <%= order.total.to_f %> </td>
+    <td>
+    <%=  order.user_subscription.present? ? order.user_subscription.subscription.subscription_type : 'Not found' %>
+    </td>
+
+  </tr>
+  <% end %>
+</table>

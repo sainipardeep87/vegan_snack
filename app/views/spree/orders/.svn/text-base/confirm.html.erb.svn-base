@@ -1,0 +1,13 @@
+<div class="snack-queue-page">
+  <% if @sub_items.blank? %>
+      <div id="sub_confirm_error">Sorry, You have not placed any Subscription.</div>
+
+  <% else %>
+
+      <div id="queue_title" class='confirmed-orders'> Subscription Confirmed </div>
+
+    <div id="complete_queue">
+        <%= render :partial => "spree/orders/snacks", locals: {sub_items: @sub_items} %>
+    </div>
+<% end %>
+</div>

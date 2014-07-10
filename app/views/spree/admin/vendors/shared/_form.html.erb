@@ -1,0 +1,39 @@
+<%= form_for [:admin, @vendor], :html => { :multipart => true } do |f| %>
+  <fieldset>
+
+    <legend align="center">
+      <% if f.object.new_record? %>
+        <%= Spree.t(:new_vendor) %>
+      <% else %>
+        <%= Spree.t(:edit_vendor) %>
+      <% end %>
+    </legend>
+
+    <%= f.field_container :name do %>
+      <%= f.label :name, Spree.t(:name) %> <span class="required">*</span><br />
+      <%= f.text_field :name, :class => 'fullwidth title' %>
+      <%= f.error_message_on :name %>
+    <% end %>
+
+    <%= f.field_container :email do %>
+      <%= f.label :email, Spree.t(:email) %> <span class="required">*</span><br />
+      <%= f.text_field :email, :class => 'fullwidth title' %>
+      <%= f.error_message_on :email %>
+    <% end %>
+
+    <%= f.field_container :notes do %>
+      <%= f.label :notes, Spree.t(:note) %><br />
+      <%= f.text_area :notes, :class => 'fullwidth title' %>
+      <%= f.error_message_on :notes %>
+    <% end %>
+
+
+    <div class="form-buttons filter-actions actions">
+      <button class="icon-ok button" type="submit" name='button'>
+        <%= f.object.new_record? ? "Create" : "Update" %>
+      </button>
+      <span class="or">or</span>
+      <a class="button icon_link with-tip icon-remove" href="/spree/admin/vendors">Cancel</a>
+    </div>
+  </fieldset>
+<% end %>

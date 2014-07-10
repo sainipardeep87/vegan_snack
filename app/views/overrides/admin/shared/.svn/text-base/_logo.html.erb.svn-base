@@ -1,0 +1,3 @@
+<%= link_to "/spree/admin" do %>
+  <%= image_tag("/assets/home/logo.png", size: '306x40') %>
+<% end %>

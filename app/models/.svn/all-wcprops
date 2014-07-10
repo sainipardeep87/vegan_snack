@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 46
+/bbks/svn/!svn/ver/50134/VeganSnack/app/models
+END
+banner_image.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bbks/svn/!svn/ver/45766/VeganSnack/app/models/banner_image.rb
+END
+cart_item.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bbks/svn/!svn/ver/46460/VeganSnack/app/models/cart_item.rb
+END
+cart.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bbks/svn/!svn/ver/49960/VeganSnack/app/models/cart.rb
+END
+tag.rb
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bbks/svn/!svn/ver/39606/VeganSnack/app/models/tag.rb
+END
+vendor.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bbks/svn/!svn/ver/44468/VeganSnack/app/models/vendor.rb
+END
+.keep
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/.keep
+END
+comment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bbks/svn/!svn/ver/39677/VeganSnack/app/models/comment.rb
+END
+user_subscription.rb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bbks/svn/!svn/ver/50038/VeganSnack/app/models/user_subscription.rb
+END
+coupon.rb
+K 25
+svn:wc:ra_dav:version-url
+V 56
+/bbks/svn/!svn/ver/50134/VeganSnack/app/models/coupon.rb
+END
+creditcard.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bbks/svn/!svn/ver/49589/VeganSnack/app/models/creditcard.rb
+END
+subscription.rb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bbks/svn/!svn/ver/49838/VeganSnack/app/models/subscription.rb
+END
+post.rb
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/bbks/svn/!svn/ver/46486/VeganSnack/app/models/post.rb
+END

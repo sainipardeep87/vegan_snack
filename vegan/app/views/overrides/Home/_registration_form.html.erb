@@ -1,0 +1,99 @@
+<b> Billing Address</b> <br>
+
+
+  <%= f.fields_for :address do |builder| %>
+
+    
+    <div class= "left_field small_input">
+
+        <%= builder.label :firstname %>
+        <span class="compulsory">*</span><br/>
+        <%= builder.text_field :firstname, :maxlength => 30 %>
+
+    </div>
+      
+    <div class='left_field small_input'>
+        <%= builder.label :lastname %>
+        <span class="compulsory">*</span><br/>
+        <%= builder.text_field :lastname, :maxlength => 30 %>
+    </div> 
+  <% end %> 
+
+
+    <div class= "left_field small_input">
+        <%= f.label :email %>
+        <span class="compulsory">*</span><br/>
+        <%= f.text_field :email, :maxlength => 30%>
+    </div>
+      
+
+  <%= f.fields_for :address do |builder| %>
+
+
+      <div class="left_field small_input">
+        <%= builder.label :phone %>
+        <span class="compulsory">*</span><br/>
+        <%= builder.text_field :phone, :maxlength => 15 %>
+      </div>
+      
+      <div class= "left_field small_input">
+        <%= builder.label :company, 'Company' %><br/>
+        <%= builder.text_field :company, :maxlength => 30 %>
+      </div>
+      
+      <div class= "left_field_large large_input">
+        <%= builder.label :address1, 'Address Line 1' %> 
+        <span class="compulsory">*</span><br/>
+        <%= builder.text_field :address1, :maxlength => 30 %>
+      </div>
+      
+      <div class= "left_field_large large_input">
+        <%= builder.label :address2, 'Address Line 2(Apartment #, Suite #, etc.)' %> <br/>
+        <%= builder.text_field :address2, :maxlength => 30 %>
+      </div>
+
+      <div class= "left_field_large large_input">
+        <%= builder.label :city %>
+        <span class="compulsory">*</span><br/>
+        <%= builder.text_field :city,:maxlength => 30 %>
+      </div>
+      
+      
+      <div class= "left_field small_input">
+        <%= builder.label :state_name %>
+        <span class="compulsory">*</span><br/>
+      <%= builder.select :state_name, Spree::State.unique_by_state_name, :prompt => 'Please Select' %>
+      </div>
+      <!--Spree::State.all.order(:name).collect{|state| [state.name] },-->
+      
+      <div class="left_field small_input">
+        <%= builder.label :zipcode %>
+        <span class="compulsory">*</span><br/>
+        <%= builder.text_field :zipcode, :maxlength => 10 %>
+      </div>
+      <% end %>   
+      
+      <div class= "left_field small_input">
+        <%= f.label :password %>
+        <span class="compulsory">*</span><br/>
+        <%= f.password_field :password, :class => 'title' %>
+      </div>
+      
+      <div class="left_field small_input">
+        <%= f.label :password_confirmation, 'Password Confirm' %>
+        <span class="compulsory">*</span><br/>
+        <%= f.password_field :password_confirmation , :class => 'title' %>
+      </div>
+      
+      
+      <div class="left_field complete_field">
+          <%= f.check_box :ship_to_same_address %>
+        <%= f.label 'Ship to the Same Address' %> <br />
+      
+      </div>
+      
+      <div class="action left_field">
+        <br>
+        <%= f.submit 'Get Started!', :class => 'button primary', :id => 'get_started'%>
+        <br>
+      </div>

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bbks/svn/!svn/ver/48343/VeganSnack/config/environments
+END
+test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bbks/svn/!svn/ver/39533/VeganSnack/config/environments/test.rb
+END
+development.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bbks/svn/!svn/ver/47326/VeganSnack/config/environments/development.rb
+END
+production.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bbks/svn/!svn/ver/48343/VeganSnack/config/environments/production.rb
+END

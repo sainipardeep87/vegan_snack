@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bbks/svn/!svn/ver/44666/VeganSnack/app/views/my_mailer
+END
+notify_user_after_cart_creation.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/bbks/svn/!svn/ver/44666/VeganSnack/app/views/my_mailer/notify_user_after_cart_creation.html.erb
+END
+notify_user_after_registration.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/bbks/svn/!svn/ver/44666/VeganSnack/app/views/my_mailer/notify_user_after_registration.html.erb
+END

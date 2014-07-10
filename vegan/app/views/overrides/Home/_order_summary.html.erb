@@ -1,0 +1,73 @@
+<b color="green">Order Summary </b>
+
+<table id="subscriptions">
+  
+  <tr> <hr>
+    <td><%= link_to(image_tag("/assets/signup/logo.jpg", :alt => "logo", :title => "Smart Snacker", :size => "100x100"), "#") %></td>
+    <td><%= radio_button_tag 'theme', 'plain', true %> </td>
+    <td>
+    <b>Smart Snacker</b><br>
+    20 FULL - sized packages of snacks each month (5 different snacks, 4 packets of each).
+    Great for 8 to 10 people. Save $30 OFF each month from our regular price. Order NOW to lockc in this great price($49.95) for the lifetime of your subscription
+    </td>
+    
+    <td></td>
+  </tr>
+  
+    <tr>
+      <!--<td height="3" width="20">-->
+    <td><%= link_to(image_tag("/assets/signup/logo_1.jpeg", :alt => "logo", :title => "Happy Snacker",  :size => "100x100"), "/") %></td>
+    <td><%= radio_button_tag 'theme', 'plain' %> </td>
+    <td><b>Happy Snacker</b><br>
+    
+    10 FULL-sized packages of snacks each month(5 different snacks, 2 packets of each). Great for 4 to 5 people. Save $10 OFF each month from our regular price.
+    Order NOW to lock in this great price($29.95) for the lifetime of your subscription!
+    </td>
+    <td> </td>
+  </tr>
+
+  <tr>
+    <td><%= link_to(image_tag("/assets/signup/logo_2.jpg", :alt => "logo", :title => "NatureBox Deluxe Package", :size => "100x100"), "/") %></td>
+    <td><%= radio_button_tag 'theme', 'plain', true %> </td>
+    <td><b>NatureBox Deluxe Package</b><br>
+    
+    Contains 5-FULL-sized packages of great tasting,
+    nutritionist approved snacks each month! Guilt free snacking has never been easier. Start enjoying today!
+    Free shipping. Regular Price $19.95.
+    </td>
+    <td> $19.95</td>
+  </tr>
+</table>
+
+<br>
+  <hr width= 50% align="right">
+  
+  <div>
+   
+  <table id="ship_calculation">
+    <tr>
+      <td>Subtotal</td>
+      <td> $19.95</td>
+    </tr>
+    
+    <tr>
+      <td>Shipping</td>
+      <td> $0.00</td>
+    </tr>
+    <tr>
+      <td>Gift Cards</td>
+      <td> $0.00</td>
+    </tr>
+    <tr>
+      <td>Order Total</td>
+      <td>$19.95</td>
+    
+     </tr>
+    <tr>
+     <%= link_to 'Place My Order' %>
+    </tr>
+  </table>
+
+  </div>
+
+  

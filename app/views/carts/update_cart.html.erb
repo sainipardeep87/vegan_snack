@@ -1,0 +1,105 @@
+
+<script type="text/javascript" charset="utf-8">
+  $(document).ready(function(){
+      $('body').height($(document).height());
+      $("#act_nav").text("update subscription");
+
+  });
+</script>
+
+
+<div class="snack-queue-page">
+
+  <div id="loading">
+    <!--<img id="loading-image" src="images/ajax-loader.gif" alt="Loading..." />-->
+  </div>
+
+  <div id="queue_title"> update subscription </div>
+
+  <% if flash[:update_sub_notice] %>
+
+    <div id="flash_message"><%= flash[:update_sub_notice] %></div>
+
+  <% end %>
+
+
+    <div class="sub-move-down">
+
+      <% unless controller.action_name == 'place_subscription' %>
+      
+        <div class="new-subscription-selection">
+
+          <label for="theme">Choose Your Subscription:</label>
+          
+            <%= form_tag(main_app.change_subscription_type_carts_path(cart_id: @cart.id, old_sub_id: @cart.subscription_id), method: :post, remote: true) do %>
+
+              <% @subscription_offers.each do |offer, offer_id| %>
+                  <%= radio_button_tag :new_sub_id, offer_id, offer_id == @cart.subscription_id %>  <%= offer.humanize %>
+              <% end %>
+
+              <%= submit_tag 'Change Subscription', remote: true, confirm: "Are you Sure to Change your Subscription ?"  %>
+          
+            <% end %>
+        </div>
+
+       <% end %> <!--end of unless condition -->
+    </div>
+
+    <div class="subscription-notification">
+        your subscription has been Changed!
+    </div>
+
+    <div class="next-order-sub">
+        <%#= render 'carts/cart', locals: {current_cart_items: @current_cart_items, order_id: @order.id} %>
+
+      <% if controller.action_name == 'remove_item' || 'add' %>
+
+          <div class="first-delivery subscription-row">
+          
+          <div class="queue-tile">
+            <div class="month-tile"> next order Ships <%= @cart.delivery_date.strftime("%B %d, %Y") %> </div>
+          </div>
+
+          <div class="snack-update-list">
+            <%= render 'carts/new_cart_items', locals: {total_space: @total_space, current_cart_items: @current_cart_items} %>
+          </div>
+      
+        </div>
+
+        <div class="update-sub-but">
+          <%= button_to 'Update Subscription', main_app.place_subscription_carts_path(cart_id: @cart.id, old_order: @order_id), remote: true %>
+        </div>
+
+
+      <% else %>
+
+      <% end %> <!--if end -->
+
+    </div> <!-- end of nex-order-sub# -->
+
+
+  <%= form_tag "/my_subscriptions/#{@my_subscription.id}?updated_subscriber_id=#{params['updated_subscriber_id'] || @my_subscription_id}", :method => :put do %>
+    <div class="first-delivery subscription-row">
+    
+      <div class="queue-tile">
+        <div class="month-tile"> next order Ships <%= @cart.delivery_date.strftime("%B %d, %Y") %> </div>
+      </div>
+      
+              
+      <div class="snack-update-list">
+        <%= render 'carts/new_cart_items', locals: {total_space: @total_space, current_cart_items: @current_cart_items} %>
+      </div>
+
+    </div>
+
+    <div class="update-sub-but">
+       <%= hidden_field_tag 'cart_id', @cart.id %>
+       <%= hidden_field_tag 'old_order_id', @order.id %>
+        <% unless flash[:success] %>
+        <%= submit_tag 'Update Subscription' %>
+        <% end %>
+    </div>
+  <% end %>
+
+  <%= render 'carts/snacks_modal', locals: {snacks: @snacks} %>
+

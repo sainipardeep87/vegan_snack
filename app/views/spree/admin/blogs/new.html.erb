@@ -1,0 +1,57 @@
+<%= javascript_include_tag "posts/blog_posts" %>
+<div class="blog_post">
+  <%= nested_form_for @post, url: @post.new_record? ? '/spree/admin/blogs' : "/spree/admin/blogs/#{@post.id}", html: {:multipart => true} do |f| %>
+    <%# f.hidden_field :tagname_hidden, id: 'hidden_post_id', class: 'tag_hidden', value: @post.id %>
+
+      <div>
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+
+        <span id="error_field">
+          <%= f.object.errors[:title].to_sentence if f.object.errors[:title] %>
+        </span>
+      </div>
+
+      <div class = "banner_image">
+        <label>Banner Image</label>
+        <% unless f.object.new_record? %>
+          <%= f.fields_for :banner_images do |builder| %>
+            <%= image_tag builder.object.image, :size => "50x50" unless builder.object.image.blank? %>
+            <p><%= builder.file_field :image, :class => "each_image" if builder.object.new_record? %></p>
+            <%= builder.link_to_remove "Remove" %></p>
+          <% end %>
+          <%= f.link_to_add "Add Image", :banner_images %>
+        <% else %>
+
+          <%= f.fields_for :banner_images do |builder| %>
+            <p><%= builder.file_field :image, :class => "each_image" %>
+            <%= builder.link_to_remove "Remove" %></p>
+          <% end %>
+          <%= f.link_to_add "Add another Image", :banner_images %>
+        <% end %>
+      </div>
+
+      <div class = "blog_component">
+        <%= f.label :content %>
+        <%= f.cktext_area :content %>
+      </div>
+
+      <span id="error_field">
+        <%= f.object.errors[:content].to_sentence if f.object.errors[:content] %>
+      </span>
+
+      <div class = "blog_component">
+        <%= f.fields_for :tags do |builder| %>
+          <%= builder.label :tagname, 'Enter Tag Name Please' %>
+          <%= builder.text_field :tagname, class: "tagname", size: 30,
+            placeholder: 'Enter individual tags separated by a Comma!',
+            value: get_list_of_tags_in_edit_form(@post),
+            id: "blog-tag-field"%>
+          <% end %>
+          </div>
+
+          <div class="blog_component">
+            <%= f.submit %>
+          </div>
+        <% end %>
+        </div>

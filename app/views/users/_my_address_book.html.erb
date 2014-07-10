@@ -1,0 +1,25 @@
+<div class = "change-font-size">
+  <span>
+    <%= image_tag('/assets/vegan-account/vegan-account_25.png', :class => 'img-thumbnail') %>
+  </span>
+  <span class="my-acc">My Address Book </span>
+
+  <span class="edit-acc">
+    <div class="edit-style" id="new_add_link">
+      <%= link_to ' > Add New ', new_acc_address_users_path, :remote => true, :class => 'turn-blue' %>
+    </div>
+  </span>
+
+</div>
+
+<div class="personal-info">
+
+  <div id="dash_address">
+
+    <% @addresses.each do |address| %>
+        <%= render :partial => "users/dash_address_book", :locals => {:address => address }  %>
+    <% end %>
+
+  </div>
+
+</div>

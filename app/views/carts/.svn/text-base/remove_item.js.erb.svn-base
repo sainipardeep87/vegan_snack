@@ -1,0 +1,44 @@
+
+    <% if @deleted %>
+
+        $("#subscription_update_section").html("<%= escape_javascript(render 'carts/update_cart_items',
+        locals: {total_space: @total_space, current_cart_items: @current_cart_items}) %>");
+        /* Above js code is to refresh the partial in update subscription page */
+
+        $("#cart_row_<%= @cart.id %>").html("<%= escape_javascript(render 'spree/orders/cart_row',
+        color_box: @color_box, cart: @cart, total_space: @total_space, current_cart_items: @current_cart_items) %>");
+           /* Above js code is to refresh partial when in snack queue item is removed from queue */
+
+        $("#new_subscription_list").html("<%= escape_javascript(render 'carts/new_cart_items',
+        locals: {total_space: @total_space, current_cart_items: @current_cart_items}) %>");
+
+        /* Above js code is to refresh partial when in new cart creation page */
+            
+            
+        $(".subscription-row").on("click", ".blank-tile", function(){
+            pop_modal();
+        });
+
+    <% else %>
+/*
+        $('html').ScrollTo({
+            duration: 1000
+        });
+
+        $('#incomplete_snack_queue').html("Sorry, Your Subscription is not complete.");
+
+        $("#incomplete_snack_queue").css("display", "block");
+
+         setTimeout(function() {
+             $("#incomplete_snack_queue").css("display", "none");
+        },2500);
+
+        $('#update_incomplete_queue').html("Sorry, Your cart can't be changed.");
+
+        $("#update_incomplete_queue").css("display", "block");
+
+*/
+    <% end %>
+
+    bind_hover_effect_on_snack();
+    show_snack_queue_timer();

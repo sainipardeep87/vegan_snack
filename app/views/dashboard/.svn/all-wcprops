@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bbks/svn/!svn/ver/40108/VeganSnack/app/views/dashboard
+END
+profile.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bbks/svn/!svn/ver/40108/VeganSnack/app/views/dashboard/profile.html.erb
+END
+_edit_panel.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bbks/svn/!svn/ver/39971/VeganSnack/app/views/dashboard/_edit_panel.html.erb
+END
+_my_account.hml.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bbks/svn/!svn/ver/39971/VeganSnack/app/views/dashboard/_my_account.hml.erb
+END

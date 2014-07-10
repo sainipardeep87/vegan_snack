@@ -1,0 +1,81 @@
+<%= render 'overrides/Home/header' %>
+<div class="my_contact_body">
+
+<div class="container user-profile row-fluid">
+  <h2 class="account">  MY ACCOUNT </h2>
+</div>
+
+    <div class="full container account-body">
+
+        <span class="contact-left">
+            <div class="accountdetails">
+                <span class="inside-title"> My Account </span>
+              <span class="title-right" id="change_password">> CHANGE PASSWORD</span>
+              <span class="title-right" id="change_details">> EDIT</span>
+                    <div>
+                        <span class="inside-label">Name:</span>
+                        <span><%=  @address_details.firstname %>  </span>
+                    </div>
+
+                    <div>
+                        <span class="inside-label">Phone:</span>
+                        <span> <%= @address_details.phone %> </span>
+                    </div>
+
+                    <div>
+                        <span class="inside-label">Email Address:</span>
+                        <span> <%= spree_current_user.email %> </span>
+                    </div>
+             </div>
+          <hr>
+            <div class="accountdetails">
+                <span class="inside-title"> My Subscriptions </span>
+              <span class="title-right">> CREATE A NEW SUBSCRIPTION TODAY</span>
+
+                    <div>
+                        <span class="inside-label">You currently  have no active subscriptions.</span>
+                    </div>
+            </div>
+          <hr>
+            <div class="accountdetails">
+                <span class="inside-title"> My Address Book </span>
+                <span class="title-right">> ADD NEW </span>
+                    <div>
+                        <span class="inside-label"><%= @address_details.firstname %> </span>
+                        <span>
+                            <div> <%= @address_details.address1 %>
+                              <%= @address_details.address2 %>
+                            </div>
+
+                            <div> <%= @address_details.city %> </div>
+                            <div> <%= @address_details.state %> </div>
+                            <div> <%= @address_details.zipcode %> </div>
+                            <div> <%= @address_details.phone %> </div>
+
+                        </span>
+                    </div>
+            </div>
+            <hr>
+            <div class="accountdetails">
+                <span class="inside-title"> Payment Information </span>
+                    <div>
+                      <span class="inside-label"> **** **** **** 5858</span>
+                    </div>
+                    <div>
+                      <span class="inside-label">Expires 5/17</span>
+                    </div>
+            </div>
+          </span>
+
+
+
+    <span class="divider"></span>
+
+    <span class="contact-right">
+      <div>
+      </div>
+    </span>
+
+    </div>
+
+</div>

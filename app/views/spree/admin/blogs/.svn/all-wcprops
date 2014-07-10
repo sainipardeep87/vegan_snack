@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bbks/svn/!svn/ver/45823/VeganSnack/app/views/spree/admin/blogs
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/44669/VeganSnack/app/views/spree/admin/blogs/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bbks/svn/!svn/ver/44670/VeganSnack/app/views/spree/admin/blogs/index.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bbks/svn/!svn/ver/45823/VeganSnack/app/views/spree/admin/blogs/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/44668/VeganSnack/app/views/spree/admin/blogs/show.html.erb
+END

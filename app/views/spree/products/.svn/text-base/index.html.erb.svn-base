@@ -1,0 +1,34 @@
+<div class="container product-listing">
+
+  <div class="page-head-title row " id="user_product_list"> Snack List</div>
+
+  <% if flash[:no_cart].present? %>
+  <div id="flash_message"> <%= flash[:no_cart] %> </div>
+  <% end %>
+
+  <div class="all-snacks">
+
+    <% @snacks.each do |snack| %>
+      <div class="snack-tab">
+
+        <div id="hover_section">
+          <%= hidden_field_tag :snack_id, snack.id %>
+          
+          <div class="img-thumbnail snack-image-product-view">
+            <%= product_image(snack, itemprop: "large", class: 'img-thumbnail') %>
+          </div>
+
+          <div class="snack-name"><%= truncate(snack.name, length: 25, separator: '') %></div>
+        </div>
+
+            <div class="queue-button prod-list-disabled-queue">
+              <div> <%= link_to 'add to queue', "javascript:void(0)" %> </div>
+            </div>
+
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+<%= render :partial => "spree/products/snack_details" %>

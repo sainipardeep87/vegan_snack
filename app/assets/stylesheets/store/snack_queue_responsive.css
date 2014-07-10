@@ -1,0 +1,464 @@
+/*Css for My Subscription, Update Subscription Page */
+
+/*for note8 Landscape */
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* for note 8 portrait  View*/
+@media screen and (min-width: 600px) and (max-width: 750px){
+
+}
+
+/* Iphone Portrait */
+@media screen and (min-width: 480px) and (max-width: 600px){
+
+    .snack-update-list {
+        margin-left: 10%;
+    }
+
+    div#queue_title {
+        padding-top: 12%;
+        font-size: 1.8em;
+        font-family: bold-font;
+    }
+
+    div#cur_plan {
+        font-size: 1.0em;
+        font-family: bold-font;
+    }
+
+    div.queue-tile {
+        min-height: 126px;
+        font-size: 0.6em;
+        max-height: 126px;
+    }
+
+    .set-image {
+        height: 90px;
+    }
+
+    div.queue-tile span:nth-child(2) {
+        font-size: 0.9em;
+    }
+    .hide-mobile-ship{
+        display: none;
+    }
+
+    div.subscription-row > div.queue-tile:nth-child(1) {
+        border-radius: 5px;
+        font-size: 0.8em;
+        margin: 5% 0 5% 5% !important;
+        min-height: 40px;
+        width: 90%;
+    }
+
+    .queue-tile{
+        width:28%;
+    }
+
+    div#new_subscription_list div:nth-child(1){
+
+    }
+    .blank-tile{
+        font-size: 1em !important;
+        padding-top: 10%;
+    }
+    .month-tile{
+        margin: 2% 0% 2% 0%;
+    }
+
+    .snack-tab {
+        max-width: 200px;
+        min-height: 150px;
+    }
+
+    /* CSS for the Snack Queue Page */
+
+    #snack_subscription_list div.bootstrap-select {
+        width: 302px;
+        margin: 3% 0% 5% 43%;
+    }
+    #change_subscription_type{
+        float: none;
+        margin: 0% 0% 0% 5%;
+        padding: 0% 0% 0% 0%;
+        width: 90%;
+    }
+
+    button.selectpicker{
+        font-size: 1.0em !important;
+    }
+
+    .mob-remove, .mob-ship{
+        max-height: 130px;
+        min-height: 126px;
+    }
+    .mob-remove-message, .mob-ship-message{
+        font-size: 1.0em;
+    }
+
+    #snack_update {
+        width: 100%;
+    }
+
+    #update_snack{
+        width: 50%;
+        border-radius: 3px;
+        margin: 2% 0% 10% 0%;
+    }
+
+    /* Above CSS is for the Snack Queue Page */
+
+    .full-snacks{
+        margin: 0% 0% 0% 20%;
+    }
+
+    #change_offer_button a.btn{
+        width: 70%;
+        margin-top: 3%;
+    }
+
+    /* For modal windows present in new cart page */
+    #address_selection{
+        width: 70%;
+    }
+
+    .add-err {
+        padding-top: 7% !important;
+    }
+    select#date_year{
+        width: 48%;
+    }
+    select#date_month{
+        width: 48%;
+    }
+
+    .invalid-entry {
+        font-size: 0.8em;
+        padding-top: 5%;
+    }
+    #add_cc_card{
+        width: 100%;
+        font-size: 0.8em;
+    }
+
+    #frizz_modal {
+        width: 90%;
+        margin-left: 6%;
+    }
+    #existing_address_id div {
+        margin-top: 5%;
+    }
+
+    /* Just added */
+    #complete_queue div.subscription-row div.no-margin {
+        margin: 2% 1% 0 4% !important;
+    }
+    .confirmed-orders {
+        font-size: 1.5em !important;
+    }
+    #incomplete_snack_queue  div{
+        font-size: 0.8em;
+        margin-left: 22%;
+        width: 100%;
+    }
+    .snack-added{
+        margin: -3% 0% 0% 0% !important;
+    }
+
+}
+
+
+/* For  samsung s3 Landscape (same is being taken by iphone as well. )*/
+@media screen and (min-width: 600px) and (max-width: 750px) and (orientation : landscape){
+    .set-image{
+        height: 130px;
+    }
+
+    div#queue_title {
+        padding-top: 5%;
+        font-size: 1.8em;
+        font-family: bold-font;
+    }
+
+    div#cur_plan {
+        font-size: 1.0em;
+        font-family: bold-font;
+    }
+
+    div.queue-tile {
+        min-height: 165px;
+        font-size: 0.6em;
+        max-height: 165px;
+    }
+
+    div.queue-tile span:nth-child(2) {
+        font-size: 0.9em;
+    }
+
+    .hide-mobile-ship{
+        display: none;
+    }
+
+    div.subscription-row > div.queue-tile:nth-child(1) {
+        border-radius: 5px;
+        font-size: 0.8em;
+        margin: 5% 0 5% 5% !important;
+        min-height: 40px;
+        width: 90%;
+    }
+
+    .queue-tile{
+        width:30%;
+    }
+
+    .blank-tile{
+        font-size: 1em !important;
+        padding-top: 12%;
+    }
+    .month-tile{
+        margin: 2% 0% 2% 0%;
+    }
+
+    .snack-tab {
+        max-width: 200px;
+        min-height: 150px;
+    }
+    .snack-update-list{
+        margin-left: 6%;
+    }
+
+    /* CSS for the Snack Queue Page */
+
+    #queue_title span {
+        margin-left: 7%;
+    }
+
+    #snack_subscription_list div.bootstrap-select {
+        width: 370px;
+        margin: 3% 0% 5% 36%;
+    }
+    #change_subscription_type{
+        float: none;
+        margin: 0% 0% 0% 5%;
+        padding: 0% 0% 0% 0%;
+        width: 90%;
+    }
+
+    .bootstrap-select.btn-group .btn .filter-option{
+        text-align: center;
+    }
+
+
+    button.selectpicker{
+        font-size: 1.1em !important;
+    }
+
+    .mob-remove{
+        max-height: 165px;
+        min-height: 164px;
+    }
+    .mob-remove-message{
+        font-size: 1.0em;
+    }
+
+    #snack_update {
+        width: 100%;
+    }
+
+    #update_snack{
+        width: 50%;
+        border-radius: 3px;
+        margin: 2% 0% 10% 0%;
+    }
+
+    /* Above CSS is for the Snack Queue Page */
+
+
+    /* For modal windows present in new cart page */
+    #address_selection{
+        width: 70%;
+    }
+
+    .add-err {
+        padding-top: 7% !important;
+    }
+    select#date_year{
+        width: 48%;
+    }
+    select#date_month{
+        width: 48%;
+    }
+
+    .invalid-entry {
+        font-size: 0.8em;
+        padding-top: 5%;
+    }
+    #add_cc_card{
+        width: 100%;
+        font-size: 0.8em;
+    }
+
+    #frizz_modal {
+        width: 90%;
+        margin-left: 6%;
+    }
+
+    #existing_address_id div {
+        margin-top: 5%;
+    }
+/* Just added */
+    #complete_queue div.subscription-row div.no-margin {
+        margin: 2% 1% 0 4% !important;
+    }
+    .confirmed-orders {
+        font-size: 1.5em !important;
+    }
+}
+
+/* for Samsung s3 Portrait */
+@media screen and (min-width: 320px) and (max-width: 485px){
+
+    div#queue_title {
+        padding-top: 20%;
+        font-size: 1.8em;
+        font-family: bold-font;
+    }
+
+    div#cur_plan {
+        font-size: 1.0em;
+        font-family: bold-font;
+    }
+
+    div.queue-tile {
+        min-height: 126px;
+        font-size: 0.6em;
+        max-height: 126px;
+    }
+    div.queue-tile span:nth-child(2) {
+        font-size: 0.9em;
+    }
+    .hide-mobile-ship{
+        display: none;
+    }
+
+    .set-image{
+        height: 90px;
+    }
+
+    div.subscription-row > div.queue-tile:nth-child(1) {
+        border-radius: 5px;
+        font-size: 0.8em;
+        margin: 5% 0 5% 5% !important;
+        min-height: 40px;
+        width: 90%;
+    }
+
+    .queue-tile{
+        width:41%;
+    }
+
+    div#new_subscription_list div:nth-child(1){
+
+    }
+    .blank-tile{
+        font-size: 1em !important;
+        padding-top: 18%;
+    }
+    .month-tile{
+        margin: 2% 0% 2% 0%;
+    }
+
+    .snack-tab {
+        max-width: 200px;
+        min-height: 150px;
+    }
+
+    /* CSS for the Snack Queue Page */
+
+    #snack_subscription_list div.bootstrap-select {
+        width: 302px;
+        margin: 3% 0% 5% 7%;
+    }
+    #change_subscription_type{
+        float: none;
+        margin: 0% 0% 0% 5%;
+        padding: 0% 0% 0% 0%;
+        width: 90%;
+    }
+
+    button.selectpicker{
+        font-size: 1.0em !important;
+    }
+
+    .mob-remove{
+        max-height: 130px;
+        min-height: 126px;
+    }
+    .mob-remove-message{
+        font-size: 1.0em;
+    }
+
+    #snack_update {
+        width: 100%;
+    }
+
+    #update_snack{
+        width: 50%;
+        border-radius: 3px;
+        margin: 2% 0% 10% 0%;
+    }
+
+    /* Above CSS is for the Snack Queue Page */
+
+    #change_offer_button a.btn{
+        width: 70%;
+        margin-top: 3%;
+    }
+
+    /* For modal windows present in new cart page */
+    #address_selection{
+        width: 70%;
+    }
+
+    .add-err {
+        padding-top: 7% !important;
+    }
+    select#date_year{
+        width: 48%;
+    }
+    select#date_month{
+        width: 48%;
+    }
+
+    .invalid-entry {
+        font-size: 0.8em;
+        padding-top: 5%;
+    }
+    #add_cc_card{
+        width: 100%;
+        font-size: 0.8em;
+    }
+
+    #frizz_modal {
+        width: 90%;
+        margin-left: 6%;
+    }
+    #existing_address_id div {
+        margin-top: 5%;
+    }
+
+    #complete_queue div.subscription-row div.no-margin {
+        margin: 2% 1% 0 4% !important;
+    }
+    .confirmed-orders {
+        font-size: 1.5em !important;
+    }
+    #incomplete_snack_queue  div{
+        font-size: 0.8em;
+        margin-left: 22%;
+        width: 100%;
+    }
+}

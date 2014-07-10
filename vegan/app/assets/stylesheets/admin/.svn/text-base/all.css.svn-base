@@ -1,0 +1,27 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *
+
+ *= require admin/spree_backend
+
+ *= require_self
+ *= require_tree .
+ *= require admin/spree_hub_connector
+*/
+
+@font-face {
+	font-family: cool_font;
+	src: url('Cursive.ttf');
+	/**/
+}
+
+
+#bill_title{
+    
+    /*background-color: #000; *= require admin/spree_hub_connector
+*/
+    font-family: cool_font;
+}
+

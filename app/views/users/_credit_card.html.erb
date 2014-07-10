@@ -1,0 +1,70 @@
+
+<div class="modal fade personal-info-refresh" id="card_modal" tabindex="-1"
+  role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+
+  <div class="modal-dialog" id="cc_show_modal" >
+
+  <div class="modal-content" id="cc_show_modal_content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <div id="payment_header">
+
+        <div id="pay_info">payment details</div>
+        <div id="pay_charge">
+        You will be charged $30.00 for the first order and rest orders will be charged $34.95/monthly.
+        </div>
+
+      </div>
+    </div>
+
+    <div class="modal-body">
+
+
+          <%= form_for @card, url: main_app.pay_creditcards_path,
+                   html:  {id: "subscription_payment", autocomplete: 'off'}, remote: true do |f| %>
+
+              <div id="payment_card_error">Invalid Card Details Submitted. </div>
+
+              <div class='form-group'>
+                <%= f.label "Cardholder's Name" %>
+                <%= f.text_field :cardholder_name  %>
+                <div id = "name-error"></div>
+            </div>
+
+            <div class='form-group'>
+                <div class="short-div">
+                    <%= f.label "Credit Card No." %>
+                    <%= f.text_field :card_no,   class: 'form-control' %>
+                    <div id = "number-error"></div>
+                </div>
+
+                <div class="short-div">
+                    <%= f.label "Security Code (CVV)" %>
+                    <%= f.password_field :cvv,  class: 'form-control' %>
+                    <div id = "cvv-error"></div>
+                </div>
+            </div>
+
+            <div class="form-group" id="expiration_div">
+              <div class="short-div">
+                <%= f.label "Expiration Date" %>
+                <%= f.select :month, 1..12,  {prompt: 'Month'} %>
+                <div id = "date-error"></div>
+            </div>
+
+            <div class="short-div">
+              <%= f.select :year, Date.today.year..Date.today.year+ 15, {prompt: 'Year'}  %>
+              <div id = "year-error"></div>
+            </div>
+          </div>
+            <div class="form-group"  id='resume_form_footer'>
+              <%= f.submit 'complete payment and resume subscription',  id:  "resume_form_submit" %>
+            </div>
+          <% end %>
+
+    </div>
+
+  </div>
+  </div>
+
+</div>

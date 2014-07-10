@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bbks/svn/!svn/ver/49912/VeganSnack/app/views/my_subscriptions/shared
+END
+_confirmation_modal.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 98
+/bbks/svn/!svn/ver/49817/VeganSnack/app/views/my_subscriptions/shared/_confirmation_modal.html.erb
+END
+_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/bbks/svn/!svn/ver/49912/VeganSnack/app/views/my_subscriptions/shared/_list.html.erb
+END
+_new_subscription.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/bbks/svn/!svn/ver/49583/VeganSnack/app/views/my_subscriptions/shared/_new_subscription.html.erb
+END
+_cancel_list.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/bbks/svn/!svn/ver/49588/VeganSnack/app/views/my_subscriptions/shared/_cancel_list.html.erb
+END

@@ -1,0 +1,15 @@
+    <% if @all_carts_full %>
+
+        setTimeout(function() {
+            App.unBlockUI($('#snack_show_modal_content'));
+            $('#queue_snack_modal').modal('hide')
+            $("#queue_updated_modal").modal("show");
+        },1000);
+
+        $("body").animate({ scrollTop: 0 }, "slow");
+
+        setTimeout(function(){
+            $('#queue_updated_modal').modal('hide');
+        },3000);
+
+    <% end %>

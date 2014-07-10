@@ -1,0 +1,40 @@
+App.unBlockUI($('#snack_show_modal_content'));
+    <% if @updated %>
+
+    $("#cart_row_<%= @cart.id %>").html("<%= escape_javascript(render 'spree/orders/cart_row',
+            color_box: @color_box,  cart: @cart, total_space: @total_space, current_cart_items: @current_cart_items) %>");
+
+
+       $(".snack-added").html("<%= @cart.get_snack_count %>");
+       $(".snack-added").show();
+
+
+        <% if @cart.is_full? %>
+
+            <% if @next_cart.present? %>
+                App.blockUI($('#snack_show_modal_content'));
+                setTimeout(function(){
+                $(".snack-added").html("Your Queue for <%= @cart.carts_delivery_date %> is full. Please wait...");
+                $(".snack-added").show();
+                },1200);
+
+                setTimeout(function(){
+                    $('.snack-added').hide();
+                    $(".snack-added").html("<%= @next_cart.get_snack_count %>");
+                    $("#queue_cart_delivery_date").text("<%= @delivery_date %> order ");
+                    set_delivery_box_background_color(parseInt("<%= @cart_index %>"));
+                    App.unBlockUI($('#snack_show_modal_content'));
+                    $(".snack-added").show();
+                },3400);
+
+            <% else %>
+                App.blockUI($('#snack_show_modal_content'));
+                $(".snack-added").html("Please wait, your snack queue is being updated...");
+                $("#snack_queue_update").submit();
+            <% end %>
+
+        <% end %>
+
+    <% end %>
+
+    bind_hover_effect_on_snack();

@@ -1,0 +1,73 @@
+<span id="loader">
+<% content_for :page_title do %>
+  <%= Spree.t(:coupon) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li id="new_coupon_link">
+    <%= button_link_to Spree.t(:new_coupon), '/spree/admin/coupons/new', { :remote => true, :icon => 'icon-plus', :id => 'admin_new_coupon' } %>
+  </li>
+<% end%>
+
+<div id="new_coupon_wrapper"></div>
+ 
+<% if @coupons.present? %>
+  <table class="index" id="listing_coupons">
+    <colgroup>
+      <col style="width: 3%;">
+      <col style="width: 20%;">
+      <col style="width: 20%;">
+      <col style="width: 30%;">
+      <col style="width: 10%;">
+      <col style="width: 17%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th><%= Spree.t(:id)%></th>
+        <th><%= Spree.t(:coupon_code)%></th>
+        <th><%= Spree.t(:discount_name)%></th>
+        <th><%= Spree.t(:braintree_discount_token) %></th>
+        <th><%= Spree.t(:discount_rate) %></th>
+        <th><%= Spree.t(:counter)%></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @coupons.each_with_index do |coupon, index|%>
+        <tr id="<%= "coupon#{coupon.id}"%>" data-hook="admin_coupons_index_rows" 
+        class="<%= cycle('odd', 'even') %>">
+
+          <td> <%= index+1 %> </td>
+          <td> <%= coupon.coupon_code %> </td>
+          <td> <%= coupon.discount_name %> </td>
+          <td> <%= coupon.braintree_discount_id %> </td>
+          <td> <%= coupon.discount_rate.to_s + ("%") %> </td>
+          <td> <%= coupon.counter %> </td>
+          <!--<td>
+          <%# orders = coupon.orders.pluck(:number) %>
+          
+          <%# orders.each do |order_number| %>
+          
+            <%#= link_to order_number, '/spree/admin/orders/'+ order_number + '/edit' %>
+          <%# end %>
+
+          </td>
+          -->
+          <td class="actions">
+            <%= link_to "", "/spree/admin/coupons/#{coupon.id}/edit", {:data => {:action => "edit"}, :class => "edit icon_link with-tip icon-edit no-text"}  %>
+            &nbsp;
+            <%= link_to "", "/spree/admin/coupons/#{coupon.id}", {:method => 'delete', :data => {:action => "remove", :confirm => "Are you sure?"}, :class => "delete-resource icon_link with-tip icon-trash no-text"}  %>
+          </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= 'No coupons found' %>,
+    <%= link_to Spree.t(:add_one), '/spree/admin/coupons/new' %>!
+  </div>
+<% end %>
+
+</span>

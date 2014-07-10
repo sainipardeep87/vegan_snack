@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/bbks/svn/!svn/ver/44464/VeganSnack/test/fixtures
+END
+tags.yml
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bbks/svn/!svn/ver/39533/VeganSnack/test/fixtures/tags.yml
+END
+vendors.yml
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/bbks/svn/!svn/ver/44464/VeganSnack/test/fixtures/vendors.yml
+END
+.keep
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bbks/svn/!svn/ver/39533/VeganSnack/test/fixtures/.keep
+END
+comments.yml
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bbks/svn/!svn/ver/39533/VeganSnack/test/fixtures/comments.yml
+END
+subscriptions.yml
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/bbks/svn/!svn/ver/42681/VeganSnack/test/fixtures/subscriptions.yml
+END
+creditcards.yml
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bbks/svn/!svn/ver/43919/VeganSnack/test/fixtures/creditcards.yml
+END
+posts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bbks/svn/!svn/ver/39533/VeganSnack/test/fixtures/posts.yml
+END
+cart_items.yml
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bbks/svn/!svn/ver/43321/VeganSnack/test/fixtures/cart_items.yml
+END
+carts.yml
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bbks/svn/!svn/ver/43321/VeganSnack/test/fixtures/carts.yml
+END

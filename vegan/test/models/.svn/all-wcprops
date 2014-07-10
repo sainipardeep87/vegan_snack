@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/bbks/svn/!svn/ver/39533/VeganSnack/test/models
+END
+comment_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bbks/svn/!svn/ver/39533/VeganSnack/test/models/comment_test.rb
+END
+post_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/bbks/svn/!svn/ver/39533/VeganSnack/test/models/post_test.rb
+END
+tag_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/bbks/svn/!svn/ver/39533/VeganSnack/test/models/tag_test.rb
+END
+.keep
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/bbks/svn/!svn/ver/39533/VeganSnack/test/models/.keep
+END

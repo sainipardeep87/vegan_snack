@@ -1,0 +1,183 @@
+/* Samsung s3 portrait view */
+@media screen and (min-width: 320px) and (max-width: 470px){
+
+    .account-title{
+        padding-top: 24%;
+        font-size: 1.9em;
+        padding-bottom: 3%;
+    }
+
+    .edit-acc {
+        display: block;
+        padding: 2% 0% 2% 0%;
+        width: 100%;
+    }
+    .edit-acc div {
+        display: block;
+        padding: 0% 0% 0% 0%;
+        font-size: 0.9em;
+    }
+    .my-acc{
+        width: 100%;
+    }
+
+    .change-font-size {
+        font-size: 1.1em;
+    }
+    .dash-body{
+        border-radius: 0px;
+    }
+    .modal-title{
+        font-size: 1.3em;
+    }
+/* CSS for the address modal window */
+
+     div#address_modal {
+        padding: 15% 0% 0% 7%;
+        width: 90%;
+        z-index: 99999;
+    }
+
+    .hide-phone-mob{
+        display: none;
+    }
+
+    input[type=radio], input[type=checkbox]{
+        width: 10%;
+        height: 21px;
+    }
+
+    .address-err{
+        font-size: 0.6em;
+        width: 100%;
+    }
+
+    #account_right {
+        display: none;
+    }
+    div.edit-add-acc div{
+        width: 47%;
+    }
+
+
+}
+/*  samsung s3 Landscape */
+@media screen and (min-width: 600px) and (max-width: 750px) and (orientation : landscape){
+
+    .account-title{
+        padding-top: 14%;
+        font-size: 1.9em;
+        padding-bottom: 3%;
+    }
+
+    .edit-acc {
+        display: block;
+        padding: 2% 0% 2% 0%;
+        width: 100%;
+    }
+    .edit-acc div {
+        display: block;
+        padding: 0% 0% 0% 0%;
+        font-size: 0.9em;
+    }
+    .my-acc{
+        width: 100%;
+    }
+
+    .change-font-size {
+        font-size: 1.1em;
+    }
+    .dash-body{
+        border-radius: 0px;
+    }
+    div.modal-dialog{
+        width: 70%;
+    }
+
+    /* CSS for the address modal window */
+    div#address_modal {
+        padding: 15% 0% 0% 7%;
+        width: 90%;
+        z-index: 9999;
+    }
+
+    .hide-phone-mob{
+        display: none;
+    }
+
+    input[type=radio], input[type=checkbox]{
+        width: 10%;
+        height: 21px;
+        z-index: 9999;
+    }
+    .address-err{
+        font-size: 0.8em;
+        width: 100%;
+    }
+
+    #account_right {
+        display: none;
+    }
+
+
+}
+
+
+/* Iphone Portrait */
+@media screen and (min-width: 480px) and (max-width: 600px){
+
+    .account-title{
+        padding-top: 18%;
+        font-size: 1.9em;
+        padding-bottom: 3%;
+    }
+
+    .edit-acc {
+        display: block;
+        padding: 2% 0% 2% 0%;
+        width: 100%;
+    }
+    .edit-acc div {
+        display: block;
+        padding: 0% 0% 0% 0%;
+        font-size: 0.9em;
+    }
+    .my-acc{
+        width: 100%;
+    }
+
+    .change-font-size {
+        font-size: 1.1em;
+    }
+    .dash-body{
+        border-radius: 0px;
+    }
+    .modal-title{
+        font-size: 1.3em;
+    }
+    /* CSS for the address modal window */
+
+    div#address_modal {
+        padding: 15% 0% 0% 7%;
+        width: 90%;
+        z-index: 99999;
+    }
+
+    .hide-phone-mob{
+        display: none;
+    }
+
+    input[type=radio], input[type=checkbox]{
+        width: 10%;
+        height: 21px;
+    }
+
+    .address-err{
+        font-size: 0.8em;
+        width: 100%;
+    }
+    #account_right {
+        display: none;
+    }
+
+}

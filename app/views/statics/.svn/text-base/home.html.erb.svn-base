@@ -1,0 +1,240 @@
+<div class="slider-nav">
+      <ul>
+        <li class="active-bullet first-bullet" data-target=".first-win"> </li>
+        <li class="second-bullet" data-target=".second-win"> </li>
+        <li class="third-bullet" data-target=".third-win"> </li>
+        <li class="forth-bullet" data-target=".forth-win"></li>
+      </ul>
+</div>
+
+<div class="container get-started first-win">
+
+  <div class="row">
+    <!-- <div class="col-md-4 col-sm-4 col-xs-4 article">
+      Nutritious snacks delivered to you
+    </div>
+    <div class="col-md-4 col-sm-4 delivery-price"> $ 19.95/MONTH</div> -->
+
+    <div class="get-started-button">
+      <%= image_tag('/assets/home/get-started.png', class: 'get-started-icon img-thumbnail') %>
+    </div>
+  </div>
+
+</div>
+
+<div class="error-alert">
+        <% unless @user.errors.messages[:email].blank? %>
+                <% logger.info @user.errors.messages[:email] [2]  %>
+         <% end %>
+  </div>
+
+<div class="container how-it-works second-win">
+
+  <div class="row works-title">
+    <%= image_tag('/assets/home/text-3.png', class: 'img-thumbnail') %>
+  </div>
+
+  <div class="row works-section">
+    <div class="col-md-2 col-md-offset-2 col-sm-2 col-sm-offset-2 col-xs-2 col-xs-offset-2 works-image-section">
+      <%= image_tag('/assets/home/screen-1.png', class: 'img-thumbnail iphone-small', id: 'h-image-1') %>
+      <span class='move-image' id='i-image-1'> </span>
+      <p class='works-text'>Order your snacks directly from your smartphone or computer.</p>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-2 works-image-section">
+      <%= image_tag('/assets/home/screen-2.png', class: 'img-thumbnail iphone-small', id: 'h-image-2') %>
+      <span class='move-image' id="i-image-2"> </span>
+      <p class='works-text'>We will create your snack box from the best organic ingredients.</p>
+    </div>
+    <%= image_tag('/assets/home/down.png', class: 'iphone-true') %>
+    <div class="col-md-2 col-sm-2 col-xs-2 works-image-section">
+      <%= image_tag('/assets/home/screen-3.png', class: 'img-thumbnail iphone-small', id: 'h-image-3') %>
+      <span class='move-image' id="i-image-3"> </span>
+      <p class='works-text'>Your snack box will be shipped every month. Free shipping!</p>
+    </div>
+    <div class="col-md-2 col-sm-2 col-xs-2 works-image-section">
+      <%= image_tag('/assets/home/screen-4.png', class: 'img-thumbnail iphone-small') %>
+      <p class='works-text'>Your snacks will arrive at your door at home or your office.</p>
+    </div>
+  </div>
+
+  <div class="how-works-get-started">
+    <%= image_tag('/assets/home/get-started.png', class: 'img-thumbnail') %>
+ </div>
+
+</div>
+
+
+
+<div class="container order-today-section third-win">
+
+  <div class="row order-title">Order today!</div>
+
+    <div class="row">
+
+      <div class="col-md-5 col-sm-5 col-xs-5 col-move-right billing-section">
+        <div class="bill-title">Billing Address</div>
+
+        <%= form_for @user,  url:  spree.registration_path(@user),  id: 'user_new'   do |f| %>
+
+            <div>
+            <% @user.errors.full_messages.each do |msg| %>
+            <% end %>
+            </div>
+
+            <%= f.fields_for :address  do |builder| %>
+          <div class="v-signup-div">
+          <span><%= builder.text_field :firstname, :placeholder => "First Name *", name: 'firstname' %> </span>
+           <span><%= builder.text_field :lastname, :placeholder => "Last Name *", name: 'lastname' %></span>
+          </div>
+
+          <div class="v-signup-div">
+                    <span> <%= f.text_field :email, :placeholder => "Email *", name: 'email' %>
+                            <% if f.object.errors.count != 0 %>
+                                <label class="error">  <%=  "Email ID "+  f.object.errors.messages[:email][0]  %>  </label>
+                              <% end %>
+                      </span>
+
+            <span> <%= builder.text_field :phone, :placeholder => "Phone *", name: 'phone' %></span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span> <%= builder.text_field :company, placeholder: 'Company', name: 'company' %> </span>
+          </div>
+
+          <div class="v-wide-div v-signup-div">
+            <span><%= builder.text_field :address1, placeholder: 'Address Line 1 *', name: 'address1' %></span>
+          </div>
+
+
+          <div class="v-wide-div v-signup-div">
+            <span><%= builder.text_field :address2, placeholder: 'Address Line 2(Apartment #, Suite #, etc.)', name: 'address2' %></span>
+          </div>
+
+          <div class="v-wide-div v-signup-div">
+            <span> <%= builder.text_field :city, placeholder: 'City *', name: 'city' %></span>
+          </div>
+
+          <div class="v-signup-div">
+            <span><%= builder.text_field :state, :placeholder => "State *", name:'state' %></span>
+            <span><%= builder.text_field :zipcode, :placeholder => "Zip *", name: 'zipcode' %></span>
+          </div>
+
+          <div class="v-signup-div">
+            <span> <%= f.password_field :password, :placeholder => "Create Password *", name: 'password' %></span>
+            <span> <%= f.password_field :password_confirmation, :placeholder => "Confirm Password *", name: 'password_confirmation' %></span>
+          </div>
+
+          <div class="coupon-title">Coupon </div>
+
+          <div class="v-wide-div v-signup-div">
+            <span><input type="text",  placeholder="Discount Code" /></span>
+          </div>
+
+             <% end %>
+
+
+
+      </div>
+
+      <div class="col-md-5 col-sm-5 col-xs-5 order-summary-column">
+        <div class="summary-title">Order Summary</div>
+
+        <div class="order-summary-div">
+
+          <div class="summary-line">
+              <%= image_tag('/assets/home/vegan-final_07.jpg', class: 'img-thumbnail pull-left sum-image') %>
+            <span class="img-thumbnail pull-right offer-bubble sum-selection-active"> </span>
+            <h4 class="offer-name"> Smart Snacker</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Aliquam dignissimos distinctio eligendinatus sapiente!
+              </p>
+            </div>
+
+          <div class="summary-line">
+            <%= image_tag('/assets/home/vegan-final_10.jpg', class: 'img-thumbnail pull-left sum-image') %>
+            <span class="img-thumbnail pull-right offer-bubble sum-selection-inactive"> </span>
+            <h4 class="offer-name"> Smart Snacker</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Aliquam dignissimos distinctio eligendinatus sapiente!
+            </p>
+          </div>
+
+
+          <div class="summary-line">
+            <%= image_tag('/assets/home/vegan-final_16.jpg', class: 'img-thumbnail pull-left sum-image') %>
+            <span class="img-thumbnail pull-right offer-bubble sum-selection-inactive"> </span>
+            <h4 class="offer-name"> Smart Snacker</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+              Aliquam dignissimos distinctio eligendinatus sapiente!
+            </p>
+          </div>
+          <div class="submission">
+
+          <%= image_submit_tag('/assets/home/vegan-final_21.png', class: 'place-my-order', id: 'user_sign_up') %>
+        <% end %>
+          <%= image_tag('/assets/home/vegan-final_23.png') %>
+          </div>
+
+        </div>
+
+        <div class="cleardiv"></div>
+
+        </div>
+      </div>
+
+    </div> <!-- End of the row -->
+
+
+
+</div> <!-- End of the order today container -->
+
+<div class="container footer-section forth-win">
+
+  <div class="row footer-icons">
+    <div class="col-md-3 col-sm-3 col-xs-3 footer-offset">
+      <%= image_tag('/assets/home/vegan-final_28.png', class: 'img-thumbnail footer-image') %>
+      <ul class="bottom-text">
+        <h6 class="vegan-color">vegan lifestyle</h6>
+        <li>recipes</li>
+        <li>featured stories</li>
+        <li>food tips & guides</li>
+        <li>bulk nutritional info</li>
+      </ul>
+    </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <%= image_tag('/assets/home/vegan-final_31.png', class: 'img-thumbnail footer-image image-down') %>
+      <ul class="bottom-text">
+
+        <h6 class="about-color">about us</h6>
+        <li>history <li>
+        <li>leadership team</li>
+        <li>community</li>
+        <li>careers</li>
+        <li class="normal">FAQs</li>
+
+      </ul>
+    </div>
+
+    <div class="col-md-3 col-sm-3 col-xs-3">
+      <%= image_tag('/assets/home/vegan-final_34.png', class: 'img-thumbnail footer-image small-image') %>
+
+      <ul class="bottom-text">
+
+            <h6 class="contact-color">contact us</h6>
+            <li>ahimsa cuisine</li>
+            <li>miami, FL </li>
+            <li>(786) 405-9556 </li>
+            <li class="normal"> info@ahimsacuisine.com</li>
+       </ul>
+
+    </div>
+  </div>
+
+  <hr class="complete-row">
+
+  <div class="copyright">
+    &copy; 2014 Ahmisa Cuisine. All Rights Reserved.
+  </div>
+
+</div>

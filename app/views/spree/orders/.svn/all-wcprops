@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/bbks/svn/!svn/ver/49582/VeganSnack/app/views/spree/orders
+END
+_cart_row.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/48907/VeganSnack/app/views/spree/orders/_cart_row.html.erb
+END
+edit_snack_queue.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bbks/svn/!svn/ver/47834/VeganSnack/app/views/spree/orders/edit_snack_queue.js.erb
+END
+_snacks.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bbks/svn/!svn/ver/46533/VeganSnack/app/views/spree/orders/_snacks.html.erb
+END
+populate.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bbks/svn/!svn/ver/44621/VeganSnack/app/views/spree/orders/populate.js.erb
+END
+snack_queue.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bbks/svn/!svn/ver/49582/VeganSnack/app/views/spree/orders/snack_queue.html.erb
+END
+_snack_updated.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/bbks/svn/!svn/ver/49012/VeganSnack/app/views/spree/orders/_snack_updated.html.erb
+END
+_edit_queue.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bbks/svn/!svn/ver/48640/VeganSnack/app/views/spree/orders/_edit_queue.html.erb
+END
+_first_subscription.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/bbks/svn/!svn/ver/48638/VeganSnack/app/views/spree/orders/_first_subscription.html.erb
+END
+confirm.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bbks/svn/!svn/ver/46078/VeganSnack/app/views/spree/orders/confirm.html.erb
+END
+_snacks_modal.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/bbks/svn/!svn/ver/48754/VeganSnack/app/views/spree/orders/_snacks_modal.html.erb
+END
+update_snack_queue.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/bbks/svn/!svn/ver/48635/VeganSnack/app/views/spree/orders/update_snack_queue.js.erb
+END

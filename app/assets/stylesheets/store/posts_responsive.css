@@ -1,0 +1,468 @@
+
+/*for note8 Landscape */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+}
+
+/* for note 8 portrait  View*/
+@media screen and (min-width: 590px) and (max-width: 750px){
+
+}
+
+/* For  samsung s3 Landscape */
+@media screen and (min-width: 590px) and (max-width: 750px) and (orientation : landscape){
+
+    .blog-top-title{
+        margin-top: 13%;
+        padding-bottom: 2%;
+        font-size: 1.8em;
+    }
+    .read-post{
+        margin-top: 35%;
+        margin-left: 35%;
+        font-size: 1em;
+    }
+
+    .slide-header-title{
+        font-size: 1.2em;
+        width: 64%;
+        margin-left: -5%;
+        text-transform: uppercase;
+    }
+    a.jcarousel-control-prev {
+        margin: -18% 0% 0% 2% !important;
+        left: inherit !important;
+    }
+
+    a.jcarousel-control-next {
+        margin: -18% -7% 0% 0% !important;
+    }
+
+    .jcarousel {
+        height: 230px !important;
+        width: 100% !important;
+    }
+
+    .mobile-full-layout{
+        width: 93% !important;
+    }
+
+    .featured-post-up{
+        font-size: 1.3em !important;
+    }
+
+    #latest_post_div{
+        display: none;
+    }
+
+    .recent-borders{
+        display: none !important;
+    }
+    .post-mob-hide{
+        display: none;
+    }
+    .move-right{
+        margin-left: 0%;
+    }
+
+    div.col-md-6.set-div-image {
+        width: 47% !important;
+        height: 100%;
+        max-height: 200px;
+        display: inline-block;
+        float: left;
+        min-height: 135px;
+    }
+    .mob-post-dsc{
+        /*border: 1px solid black; */
+        width: 52%;
+        float: right;
+        display: inline-block;
+        margin-top: 5%;
+    }
+    .recipe-blogged{
+        font-size: 0.9em;
+        margin-bottom: 4%;
+    }
+    div.recent-recipe-name{
+        font-size: 0.7em;
+    }
+
+    .left-item div:last-child {
+        padding-top: 3%;
+        width: 100% !important;
+        /*// border: 1px solid black;*/
+        margin: 0% 0% 0% -7% !important;
+    }
+
+    .feature-image{
+        height: 90px;
+        margin-top: 15%;
+        border-radius: 5px;
+    }
+    /* for post show page */
+    div.post_title {
+        margin: 13% 0% 0% 0%;
+        font-size: 1.8em;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    div.social-share-button {
+        margin: 5% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+        text-align: center;
+    }
+
+    div.left_content {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 4%;
+    }
+
+    div#post_content p img.img-thumbnail {
+        height: 100%;
+        width: 80%;
+        border-radius: 10px;
+    }
+    div.show-latest{
+        display: none;
+    }
+
+    div#post_content {
+        padding-left: 3% !important;
+        padding-right: 3% !important;
+        font-size: 0.85em;
+    }
+
+    div.tag_list{
+        display: none;
+    }
+
+    div.footer_section {
+        width: 100%;
+        float: none;
+    }
+
+    div.share-block {
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+    }
+
+    div.add-comment {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 10% 0% 10%;
+    }
+
+    #social_share{
+        padding-left: 4%;
+    }
+}
+
+/* for Samsung s3 Portrait */
+@media screen and (min-width: 320px) and (max-width: 485px){
+
+    .blog-top-title{
+        margin-top: 24% !important;
+        padding-bottom: 2%;
+        font-size: 1.8em;
+    }
+    .read-post{
+        margin-top: 45%;
+        margin-left: 35%;
+        font-size: 0.7em;
+    }
+
+    .slide-header-title{
+        font-size: 1.2em;
+        width: 64%;
+        margin-left: -5%;
+        text-transform: uppercase;
+    }
+    a.jcarousel-control-prev {
+        margin: -18% 0% 0% 2% !important;
+        left: inherit !important;
+    }
+
+    a.jcarousel-control-next {
+        margin: -18% -7% 0% 0% !important;
+    }
+
+    .jcarousel {
+        height: 230px !important;
+        width: 100% !important;
+    }
+
+    .mobile-full-layout{
+        width: 100% !important;
+    }
+
+    .featured-post-up{
+        font-size: 1.3em !important;
+    }
+
+    #latest_post_div{
+        display: none;
+    }
+
+    .recent-borders{
+        display: none !important;
+    }
+    .post-mob-hide{
+        display: none;
+    }
+    .move-right{
+        margin-left: 0%;
+    }
+
+    div.col-md-6.set-div-image {
+        width: 47% !important;
+        height: 100%;
+        max-height: 200px;
+        display: inline-block;
+        float: left;
+        min-height: 135px;
+    }
+    .mob-post-dsc{
+        /*border: 1px solid black; */
+        width: 52%;
+        float: right;
+        display: inline-block;
+    }
+    .recipe-blogged{
+        font-size: 0.9em;
+        margin-bottom: 4%;
+    }
+    div.recent-recipe-name{
+        font-size: 0.7em;
+    }
+
+    .left-item div:last-child {
+        padding-top: 3%;
+        width: 100% !important;
+       /*// border: 1px solid black;*/
+        margin: 0% 0% 0% -7% !important;
+    }
+
+    .feature-image{
+        height: 90px;
+        margin-top: 15%;
+        border-radius: 5px;
+    }
+     /* for post show page */
+    div.post_title {
+        margin: 25% 0% 0% 0%;
+        font-size: 1.8em;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    div.social-share-button {
+        margin: 10% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+        text-align: center;
+    }
+
+    div.left_content {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 4%;
+    }
+
+    div#post_content p img.img-thumbnail {
+      height: 50% !important;
+      border-radius: 10px;
+    }
+    div.show-latest{
+        display: none;
+    }
+
+    div#post_content {
+        padding-left: 3% !important;
+        padding-right: 3% !important;
+        font-size: 0.85em;
+    }
+
+    div.tag_list{
+        display: none;
+    }
+
+    div.footer_section {
+        width: 100%;
+        float: none;
+    }
+
+    div.share-block {
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+    }
+
+    div.add-comment {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 10% 0% 10%;
+    }
+
+    #social_share{
+        padding-left: 4%;
+    }
+}
+
+
+
+/* for iphone 5s portrait view */
+@media screen and (min-width: 480px) and (max-width: 600px){
+
+    .blog-top-title{
+        margin-top: 24% !important;
+        padding-bottom: 2%;
+        font-size: 1.8em;
+    }
+    .read-post{
+        margin-top: 45%;
+        margin-left: 35%;
+        font-size: 0.7em;
+    }
+
+    .slide-header-title{
+        font-size: 1.2em;
+        width: 64%;
+        margin-left: -5%;
+        text-transform: uppercase;
+    }
+    a.jcarousel-control-prev {
+        margin: -18% 0% 0% 2% !important;
+        left: inherit !important;
+    }
+
+    a.jcarousel-control-next {
+        margin: -18% -7% 0% 0% !important;
+    }
+
+    .jcarousel {
+        height: 230px !important;
+        width: 100% !important;
+    }
+
+    .mobile-full-layout{
+        width: 100% !important;
+    }
+
+    /* for post show page */
+    .featured-post-up{
+        font-size: 1.3em !important;
+    }
+
+    #latest_post_div{
+        display: none;
+    }
+
+    .recent-borders{
+        display: none !important;
+    }
+    .post-mob-hide{
+        display: none;
+    }
+    .move-right{
+        margin-left: 0%;
+    }
+
+    div.col-md-6.set-div-image {
+        width: 47% !important;
+        height: 100%;
+        max-height: 200px;
+        display: inline-block;
+        float: left;
+        min-height: 135px;
+    }
+    .mob-post-dsc{
+        /*border: 1px solid black; */
+        width: 52%;
+        float: right;
+        display: inline-block;
+    }
+    .recipe-blogged{
+        font-size: 0.9em;
+        margin-bottom: 4%;
+    }
+    div.recent-recipe-name{
+        font-size: 0.7em;
+    }
+
+    .left-item div:last-child {
+        padding-top: 3%;
+        width: 100% !important;
+        /*// border: 1px solid black;*/
+        margin: 0% 0% 0% -7% !important;
+    }
+
+    .feature-image{
+        height: 90px;
+        margin-top: 15%;
+        border-radius: 5px;
+    }
+    /* for post show page */
+    div.post_title {
+        margin: 25% 0% 0% 0%;
+        font-size: 1.8em;
+        word-wrap: break-word;
+        text-align: center;
+    }
+
+    div.social-share-button {
+        margin: 10% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+        text-align: center;
+    }
+
+    div.left_content {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 4%;
+    }
+
+    div#post_content p img.img-thumbnail {
+        height: 50% !important;
+        border-radius: 10px;
+    }
+    div.show-latest{
+        display: none;
+    }
+
+    div#post_content {
+        padding-left: 3% !important;
+        padding-right: 3% !important;
+        font-size: 0.85em;
+    }
+
+    div.tag_list{
+        display: none;
+    }
+
+    div.footer_section {
+        width: 100%;
+        float: none;
+    }
+
+    div.share-block {
+        margin: 0% 0% 0% 0%;
+        padding: 0% 0% 0% 0%;
+        width: 100%;
+    }
+
+    div.add-comment {
+        width: 100%;
+        margin: 0% 0% 0% 0%;
+        padding: 0% 10% 0% 10%;
+    }
+
+    #social_share{
+        padding-left: 4%;
+    }
+}

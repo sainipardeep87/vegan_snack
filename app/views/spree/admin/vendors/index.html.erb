@@ -1,0 +1,97 @@
+<% content_for :page_title do %>
+  <%= Spree.t(:listing_vendors) %>
+<% end %>
+
+<% content_for :page_actions do %>
+  <li id="new_product_link">
+    <%= button_link_to Spree.t(:new_vendor), '/spree/admin/vendors/new', { :remote => true, :icon => 'icon-plus', :id => 'admin_new_vendor' } %>
+  </li>
+<% end%>
+
+<% content_for :table_filter_title do %>
+  <%= Spree.t(:search) %>
+<% end %>
+
+<% content_for :table_filter do %>
+  <div data-hook="admin_products_sidebar">
+    <%= form_for [:admin, @search], url: '#' do |f| %>
+      <div>
+        <div class="alpha eight columns">
+          <div class="field">
+            <%= f.label :name %>
+            <%= f.text_field :name, :size => 15 %>
+          </div>
+        </div>
+        <div class="seven columns">
+          <div class="field">
+            <%= f.label :email %>
+            <%= f.text_field :email, :size => 15 %>
+          </div>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="form-buttons actions filter-actions">
+        <%= button Spree.t(:search), 'icon-search' %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+
+<div id="new_vendor_wrapper"></div>
+
+<% if @vendors.present? %>
+  <table class="index" id="listing_vendors">
+    <colgroup>
+      <col style="width: 3%;">
+      <col style="width: 20%;">
+      <col style="width: 20%;">
+      <col style="width: 30%;">
+      <col style="width: 10%;">
+      <col style="width: 17%;">
+    </colgroup>
+    <thead>
+      <tr>
+        <th><%= Spree.t(:id)%></th>
+        <th><%= Spree.t(:name)%></th>
+        <th><%= Spree.t(:email)%></th>
+        <th><%= Spree.t(:Note) %></th>
+        <th><%= Spree.t(:created_at)%></th>
+        <th class="actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @vendors.each do |vendor|%>
+        <tr <%== "style='color: red;'" if vendor.deleted? %> id="<%= "vandor#{vendor.id}"%>" data-hook="admin_vendors_index_rows" class="<%= cycle('odd', 'even') %>">
+          <td>
+            <%= vendor.id %>
+          </td>
+          <td>
+            <%= vendor.name %>
+          </td>
+          <td>
+            <%= vendor.email %>
+          </td>
+          <td><%= vendor.try(:notes) %></td>
+          <td>
+            <%= vendor.created_at.strftime('%d-%m-%Y')%>
+          </td>
+          <td class="actions">
+            <%= link_to "", "/spree/admin/vendors/#{vendor.id}/edit", {:data => {:action => "edit"}, :class => "edit icon_link with-tip icon-edit no-text"}  %>
+            &nbsp;
+            <%= link_to "", "/spree/admin/vendors/#{vendor.id}", {:method => 'delete', :data => {:action => "remove", :confirm => "Are you sure?"}, :class => "delete-resource icon_link with-tip icon-trash no-text"}  %>
+            <!--<a title="Clone" href="http://0.0.0.0:3000/spree/admin/products/copy-of-20140426182313/clone" data-action="clone" class="clone icon_link with-tip icon-copy no-text"></a>-->
+            <!--&nbsp;-->
+            <!--<a title="Delete" href="http://0.0.0.0:3000/spree/admin/products/copy-of-20140426182313" data-confirm="Are you sure?" data-action="remove" class="delete-resource icon_link with-tip icon-trash no-text"></a>-->
+          </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+<% else %>
+  <div class="alpha twelve columns no-objects-found">
+    <%= 'No vendors found' %>,
+    <%= link_to Spree.t(:add_one), '/spree/admin/vendors/new' %>!
+  </div>
+<% end %>
+

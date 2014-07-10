@@ -1,0 +1,17 @@
+/* S3 portarit view */
+@media screen and (min-width: 320px) and (max-width: 470px){
+
+    div.heading-info {
+        padding: 20% 0% 0% 0%;
+        font-size: 1.6em;
+    }
+
+    #complete_add_body{
+        width: 95%;
+    }
+}
+/* S3 landscape View */
+@media screen and (min-width: 600px) and (max-width: 750px) and (orientation : landscape){
+
+
+}

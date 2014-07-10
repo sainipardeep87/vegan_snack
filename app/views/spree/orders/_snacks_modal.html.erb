@@ -1,0 +1,54 @@
+
+<div class="modal fade" id="queue_snack_modal"  data-backdrop="static" >
+
+  <div class="modal-dialog" id="snack_show_modal">
+
+    <div class="modal-content full-height" id="snack_show_modal_content">
+
+      <div class="modal-header header-style" id="queue_modal_header">
+
+        <div id="queue_cart_delivery_date"> </div>
+        <div id="queue_snack_list_title"> Snack List </div>
+
+      </div>
+
+
+      <div class="modal-body" id="snack_queue_modal_body">
+        <div id="snack_notify">
+          <div class="snack-added" style="display:none;"> Item added to your Cart.</div>
+        </div>
+
+        <div class="full-snacks">
+
+          <% @snacks.each do |snack| %>
+
+              <div class="snack-tab">
+
+                <div id="hover_section">
+                  <%= hidden_field_tag :snack_id, snack.id %>
+                <div class="img-thumbnail snack-image-product-view">
+                  <%= product_image(snack, itemprop: "image", class: 'img-thumbnail') %>
+                </div>
+
+                <div class="snack-name"><%= truncate(snack.name, length: 25, separator: '') %></div>
+                </div>
+
+                <div class="queue-button" onclick='add_snack_in_queue_page(<%= snack.id %>, <%= cart.id%>)'>
+
+                  <div  class="new-sub-snacks">
+                    <%= link_to 'add to queue', "javascript:void(0)" %>
+                  </div>
+
+                </div>
+              </div>
+          <% end %>
+        </div>
+
+      </div>
+      <div style="clear: both;"></div>
+    </div>
+  </div>
+</div>
+
+
+<%= render :partial => "spree/products/snack_details" %>

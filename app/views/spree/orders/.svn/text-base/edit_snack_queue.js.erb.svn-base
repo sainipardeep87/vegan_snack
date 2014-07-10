@@ -1,0 +1,13 @@
+    App.unBlockUI($('#complete_queue'));
+
+    <% if @carts.present? %>
+        $('#complete_queue').html("<%= escape_javascript(render(:partial => 'spree/orders/edit_queue')) %>")
+    <% end %>
+
+        $("div#snack_update").on("click", "#update_snack", function(e){
+            e.preventDefault();
+            check_snack_queue_complete($("#updated_carts").val());
+        });
+
+    bind_hover_effect_on_snack();
+    show_snack_queue_timer();

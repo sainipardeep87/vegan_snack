@@ -1,0 +1,147 @@
+/*for note8 Landscape */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+
+}
+
+/* For  samsung s3 Landscape */
+@media screen and (min-width: 600px) and (max-width: 750px) and (orientation : landscape){
+
+    .chef-image{
+        display: none !important;
+    }
+
+    .offset-image{
+        display: none !important;
+    }
+
+    .about-title{
+        font-size: 0.6em !important;
+        margin: 12% 0 0 !important;
+    }
+    .about-us-content{
+        margin-top: 0% !important;
+        margin-left: 3% !important;
+        width: 90%;
+    }
+    .about_us_wrapper{
+        margin-top: -4% !important;
+        padding: 1% !important;
+    }
+    .save-planet-title{
+        font-size: 1.2em !important;
+    }
+    .save-planet-content{
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+        height: 100% !important;
+    }
+    .about-us-vision{
+        font-family: 'bold-font';
+       font-weight: bolder;
+    }
+    .name-meaning-content{
+        font-size: 0.8em;
+        width: 95%;
+    }
+}
+
+/* for note 8 portrait  View*/
+@media screen and (min-width: 600px) and (max-width: 750px){
+    .chef-image {
+        height: 100%;
+        width: 105%;
+    }
+
+    .about-title{
+        margin: 16% 0% 0% 0%;
+        font-size: 0.9em;
+    }
+    .about_us_wrapper {
+        font-size: 0.8em !important;
+        margin-top: 1%;
+        width: 100% !important;
+    }
+
+    .about-us-vision{
+        padding: 2% 0;
+        text-align: center;
+    }
+}
+
+/* for Samsung s3 Portrait */
+@media screen and (min-width: 320px) and (max-width: 479px){
+    .chef-image {
+        height: 80%;
+        max-height: 275px;
+        width: 100%;
+    }
+
+    .about-title{
+        margin: 22% 0% 0% 0%;
+        font-size: 0.7em;
+    }
+    .about-us-content{
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100%;
+    }
+
+    .about_us_wrapper {
+        font-size: 0.8em !important;
+        margin-top: 1%;
+        width: 95% !important;
+    }
+
+    .save-planet-title{
+        margin: 0% 0% 0% 0%;
+    }
+
+    .save-planet-title h1{
+        font-size: 0.5em;
+    }
+
+    .save-planet-content{
+         width: 100%;
+        margin: 0% 0% 0% 0% !important;
+        padding: 0% 0% 0% 0% !important;
+    }
+    .carbon-offset-content{
+     width: 100%;
+    }
+    .about-us-vision{
+        width: 100%;
+        text-align: center;
+    }
+    .name-meaning-content{
+        font-size: 0.7em;
+    }
+    .chart-image{
+        height: 100%;
+        max-height: 280px;
+        text-align: center;
+        width: 100%;
+    }
+}
+
+/* ihpone portrait */
+@media screen and (min-width: 480px) and (max-width: 600px){
+
+    div.second-win div.save-planet-content {
+        margin-left: 17% !important;
+        font-size: 0.8em !important;
+    }
+
+}
+
+
+/*for iphone landscape */
+@media screen and (min-width: 480px) and (max-width: 600px) and (orientation : landscape){
+
+
+    div.second-win div.save-planet-content {
+        margin-left: 0% !important;
+        font-size: 0.8em !important;
+    }
+}

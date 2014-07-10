@@ -1,0 +1,39 @@
+
+    <% i = 0 %>
+    <% @total_space.times do %>
+
+        <% if @current_cart_items[i].present? %>
+        
+        <% cart_item = @current_cart_items[i] %>
+        <% variant = cart_item.variant %>
+        
+       
+        <div class="queue-tile new-snack-box">
+            <div class="queue-image-title">
+                <div class='set-image'>
+                    <% if controller.action_name == "update" %>
+                        <%= image_tag(variant.images.first.attachment.url(:large), class: 'img-thumbnail') %>
+                    <% else %>
+                        <%= link_to image_tag(variant.images.first.attachment.url(:large), class: 'img-thumbnail'),main_app.remove_item_carts_path(cart_item_id: cart_item.id, cart_id: @cart.id), method: :post, remote: true %>
+                    <% end %>
+                </div>
+                
+                <div> <%= cart_item.get_cart_item_name %> </div>
+
+            </div>
+
+            <div class='new-sub-snack-remove mob-remove' style='display:none !important'>
+                <%= hidden_field_tag 'cart_item_id', cart_item.id %>
+                <%= hidden_field_tag 'cart_id', @cart.id %>
+            <div class='new-sub-snack-remove-message mob-remove-message'> Remove </div>
+        </div>
+
+        </div> <!-- End of the queue-tile -->
+
+        <% else %>
+            <div class="queue-tile blank-tile" id="new_item_<%= i %>" onclick="pop_modal(<%= @cart.id.to_s %>);"> Add a Snack</div>
+        <% end %>
+
+        <% i= i+1 %>
+
+    <% end %>

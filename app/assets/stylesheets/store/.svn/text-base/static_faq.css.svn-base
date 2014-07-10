@@ -1,0 +1,7 @@
+.faq-section {
+	padding: 8%;
+}
+
+.question-segment{
+	font-weight: bold;
+}

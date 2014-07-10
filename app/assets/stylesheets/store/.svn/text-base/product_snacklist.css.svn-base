@@ -1,0 +1,173 @@
+.page-head-title{
+    color: #FE6505;
+    /*font-family: 'regular-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 4%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.product-listing{
+    width: 100% !important;
+   /*height: inherit !important;*/
+    margin-top: 5%;
+    background-color: #E1E1E1;
+}
+
+.all-snacks {
+    margin: 4% 0% 0% 3%;
+    padding: 0% 0% 0% 3%;
+    width: 95%;
+}
+
+.img-thumbnail {
+    border: none;
+    box-shadow: none;
+    padding: 0%;
+}
+
+.snack-tab {
+    background-color: #FFFFFF;
+    border-radius: 6px 6px 6px 6px;
+    margin: 1.5% 1%;
+    max-width: 195px;
+    min-height: 190px;
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    /*float: left;*/
+}
+
+.snack-image-product-view{
+    border-radius: 6px;
+    cursor: pointer;
+    height: 146px;
+}
+div.snack-image-product-view img{
+    width: 195px;
+    height: 146px;
+  }
+
+div.snack-image-product-view img {
+    width: 195px;
+    height: 146px;
+}
+#hover_section {
+    cursor: pointer;
+}
+
+#hover_section:hover:after{
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 189px;
+    width: 100%;
+    cursor: pointer;
+    opacity: 0.8;
+    color: #F8B202;
+    text-transform: uppercase;
+    /*font-family: 'bold-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+    background: url("/assets/vegan-snack-list/box-bg-hov.png") no-repeat center;
+}
+
+.snack-name {
+    font-size: 1.1em;
+    margin: 3% 0% 0% 4%;
+    min-height: 35px;
+    width: 90%;
+    text-transform: capitalize;
+    color: #FF6600;
+    /*font-family: 'bold-font';*/
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.queue-button {
+    background-color: #3AAA3E;
+    border-radius: 3px 3px 3px 3px;
+    /*font-family: 'bold-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    min-height: 36px;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 1% 0% 0% 0%;
+
+}
+
+.prod-list-disabled-queue{
+    display: none;
+}
+
+.queue-button div {
+    padding: 4% 0% 0% 0%;
+    font-size: 1.0em;
+}
+
+.queue-button div a {
+    color: #FFFFFF;
+}
+
+.queue-button div a:hover{ text-decoration: none; }
+
+#snack_show_modal{
+    height: 70%;
+    margin: 5% 0 0 10%;
+    width: 80%;
+}
+
+.modal-for-snacklist{
+    height: 65% !important;
+    margin: 10% 0 0 11% !important;
+    width: 80% !important;
+    background-color: white !important;
+    border: 25px solid white !important;
+    border-radius: 10px !important;
+}
+#snack_show_modal_content{
+    width:100%;
+    height: 100%;
+}
+
+.header-style {
+    max-height: 68px !important;
+}
+
+#snack_s_name {
+    color: #FF6501;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px !important;
+    padding-top: 2%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#close_product_view {
+    font-size: 2.3em;
+    cursor: pointer;
+    padding-bottom: 2%;
+    width: 3%;
+}
+
+#snack_s_image{ width: 85% }
+
+#flash_message{
+    color: #FE6505;
+    /*font-family: 'regular-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    padding: 2% 0 0;
+    text-align: center;
+    text-transform: none;
+}
+
+.blank-footer{
+    border: none;
+}

@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/ckeditor
+END
+asset.rb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/ckeditor/asset.rb
+END
+attachment_file.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/ckeditor/attachment_file.rb
+END
+picture.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/ckeditor/picture.rb
+END

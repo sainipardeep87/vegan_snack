@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/bbks/svn/!svn/ver/50112/VeganSnack/app/views/creditcards
+END
+pay.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bbks/svn/!svn/ver/50018/VeganSnack/app/views/creditcards/pay.js.erb
+END
+confirm_payment.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/bbks/svn/!svn/ver/49384/VeganSnack/app/views/creditcards/confirm_payment.js.erb
+END
+newcard.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bbks/svn/!svn/ver/44492/VeganSnack/app/views/creditcards/newcard.js.erb
+END
+add_card_complete_payment.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/bbks/svn/!svn/ver/50112/VeganSnack/app/views/creditcards/add_card_complete_payment.js.erb
+END

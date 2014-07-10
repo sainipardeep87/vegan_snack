@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/bbks/svn/!svn/ver/49423/VeganSnack/lib/tasks
+END
+custom_seed.rake
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bbks/svn/!svn/ver/42680/VeganSnack/lib/tasks/custom_seed.rake
+END
+push_order_to_hub.rake
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bbks/svn/!svn/ver/49423/VeganSnack/lib/tasks/push_order_to_hub.rake
+END
+.keep
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bbks/svn/!svn/ver/39533/VeganSnack/lib/tasks/.keep
+END

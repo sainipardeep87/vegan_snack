@@ -1,0 +1,22 @@
+ $("#personal_profile_update div.form-group label.address-err").empty();
+
+<% if @user.errors.present? %>
+
+$("label[for='acc_fname']").html("<%=  @user.errors.messages[:first_name][0] if @user.errors.to_hash.has_key?(:first_name) %>");
+$("label[for='acc_lname']").html("<%=  @user.errors.messages[:last_name][0] if @user.errors.to_hash.has_key?(:last_name) %>");
+
+<% else %>
+    $("#account_sub_btn").attr("disabled", true);
+
+    $(".update-notification").html('Details updated successfully!');
+    $(".update-notification").show();
+    $("#dash_personal").html("<%= escape_javascript(render 'users/dash_personal_profile_view') %>");
+
+    setTimeout(function() {
+        $(".update-notification").empty();
+        $("#myModal").modal("hide");
+    },1500);
+
+   <% result = profile_update_mail_params %>
+   <% VeganMailer.profile_update_email(result).deliver %>
+<% end %>

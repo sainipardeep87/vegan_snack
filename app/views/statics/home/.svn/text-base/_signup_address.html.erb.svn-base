@@ -1,0 +1,97 @@
+<div class="billing-address row-fluid top8 span4">
+
+  <div class="signup-label">Billing Address</div>
+
+
+  <%= form_for Spree::User.new, :url => spree.registration_path(@user), id: 'user_new'  do |f| %>
+
+
+      <div class="control-group">
+        <%= f.fields_for :address  do |builder| %>
+            <%= builder.text_field :firstname, :placeholder => "First Name *"  %>
+            <%= builder.text_field :lastname, :placeholder => "Last Name *" %>
+        <% end %>
+        <div class="form-error">
+
+          <span class="error-left" id="f_name_error"> First Name is Compulsory.</span>
+          <span class="error-right" id="l_name_error"> Last Name is Compulsory.</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.text_field :email, :placeholder => "Email *"  %>
+        <%= f.fields_for :address do |builder| %>
+            <%= builder.text_field :phone, :placeholder => "Phone *" %>
+        <% end %>
+        <div class="form-error">
+          <span class="error-left" id="email_error"> Email is Compulsory.</span>
+          <span class="error-right"  id="phone_error"> Phone No. is Compulsory.</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.fields_for :address do |builder| %>
+            <%= builder.text_field :company, :placeholder => 'Company *', :class => 'complete-line' %>
+            <span class="form-error error-left" id="company_error">Company name is Compulsory.</span>
+        <% end %>
+      </div>
+
+      <div class="control-group">
+        <%= f.fields_for :address do |builder| %>
+            <%= builder.text_field :address1, :placeholder => 'Address Line 1 *', :class => 'complete-line' %>
+            <span   class="form-error error-left" id="address1_error">Address Line 1 is Compulsory.</span>
+        <% end %>
+      </div>
+
+      <div class="control-group">
+        <%= f.fields_for :address do |builder| %>
+            <%= builder.text_field :address2, :placeholder => "Address Line 2(Apartment #, Suite #, etc.)", :class => 'complete-line'  %>
+        <% end %>
+      </div>
+
+      <div class="control-group">
+        <%= f.fields_for :address do |builder| %>
+            <%= builder.text_field :city, :placeholder => 'City *', :class => 'complete-line' %>
+            <span class="form-error error-left" id="city_error">City is Compulsory.</span>
+        <% end %>
+      </div>
+
+      <div class="control-group">
+        <%= f.fields_for :address do |builder| %>
+            <%= builder.text_field :state, :placeholder => "State *", class: 'alert-error' %>
+            <%= builder.text_field :zipcode, :placeholder => "Zip *" %>
+        <% end %>
+        <div class="form-error">
+          <span class="error-left" id="state_error"> State is Compulsory.</span>
+          <span class="error-right" id="zip_error"> Zipcode is Compulsory.</span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <%= f.password_field  :password, :placeholder => "Create Password *"  %>
+        <%= f.password_field :password_confirmation , :placeholder => "Confirm Password *" %>
+        <div class="form-error">
+          <span class="error-left" id="pwd_error">This is mandatory field.</span>
+          <span class="error-right" id="cpwd_error"> This is mandatory field.</span>
+        </div>
+
+      </div>
+
+      <div class="signup-label-cp">Coupon</div>
+
+      <div class="control-group">
+        <%= f.fields_for :address do |builder| %>
+            <%= builder.text_field "code", :placeholder => 'Discount Code', :class => 'complete-line' %>
+        <% end %>
+      </div>
+
+      <div>
+        <input type="button" value = 'PLACE MY ORDER', id="place_order" >
+        <%#= f.button 'PLACE MY ORDER', id: 'place_order', remote: true %>
+      </div>
+
+      <!--eMail, phone no, company, Address line-1  Address-line-2, city State, zip  create password confirm password-->
+  <% end %>
+
+
+</div>

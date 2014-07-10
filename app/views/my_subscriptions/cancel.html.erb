@@ -1,0 +1,50 @@
+<script type="text/javascript" charset="utf-8">
+    $(document).ready(function(){
+        $('body').height($(document).height());
+    });
+
+</script>
+
+<div class="snack-queue-page">
+
+    <div id="queue_title"> Cancel subscription </div>
+
+    <div id="update_incomplete_queue"></div>
+
+    <div class="align-center" id="change_offer_button">
+
+        <div class='margin-bottom-10 current-sub'>
+            <%= "Currently you are subscribed to '#{@my_subscription_type.capitalize}' subscription." %>
+        </div>
+
+    </div> <!-- End of sub-move-down div section -->
+
+
+    <div class="next-order-sub">
+
+    <%= form_tag submit_cancel_my_subscription_path(@my_subscription.id), method: :post, id: 'subscription_can_form' do %>
+
+    <div class="first-delivery subscription-row">
+
+        <div class="queue-tile">
+            <div class="month-tile">
+                next order Ships by <%= @cart.delivery_date.strftime("%B %d, %Y") %>
+            </div>
+        </div>
+
+        <div class="snack-update-list" id="subscription_update_section">
+            <%= render 'carts/cancel_cart',locals: {total_space: @total_space, current_cart_items: @current_cart_items} %>
+        </div>
+
+    </div>
+
+    <div id="cancel_sub_button">
+        <%= submit_tag 'Cancel Subscription', id: 'cancel_subscription_submit' %>
+    </div>
+
+    <% end %>
+
+    </div>
+
+</div> <!-- End of division having class snack-queue-page" -->
+<%= render :partial => "my_subscriptions/shared/confirmation_modal" %>

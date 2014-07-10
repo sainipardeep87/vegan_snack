@@ -1,0 +1,283 @@
+.background-image-place{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height:650px; /* this will be window height - header height-20gutter width; */
+}
+.bg-image {
+    background-image: url("/assets/vegan-snacks/vegan-snacks_01_bg.jpg");
+}
+.snack-bg-image{
+    background-image: url("/assets/vegan-snacks/snacks_top_low.jpg");
+}
+
+.box-image{
+    background-image: url("/assets/vegan-snacks/vegan-snacks_02_bg_low.jpg");
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.box-image-home{
+    background-image: url("/assets/vegan-snacks/snacks_top_low.jpg");
+    box-shadow: 10px 10px 5px #888888;
+}
+
+div.container-fluid {
+    margin: 0;
+    padding: 0 !important;
+}
+
+.snacks-title{
+    color: #FFFFFF;
+    /*font-family: bold-font;*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 3em !important;
+    font-weight: bold;
+    margin: 9% 0 3%;
+    text-align: center;
+    text-transform: uppercase;
+}
+.snacks-title h1{
+    font-weight: bold;
+}
+
+.white-title {
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 5% 0% 0% 0%;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.box-padding{
+    padding-top: 1%;
+}
+
+.top-buffer {
+    margin-top: 20px;
+    margin-left:13%;
+}
+
+.save-planet-content{
+    background-color: rgba(255, 255, 255, 0.94);
+    border-radius: 9px;
+    color: #888984;
+    /*font-family: 'regular-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.snack-image{
+    margin-left: 13%;
+    width: 80%;
+}
+
+.receive-month{
+    color: #D4511B;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+.nutrition_fact{
+    height: 350px;
+    width: 90%;
+}
+
+.benfit{
+    color: #000000;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 3%;
+}
+.tick{
+    padding: 2%;
+}
+
+.initCap{
+    text-transform: capitalize;
+    /*font-family: 'bold-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight:bold;
+    color: #716C69;
+}
+
+
+.banana-split{
+    color: #FF6501;
+    /*font-family: 'regular-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 2%;
+    padding-top: 2%;
+    text-transform: uppercase;
+    text-align: center;
+
+}
+
+.banana-description{  text-align: center; }
+
+.bsplit{
+    height: 200px;
+    width: 100%;
+    margin-top: 6%;
+}
+/* .horizontal-line{ border-right: 1px solid #716C69; } */
+
+.horizontal-line {
+    border-right: 1px solid #716c69;
+    height: 100%;
+    padding-bottom: 4%;
+}
+
+.horizontal-line > div:last-child {  
+    text-align: center; 
+}
+
+
+.benfit-line{ padding: 2%; }
+
+.benfit-button{
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    width: 58%;
+    margin: 2%;
+    color: rgba(255,255,255,1);
+}
+
+.benfit-button:hover{
+    color: #FFFFFF;
+    font-weight: bold;
+}
+
+.nutrition-button{background-color: #FF6501;}
+
+.ingredient-button{ background-color: #FFB600;}
+
+#add_box_button{background-color: rgb(58,169,61); }
+
+
+
+/* CSS for the what's inside box images thumbnail section & css
+ for close button which appears on clicking a specific item */
+
+.product-row{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
+
+.ind-item-section {
+    background-color: rgba(255, 255, 255, 0.898);
+    border-radius: 10px;
+    margin: 3% 2% 0% 2%;
+    background-image: none;
+    max-height: 212px !important;
+    max-width: 292px !important;
+    min-height: 212px !important;
+    min-width: 292px !important;
+    overflow: hidden !important;
+    display: inline-block;
+}
+
+
+#image-span img{
+    height: 160px !important;
+    margin-bottom: 5px !important;
+    margin-top: 17px !important;
+    width: 240px !important;
+}
+
+
+.transparent-image{
+    background-image: url('/assets/vegan-snacks/bg-hov-black.png');
+}
+
+
+.product-row .col-md-offset-2{
+    margin-left: 13.667%;
+}
+
+.ind-item-name{
+    color: #FF6501;
+    /*font-family: 'bold-font';*/
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 1.3em;
+}
+.first-row{
+    margin-top: 3%;
+}
+
+.ind-item-section > div:nth-child(3) {
+    padding: 3% 0%;
+    color: #8C8F94;
+    font-size: 1.1em;
+}
+
+.ind-item-section:hover{
+    cursor: pointer;
+}
+
+#ind_snacks_render{
+    display: none;
+}
+
+.close-individual{
+    font-size: 2em;
+    margin: -6% 0 5% -5%;
+    display: inline-block;
+}
+
+.close-individual:hover{ cursor: pointer; }
+
+.hidden-item-desc{ display: none; }
+
+.hidden-item-nutrifact-image {
+  display: none;  
+}
+
+.hidden-ingredients {
+    display: none;
+}
+
+.ingredients-list {
+    float: right;
+    max-width: 50% !important;
+}
+
+
+
+.static-snacks-individual-snack {
+    cursor: pointer;
+    position:relative;
+}
+
+.detail-vegan{
+    background-color: #000000;
+    height: 100%;
+    opacity: 0.75;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    text-align: center;
+}
+ 
+ .snack-d{
+    color: rgb(255,179,0);
+    /*font-family: bold-font;*/
+     font-family: Arial, Helvetica, sans-serif;
+     font-weight: bold;
+     font-size: 1.4em;
+     margin-top: 30%;
+     text-transform: uppercase;
+ }
+
+.whats-box-snacks{
+    width: 85%;
+    height: 100%;
+    text-align: center;
+    margin: 0% 0% 0% 7%;
+}

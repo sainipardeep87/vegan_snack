@@ -1,0 +1,3 @@
+module SocialAuthenticationsHelper
+
+end

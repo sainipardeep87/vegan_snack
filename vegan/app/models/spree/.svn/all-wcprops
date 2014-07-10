@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/bbks/svn/!svn/ver/39606/VeganSnack/app/models/spree
+END
+address_decorator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/spree/address_decorator.rb
+END
+order_decorator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bbks/svn/!svn/ver/39606/VeganSnack/app/models/spree/order_decorator.rb
+END
+user_decorator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/spree/user_decorator.rb
+END
+state_decorator.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/bbks/svn/!svn/ver/39531/VeganSnack/app/models/spree/state_decorator.rb
+END

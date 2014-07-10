@@ -1,0 +1,74 @@
+
+$(document).ready(function(){
+
+
+
+function scrollToElement(selector, time, verticalOffset) {
+    time = typeof(time) != 'undefined' ? time : 1000;
+    verticalOffset = typeof(verticalOffset) != 'undefined' ? verticalOffset : 0;
+    element = $(selector);
+    offset = element.offset();
+    offsetTop = offset.top + verticalOffset;
+    $('html, body').animate({
+        scrollTop: offsetTop
+    }, time);
+}
+
+
+$(document).on("click", "ul > a", function(){
+
+    $('html, body').animate({
+        scrollTop: $($(this).attr('data-target')).offset().top-50
+    }, 1000);
+});
+
+
+
+$('#my-affix').affix({
+    offset: {
+        top: 100
+        , bottom: function () {
+            return (this.bottom = $('.footer').outerHeight(true))
+        }
+    }
+})
+
+var current_position;
+var up=false;
+var down=false;
+
+    $(window).scroll(function(event){
+      //  scrollToElement(".home-2-image",3000);
+        //console.log(event);
+        if(current_position==undefined){
+
+        current_position = $(window).scrollTop();
+        }
+
+        next_position = $(window).scrollTop();
+
+        console.log("current" + current_position + "   " + "next"+ next_position);
+
+        if ( next_position > current_position){
+            down = true;
+        }
+
+        if (next_position < current_position){
+            up=true;
+        }
+
+         if (up == true){
+             scrollToElement(".home-1-image",1000);
+             return false;
+         }
+        if (down == true)
+        {
+            scrollToElement(".home-4-image",1000);
+
+        }
+        //console.log("current" + current_position + "   " + "next"+ next_position);
+        current_position = undefined;
+        //next_position = 0;
+
+    });
+

@@ -1,0 +1,61 @@
+
+<div class="modal fade" id="myModal" tabindex="-1"
+     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static" >
+
+  <div class="modal-dialog modal-for-snacklist" id="snack_show_modal" >
+
+    <div id="close_product_view"> X </div>
+    <div class="col-md-5 col-sm-5 horizontal-line">
+
+      <div class="banana-split" id="snack_s_name">  </div>
+
+      <div class="banana-description" id="snack_s_desc"> </div>
+      <div> <%= image_tag("/assets/vegan-snacks/image8.png", alt: 'Banana Split', size: "10X10", class: 'bsplit img-thumbnail', id: 'snack_s_image')%> </div>
+    </div>
+
+
+    <div class="col-md-7 col-sm-7">
+      <div class="col-md-6 col-sm-6 offset-1">
+        <div class="benfit">Benefits</div>
+        <div class="benfit-line">
+          <%= image_tag("/assets/vegan-snacks/tick.png", :alt =>'Yes', size: "10X10", class: 'tick')%>
+          <span class="initCap">Organic</span>
+        </div>
+
+        <div class="benfit-line">
+          <%= image_tag("/assets/vegan-snacks/tick.png", :alt =>'Yes', size: "10X10", class: 'tick')%>
+          <span class="initCap"> Non-GMO</span>
+        </div>
+
+        <div class="benfit-line">
+          <%= image_tag("/assets/vegan-snacks/tick.png", :alt =>'Yes', size: "10X10", class: 'tick')%>
+          <span class="initCap">Gluten Free</span>
+        </div>
+
+        <div class="benfit-line">
+          <%= image_tag("/assets/vegan-snacks/tick.png", :alt =>'Yes', size: "10X10", class: 'tick')%>
+          <span class="initCap">Vegan</span>
+        </div>
+
+        <div class="benfit-line">
+          <%= image_tag("/assets/vegan-snacks/tick.png", :alt =>'Yes', size: "10X10", class: 'tick')%>
+          <span class="initCap boldtext">100% Raw </span>
+        </div>
+
+
+        <div class=" btn btn-small benfit-button nutrition-button btn">nutrition</div>
+
+        <div class="btn btn-small benfit-button ingredient-button">ingredients</div>
+
+      </div>
+
+      <div class="col-md-6 col-sm-6 hide-fact-mobile">
+
+        <div id = "add_nutri_image"> <%= image_tag("/assets/vegan-snacks/image9.png", alt:'Nutrition Facts', size: "10X10", class: 'nutrition_fact')%> </div>
+      </div>
+
+      <div id = "each-ingredient"></div>
+
+    </div>
+  </div>
+</div>

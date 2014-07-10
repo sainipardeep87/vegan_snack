@@ -1,0 +1,1521 @@
+/*
+@media screen and (min-width: 1100px) and (max-width: 1190px){
+
+    .get-started-button{
+        margin: 30% 0 0 37%  !important;
+    }
+
+}
+
+@media screen and (min-width: 1050px) and (max-width: 1109px){
+
+    .get-started-button{
+        margin: 28% 0 0 36%  !important;
+    }
+}
+
+@media screen and (min-width: 970px) and (max-width: 1049px){
+
+    .get-started-button{
+        margin: 30% 0 0 36%  !important;
+    }
+    .get-started-icon{
+        width: 40% !important;
+    }
+
+}
+
+@media screen and (min-width: 900px) and (max-width: 969px){
+
+    .get-started-button{
+        margin: 29% 0 0 34%  !important;
+    }
+    .get-started-icon{
+        width: 39% !important;
+        margin-left: 6%;
+    }
+}
+
+@media screen and (min-width: 850px) and (max-width: 899px) {
+    .get-started-button{
+        margin: 40% 0% 0% 33% !important;
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 849px) {
+
+    .get-started-button{
+        margin: 40% 0% 0% 37% !important;
+    }
+    .get-started-icon{
+        width: 40% !important;
+    }
+
+}
+@media screen and (min-width: 750px) and (max-width: 800px) {
+
+    .get-started-icon{
+        width: 45% !important;
+        margin: 2% !important;
+    }
+    .get-started-button{
+        margin: 42% 0% 0% 35% !important;
+    }
+
+}
+ */
+/*for note8 Landscape */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+    .vegan_logo{
+        margin: 1%;
+        max-width: 80%;
+        padding-top: 0;
+    }
+
+    #proper-nav {
+        margin: 1% 0 0;
+        padding: 0 1% 0 0;
+    }
+
+    #proper-nav li a {
+        font-size: 0.83em;
+        margin: 0 !important;
+        color: #292826 !important;
+    }
+
+    #proper-nav li img {
+        margin: 0% !important;
+        width: 85%;
+    }
+
+    .logo-container {
+        float: left;
+        padding: 1.5% 0% 0% 0%;
+        text-align: center;
+        width: 35%;
+    }
+
+
+    #proper-nav {
+        margin: 1% 0 0 0 !important;
+        width: auto;
+    }
+
+    .article{
+        font-size: 2.3em;
+        margin-top: 24%;
+    }
+
+    .footer-icons{
+        margin-top: 25%;
+    }
+}
+
+/* for note 8 portrait  View*/
+@media screen and (min-width: 600px) and (max-width: 750px){
+
+    .slider-nav{
+        top: 27%;
+        right: 5%;
+    }
+
+    .slider-nav ul li{
+        margin-top: 50%;
+    }
+
+    #vegan_header {
+        height: auto !important;
+    }
+    .article{
+        font-size: 1.8em;
+        margin-left: 22%;
+        margin-top: 48%;
+        width: 58%;
+    }
+    .bill-title{
+        color: rgba(255,255,255,1) !important;
+        margin-top: -4%;
+    }
+
+    .summary-title{
+        margin-left: 3%;
+    }
+
+    .delivery-price {
+        font-size: 1.7em;
+        margin: 7.5% 0 0 !important;
+    }
+
+    .works-title{
+        font-size: 2.5em;
+        margin-top: 15%;
+    }
+    .works-section{
+        margin: 0% 0% 0% 0%;
+        max-width: 100%;
+    }
+
+    .works-image-section {
+        margin: -1% 13% 0 7%;
+        width: 30%;
+    }
+
+    .works-text{
+        font-size: 1.3em;
+    }
+    .hide-iphone{
+        display: none;
+    }
+
+    .move-image{
+        position: absolute !important;
+        height: 70px;
+        width: 70px;
+        margin-left: 5%;
+    }
+
+    .iphone-true{
+        display: block;
+        height:40px;
+        width:40px;
+        position: absolute;
+        left:42%;
+        top:47%;
+    }
+
+    .how-works-get-started{
+        margin: 4% 0% 0% 0%;
+    }
+
+    #i-image-2{
+        display: none;
+    }
+
+    .order-title {
+        font-size: 2.5em;
+        margin-top: 10%;
+    }
+
+    .v-signup-div span input {
+        font-size: 1.2em;
+        padding: 3px 0 4px 18px !important;
+    }
+
+   .submission img{
+       display: block;
+       cursor: pointer;
+   }
+
+    .order-summary-column {
+        margin-top: -4%;
+        position: absolute;
+        width: 82%;
+    }
+
+    div.summary-line {
+        padding: 1% 0 0;
+    }
+
+    .order-summary-div {
+        margin: 1% 0 0 3%;
+        min-height: 301px !important;
+        width: 100% !important;
+    }
+
+
+    .submission {
+        margin-top: 75%;
+        position: absolute;
+    }
+
+    .billing-section form{
+        padding-bottom: 10%;
+    }
+
+    div.billing-section {
+        margin-left: 3%;
+        margin-top: 50% !important;
+        width: 81% !important;
+    }
+
+    .v-signup-div {
+        margin: 1.2% 0 0;
+        padding: 0 !important;
+        width: 109%;
+    }
+
+    .offer-name{
+        font-size: 1.1em;
+    }
+
+    .footer-icons{
+        margin-top: 65%;
+    }
+
+    .bottom-text h6{
+        font-size: 1.0em;
+    }
+    .footer-offset{
+        margin-left: 10%;
+    }
+    .bottom-text li{
+        font-size: 0.96em;
+    }
+}
+
+
+/* seems samsung s3 Landscape */
+@media screen and (min-width: 600px) and (max-width: 750px) and (orientation : landscape){
+
+    .horizon-mob{
+        float: left;
+    }
+    .get-down{
+        margin-top: 5%;
+    }
+
+    #order_billing {
+        width: 80%;
+        margin: 0% 0% 0% 12%;
+    }
+
+    /* css for the toggled top header menu section  for mobile device */
+    .show-mob{
+        display: block;
+    }
+
+    .inner-hidden{
+        display: none !important;
+    }
+
+    .hide-desk{
+        display: block !important;
+    }
+
+    /* CSS for the footer section */
+
+    .footer-icons{
+        margin-top: 9% !important;
+
+    }
+    .footer-image {
+        width: 35% !important;
+        height: 15% !important;
+    }
+
+    .show-well{
+        display: none;
+    }
+    .bottom-text h6 {
+        font-size: 0.75em;
+    }
+
+    .signin{
+        margin-bottom: 2%;
+    }
+
+
+    #proper-nav li a {
+        width: 100%;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    div.footer-icons div.col-xs-3 {
+        margin-top: 2%;
+    }
+
+    .works-title {
+        margin: 1% 0% 0% 28%;
+        width: 40%;
+    }
+
+    .vegan_logo {
+        margin: -3% 0% 0% 0%;
+        width: 42%;
+    }
+
+    .get-started-icon{
+        width: 50%;
+        margin-left: -3%;
+    }
+
+    .works-section{
+        margin: 0% 0% 0% 0%;
+        max-width: 100%;
+    }
+
+    .works-image-section {
+        margin: 2% 13% 0% 17% !important;
+        width: 12%;
+        min-height: 20px !important;
+    }
+
+    .works-text {
+        font-size: 0.6em;
+        line-height: 1.3em;
+        width: 115px;
+        margin-left: -25%;
+    }
+
+    .hide-iphone{
+        display: none;
+    }
+
+    .move-image{
+        position: absolute !important;
+        height: 60px;
+        width: 70px;
+        margin-left: 90%;
+        margin-top: -9% !important;
+    }
+
+    .iphone-true{
+        display: block;
+        height:40px;
+        width:40px;
+        position: absolute;
+        left:42%;
+        top: 42%;
+    }
+
+    .how-works-get-started{
+
+        display: none;
+    }
+
+    .landscape-mob-up{
+        margin-top: -4% !important;
+
+    }
+
+    #i-image-2{
+        display: none;
+    }
+
+    .order-title {
+        font-size: 1.6em;
+        margin-top: 5%;
+    }
+
+    .summary-title {
+        display: none;
+    }
+    .bill-title{
+        color: #212226;
+        font-family: 'bold-font';
+        font-size: 0.9em;
+        text-align: center;
+        margin-top: -6%;
+    }
+
+    .sum-div-explain{
+        display: none;
+    }
+    .summary-line p{
+        display: none;
+    }
+    .v-signup-div span input {
+        font-size: 1.2em;
+        padding: 3px 0 4px 18px !important;
+    }
+
+    .submission img{
+        display: block;
+        cursor: pointer;
+    }
+
+    .order-summary-column {
+        margin-top: -4%;
+        position: absolute;
+        width: 82%;
+    }
+
+    div.summary-line {
+        padding: 1% 0 0;
+    }
+
+    .order-summary-div {
+        margin: 7% 0 0 13%;
+        min-height: 130px !important;
+        width: 95% !important;
+        height: 175px;
+    }
+    .submission {
+        margin-top: 75%;
+        position: absolute;
+    }
+
+    .billing-section form{
+        padding-bottom: 10%;
+    }
+
+
+    div.billing-section {
+        margin-left: 5%;
+        margin-top: 35% !important;
+        width: 87% !important;
+    }
+
+    .v-signup-div {
+        margin: 1.2% 0 0;
+        padding: 0 !important;
+        width: 109%;
+    }
+
+    .v-signup-div span input {
+        font-size: 0.6em;
+        padding: 0px 0px 0px 5px !important;
+    }
+    .offer-name {
+        font-size: 0.6em;
+        text-align: center;
+    }
+
+    .footer-offset{
+        margin-left: 10%;
+    }
+    #user_sign_up{
+        width: 55%;
+    }
+    .coupon-title{
+        display: inline;
+        font-size: 1em;
+    }
+    .coupon-field{
+        float: right;
+        text-align: right;
+        width: 100%;
+    }
+    .place-up{
+        display: none;
+    }
+
+    .footer-image {
+
+        height: 40px !important;
+        max-height: 40px !important;
+        width: 50%;
+    }
+    .footer-icons {
+        margin-top: 5% !important;
+    }
+
+    .bottom-text h6 {
+        font-size: 0.6em !important;
+    }
+    .bottom-text li{
+        font-size: 0.6em;
+    }
+    .copyright{
+        font-size: 0.7em;
+    }
+    label.error{
+        display: none !important;
+    }
+
+    .snacks-title{
+        font-size: 1.2em !important;
+        margin: 25% 0% 0% 0% !important;
+    }
+    .white-nav{
+        background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+        display: block;
+    }
+    #fb_logo{
+        width: 100% !important;
+    }
+    .welcome-message{
+        display: none !important;
+    }
+    #signup_password{
+        display: none !important;
+    }
+    .fb-line {
+        margin: -2% 15.5% 0 0;
+        width: 75%;
+    }
+    .login-para {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sub-login > input {
+        margin: 2% 0 0 !important;
+    }
+    .fb-top-close{
+        left: -14%;
+    }
+    .home-header-link{
+        display: block;
+    }
+    #vegan_header{
+        background-color: rgba(255,255,255,0.9);
+    }
+    .mobile-view-screen{
+    }
+
+    .mobile-errors{
+        display: block !important;
+    }
+    .mobile-fg-password{
+        color: #FF0000 !important;
+        display: block !important;
+        font-size: 1em;
+    }
+
+    .submission-mobile{
+        display: block;
+        text-align: center;
+    }
+    .submission{
+        display: none;
+    }
+
+    #sgn_cc {
+        margin: -8% 0% 0% -8%;
+        width: 100%;
+    }
+
+    #cc_submit{
+        width: 100%;
+    }
+    #spree_user_creditcards_month{
+        width: 48%;
+    }
+    #spree_user_creditcards_year{
+        width: 48%;
+    }
+
+    #sgn_cc label{
+        width: 100%;
+        text-align: center;
+    }
+
+    #drop_mail {
+        display: none;
+    }
+
+}
+/* for Samsung s3 Portrait */
+
+@media screen and (min-width: 320px) and (max-width: 470px){
+
+    #billing_form_div label {
+     font-size: 0.7em;
+     min-height: 0px;
+     width: 100%;
+    }
+    div#billing_form_div input[type="text"], select{
+        height: 25px;
+    }
+
+    div#billing_form_div p {
+        font-size: 1.0em;
+    }
+    .mobo-line{
+        display: inline;
+    }
+
+    .horizon-mob{
+        float: none;
+    }
+
+    .wide-select{
+        width: 45%;
+    }
+
+    #submit_bill input{
+        width: 60%;
+    }
+    #order_billing {
+        width: 80%;
+        margin: 0% 0% 0% 12%;
+    }
+
+    #submit_bill{
+        margin: 24% 0% 0% 0%;
+    }
+
+    #billing_form_div {
+        height: 100%;
+    }
+    /*billing section design */
+
+    .show-mob{
+        display: block;
+    }
+
+    .inner-hidden{
+        display: none !important;
+    }
+
+    .hide-desk{
+        display: block !important;
+    }
+
+    .vegan_logo {
+        margin: 0% 0% 0% 0%;
+        width: 50%;
+    }
+    div.complete-top-section {
+        max-width: 400px !important;
+    }
+    .welcome-message{
+        text-align: center;
+    }
+    .signin{
+         margin-bottom: 2%;
+    }
+    .bottom-text li{
+        padding: 0% 0% 0% 0%;
+
+    }
+
+    #proper-nav li a {
+        width: 100%;
+        text-align: center;
+        font-size: 1.2em;
+    }
+
+    #proper-nav > li.header-dropdown > ul > li > a{
+        font-size: 2em !important;
+    }
+
+    .works-title{
+        font-size: 2.5em;
+        margin: 28% 0% 0% 12%;
+        width: 76%;
+    }
+    .get-started-icon{
+        width: 60%;
+        margin-left: -6%;
+    }
+
+    .works-section{
+        margin: 0% 0% 0% 0%;
+        max-width: 100%;
+    }
+
+    .works-image-section {
+        margin: 4% 13% 0% 7% !important;
+        width: 30%;
+        min-height: 20px !important;
+    }
+
+    .works-text{
+        font-size: 0.8em;
+    }
+    .hide-iphone{
+        display: none;
+    }
+
+    .move-image{
+        position: absolute !important;
+        height: 70px;
+        width: 70px;
+        margin-left: 5%;
+    }
+
+    .iphone-true{
+        display: block;
+        height:40px;
+        width:40px;
+        position: absolute;
+        left:42%;
+        top:47%;
+    }
+
+    .how-works-get-started{
+        margin: -4% 0% 0% 35%;
+        padding: 0%;
+        width: 30%;
+    }
+
+    #i-image-2{
+        display: none;
+    }
+
+    .order-title {
+        font-size: 1.6em;
+        margin-top: 10%;
+    }
+
+    .summary-title {
+        display: none;
+    }
+    .bill-title{
+        color: #212226;
+        font-family: 'bold-font';
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .sum-div-explain{
+        display: none;
+    }
+    .summary-line p{
+        display: none;
+    }
+    .v-signup-div span input {
+        font-size: 1.2em;
+        padding: 3px 0 4px 18px !important;
+    }
+
+    .submission img{
+        display: block;
+        cursor: pointer;
+    }
+
+    .order-summary-column {
+        margin-top: -4%;
+        position: absolute;
+        width: 82%;
+    }
+
+    div.summary-line {
+        padding: 2% 0 0;
+    }
+
+    .order-summary-div {
+        margin: 3% 0 0 13%;
+        min-height: 125px !important;
+        width: 95% !important;
+    }
+    .submission {
+        margin-top: 75%;
+        position: absolute;
+    }
+
+    .billing-section form{
+        padding-bottom: 10%;
+    }
+
+
+    div.billing-section {
+        margin-left: 5%;
+        margin-top: 35% !important;
+        width: 87% !important;
+    }
+
+    .v-signup-div {
+        margin: 1.2% 0 0;
+        padding: 0 !important;
+        width: 109%;
+    }
+
+    .v-signup-div span input {
+        font-size: 0.6em;
+        padding: 0px 0px 0px 5px !important;
+    }
+    .offer-name {
+        font-size: 0.7em;
+        text-align: center;
+    }
+
+    .footer-offset{
+        margin-left: 10%;
+    }
+
+    #user_sign_up {
+        width: 55%;
+        z-index: 9999;
+    }
+
+    .coupon-title{
+        display: inline;
+        font-size: 1em;
+    }
+    .coupon-field{
+        float: right;
+        text-align: right;
+        width: 100%;
+    }
+    .place-up{
+        display: none;
+    }
+
+    .footer-image {
+
+       height: 40px !important;
+        max-height: 40px !important;
+        width: 50%;
+    }
+
+    .footer-image {
+        height: 100% !important;
+        max-height: 60px !important;
+        width: 30%;
+    }
+
+    .bottom-text h6 {
+        font-size: 0.6em !important;
+    }
+    .bottom-text li{
+        font-size: 0.6em;
+    }
+    .copyright{
+        font-size: 0.7em;
+    }
+    label.error{
+        display: none !important;
+    }
+
+    .snacks-title{
+        font-size: 1.2em !important;
+        margin: 25% 0% 0% 0% !important;
+    }
+    .white-nav{
+        background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+        display: block;
+    }
+    #fb_logo{
+        width: 100% !important;
+    }
+    .welcome-message{
+        display: none;
+    }
+    #signup_password{
+        display: none !important;
+    }
+    .fb-line {
+        margin: -8.3% 15.5% 0 0;
+        width: 75%;
+    }
+    .login-para {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sub-login > input {
+        margin: 2% 0 0 !important;
+    }
+    .fb-top-close{
+        left: -4%;
+    }
+    .home-header-link{
+        display: block;
+    }
+    #vegan_header{
+        background-color: rgba(255,255,255,0.9);
+    }
+    .mobile-view-screen{
+    }
+
+  .mobile-errors{
+      display: block !important;
+  }
+  .mobile-fg-password{
+      color: #FF0000 !important;
+      display: block !important;
+      font-size: 1em;
+  }
+  .submission-mobile{
+      display: block;
+      text-align: center;
+  }
+  .submission{
+      display: none;
+  }
+
+    #sgn_cc {
+        margin: 0 0 0 -33%;
+        width: 300px;
+    }
+
+    #cc_submit{
+        width: 100%;
+    }
+    #spree_user_creditcards_month{
+        width: 48%;
+    }
+    #spree_user_creditcards_year{
+        width: 48%;
+    }
+
+    #sgn_cc label{
+        width: 100%;
+        text-align: center;
+    }
+
+    .footer-icons div {
+        text-align: center;
+        width: 65%;
+        margin-left: 20%;
+    }
+
+    #drop_mail {
+        display: none;
+    }
+}
+
+/* iphone portrait */
+@media screen and (min-width: 480px) and (max-width: 600px){
+
+    .show-mob{
+        display: block;
+    }
+
+    .inner-hidden{
+        display: none !important;
+    }
+
+    .hide-desk{
+        display: block !important;
+    }
+
+    div.second-win div.save-planet-content {
+        margin-left: 17% !important;
+        font-size: 0.8em !important;
+    }
+
+    .bottom-text li{
+        padding: 0% 0% 0% 0%;
+
+    }
+    .works-title{
+        font-size: 2.5em;
+        margin: 28% 0% 0% 12%;
+        width: 76%;
+    }
+    .vegan_logo {
+        margin: 0% 0% 0% 0%;
+        width: 50%;
+    }
+
+
+    .signin{
+        margin-bottom: 2%;
+    }
+
+    div.complete-top-section {
+        max-width: 400px !important;
+    }
+    .welcome-message{
+        display: none !important;
+    }
+
+    #proper-nav li a {
+        width: 100%;
+        text-align: center;
+        font-size: 2em;
+    }
+
+    #proper-nav > li.header-dropdown > ul > li > a{
+        font-size: 2em !important;
+    }
+
+    .get-started-icon{
+        width: 60%;
+        margin-left: -6%;
+    }
+
+    .works-section{
+        margin: 0% 0% 0% 0%;
+        max-width: 100%;
+    }
+
+    .works-image-section {
+        margin: 4% 13% 0% 7% !important;
+        width: 30%;
+        min-height: 20px !important;
+    }
+
+    .works-text{
+        font-size: 0.8em;
+    }
+    .hide-iphone{
+        display: none;
+    }
+
+    .move-image{
+        position: absolute !important;
+        height: 70px;
+        width: 70px;
+        margin-left: 5%;
+    }
+
+    .iphone-true{
+        display: block;
+        height:40px;
+        width:40px;
+        position: absolute;
+        left:42%;
+        top:47%;
+    }
+
+    .how-works-get-started{
+        margin: -4% 0% 0% 35%;
+        padding: 0%;
+        width: 30%;
+    }
+
+    #i-image-2{
+        display: none;
+    }
+
+    .order-title {
+        font-size: 1.6em;
+        margin-top: 5%;
+    }
+    .sum-image{
+        display: none;
+    }
+    .summary-title {
+        display: none;
+    }
+    .bill-title{
+        color: black !important;
+        font-family: 'bold-font';
+        font-size: 1.2em;
+        text-align: center;
+    }
+
+    .sum-div-explain{
+        display: none;
+    }
+    .summary-line p{
+        display: none;
+    }
+    .v-signup-div span input {
+        font-size: 1.2em;
+        padding: 3px 0 4px 18px !important;
+    }
+
+    .submission img{
+        display: block;
+        cursor: pointer;
+    }
+
+    .order-summary-column {
+        margin-top: -4%;
+        position: absolute;
+        width: 82%;
+    }
+
+    div.summary-line {
+        padding: 2% 0 0;
+    }
+
+    .order-summary-div {
+        margin: 3% 0 0 20%;
+        min-height: 125px !important;
+        width: 70% !important;
+    }
+    .submission {
+        margin-top: 75%;
+        position: absolute;
+    }
+
+    .billing-section form{
+        padding-bottom: 10%;
+    }
+
+    div.billing-section {
+        margin-left: 7%;
+        margin-top: 24% !important;
+        width: 87% !important;
+    }
+
+    .v-signup-div {
+        margin: 1.2% 0 0;
+        padding: 10px !important;
+        width: 100%;
+    }
+
+    .v-signup-div span input {
+        font-size: 1.4em;
+        padding: 8px 0px 4px 5px !important;
+    }
+
+
+    .coupon-field{
+        width: 100%;
+    }
+    .offer-name {
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .footer-offset{
+        margin-left: 10%;
+    }
+
+    #user_sign_up {
+        width: 55%;
+        z-index: 9999;
+    }
+
+    .coupon-title{
+        display: inline;
+        font-size: 1em;
+    }
+    .place-up{
+        display: none;
+    }
+
+    .footer-image {
+     width: 20%;
+    }
+
+   .complete-row {
+        margin-top: 8%;
+   }
+
+   .footer-icons div {
+        text-align: center;
+        width: 65%;
+        margin-left: 20%;
+   }
+
+   .bottom-text{
+       margin: 2% 0% 0% 0%;
+   }
+
+    .bottom-text h6 {
+        font-size: 0.6em !important;
+    }
+    .bottom-text li{
+        font-size: 0.6em;
+    }
+    .copyright{
+        font-size: 0.7em;
+    }
+    label.error{
+        display: none !important;
+    }
+
+    .snacks-title{
+        font-size: 1.2em !important;
+        margin: 25% 0% 0% 0% !important;
+    }
+    .white-nav{
+        background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+        display: block;
+    }
+    #fb_logo{
+        width: 100% !important;
+    }
+    .welcome-message{
+        display: none;
+    }
+    #signup_password{
+        display: none !important;
+    }
+    .fb-line {
+        margin: -8.3% 15.5% 0 0;
+        width: 75%;
+    }
+    .login-para {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sub-login > input {
+        margin: 2% 0 0 !important;
+    }
+    .fb-top-close{
+        left: -4%;
+    }
+    .home-header-link{
+        display: block;
+    }
+    #vegan_header{
+        background-color: rgba(255,255,255,0.9);
+    }
+    .mobile-view-screen{
+    }
+
+    .mobile-errors{
+        display: block !important;
+    }
+    .mobile-fg-password{
+        color: #FF0000 !important;
+        display: block !important;
+        font-size: 1em;
+    }
+    .submission-mobile{
+        display: block;
+        text-align: center;
+    }
+    .submission{
+        display: none;
+    }
+}
+
+
+
+/*for iphone landscape */
+@media screen and (min-width: 480px) and (max-width: 600px) and (orientation : landscape){
+    div.complete-top-section {
+        max-width: 400px !important;
+    }
+
+    .footer-icons{
+        margin-top: 9% !important;
+    }
+    .footer-image {
+        width: 35% !important;
+        height: 15% !important;
+    }
+
+    .signin{
+        margin-bottom: 2%;
+    }
+
+    .bottom-text h6 {
+        font-size: 0.75em;
+    }
+
+    div.footer-icons div.col-xs-3 {
+        margin-top: 2%;
+    }
+
+    #proper-nav > li.header-dropdown > ul > li > a{
+        font-size: 2em !important;
+    }
+    .works-title {
+        margin: 1% 0% 0% 28%;
+        width: 40%;
+    }
+
+    .vegan_logo {
+        margin: -3% 0% 0% 0%;
+        width: 42%;
+    }
+
+    .get-started-icon{
+        width: 50%;
+        margin-left: -3%;
+    }
+
+    .works-section{
+        margin: 0% 0% 0% 0%;
+        max-width: 100%;
+    }
+
+    .works-image-section {
+        margin: 2% 13% 0% 17% !important;
+        width: 12%;
+        min-height: 20px !important;
+    }
+
+    .works-text {
+        font-size: 0.6em;
+        line-height: 1.3em;
+        width: 115px;
+        margin-left: -25%;
+    }
+
+    .hide-iphone{
+        display: none;
+    }
+
+    .move-image{
+        position: absolute !important;
+        height: 60px;
+        width: 70px;
+        margin-left: 90%;
+        margin-top: -9% !important;
+    }
+
+    .iphone-true{
+        display: block;
+        height:40px;
+        width:40px;
+        position: absolute;
+        left:42%;
+        top: 42%;
+    }
+
+    .how-works-get-started{
+        display: none;
+    }
+
+    .landscape-mob-up{
+        margin-top: -4% !important;
+
+    }
+
+    #i-image-2{
+        display: none;
+    }
+
+    .order-title {
+        font-size: 1.6em;
+        margin-top: 5%;
+    }
+
+    .summary-title {
+        display: none;
+    }
+    .bill-title{
+        color: #212226;
+        font-family: 'bold-font';
+        font-size: 0.9em;
+        text-align: center;
+        margin-top: 0%;
+    }
+
+    .sum-div-explain{
+        display: none;
+    }
+    .summary-line p{
+        display: none;
+    }
+
+    .v-signup-div span input {
+        font-size: 1.2em;
+        padding: 3px 0 4px 18px !important;
+    }
+
+
+    .submission img{
+        display: block;
+        cursor: pointer;
+    }
+
+    .order-summary-column {
+        margin-top: -4%;
+        position: absolute;
+        width: 82%;
+    }
+
+    div.summary-line {
+        padding: 1% 0 0;
+    }
+
+    .order-summary-div {
+        margin: 7% 0 0 13%;
+        min-height: 125px !important;
+        width: 95% !important;
+    }
+    .submission {
+        margin-top: 75%;
+        position: absolute;
+    }
+
+    .billing-section form{
+        padding-bottom: 10%;
+    }
+
+    div.billing-section {
+        margin-left: 5%;
+        margin-top: 23% !important;
+        width: 87% !important;
+    }
+
+    .v-signup-div {
+        margin: 1.2% 0 0;
+        padding: 0 !important;
+        width: 109%;
+    }
+
+    .v-signup-div span input {
+        font-size: 0.6em;
+        padding: 0px 0px 0px 5px !important;
+    }
+    .offer-name {
+        font-size: 0.9em;
+        text-align: center;
+    }
+
+    .footer-offset{
+        margin-left: 10%;
+    }
+    #user_sign_up{
+        width: 55%;
+    }
+    .coupon-title{
+        display: inline;
+        font-size: 1em;
+    }
+    .coupon-field{
+        width: 100%;
+    }
+    .place-up{
+        display: none;
+    }
+
+    .footer-image {
+        height: 40px !important;
+        max-height: 40px !important;
+        width: 50%;
+    }
+    .footer-icons {
+        margin-top: 5% !important;
+    }
+
+    .bottom-text h6 {
+        font-size: 0.6em !important;
+    }
+    .bottom-text li{
+        font-size: 0.6em;
+    }
+    .copyright{
+        font-size: 0.7em;
+    }
+    label.error{
+        display: none !important;
+    }
+
+    .snacks-title{
+        font-size: 1.2em !important;
+        margin: 25% 0% 0% 0% !important;
+    }
+    .white-nav{
+        background: none repeat scroll 0 0 rgba(255, 255, 255, 0.2);
+        display: block;
+    }
+    #fb_logo{
+        width: 100% !important;
+    }
+    .welcome-message{
+        display: none !important;
+    }
+    #signup_password{
+        display: none !important;
+    }
+    .fb-line {
+        margin: -2% 15.5% 0 0;
+        width: 75%;
+    }
+    .login-para {
+        width: 100%;
+        text-align: center;
+    }
+
+    .sub-login > input {
+        margin: 2% 0 0 !important;
+    }
+    .fb-top-close{
+        left: -14%;
+    }
+    .home-header-link{
+        display: block;
+    }
+    #vegan_header{
+        background-color: rgba(255,255,255,0.9);
+    }
+    .mobile-view-screen{
+    }
+
+    .mobile-errors{
+        display: block !important;
+    }
+    .mobile-fg-password{
+        color: #FF0000 !important;
+        display: block !important;
+        font-size: 1em;
+    }
+
+    .submission-mobile{
+        display: block;
+        text-align: center;
+    }
+    .submission{
+        display: none;
+    }
+
+}

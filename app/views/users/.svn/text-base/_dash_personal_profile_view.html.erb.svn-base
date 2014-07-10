@@ -1,0 +1,40 @@
+<div class = "change-font-size">
+
+  <span><%= image_tag('/assets/vegan-account/vegan-account_11.png', :class => 'img-thumbnail') %></span>
+
+  <span class="my-acc">My Account </span>
+
+  <span class="edit-acc">
+    <% if is_ordinary_user?(@user.facebook_token) %>
+        <div data-toggle="modal" data-target="#password_modal" id="change_password">  > Change Password</div>
+    <% end %>
+
+    <div class="edit-information" id="edit_account" data-toggle="modal" data-target="#myModal"> > Edit </div>
+    <div class="edit-information">
+    <%#= link_to 'Pause Account', main_app.pause_users_path, method: :post %>
+    <%#= link_to 'Resume Account', main_app.resume_users_path, method: :post %>
+     </div>
+
+  </span>
+
+</div>
+
+
+<div class="personal-info">
+
+    <div class="account-context" id="acc_data">
+
+      <div class = "change-font-size">
+        <b> Name:</b>
+        <span> <%= @user.first_name %> </span>
+        <span> <%= @user.last_name %> </span>
+      </div>
+
+      <div class = "change-font-size">
+        <b> Email Address: </b>
+        <span> <%= @user.email %> </span>
+      </div>
+
+    </div>
+
+</div>

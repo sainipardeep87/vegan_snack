@@ -1,0 +1,55 @@
+<body class="fb-body">
+
+<%= render 'overrides/Home/header' %>
+
+<div class="fb-title">complete signup</div>
+
+<%=  @user.errors.messages %>
+<div class="fb-signup-form">
+
+  <%= form_for @user, url: main_app.signup_facebook_user_social_authentications_path(@users) do |f| %>
+
+      <%= f.fields_for :addresses  do |builder| %>
+          <div class="v-signup-div">
+            <span><%= builder.text_field :firstname, value: session[:firstname], :placeholder => "First Name *"  %> </span>
+            <span><%= builder.text_field :lastname, value: session[:lastname], :placeholder => "Last Name *" %> </span>
+          </div>
+
+
+          <div class="v-signup-div">
+            <span><%= f.text_field :email, placeholder: "Email *", readonly: true %> </span>
+            <span><%= builder.text_field :phone, placeholder: "Phone *"  %> </span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+                <span> <%= builder.text_field :company, placeholder: 'Company'  %></span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span> <%= builder.text_field :address1, placeholder: 'Address Line 1 *' %></span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span> <%= builder.text_field :address2, placeholder: 'Address Line 2(Apartment #, Suite #, etc.)' %></span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span>  <%= builder.text_field :city, placeholder: 'City *'%> </span>
+          </div>
+
+          <div class="v-signup-div">
+            <span> <%= builder.text_field :state_name, :placeholder => "State *" %> </span>
+            <span> <%= builder.text_field :zipcode, :placeholder => "Zip *" %> </span>
+          </div>
+
+          <div class="v-signup-div">
+            <span><%= f.password_field :password, :placeholder => "Create Password *" %> </span>
+            <span><%= f.password_field :password_confirmation, :placeholder => "Confirm Password *" %> </span>
+          </div>
+    <% end %>
+      <%= f.submit 'signup' %>
+  <% end %>
+
+</div>
+
+</body>

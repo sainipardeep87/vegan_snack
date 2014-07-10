@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/bbks/svn/!svn/ver/50128/VeganSnack/app/views/carts
+END
+_footer_delivered.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/bbks/svn/!svn/ver/47779/VeganSnack/app/views/carts/_footer_delivered.html.erb
+END
+remove_item.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bbks/svn/!svn/ver/48508/VeganSnack/app/views/carts/remove_item.js.erb
+END
+add_snack_to_queue.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/48634/VeganSnack/app/views/carts/add_snack_to_queue.js.erb
+END
+_cart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/bbks/svn/!svn/ver/49811/VeganSnack/app/views/carts/_cart.html.erb
+END
+_update_cart_items.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/bbks/svn/!svn/ver/46401/VeganSnack/app/views/carts/_update_cart_items.html.erb
+END
+update_cart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/bbks/svn/!svn/ver/45550/VeganSnack/app/views/carts/update_cart.html.erb
+END
+_footer_delivery_after_week.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/bbks/svn/!svn/ver/46499/VeganSnack/app/views/carts/_footer_delivery_after_week.html.erb
+END
+_cancel_cart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/bbks/svn/!svn/ver/49587/VeganSnack/app/views/carts/_cancel_cart.html.erb
+END
+_snacks_modal.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/bbks/svn/!svn/ver/48371/VeganSnack/app/views/carts/_snacks_modal.html.erb
+END
+my_cart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/bbks/svn/!svn/ver/43301/VeganSnack/app/views/carts/my_cart.html.erb
+END
+place_subscription.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/bbks/svn/!svn/ver/44621/VeganSnack/app/views/carts/place_subscription.js.erb
+END
+add.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/bbks/svn/!svn/ver/50111/VeganSnack/app/views/carts/add.js.erb
+END
+new_cart.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bbks/svn/!svn/ver/50128/VeganSnack/app/views/carts/new_cart.html.erb
+END
+_new_cart_items.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/bbks/svn/!svn/ver/46404/VeganSnack/app/views/carts/_new_cart_items.html.erb
+END
+change_subscription_type.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/bbks/svn/!svn/ver/44935/VeganSnack/app/views/carts/change_subscription_type.js.erb
+END
+_footer_delivered_or_week_left.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/bbks/svn/!svn/ver/47775/VeganSnack/app/views/carts/_footer_delivered_or_week_left.html.erb
+END
+new_subscription.js.erb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/bbks/svn/!svn/ver/44621/VeganSnack/app/views/carts/new_subscription.js.erb
+END

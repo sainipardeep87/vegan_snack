@@ -1,0 +1,5 @@
+//$( ".welcome-message").toggle();
+$( ".welcome-message label:last-child").remove();
+//$( ".welcome-message label:first-child").remove();
+$( ".welcome-message").html("<label class='error' style='display: block!important;'>Invalid credentials submitted.</label>" );
+$( ".welcome-message").toggle();

@@ -1,0 +1,16 @@
+<% if @changed %>
+
+$(".next-order-sub").html("<%= escape_javascript(render 'carts/cart', locals: {current_cart_items: @current_cart_items, order_id: @order.id}) %>");
+$('body').height($(document).height());
+
+$(".subscription-row").on("click", ".blank-tile", function(){
+    pop_modal();
+});
+
+<%if @upgrade %>
+alert("Subscription Upgraded Successfully!");
+<% else %>
+alert("Subscription Downgraded Successfull!");
+<% end %>
+
+<% end %>

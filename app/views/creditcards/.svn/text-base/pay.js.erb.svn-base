@@ -1,0 +1,18 @@
+
+<% if @braintree_cc_return.present? %>
+
+    var subscription_id = $("#resume_subscription").val();
+    var card_id = <%= @card.id %> ;
+
+    $("#pay_charge").text("Your payment was successful, please wait...");
+
+    //this function will perform an ajax call to resume action defined inside my_subscriptions controller
+    resume_subscription(card_id, subscription_id);
+
+<% else %>
+
+    $("#pay_charge").text("Invalid card details submitted.");
+    $("#pay_charge").removeClass().addClass("unathorized-error");
+    App.unBlockUI($("#cc_show_modal_content"));
+
+<% end %>

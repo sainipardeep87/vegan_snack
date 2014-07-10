@@ -1,0 +1,80 @@
+<body class="fb-body">
+
+<%= render 'overrides/Home/header' %>
+
+<div class="fb-title">complete signup</div>
+
+<div class="fb-signup-form">
+  <%= form_for @user, as: :spree_user, url: main_app.fb_auth_path(@user), method: :post do |f| %>
+    
+    <%= f.fields_for :addresses  do |builder| %>
+          <div class="v-signup-div">
+            <span>
+              <%= builder.text_field :firstname, placeholder: "First Name *" %>
+              <label class="error"> <%= @user.errors.messages[:"addresses.firstname"][0] unless @user.errors.messages[:"addresses.firstname"].blank? %> </label>
+            </span>
+            <span><%= builder.text_field :lastname, placeholder: "Last Name *" %>
+              <label class="error"> <%= @user.errors.messages[:"addresses.lastname"][0] unless @user.errors.messages[:"addresses.lastname"].blank? %> </label>
+            </span>
+          </div>
+
+
+          <div class="v-signup-div">
+            <span><%= f.text_field :email, placeholder: "Email *", readonly: true %>
+            </span>
+            <span><%= builder.text_field :phone, :placeholder => "Phone(XXX-XXX-XXXX) *" %>
+              <label class="error"> <%= @user.errors.messages[:"addresses.phone"][0] unless @user.errors.messages[:"addresses.phone"].blank? %> </label>
+            </span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span> <%= builder.text_field :company, placeholder: 'Company' %>
+              <label class="error"> <%= @user.errors.messages[:"addresses.company"][0] unless @user.errors.messages[:"addresses.company"].blank? %> </label>
+            </span>
+
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span> <%= builder.text_field :address1, placeholder: 'Address Line 1 *' %>
+              <label class="error"> <%= @user.errors.messages[:"addresses.address1"][0] unless @user.errors.messages[:"addresses.address1"].blank? %> </label>
+            </span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span> <%= builder.text_field :address2, placeholder: 'Address Line 2(Apartment #, Suite #, etc.)' %></span>
+          </div>
+
+          <div class="v-signup-div v-wide-div">
+            <span>  <%= builder.text_field :city, placeholder: 'City *'%>
+              <label class="error"> <%= @user.errors.messages[:"addresses.city"][0] unless @user.errors.messages[:"addresses.city"].blank? %> </label>
+            </span>
+          </div>
+
+          <div class="v-signup-div">
+            <span> <%= builder.text_field :state_name, :placeholder => "State *" %>
+              <label class="error"> <%= @user.errors.messages[:"addresses.state_name"][0] unless @user.errors.messages[:"addresses.state_name"].blank? %> </label>
+            </span>
+            <span> <%= builder.text_field :zipcode, :placeholder => "Zip *" %>
+              <label class="error"> <%= @user.errors.messages[:"addresses.zipcode"][0] unless @user.errors.messages[:"addresses.zipcode"].blank? %> </label>
+            </span>
+          </div>
+  <!--
+          <div class="v-signup-div">
+            <span><%#= f.password_field :password, :placeholder => "Create Password *" %>
+              <label class="error"> <%#= @user.errors.messages[:password][0] unless @user.errors.messages[:password].blank? %></label>
+            </span>
+
+            <span><%#= f.password_field :password_confirmation, :placeholder => "Confirm Password *" %>
+              <label class="error"> <%#= @user.errors.messages[:password_confirmation][0] unless @user.errors.messages[:password_confirmation].blank? %></label>
+            </span>
+
+          </div>
+ -->
+
+          <%= f.hidden_field  :facebook_token,  {value: @user.facebook_token} %>
+      <%= f.submit 'signup' %>
+  <% end %>
+  <% end %>
+</div>
+
+</body>

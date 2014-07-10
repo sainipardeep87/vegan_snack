@@ -1,0 +1,7 @@
+<% if @orders.blank? %>
+alert("Sorry, no orders found in that range");
+
+<% else %>
+    $("#orders_list").html("<%= escape_javascript(render 'order_list') %>");
+<% end %>
+

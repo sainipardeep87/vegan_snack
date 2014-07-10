@@ -1,0 +1,53 @@
+<%= form_for [:admin, @coupon], html: { multipart:  true} do |f| %>
+
+  <fieldset id="coupon_fieldset">
+
+    <legend align="center">
+      <% if f.object.new_record? %>
+        <%= Spree.t(:new_coupon) %>
+      <% else %>
+        <%= Spree.t(:edit_coupon) %>
+      <% end %>
+    </legend>
+
+    <%= f.field_container :coupon_code do %>
+      <%= f.label :coupon_code, Spree.t(:coupon_code) %> <span class="required">*</span><br />
+      <%= f.text_field :coupon_code, :class => 'title', :id => 'coupon_code' %>
+      <!-- readonly: true -->
+      <%= f.error_message_on :coupon_code %>
+      <%#= link_to 'Generate Coupon',  spree.generate_coupon_admin_coupons_path, id: 'generate_code_btn', method: :post, remote: true %>
+      <!-- # '/spree/admin/coupons/generate_code' -->
+      
+    <% end %>
+
+    <%= f.field_container :discount_name  do %>
+      <%= f.label :discount_name , Spree.t(:discount_name ) %> <span class="required">*</span><br />
+      <%= f.text_field :discount_name , :class => 'fullwidth title' %>
+      <%= f.error_message_on :discount_name  %>
+    <% end %>
+
+    <%= f.field_container :braintree_discount_id  do %>
+      <%= f.label :braintree_discount_id , Spree.t(:braintree_discount_token ) %>
+      <span class="required"> * </span><br />
+      <%#= f.text_field :braintree_discount_id , :class => 'fullwidth title' %>
+      <%= f.select :braintree_discount_id, @discounts, {prompt: "Select Discount"}, 
+      {class: 'selectpicker', id: 'bt_discount'} %>
+
+      <%= f.error_message_on :braintree_discount_id  %>
+    <% end %>
+
+    <%= f.field_container :discount_rate do %>
+      <%= f.label :discount_rate, Spree.t(:discount_rate) %><span class="required"> * </span><br />
+      <%= f.text_field :discount_rate, :class => 'fullwidth title' %>
+      <%= f.error_message_on :discount_rate %>
+    <% end %>
+
+    <div class="form-buttons filter-actions actions">
+      <button class="icon-ok button" type="submit" name='button'>
+        <%= f.object.new_record? ? "Create" : "Update" %>
+      </button>
+      <span class="or">or</span>
+      <a class="button icon_link with-tip icon-remove" href="/spree/admin/coupons">Cancel</a>
+    </div>
+  </fieldset>
+<% end %>

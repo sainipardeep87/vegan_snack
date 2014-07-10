@@ -1,0 +1,14 @@
+<div class="alpha thirteen columns">
+  <div class="field">
+    <%= f.label :name_cont, Spree.t(:name) %>
+    <%= f.text_field :name_cont, :size => 15 %>
+  </div>
+</div>
+<div class="three columns omega">
+  <div class="field checkbox">
+    <label>
+      <%= f.check_box :deleted_at_null, {:checked => params[:q][:deleted_at_null].blank?}, '', '1' %>
+      <%= Spree.t(:show_deleted) %>
+    </label>
+  </div>
+</div>

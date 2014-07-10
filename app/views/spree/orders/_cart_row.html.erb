@@ -1,0 +1,73 @@
+
+<% dyna_class = 'first-delivery' if color_box == 0 %>
+<% dyna_class = 'second-delivery' if color_box == 1 %>
+<% dyna_class = 'third-delivery' if  color_box == 2 %>
+
+
+<div class="<%= dyna_class %> subscription-row">
+
+  <div class="queue-tile">
+    <div class="month-tile"> 
+    <% unless dyna_class == 'first-delivery' %>
+      YOUR NEXT ORDER WILL SHIP BY<br/><%= cart.delivery_date.strftime("%B %d, %Y")%>
+    <% else %>
+      YOUR CURRENT ORDER WILL SHIP BY<br/><%= cart.delivery_date.strftime("%B %d, %Y") %>
+
+      <% if @upcoming == 0 && delivery_after_a_week?(cart.delivery_date) %>
+                <div id = "set_time">
+                  <% cart_date = cart.delivery_date - ORDER_UPDATE_LIMIT.days %>
+                </div>
+                <div id = "cart_time">
+                  <%= cart_date.to_date.strftime("%Y/%m/%d") %>
+                </div>
+                
+                  <div id="time_left">
+                    <% upcoming = 1 %>
+                  </div>
+                  
+              <% end %>
+    <% end %> 
+    </div>
+  </div>
+
+  <div class="snack-update-list">
+
+    <% i = 0 %>
+
+    <% total_space.times do %>
+
+        <% if current_cart_items[i].present? %>
+
+            <% cart_item = current_cart_items[i] %>
+            <% variant = cart_item.variant %>
+
+            <div class="queue-tile cart-row-snack">
+              <div class="queue-image-title">
+                <div class="set-image">
+                  <%= image_tag(variant.images.first.attachment.url(:large), :class => 'img-thumbnail') %>
+                  <%#= link_to image_tag(variant.images.first.attachment.url(:large), :class =>  'img-thumbnail'),main_app.remove_item_carts_path(:cart_item_id => cart_item.id, :cart_id => cart.id), :method => :post, :remote => true %>
+                </div>
+                <div> <%= cart_item.get_cart_item_name %> </div>
+              </div>
+
+              <%= render :partial => "carts/footer_delivered_or_week_left", locals: {color_box: color_box, cart: cart, cart_item: cart_item} if delivery_a_week_left?(cart.delivery_date)  %>
+              <%#= render :partial => "carts/footer_delivered", locals: {color_box: color_box, cart: cart, cart_item: cart_item} if already_delivered?(cart.delivery_date) %>
+              <%= render :partial => "carts/footer_delivery_after_week", locals: { color_box: color_box, cart: cart, cart_item: cart_item} if delivery_after_a_week?(cart.delivery_date) %>
+
+
+            </div> <!-- End of the complete queue-tile -->
+
+        <% else %>
+
+            <!--<div class="queue-tile blank-tile" id="new_item_<%= i %>" onclick="open_add_snack_modal('#snacks_modal_<%= cart.id %>');"> Add a Snack</div>-->
+            <div class="queue-tile blank-tile" id="new_item_<%= i %>" onclick="open_snack_modal_in_queue('#queue_snack_modal');"> Add a Snack</div>
+        <% end %>   <!-- end of the if else condition -->
+        <% i= i+1 %>
+
+    <% end %>
+  </div>
+
+
+</div>
+
+

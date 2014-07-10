@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags/new.html.erb
+END
+show.json.jbuilder
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags/show.json.jbuilder
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags/show.html.erb
+END
+_form.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags/_form.html.erb
+END
+index.json.jbuilder
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags/index.json.jbuilder
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/bbks/svn/!svn/ver/39531/VeganSnack/app/views/tags/index.html.erb
+END

@@ -1,0 +1,60 @@
+Vegan::Application.configure do
+	# Settings specified here will take precedence over those in config/application.rb.
+
+	# In the development environment your application's code is reloaded on
+	# every request. This slows down response time but is perfect for development
+	# since you don't have to restart the web server when you make code changes.
+	config.cache_classes = false
+
+	# Do not eager load code on boot.
+	config.eager_load = false
+
+	# Show full error reports and disable caching.
+	config.consider_all_requests_local       = true
+	config.action_controller.perform_caching = false
+
+	config.action_mailer.delivery_method = :smtp
+  config.mandrill_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  #config.action_mailer.default_url_options = { :host => "localhost:3000" }
+	#config.action_mailer.smtp_settings = {
+	# :address              => "smtp.gmail.com",
+	# :port                 => 587,
+	# :domain               => 'localhost:3000',
+	# :user_name            => 'tapanpmindfire@gmail.com',
+	# :password             => 'mindfire',
+	# :authentication       => 'plain',
+	# :enable_starttls_auto => true
+	#}
+=begin
+	config.action_mailer.smtp_settings = {
+		:address              => "smtp.mandrillapp.com",
+		:port                 => 587,
+		:domain               => 'localhost:3000',
+		:user_name            => 'tripathy.asish@gmail.com',
+		:password             => 'czUP62cKVILoZHOd0Z4__g',
+		:authentication       => 'plain',
+		:enable_starttls_auto => true
+	}
+=end
+
+	# Don't care if the mailer can't send.
+	config.action_mailer.raise_delivery_errors = true
+
+	# Print deprecation notices to the Rails logger.
+	config.active_support.deprecation = :log
+
+	# Raise an error on page load if there are pending migrations
+	config.active_record.migration_error = :page_load
+
+	# Debug mode disables concatenation and preprocessing of assets.
+	# This option may cause significant delays in view rendering with a large
+	# number of complex assets.
+	config.assets.debug = true
+
+	config.server_static_assets = true
+	config.image_url  = 'https://www.vegansnackpacks.com/'
+	config.remaining_delivery_days = 7
+	config.forgot_password_url = "http://localhost:3000/spree/user/spree_user/password/edit?reset_password_token="
+	config.share_url = 'www.vegansnackpacks.com/'
+end

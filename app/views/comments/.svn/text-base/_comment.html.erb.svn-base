@@ -1,0 +1,20 @@
+<div class="user-comment">
+
+	<% comment = @post.comments %>
+	
+	<% comment.each do |comment| %>
+ 	
+ 		<div class="complete-comment">
+		
+			<p class="commenter">
+				<strong>  <%= link_to comment.commenter, '#' %> </strong>
+
+			</p>
+ 			
+ 			<p class="comment">
+  				<%= comment.comment_body %>
+			</p>
+		</div>
+	<% end %>
+
+</div>

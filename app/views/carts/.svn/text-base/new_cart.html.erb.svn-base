@@ -1,0 +1,188 @@
+
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function(){
+            $('html').height($(document).height());
+        });
+/*
+        window.onbeforeunload = confirmExit;
+        function confirmExit(){
+            return " Your subscription will be discarded! "
+        }
+*/
+
+    </script>
+
+    <div class = "full-page">
+
+      <div class="snack-queue-page">
+        <div id="queue_title"> New subscription </div>
+
+        <div id="cur_plan">Your Current plan is <%= @active_plan %></div>
+
+        <div id="new_sub_incomplete_cart"><div> Your Cart is incomplete </div> </div>
+
+        <div class="first-delivery subscription-row">
+
+          <div class="queue-tile">
+            <div class="month-tile"> next order Ships by <%= @cart.delivery_date.strftime("%B %d, %Y") %> </div>
+          </div>
+
+          <div class="snack-update-list" id= "new_subscription_list">
+            <%= render 'carts/new_cart_items', :locals =>  {:total_space => @total_space, :current_cart_items =>  @current_cart_items} %>
+          </div>
+
+
+          <div id="snack_in_my_sub_list">
+            <%= render 'carts/snacks_modal', :locals => {:snacks => @snacks} %>
+          </div>
+
+        </div>
+
+        <div class="payment-confirm">
+          <%=link_to 'Proceed', confirm_payment_creditcards_path, :method => "post", :remote => true  %>
+        </div>
+      </div>
+    </div>
+
+
+    <div class = "address-section">
+
+      <div class="heading-info">Complete Address</div>
+
+      <div class = "dash-body change-body" id ="complete_add_body">
+
+        <div>
+          <%= select(:address,
+                     :selection,[['select existing Shipping Address'],['Add a new Shipping Address']],
+                     {:include_blank => false }) %>
+        </div>
+
+        <div id="ship_area"></div>
+
+      </div>
+
+    </div>
+
+
+    <div class = "payment-check">
+      <div id="new_card">
+
+        <%= form_for @card, :url => main_app.add_card_complete_payment_creditcards_path,
+                   :html => {:id => "subscription_payment", autocomplete: 'off'}, :remote => true do |f| %>
+
+          <div id="payment_card_error"> </div>
+
+          <div class='form-group'>
+            <%= f.label "Cardholder's Name" %>
+            <%= f.text_field :cardholder_name  %>
+            <div id = "name-error"></div>
+          </div>
+
+          <div class='form-group'>
+            <div class="short-div">
+              <%= f.label "Credit Card No." %>
+              <%= f.text_field :card_no,   :class => 'form-control' %>
+              <div id = "number-error"></div>
+            </div>
+
+            <div class="short-div">
+              <%= f.label "Security Code (CVV)" %>
+              <%= f.password_field :cvv,  :class => 'form-control' %>
+              <div id = "cvv-error"></div>
+            </div>
+          </div>
+
+          <div class="form-group" id="expiration_div">
+            <div class="short-div">
+              <%= f.label "Expiration Date" %>
+              <%= f.select :month, 1..12,  {:prompt => 'Month'} %>
+              <div id = "date-error"></div>
+            </div>
+
+            <div class="short-div">
+              <%= f.select :year, Date.today.year..Date.today.year+ 15, {:prompt => 'Year'}  %>
+              <div id = "year-error"></div>
+            </div>
+          </div>
+
+          <%= hidden_field_tag :cart, @cart.id %>
+          <%= hidden_field_tag :shipping_id, nil %>
+          <%= hidden_field_tag :billing_address_id, nil %>
+          <%= f.submit 'COMPLETE PAYMENT',  :id => "add_cc_card" %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <div id="existing_address">
+
+      <form id='existing_address_id' >
+        <% i = 0 %>
+
+        <% @address_ids.each do |k,v| %>
+            <div>
+              <%= radio_button('address','id',k, :checked => check_value(i))  %>
+              <%= label_tag v %>
+            </div>
+            <% i = i + 1 %>
+        <% end %>
+        <div id="prcd_button"><%= submit_tag 'Proceed',  :id => 'existing_address_btn' %> </div>
+      </form>
+    </div>
+
+
+    <div id="new_address">
+      <div class = "set-alignment">
+        <div class= "shipping-address-heading">Shipping Address</div>
+        <form id='new_address_id'>
+
+            <div class="form-group small-group set-size-firstname">
+              <label> first name</label>
+              <%= text_field_tag :firstname, nil,  :class => 'form-control' %>
+              <label for="firstname" class="error"/>
+            </div>
+
+            <div class="form-group small-group pull-right">
+              <label>last name</label>
+              <%= text_field_tag :lastname, nil, :class => 'form-control' %>
+              <label for="lastname" class="error"/>
+            </div>
+
+            <div class="form-group">
+              <label> address 1</label>
+              <%= text_field_tag :address1, nil, :class => 'form-control' %>
+              <label for="address1" class="error" />
+            </div>
+
+            <div class="form-group">
+              <label> address 2 </label>
+              <%= text_field_tag :address2, nil, :class => 'form-control' %>
+              <label for="address2" class="error" />
+            </div>
+
+            <div class="form-group">
+              <label> city </label>
+              <%= text_field_tag :city, nil, :class => 'form-control' %>
+              <label for="city" class="error" />
+            </div>
+
+            <div class="form-group small-group set-size-state">
+              <label> state  </label>
+              <%= text_field_tag :state_name, nil, :class => 'form-control' %>
+              <label for="state_name" class="error" />
+            </div>
+
+            <div class="form-group small-group set-size-code">
+              <label> Zipcode </label>
+              <%= text_field_tag :zipcode, nil, :class => 'form-control' %>
+              <label for="zipcode" class="error" />
+            </div>
+
+
+            <div class="form-group move-center">
+              <%= hidden_field_tag :user_id, @user.id %>
+              <%= submit_tag 'Add Shipping Address & Proceed', id: 'new_add_btn'  %>
+            </div>
+        </form>
+      </div>
+    </div>
