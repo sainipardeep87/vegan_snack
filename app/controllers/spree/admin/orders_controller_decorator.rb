@@ -104,28 +104,6 @@ Spree::Admin::OrdersController.class_eval do
 
   def filter_on_order_date?
     @date_type == "order date"
-
-    start_date = Date.parse(params[:start_range])
-    end_date = Date.parse(params[:end_range])
-
-    if start_date.present? && end_date.present?
-      @orders = Spree::Order.where('delivery_date >  ? && delivery_date < ?',start_date , end_date).page(params[:page]).
-        per(params[:per_page] || Spree::Config[:orders_per_page])
-        @search = Spree::Order.accessible_by(current_ability, :index).ransack(params[:q])
-
-      #render 'index'
-    end
-
-  end
-
-  def export
-    @orders = Spree::Order.order(:created_at)
-    export_name ='Vegan_order_summary.xls'
-     respond_to do |format|
-      #format.xls { filename: 'VeganSnacks_Order_summary.xls'}
-      format.xls {headers["Content-Disposition"] = "attachment; filename=\"#{export_name}\""}
-      end
-
   end
 
 end
