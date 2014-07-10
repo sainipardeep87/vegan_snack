@@ -17,59 +17,34 @@
 var ready;
 ready = function() {
   $("body").on("change", ".each_image",function() {
-
       var val = $(this).val();
 
       switch(val.substring(val.lastIndexOf('.') + 1).toLowerCase()){
-          case 'gif': case 'jpg': case 'png': case 'x-png': case 'jpeg': case 'pjpeg':
-              break;
-          default:
-              $(this).val('');
-              // error message here
-              alert("Please upload only jpeg, jpg or png images.");
-              break;
+        case 'gif': case 'jpg': case 'png': case 'x-png': case 'jpeg': case 'pjpeg':
+        break;
+        default:
+          $(this).val('');
+          // error message here
+          alert("Please upload only jpeg, jpg or png images.");
+        break;
       }
+
   });
 
 /*  $('#order_selection').selectpicker({ 'selectedText': '',style:'btn-lg' }); */
 
-
   $("#coupon_fieldset").on("blur", "input[type='text']", function(){
-        $(this).val($(this).val().split(" ").join(""));
+      $(this).val($(this).val().split(" ").join(""));
     });
 
   load_calendar();
-
-    reset_form_for_export();
-    reset_form_for_filteration();
-
-
-    var App = function(){
-  return {
-    blockUI: function(el){
-      el.block({
-        message: '',
-        css: {backgroundColor: 'none'},
-        overlayCSS: {
-          backgroundColor:'#FFFFFF',
-          backgroundImage: "url('/assets/loader.gif')",
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-          opacity: 0.67
-        }
-      });
-    },
-    unBlockUI: function(el){
-      el.unblock();
-    }
-  }
-}();
+  reset_form_for_export();
+  reset_form_for_filteration();
 
 };
 
 $(document).ready(ready);
 $(document).on('page:load', ready);
-
 /*
   function load_calendar(){
     console.log("calendar got loaded");
@@ -77,9 +52,10 @@ $(document).on('page:load', ready);
       changeMonth: true,
           changeYear: true
     });
-
   }
 */
+
+/* Description: Following function will load the datepicker when admin clicks on the date picker fields in admin panel */
 
   function load_calendar(){
 
@@ -87,36 +63,52 @@ $(document).on('page:load', ready);
       defaultDate: "+1w",
       changeMonth: true,
       numberOfMonths: 1,
-      dateFormat: "yy-mm-dd",
+      dateFormat: "mm-dd-yy",
       onClose: function( selectedDate ) {
         $("#date_end").datepicker( "option", "minDate", selectedDate );
       }
     });
+
     $("#date_end").datepicker({
       defaultDate: "+1w",
       changeMonth: true,
       numberOfMonths: 1,
-      dateFormat: "yy-mm-dd",
+      dateFormat: "mm-dd-yy",
       onClose: function( selectedDate ) {
         $("#date_start").datepicker( "option", "maxDate", selectedDate );
       }
     });
+
   }
 
-    function reset_form_for_export (){
-        $("#form_filter").on("click", "#export_submit", function(){
-            $("#form_filter").attr("action", "/spree/admin/orders/export.xls");
-            $("#form_filter").attr("method", "post");
-            $("#form_filter").removeAttr("data-remote");
-        });
+/* Description: Function will alter the default action, method attributes of the form to generate the excel sheet. */
+    function reset_form_for_export(){
+
+      $("#form_filter").on("click", "#export_submit", function(){
+          $("#form_filter").attr("action", "/spree/admin/orders/export.xls");
+          $("#form_filter").attr("method", "post");
+          $("#form_filter").removeAttr("data-remote");
+      });
+
     }
 
+/* Description: Function will alter the default action, method attributes of the form to execute the range action. */
     function reset_form_for_filteration(){
-        $("#filter_export").on("click", "#filter_submit", function(){
-            console.log("filter chosen");
-            $("#form_filter").attr("action", "/spree/admin/orders/range");
-            $("#form_filter").attr("method", "get");
-            $("#form_filter").attr("data-remote", "true");
 
-        });
+      $("#filter_export").on("click", "#filter_submit", function(){
+        $("#filter_result").removeClass().addClass("range-notify");
+        $("#filter_result").text("Please Wait...");
+        $("#form_filter").attr("action", "/spree/admin/orders/range");
+        $("#form_filter").attr("method", "get");
+        $("#form_filter").attr("data-remote", "true");
+      });
+
+    }
+
+/* Description: Following function will reset the start & end date in the date picker field once the partial is refreshed
+    by the range.js.erb file
+*/
+     function set_date_ranges(start_date, end_date) {
+      $("#date_start").val(start_date);
+      $("#date_end").val(end_date);
     }
