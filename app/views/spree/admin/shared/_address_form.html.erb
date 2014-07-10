@@ -33,10 +33,12 @@
     <%= f.text_field :city, :class => 'fullwidth' %>
   </div>
 
-  <div class="field <%= "#{type}-row" %>">
-    <%= f.label :zipcode, Spree.t(:zip) %>
-    <%= f.text_field :zipcode, :class => 'fullwidth' %>
+  <!--
+  <div class="field <%#= "#{type}-row" %>">
+    <%#= f.label :zipcode, Spree.t(:zip) %>
+    <%#= f.text_field :zipcode, :class => 'fullwidth' %>
   </div>
+  -->
 <!-- we are not using any specific country section hence disabling this part -->
 <!--
   <div class="field <%#= "#{type}-row" %>">
@@ -47,9 +49,17 @@
   </div>
 -->
   <div class="field <%= "#{type}-row" %>">
-    <%= f.label :state_id, Spree.t(:state_name) %>
-    <div id="<%= s_or_b %>state">
+    <%= f.label :state_id, Spree.t(:state) %>
+    <div id="<%= s_or_b %>state" class='single-line'>
       <%= f.text_field :state_name, value: state_name, class: 'fullwidth' %>
+
+
+<div class="field <%= "#{type}-row" %> single-line">
+    <%= f.label :zipcode, Spree.t(:zip) %>
+    <%= f.text_field :zipcode, :class => 'fullwidth' %>
+  </div>
+
+
       <%#= f.text_field :state_name,
                        :style => "display: #{f.object.country.states.empty? ? 'block' : 'none' };",
                        :disabled => !f.object.country.states.empty?, :class => 'fullwidth state_name' %>
@@ -58,12 +68,12 @@
     </span>
   </div>
  <!--phone number field is removed in our Vegan Application -->
- <!--
-  <div class="field <%#= "#{type}-row" %>">
-    <%#= f.label :phone, Spree.t(:phone) %>
-    <%#= f.phone_field :phone, :class => 'fullwidth' %>
+
+  <div class="field <%= "#{type}-row" %>">
+    <%= f.label :phone, Spree.t(:phone) %>
+    <%= f.phone_field :phone, :class => 'fullwidth' %>
   </div>
-  -->
+
 </div>
 
 <% content_for :head do %>
