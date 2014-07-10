@@ -8,7 +8,7 @@ module Spree
     return: lockdown date
 =end
         def lockdown_date(delivery_date)
-            (delivery_date - ORDER_UPDATE_LIMIT.days).to_date
+            (delivery_date - ORDER_UPDATE_LIMIT.days).strftime("%m-%d-%Y")
         end
     end
   end
