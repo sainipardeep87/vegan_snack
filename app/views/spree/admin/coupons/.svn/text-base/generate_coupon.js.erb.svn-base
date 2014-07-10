@@ -1,3 +1,0 @@
-	<% if @code.present? %>
-		$("#coupon_code").val("<%= @code %>");
-	<% end %>

@@ -1,8 +1,0 @@
-<% if flash[:notice].present? %>
-
-alert("<%= flash[:notice] %>");
-
-<% else %>
-
-	alert("Oops, Something Went Wrong");
-<% end %>

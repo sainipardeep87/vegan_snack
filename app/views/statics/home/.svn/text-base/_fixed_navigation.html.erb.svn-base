@@ -1,6 +1,0 @@
-<ul>
-  <li data-tooltip=""><a class="active slide" id="1-button"><span></span></a></li>
-  <li data-tooltip=""><a class="slide" id="2-button"><span></span></a></li>
-  <li data-tooltip=""><a class="slide" id="3-button"><span></span></a></li>
-  <li data-tooltip=""><a id="4-button"><span></span></a></li>
-</ul>

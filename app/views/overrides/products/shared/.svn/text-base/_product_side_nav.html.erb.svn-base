@@ -1,8 +1,0 @@
-<%= content_tag :li, :class => ('active' if current == 'Product Details') do %>
-  <%= link_to_with_icon 'icon-edit', Spree.t(:product_details), edit_admin_product_url(@product) %>
-<% end if can?(:admin, Spree::Product) %>
-<%= content_tag :li, :class => ('active' if current == 'Images') do %>
-  <%= link_to_with_icon 'icon-picture', Spree.t(:images), admin_product_images_url(@product) %>
-    <%= link_to_with_icon 'icon-picture', Spree.t(:nutritional_fact), '#' %>
-    <!--'/spree/admin/nutritionfacts/new'-->
-<% end if can?(:admin, Spree::Image) %>

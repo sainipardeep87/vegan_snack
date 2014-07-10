@@ -1,4 +1,0 @@
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @vendor } %>
-<%= render '/spree/admin/vendors/shared/form' %>
-
-

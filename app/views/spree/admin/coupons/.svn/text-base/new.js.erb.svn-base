@@ -1,1 +1,0 @@
-$('#new_coupon_wrapper').html('<%= escape_javascript(render :partial => "spree/admin/coupons/shared/form", :formats => [:html], :handlers => [:erb]) %>');

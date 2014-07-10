@@ -1,3 +1,0 @@
-App.unBlockUI($('#modalContent .modal-body'));
-$("#modalContent").html("<%= j render '/my_subscriptions/shared/list'%>");
-

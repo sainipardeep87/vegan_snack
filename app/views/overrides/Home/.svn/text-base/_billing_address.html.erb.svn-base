@@ -1,7 +1,0 @@
-<% if false %>
-
-<div id="bill_title">
-  Billing Address
-</div>
-
-<% end %>

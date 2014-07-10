@@ -1,5 +1,0 @@
-<div class=" span6 offset3 pagination-centered top-buffer">
-  <span id="snacks_deliver"> NUTRITIOUS SNACKS DELIVERED TO YOU </span>
-  <span id="snacks_price">  $19.95/MONTH</span>
-  <div><%= link_to(image_tag("/assets/home/get-started.png", :alt => "Get Started", :title => "Smart Snacker", :size => "400X300"), '#3rdPage') %></div>
-</div>

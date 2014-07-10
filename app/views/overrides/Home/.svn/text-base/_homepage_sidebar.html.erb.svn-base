@@ -1,1 +1,0 @@
-<%#= link_to 'Order Now!', signup_path, :class => 'button primary' %>

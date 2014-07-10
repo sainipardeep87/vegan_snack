@@ -1,52 +1,0 @@
-10
-
-dir
-50231
-https://dev.mindfire.in/bbks/svn/VeganSnack/app
-https://dev.mindfire.in/bbks/svn
-
-
-
-2014-07-09T13:02:59.526768Z
-50226
-ajay.sahu
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1c585b59-8543-f64d-be5d-59e32bce3eb1
-
-mailers
-dir
-
-views
-dir
-
-assets
-dir
-
-helpers
-dir
-
-overrides
-dir
-
-vegan_mail
-dir
-
-models
-dir
-
-controllers
-dir
-

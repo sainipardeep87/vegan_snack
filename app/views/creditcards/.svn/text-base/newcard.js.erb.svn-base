@@ -1,8 +1,0 @@
-<% if @card.present? %>
-
-    window.location= '/users/profile/'
-<% else %>
-    $("#card_error").removeClass('invisible');
-    $("#card_error").addClass('visible');
-    $("#loading").hide();
-<% end %>
