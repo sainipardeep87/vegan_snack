@@ -295,7 +295,7 @@ Return : input limit/FixNum
       order_params['subscription_type'] = self.user_subscription.subscription.subscription_type
       order_params['placed_on'] = Time.now
       order_params["shipping_method"] =  ORDER_SHIPPING_METHOD
-	    order_params["shipping_carrier"] = ORDER_SHIPPING_CARRIER
+      order_params["shipping_carrier"] = ORDER_SHIPPING_CARRIER
 
       total_quantity = self.order_line_items.inject(0){|sum,x| sum + x.quantity}
 
@@ -485,4 +485,44 @@ Return : input limit/FixNum
     end
 
   end
+
+  def self.filter_on_delivery_date(start_date, end_date)
+    self.where('delivery_date >=  ? && delivery_date <= ?', start_date, end_date).order(:delivery_date) if start_date.present? && end_date.present?
+  end
+
+  def self.filter_on_order_date(start_date, end_date)
+    self.where('created_at >=  ? && created_at <= ?', start_date , end_date).order(:created_at) if start_date.present? && end_date.present?
+  end
+
+  def self.get_all_orders
+      self.all.order(:created_at)
+  end
+
+  def self.export_on_delivery_date(start_date, end_date)
+    self.select('id, number, created_at, delivery_date,state,payment_state,shipment_state, email,
+          total, user_subscription_id').where('delivery_date >= ? and delivery_date < ?',start_date, end_date).order(:delivery_date)
+  end
+
+  def self.export_on_order_date(start_date, end_date)
+    self.select('id, number, created_at, delivery_date,state,payment_state,shipment_state, email,
+          total, user_subscription_id').where('created_at >= ? and created_at <= ?',start_date, end_date).order(:delivery_date)
+  end
+
+  def self.export_all_orders
+    self.select('id, number, created_at, delivery_date,state,payment_state,shipment_state, email,
+          total, user_subscription_id').order(:created_at)
+  end
+
+  def show_discount_amount
+     price = self.user_subscription.subscription.plan_price
+     discount = 0.00
+
+     if self.coupon.present? && Coupon.is_valid?(self.coupon.coupon_code)
+      coupon_amount =  self.coupon.discount_rate
+      discount  = ((coupon_amount / 100.00) * price).round(2)
+     end
+
+     discount.to_s
+  end
+
 end
