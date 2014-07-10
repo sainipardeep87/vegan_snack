@@ -80,13 +80,13 @@
 }
 
 .filter-btn {
-padding: 1% 0.5% 1% 0.5% !important;
-border-radius: 3px;
-background-color: rgba(43, 154, 226, 0.83) !important;
-text-transform: uppercase;
-color: #FFFFFF !important;
-font-weight: bold;
-margin: 0% 0.4%;
+	padding: 0.75% 1.3% !important;
+	border-radius: 3px;
+	background-color: rgba(43, 154, 226, 0.83) !important;
+	text-transform: uppercase;
+	color: #FFFFFF !important;
+	font-weight: bold;
+	margin: 0% 0.4%;
 }
 
 .filter-btn:hover{
@@ -120,4 +120,30 @@ margin: 0% 0.4%;
 
 #order_tab_summary{
 	width: 300px;
+}
+
+#filter_result {
+padding: 0% 0% 2% 0% !important;
+/*position: absolute;*/
+}
+
+.range-error{
+	font-size: 1.1em;
+	font-weight: bold;
+	color: #FF0000 !important;
+}
+
+.range-success{
+	color: rgb(60, 178, 76) !important;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.range-notify{
+	color: rgb(0, 0, 0) !important;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.me-red{
+	color: #FF0000;
 }
