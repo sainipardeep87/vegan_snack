@@ -173,7 +173,7 @@ Vegan::Application.routes.draw do
         post :product_details
       end
     end
-	end
+  end
   Spree::Core::Engine.routes.prepend do
     namespace :admin do
       #get '/spree/admin/vendors', to: 'spree/admin/vendors#index', as: 'vendors'
@@ -192,11 +192,12 @@ Vegan::Application.routes.draw do
       end
       resources :orders do
         collection do
-          post :range
           post :export
+          get :range
         end
+
       end
-      resources :vendors, as: 'vendors'
+        resources :vendors, as: 'vendors'
     end
   end
 
