@@ -1,5 +1,10 @@
 Spree::Admin::OrdersController.class_eval do
   include Spree::Admin::OrdersHelper
+
+  skip_before_action :verify_authenticity_token, only: :export
+
+  before_action :set_search_params, only: [:range, :export]
+
   def index
     params[:q] ||= {}
     #params[:q][:completed_at_not_null] ||= '1' if Spree::Config[:show_only_complete_orders_by_default]
@@ -43,6 +48,63 @@ Spree::Admin::OrdersController.class_eval do
   end
 
   def range
+
+    if valid_date_ranges?
+      filtered_orders = Spree::Order.filter_on_delivery_date(@start_date, @end_date) if filter_on_delivery_date?
+      filtered_orders = Spree::Order.filter_on_order_date(@start_date, @end_date) if filter_on_order_date?
+    else
+      filtered_orders = Spree::Order.get_all_orders
+    end
+
+    logger.info "orders in the selected range are #{filtered_orders.count}"
+
+    @orders = filtered_orders.page(params[:page]).per(params[:per_page] || Spree::Config[:orders_per_page])
+    @search = Spree::Order.accessible_by(current_ability, :range).ransack(params[:q])
+
+  end
+
+
+  def export
+    export_name ='Vegan_order_summary.xls'
+
+    if valid_date_ranges?
+      @orders = Spree::Order.export_on_delivery_date(@start_date, @end_date) if filter_on_delivery_date?
+      @orders = Spree::Order.export_on_order_date(@start_date, @end_date) if filter_on_order_date?
+    else
+      @orders = Spree::Order.export_all_orders
+    end
+
+    respond_to do |format|
+
+      format.xls {
+        logger.info "*****************************************"
+        #text/html,application/xhtml+xml,application/xml;
+        headers["Content-Disposition"] = "attachment; filename=\"#{export_name}\""
+
+       }
+    end
+
+  end
+
+  private
+
+  def set_search_params
+    @start_date = Date.parse(params[:start_range]) if params[:start_range].present?
+    @end_date = Date.parse(params[:end_range]) if params[:end_range].present?
+    @date_type = params[:date][:types]
+  end
+
+  def valid_date_ranges?
+    @start_date.present? && @end_date.present?
+  end
+
+  def filter_on_delivery_date?
+    @date_type == "delivery date"
+  end
+
+  def filter_on_order_date?
+    @date_type == "order date"
+
     start_date = Date.parse(params[:start_range])
     end_date = Date.parse(params[:end_range])
 
@@ -63,6 +125,7 @@ Spree::Admin::OrdersController.class_eval do
       #format.xls { filename: 'VeganSnacks_Order_summary.xls'}
       format.xls {headers["Content-Disposition"] = "attachment; filename=\"#{export_name}\""}
       end
+
   end
 
 end
