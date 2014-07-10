@@ -4,47 +4,19 @@
 
 <div id="order_page">
 
-<div id='order_range'>
-
-  <%= form_tag spree.range_admin_orders_path, method: :get, id: 'form_filter' do |f|%>
-
-  <div>
-  <%= label_tag 'Filter on basis of :' %>
-    <div>
-      <%= select :date, :types, ["delivery date", "order date"], :id => 'user_subscription_list' %>
-     </div>
+  <div id='order_range'>
+    <%= render 'filter_form' %>
   </div>
 
-  <div>
-    <%= text_field_tag :start_range, nil, id: 'date_start',
-        class: 'order-datepicker', placeholder: 'Select starting date', readonly: true %>
+  <% if @orders.any? %>
+    <div id="orders_list">
+      <%= render :partial => "order_list" %>
+    </div>
 
-    <%= text_field_tag :end_range, nil, id: 'date_end',
-        class: 'order-datepicker', placeholder: 'Select End date', readonly: true %>
+  <% else %>
+    <div class="alpha twelve columns no-objects-found">
+      <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/order')) %>!
   </div>
-
-  <div id="filter_export">
-    <div id="filter_result"></div>
-    <%= submit_tag  'Filter orders', class: 'filter-btn', id: 'filter_submit' %>
-    <%= link_to 'reset filter', '/spree/admin/orders', class: 'filter-btn' %>
-  </div>
-
-  <%= submit_tag 'Generate report', id: "export_submit" if @orders.present? %>
-
   <% end %>
-
-</div>
-
-
-<% if @orders.any? %>
-  <div id="orders_list">
-    <%= render :partial => "order_list" %>
-  </div>
-
-<% else %>
-  <div class="alpha twelve columns no-objects-found">
-    <%= Spree.t(:no_resource_found, resource: I18n.t(:other, scope: 'activerecord.models.spree/order')) %>!
-  </div>
-<% end %>
 
 </div>

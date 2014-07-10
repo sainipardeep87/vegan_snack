@@ -1,10 +1,27 @@
 
 <% if @start_date.present? && @end_date.present? %>
 
-    <% result = "Fetched orders in range of #{@start_date} to #{@end_date} "%>
+    <% if @orders.present? %>
+        <% result = "Total #{@orders.count} orders were found between #{@start_date} and #{@end_date}. (Filtered on #{@date_type})" %>
+        <% app_class = 'range-success' %>
+    <% else %>
+        <% result = "Sorry, No results found." %>
+        <% app_class = 'range-error' %>
+    <% end %>
 
 <% else %>
-    <% result = "Fetched all the orders" %>
+    <% result = "Select a Date range first." %>
+    <% app_class = 'range-error' %>
 <% end %>
 
 $("#orders_list").html("<%= escape_javascript(render 'order_list') %>");
+$("#order_range").html("<%= escape_javascript(render 'filter_form') %>");
+
+load_calendar();
+reset_form_for_export();
+reset_form_for_filteration();
+
+set_date_ranges("<%= @start_date_params %>", "<%= @end_date_params %>");
+
+$("#filter_result").text("<%= result %>");
+$("#filter_result").removeClass().addClass("<%= app_class %>");
