@@ -2,27 +2,34 @@
   <%= Spree.t(:listing_orders) %>
 <% end %>
 
-
-
-  <%= paginate @orders  if params[:action] == "index" %>
-
+<div id="order_page">
 
 <div id='order_range'>
 
-  <%= form_tag spree.range_admin_orders_path, remote: true do |f|%>
+  <%= form_tag spree.range_admin_orders_path, method: :get, id: 'form_filter' do |f|%>
 
+  <div>
+  <%= label_tag 'Filter on basis of :' %>
+    <div>
+      <%= select :date, :types, ["delivery date", "order date"], :id => 'user_subscription_list' %>
+     </div>
+  </div>
+
+  <div>
     <%= text_field_tag :start_range, nil, id: 'date_start',
         class: 'order-datepicker', placeholder: 'Select starting date', readonly: true %>
 
     <%= text_field_tag :end_range, nil, id: 'date_end',
         class: 'order-datepicker', placeholder: 'Select End date', readonly: true %>
+  </div>
 
-    <div id="filter_export">
-      <div id="filter_result"></div>
-      <%= submit_tag  'Filter orders', class: 'filter-btn'%>
-      <%= link_to 'export to excel', spree.export_admin_orders_path(format: "xls"), method: :post, class: 'filter-btn' %>
-    </div>
+  <div id="filter_export">
+    <div id="filter_result"></div>
+    <%= submit_tag  'Filter orders', class: 'filter-btn', id: 'filter_submit' %>
+    <%= link_to 'reset filter', '/spree/admin/orders', class: 'filter-btn' %>
+  </div>
 
+  <%= submit_tag 'Generate report', id: "export_submit" if @orders.present? %>
 
   <% end %>
 
@@ -30,11 +37,9 @@
 
 
 <% if @orders.any? %>
-<div id="orders_list">
-
-<%= render :partial => "order_list" %>
-
-</div>
+  <div id="orders_list">
+    <%= render :partial => "order_list" %>
+  </div>
 
 <% else %>
   <div class="alpha twelve columns no-objects-found">
@@ -42,4 +47,4 @@
   </div>
 <% end %>
 
-<%= paginate @orders  if params[:action] == "index" %>
+</div>

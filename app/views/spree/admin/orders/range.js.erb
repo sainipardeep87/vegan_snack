@@ -1,7 +1,10 @@
-<% if @orders.blank? %>
-alert("Sorry, no orders found in that range");
+
+<% if @start_date.present? && @end_date.present? %>
+
+    <% result = "Fetched orders in range of #{@start_date} to #{@end_date} "%>
 
 <% else %>
-    $("#orders_list").html("<%= escape_javascript(render 'order_list') %>");
+    <% result = "Fetched all the orders" %>
 <% end %>
 
+$("#orders_list").html("<%= escape_javascript(render 'order_list') %>");
