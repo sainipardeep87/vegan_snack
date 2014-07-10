@@ -47,8 +47,11 @@ Spree::Admin::OrdersController.class_eval do
     flash[:notice] = "Signed in Successfully" if flash[:notice].present?
   end
 
+=begin
+  Description: Action will filter the orders on basis of delivery date / ordered date depending on the date params
+  selected in admin panel(From_to). in that range orders will be fetched and rendered in the page.
+=end
   def range
-
     if valid_date_ranges?
       filtered_orders = Spree::Order.filter_on_delivery_date(@start_date, @end_date) if filter_on_delivery_date?
       filtered_orders = Spree::Order.filter_on_order_date(@start_date, @end_date) if filter_on_order_date?
@@ -56,54 +59,63 @@ Spree::Admin::OrdersController.class_eval do
       filtered_orders = Spree::Order.get_all_orders
     end
 
-    logger.info "orders in the selected range are #{filtered_orders.count}"
-
     @orders = filtered_orders.page(params[:page]).per(params[:per_page] || Spree::Config[:orders_per_page])
     @search = Spree::Order.accessible_by(current_ability, :range).ransack(params[:q])
 
   end
 
-
+=begin
+  Description: Action will generate the excel sheet for the selected date range & if no date range is provided then the
+    excel sheet will contain  all the orders details.
+=end
   def export
     export_name ='Vegan_order_summary.xls'
 
     if valid_date_ranges?
       @orders = Spree::Order.export_on_delivery_date(@start_date, @end_date) if filter_on_delivery_date?
       @orders = Spree::Order.export_on_order_date(@start_date, @end_date) if filter_on_order_date?
+      export_name = dynamic_file(@start_date, @end_date, @date_type)
     else
       @orders = Spree::Order.export_all_orders
     end
 
     respond_to do |format|
-
-      format.xls {
-        logger.info "*****************************************"
-        #text/html,application/xhtml+xml,application/xml;
-        headers["Content-Disposition"] = "attachment; filename=\"#{export_name}\""
-
-       }
+      format.xls { headers["Content-Disposition"] = "attachment; filename=\"#{export_name}\"" if @orders.present? }
+      format.js
     end
 
   end
 
   private
 
+=begin
+  Description: Following before_filter action, will set the @start_date, @end_date which are commonly used by the
+  export & range actions.
+=end
   def set_search_params
-    @start_date = Date.parse(params[:start_range]) if params[:start_range].present?
-    @end_date = Date.parse(params[:end_range]) if params[:end_range].present?
+    #those _params will be used to reset the dates again once the ranges are refreshed by the range.js.erb
+    @start_date_params = params[:start_range]
+    @end_date_params = params[:end_range]
+
+    @start_date = Date.strptime(@start_date_params, "%m-%d-%Y")  if @start_date_params.present?
+    @end_date  = Date.strptime(@end_date_params, "%m-%d-%Y")  if @end_date_params.present?
+    #@start_date = Date.parse(params[:start_range])
     @date_type = params[:date][:types]
   end
 
+
+  #Description: Following action will check the date ranges are valid or not.
   def valid_date_ranges?
     @start_date.present? && @end_date.present?
   end
-
+  #Description: action will check the date_type is of Delivery Date or not.
   def filter_on_delivery_date?
-    @date_type == "delivery date"
+    @date_type == "Delivery Date"
   end
 
+  #Description: action will check the date_type is of Order Date or not.
   def filter_on_order_date?
-    @date_type == "order date"
+    @date_type == "Order Date"
   end
 
 end

@@ -485,34 +485,70 @@ Return : input limit/FixNum
     end
 
   end
-
+=begin
+  Description: method will fetch the filetered result of orders on basis of selected delivery date range.
+  argument list: start_date, end_date
+  return: orders
+=end
   def self.filter_on_delivery_date(start_date, end_date)
     self.where('delivery_date >=  ? && delivery_date <= ?', start_date, end_date).order(:delivery_date) if start_date.present? && end_date.present?
   end
 
+=begin
+  Description: method will fetch the filetered result of orders on basis of selected order placed on date.
+  argument list: start_date, end_date
+  return: orders
+=end
   def self.filter_on_order_date(start_date, end_date)
     self.where('created_at >=  ? && created_at <= ?', start_date , end_date).order(:created_at) if start_date.present? && end_date.present?
   end
 
+=begin
+  Description: method will fetch and return all the orders.
+  argument list: nil
+  return: orders
+=end
   def self.get_all_orders
       self.all.order(:created_at)
   end
+
+=begin
+  Description: method will export the filetered result of orders on basis of selected delivery date range.
+  argument list: start_date, end_date
+  return: orders
+=end
 
   def self.export_on_delivery_date(start_date, end_date)
     self.select('id, number, created_at, delivery_date,state,payment_state,shipment_state, email,
           total, user_subscription_id').where('delivery_date >= ? and delivery_date < ?',start_date, end_date).order(:delivery_date)
   end
 
+=begin
+  Description: method will export the filetered result of orders on basis of selected order placed on date.
+  argument list: start_date, end_date
+  return: orders
+=end
+
   def self.export_on_order_date(start_date, end_date)
     self.select('id, number, created_at, delivery_date,state,payment_state,shipment_state, email,
           total, user_subscription_id').where('created_at >= ? and created_at <= ?',start_date, end_date).order(:delivery_date)
   end
 
+=begin
+  Description: method will export all the orders.
+  argument list: nil
+  return: orders
+=end
   def self.export_all_orders
     self.select('id, number, created_at, delivery_date,state,payment_state,shipment_state, email,
           total, user_subscription_id').order(:created_at)
   end
 
+=begin
+  Description: method will fetch the discount amount (if coupon present) else the default 0.0 discount amount will be sent.
+  argument List: order object
+  return: discount_amount.
+=end
   def show_discount_amount
      price = self.user_subscription.subscription.plan_price
      discount = 0.00
