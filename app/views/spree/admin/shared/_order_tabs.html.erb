@@ -10,23 +10,43 @@
     <% checkout_steps = @order.checkout_steps %>
     <header id="order_tab_summary" data-hook>
       <dl class="additional-info">
+
+      <dt data-hook><%= Spree.t(:order_date) %>:</dt>
+        <dd id='order_total'><%= @order.created_at.strftime("%m-%d-%Y") %></dd>
+
+        <dt data-hook><%= Spree.t(:lockdown_date) %>:</dt>
+        <dd id='order_total'><%= lockdown_date(@order.delivery_date) %></dd>
+
+        <dt data-hook><%= Spree.t(:delivery_date) %>:</dt>
+        <dd id='order_total'><%= @order.delivery_date.strftime("%m-%d-%Y") %></dd>
+
+
         <dt id="order_status" data-hook><%= Spree.t(:status) %>:</dt>
         <dd><span class="state <%= @order.state %>"><%= Spree.t(@order.state, :scope => :order_state) %></span></dd>
-        <dt data-hook><%= Spree.t(:item_total) %>:</dt>
-        <dd id='item_total'><%= Spree::Order.where(id: @order.id).first.total.to_f %></dd>
-        <% if checkout_steps.include?("delivery") && @order.ship_total > 0 %>
-            <dt data-hook><%= Spree.t(:ship_total) %>:</dt>
-            <dd id='item_total'><%= @order.display_ship_total.to_html %></dd>
-        <% end %>
 
-        <% if @order.tax_total > 0 %>
-            <dt data-hook><%= Spree.t(:tax_total) %>:</dt>
+        <dt data-hook>
+            <%= Spree.t(:subscription_type) %>: </dt>
+        <dd id='subscription_type'>
+            <%#= Spree::Order.where(id: @order.id).first.total.to_f %>
+            <%= @order.user_subscription.subscription.subscription_type %>
+        </dd>
+
+        <%# if checkout_steps.include?("delivery") && @order.ship_total > 0 %>
+            <!-- <dt data-hook><%#= Spree.t(:ship_total) %>:</dt> -->
+            <!-- <dd id='item_total'><%#= @order.display_ship_total.to_html %></dd> -->
+        <%# end %>
+
+<!--
+        <%# if @order.tax_total > 0 %>
+            <dt data-hook><%#= Spree.t(:tax_total) %>:</dt>
             <dd id='item_total'><%= @order.display_tax_total.to_html %></dd>
-        <% end %>
-
+        <%# end %>
+-->
         <dt data-hook><%= Spree.t(:total) %>:</dt>
-        <dd id='order_total'><%= Spree::Order.where(id: @order.id).first.total.to_f %></dd>
+        <dd id='order_total'><%= "$ " + Spree::Order.where(id: @order.id).first.total.to_s %></dd>
 
+        <dt data-hook><%= Spree.t(:discount) %>:</dt>
+        <dd id='order_total'><%= "$ "+  @order.show_discount_amount %></dd>
 
         <% if @order.completed? %>
             <dt><%= Spree.t(:shipment) %>: </dt>
