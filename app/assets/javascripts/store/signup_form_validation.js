@@ -97,7 +97,6 @@ function on_validate_submit_complete_signup_form(){
 }
 
 function on_validate_show_billing_form(){
-    console.log("this on validaate show billing form is getting called");
 
     var result = validate_signup_cum_ship_address_form("#vegan_signup");
 
@@ -105,8 +104,9 @@ function on_validate_show_billing_form(){
         $("#credit_section input").focusout();
 
         if (result.valid()){
-            /* On clicking place my order icon in signup_shipping section it will hide the ship address and show
-            the billing address section */
+            console.log("checking for valid shipping form");
+            /* On clicking place my order icon in signup_shipping section it will hide the ship address
+             and show the billing address section */
             $("#billing_form_div label.error").show();
             $("#signup_ship_address").hide();
             $("#signup_bill_address").removeClass("hide");
