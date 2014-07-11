@@ -1,1 +1,0 @@
-#Spree::PermittedAttributes.user_attributes.push :addresses_attributes => [:firstname, :lastname, :address1, :address2, :city, :zipcode, :phone, :statename, :company]
