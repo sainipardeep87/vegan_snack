@@ -553,9 +553,11 @@ Return : input limit/FixNum
      price = self.user_subscription.subscription.plan_price
      discount = 0.00
 
-     if self.coupon.present? && Coupon.is_valid?(self.coupon.coupon_code)
+     #if self.coupon.present? && Coupon.is_valid?(self.coupon.coupon_code)
+     if self.coupon.present?
       coupon_amount =  self.coupon.discount_rate
       discount  = ((coupon_amount / 100.00) * price).round(2)
+      discount = discount.to_s + " (" + self.coupon.coupon_code + ")"
      end
 
      discount.to_s
