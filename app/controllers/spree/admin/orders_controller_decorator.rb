@@ -93,14 +93,16 @@ Spree::Admin::OrdersController.class_eval do
   export & range actions.
 =end
   def set_search_params
+    min =  " 00:00:00 UTC"
+    max = " 23:59:59 UTC"
     #those _params will be used to reset the dates again once the ranges are refreshed by the range.js.erb
     @start_date_params = params[:start_range]
     @end_date_params = params[:end_range]
 
-    @start_date = Date.strptime(@start_date_params, "%m-%d-%Y")  if @start_date_params.present?
-    @end_date  = Date.strptime(@end_date_params, "%m-%d-%Y")  if @end_date_params.present?
-    #@start_date = Date.parse(params[:start_range])
+    @start_date = Date.strptime(@start_date_params, "%m-%d-%Y").to_s + min  if @start_date_params.present?
+    @end_date  = Date.strptime(@end_date_params, "%m-%d-%Y").to_s + max if @end_date_params.present?
     @date_type = params[:date][:types]
+
   end
 
 

@@ -12,7 +12,15 @@ module Spree
         end
 
         def dynamic_file(start_date, end_date, ordered_on)
-            "Vegan_order_summary_order_by_#{ordered_on}_#{start_date.strftime("%B_%d_%Y")}_to_#{end_date.strftime("%B_%d_%Y")}.xls"
+            "Vegan_order_summary_order_by_#{ordered_on}_#{file_time(start_date)}_to_#{file_time(end_date)}.xls"
+        end
+
+        def pretty_time(date)
+            date.to_date.strftime("%m-%d-%Y")
+        end
+
+        def file_time(date)
+            date.to_date.strftime("%B_%d_%Y")
         end
     end
   end

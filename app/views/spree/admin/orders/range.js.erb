@@ -2,7 +2,7 @@
 <% if @start_date.present? && @end_date.present? %>
 
     <% if @orders.present? %>
-        <% result = "Total #{@orders.count} orders were found between #{@start_date} and #{@end_date}. (Filtered on #{@date_type})" %>
+        <% result = "Total #{@orders.count} orders were found between #{pretty_time(@start_date)} and #{pretty_time(@end_date)}. (Filtered on #{@date_type})" %>
         <% app_class = 'range-success' %>
     <% else %>
         <% result = "Sorry, No results found." %>
