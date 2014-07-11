@@ -48,11 +48,12 @@
     </span>
   </div>
 -->
-  <div class="field <%= "#{type}-row" %>">
-    <%= f.label :state_id, Spree.t(:state) %>
-    <div id="<%= s_or_b %>state" class='single-line'>
-      <%= f.text_field :state_name, value: state_name, class: 'fullwidth' %>
+  <div class="field <%= "#{type}-row" %>" id='inline_tbl'>
 
+    <div id="<%= s_or_b %>state" class='single-line'>
+    <%= f.label :state_id, Spree.t(:state) %>
+      <%= f.text_field :state_name, value: state_name, class: 'fullwidth' %>
+  </div>
 
 <div class="field <%= "#{type}-row" %> single-line">
     <%= f.label :zipcode, Spree.t(:zip) %>
@@ -65,12 +66,12 @@
                        :disabled => !f.object.country.states.empty?, :class => 'fullwidth state_name' %>
       <%#= f.collection_select :state_id, f.object.country.states.sort, :id, :name, {:include_blank => true}, {:class => 'select2 fullwidth', :style => "display: #{f.object.country.states.empty? ? 'none' : 'block' };", :disabled => f.object.country.states.empty?} %>
 
-    </span>
-  </div>
+    <!-- </span> -->
+
  <!--phone number field is removed in our Vegan Application -->
 
   <div class="field <%= "#{type}-row" %>">
-    <%= f.label :phone, Spree.t(:phone) %>
+    <%= f.label :phone, Spree.t(:phone_number) %>
     <%= f.phone_field :phone, :class => 'fullwidth' %>
   </div>
 
