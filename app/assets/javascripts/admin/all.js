@@ -40,6 +40,7 @@ ready = function() {
   load_calendar();
   reset_form_for_export();
   reset_form_for_filteration();
+  add_ajax_to_links();
 
 };
 
@@ -111,4 +112,12 @@ $(document).on('page:load', ready);
      function set_date_ranges(start_date, end_date) {
       $("#date_start").val(start_date);
       $("#date_end").val(end_date);
+    }
+
+/* Description: Added this method to add remote true links against the links in page, so that we can go for
+  remote-true submit
+*/
+    function add_ajax_to_links(){
+      $("nav.pagination span a").attr("data-remote", "true");
+      $("#order_column th a.sort_link").attr("data-remote", "true");
     }
