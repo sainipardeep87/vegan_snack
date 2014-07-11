@@ -69,8 +69,11 @@ Spree::Admin::OrdersController.class_eval do
       filtered_orders = Spree::Order.get_all_orders
     end
 
-    @orders = filtered_orders.page(params[:page]).per(params[:per_page] || Spree::Config[:orders_per_page])
-    @search = Spree::Order.accessible_by(current_ability, :range).ransack(params[:q])
+    #@orders = filtered_orders.page(params[:page]).per(params[:per_page] || Spree::Config[:orders_per_page])
+    #@search = Spree::Order.accessible_by(current_ability, :index).ransack(params[:q])
+
+    @search = filtered_orders.ransack(params[:q])
+    @orders = @search.result(distinct: true).page(params[:page]).per(params[:per_page] || Spree::Config[:orders_per_page])
 
   end
 
@@ -130,6 +133,11 @@ Spree::Admin::OrdersController.class_eval do
     @date_type == "Order Date"
   end
 
+=begin
+  Description: Following action will get the results filtered on basis of sortign parameters(like number,
+  order date, delivery date, lockdown date, state, payment state, shipment state, coustomer email, total,
+  subscription type)
+=end
   def set_sort_params
 params[:q] ||= {}
     #params[:q][:completed_at_not_null] ||= '1' if Spree::Config[:show_only_complete_orders_by_default]
