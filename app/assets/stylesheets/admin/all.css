@@ -105,6 +105,11 @@
 #export_submit{
 	float: right;
 	margin: 1.5% 4% 0% 0%;
+	background-color: rgba(99, 17, 88, 0.80);
+}
+
+#export_submit:hover {
+	background-color: rgba(99, 17, 88, 1);
 }
 
 #no_result {
@@ -165,4 +170,12 @@ padding: 0% 0% 2% 0% !important;
 
 #inline_tbl{
 	display: inline-table;
+}
+
+#filter_submit{
+	background-color: rgba(0, 62, 134, 0.80) !important;
+}
+
+#filter_submit:hover {
+	background-color: rgba(0, 62, 134, 1) !important;
 }
