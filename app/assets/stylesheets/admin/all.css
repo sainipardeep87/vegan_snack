@@ -156,3 +156,13 @@ padding: 0% 0% 2% 0% !important;
 	padding: 0.3% 0%;
 	width: 20%;
 }
+
+.single-line{
+	width: 49%;
+	display: inline-block;
+	margin: 0% 1% 0% 0%;
+}
+
+#inline_tbl{
+	display: inline-table;
+}
