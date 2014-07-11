@@ -17,7 +17,7 @@
 
     </colgroup>
     <thead>
-    <tr data-hook="admin_orders_index_headers">
+    <tr data-hook="admin_orders_index_headers" id="order_column">
     <th><%= sort_link @search, :number, I18n.t(:number, :scope => 'activerecord.attributes.spree/order') %></th>
       <% if @show_only_completed %>
         <th><%= sort_link @search, :completed_at, I18n.t(:completed_at, :scope => 'activerecord.attributes.spree/order') %></th>
