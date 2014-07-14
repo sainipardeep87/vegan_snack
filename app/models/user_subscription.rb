@@ -89,7 +89,6 @@ class UserSubscription < ActiveRecord::Base
         if result.subscription.id == subscription_token
           cancel_or_pause_subscription_locally(new_status)
           order_ids = get_order_ids_for_cancel_or_pause
-          logger.info "Going to cancel following orders "+ order_ids.to_s
           result = Spree::Order.cancel_or_pause_orders_locally(order_ids, new_status)
           return result.present ? true : false
         end
@@ -260,6 +259,29 @@ class UserSubscription < ActiveRecord::Base
     payment_message = "You will be charged $#{final_price}/month for this subscription."
     payment_message = self.coupon.price_with_coupon(final_price) if coupon_found
     payment_message
+  end
+
+  def get_card(desired_status)
+    order = self.orders.where(state: desired_status).first
+    order.present? ? order.creditcard_id : nil
+  end
+
+
+=begin
+  Description: Function will mark the user_subscription as blocked and further initiate call to mark related orders blocked.
+  Argument List: NIL
+  Return: NIL
+=end
+  def block_subscription
+    self.update_attributes(is_blocked: true)
+    order_ids = self.orders.where("state = ? and payment_state = ? and shipment_state = ? ", 'paused', 'pending', 'pending').pluck(:id)
+    Spree::Order.block_order(order_ids)
+  end
+
+  def unblock_subscription
+    self.update_attributes(is_blocked: false)
+    order_ids = self.orders.where(is_blocked: true).pluck(:id)
+    Spree::Order.unblock_order(order_ids)
   end
 
 end

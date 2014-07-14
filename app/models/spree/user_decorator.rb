@@ -108,14 +108,15 @@ Spree::User.class_eval do
     active_subscriptions.each do |sub|
       unpermited_order_statuses = ['canceled', 'complete']
       first_order =  sub.orders.where('state not in (?)', unpermited_order_statuses).first
-      #binding.pry
+
       result.push({
-          :id => sub.id,
-          :type => sub.subscription.subscription_type,
+          id: sub.id,
+          type: sub.subscription.subscription_type,
           #:delivery_date => sub.orders.where(state: "confirm").first.delivery_date.strftime("%B %d, %Y"),
-          :delivery_date =>  first_order.delivery_date.strftime("%B %d, %Y"),
-          :status => sub.status
-          #:status => first_order.state
+          delivery_date: first_order.delivery_date.strftime("%B %d, %Y"),
+          status: sub.status,
+          #:status => first_order.state,
+          is_blocked: sub.is_blocked
         })
     end
     result #return the final active subscription_orders result.

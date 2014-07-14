@@ -61,7 +61,7 @@ class Creditcard < ActiveRecord::Base
 		result.customer.id
 
 	end
-  
+
 =begin
   Description: Following method will create both customer and creditcard info over braintree .
   Argument List: address(contains firstname, lastname, company), email,card(card holder name, card_no, cvv,month,year)
@@ -70,7 +70,7 @@ class Creditcard < ActiveRecord::Base
 =end
   def self.create_customer_and_creditcard_over_braintree(address, customer_email, card)
 
- 
+
     begin
       Braintree::Customer.create(
         :first_name => address.firstname,
@@ -119,6 +119,26 @@ Return: object returned by braintree(success), error object(On failure)
     end
   end
 
+  def self.update_creditcard_at_braintree(card)
+
+    begin
+      Braintree::CreditCard.update(
+        card.token,
+        :cardholder_name => card.cardholder_name,
+          :number => card.card_no,
+          :cvv => card.cvv,
+          :expiration_date => card.month + "/" + card.year,
+          :options => {
+              :verify_card => true
+          }
+      )
+      rescue => error
+        logger.info "Error occured" + error.to_s
+        OpenStruct.new(:success? => false)
+    end
+
+  end
+
 =begin
   Description: Following method will save credit card details(returned by braintree api call) locally,
   which we will be using in our application rather than
@@ -127,7 +147,7 @@ Return: object returned by braintree(success), error object(On failure)
   Return: Creditcard object (saved one)
 =end
   def self.save_credit_card_returns_local(credit_card, user_id)
-    
+
       card = Creditcard.new(
           :token => credit_card.token,
           :customer_id => credit_card.customer_id,
@@ -169,7 +189,6 @@ hence currently we are just updating those over the existing creditcards
 
       card.save(:validate => false)
       card
-
   end
 
 =begin

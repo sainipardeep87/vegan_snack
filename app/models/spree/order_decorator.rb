@@ -486,6 +486,44 @@ Return : input limit/FixNum
 
   end
 =begin
+  Description: Method will mark those orders blocked.
+  Argument : order_ids
+  Return: NIL
+=end
+  def self.block_order(order_ids)
+    #get orders to be blocked.
+    orders = Spree::Order.select('id, is_blocked').where(id: order_ids)
+
+    orders.each do |order|
+      order.assign_attributes(is_blocked: true) #blocking those orders.
+      order.save(validate: false)
+    end
+  end
+
+  def self.unblock_order(order_ids)
+    orders = Spree::Order.select('id, is_blocked').where(id: order_ids)
+
+    orders.each do |order|
+      order.assign_attributes(is_blocked: false) #unblock those orders.
+      order.save(validate: false)
+    end
+
+  end
+
+=begin
+  Description: Method will fetch the creditcard used for the targeted order.
+  Argument List: subscription_id
+  return: card_id
+=end
+=begin
+  #managed this functionality with user_subscriptions method itself, temporarly marking it commented.
+  def self.extract_card_info(subscription_id)
+    order = self.select('id, creditcard_id').where(user_subscription_id: subscription_id).first
+    order.present? ? order.creditcard_id : nil
+  end
+=end
+
+=begin
   Description: method will fetch the filetered result of orders on basis of selected delivery date range.
   argument list: start_date, end_date
   return: orders
