@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627075123) do
+ActiveRecord::Schema.define(version: 20140714060341) do
 
   create_table "augury_environments", force: true do |t|
     t.string "url"
@@ -373,6 +373,7 @@ ActiveRecord::Schema.define(version: 20140627075123) do
     t.integer  "user_subscription_id"
     t.string   "shipstation_order_id"
     t.integer  "coupon_id"
+    t.boolean  "is_blocked",                                               default: false
   end
 
   add_index "spree_orders", ["completed_at"], name: "index_spree_orders_on_completed_at", using: :btree
@@ -896,6 +897,8 @@ ActiveRecord::Schema.define(version: 20140627075123) do
     t.datetime "canceled_at"
     t.datetime "paused_at"
     t.datetime "resumed_at"
+    t.datetime "blocked_at"
+    t.boolean  "is_blocked",      default: false
   end
 
   create_table "vendors", force: true do |t|
