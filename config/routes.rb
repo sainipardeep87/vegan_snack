@@ -64,12 +64,15 @@ Vegan::Application.routes.draw do
       post :resume
       #post :submit_cancel
       post :fetch_subscriptions_payment
+      post :unblock
+      get :fetch_used_card
     end
     member do
       get :cancel
       post :submit_cancel
       #post :resume
       post :pause
+      post :block
     end
   end
 
@@ -79,12 +82,15 @@ Vegan::Application.routes.draw do
     end
   end
 
-  resources :creditcards , except: [:destroy, :edit, :update, :create, :new] do
+  resources :creditcards , except: [:destroy, :edit,  :update, :create, :new] do
     collection do
      post :newcard
       post :confirm_payment
       post :add_card_complete_payment
       post :pay
+    end
+    member do
+      post :update
     end
   end
 
@@ -165,6 +171,7 @@ Vegan::Application.routes.draw do
         get :confirm
         post :edit_snack_queue
         post :update_snack_queue
+        get :get_card
       end
     end
 
