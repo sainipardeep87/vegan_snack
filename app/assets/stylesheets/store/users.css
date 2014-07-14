@@ -582,3 +582,14 @@ form#new_address div div {
     text-align: center;
     font-weight: bold;
 }
+
+#sub_pay_update {
+    border: 1px solid #000;
+    padding: 0.7% 1% 0.7% 1%;
+    background-color: black;
+    border-radius: 5px;
+    color: #FFFFFF;
+}
+#sub_pay_update:hover{
+text-decoration: none;
+}
