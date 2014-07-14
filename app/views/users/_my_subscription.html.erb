@@ -5,7 +5,7 @@
             <span class="edit-acc">
             <span id="subscription_create">
               <%= link_to " > Create a new subscription today", " /my_subscriptions/create_new_subscription", :class => 'modal-link ',:remote => true %>
-              </span>
+            </span>
               <br>
               <span id="subscription_create">
                 <%= link_to "> update subscription", "/my_subscriptions", :class => 'modal-link', :remote => true  if @active_subscriptions.present? %>
@@ -36,11 +36,24 @@
               <span> </span>
               <span> <%= subscription[:type] %>  </span> ,
               <span> <%= subscription[:delivery_date] %> </span>
+              <span> <%= link_to 'block', block_my_subscription_path(id: subscription[:id]), method: :post %></span>
               <span>
                 <%#= link_to "Pause", pause_my_subscriptions_path(id: subscription[:id]),
                 method: :post, id: "sub_pause" if subscription[:status] == "active"%>
 
-                <%= link_to "Resume", "javascript:void(0)", id: "sub_resume", data: {sub_id: subscription[:id]}  if subscription[:status] == "paused" %>
+
+              <%= link_to "Resume", "javascript:void(0)", id: "sub_resume", class: "sub-action",
+                   data: {sub_id: subscription[:id], target: "resume"}  if subscription[:status] == "paused" %>
+
+                <%#= link_to "Resume", "javascript:void(0)", id: "sub_resume",
+                   data: {sub_id: subscription[:id]}  if resume_subscription?(subscription) %>
+
+                <%= link_to "Unblock", "javascript:void(0)", id: "sub_unblock", class: "sub-action",
+                  data: {sub_id: subscription[:id], target: "unblock"}  if unblock_subscription?(subscription) %>
+
+                <%= link_to "Update Payment Info", "javascript:void(0)", id: "sub_pay_update",
+                  data: {sub_id: subscription[:id]} %>
+
                 <!-- resume_my_subscriptions_path(id: subscription[:id]), method: :post, -->
               </span>
             </div>
@@ -48,5 +61,7 @@
 
     <% end %>
     <%= hidden_field_tag :resuming_subscription, '', id: 'resume_subscription' %>
+    <!-- we don't need to create any other hidden field handing with a single ajax call, follow subscription.js file for further info -->
+    <%#= hidden_field_tag :credit_card, '', id: 'target_card' %>
   </div>
 </div>

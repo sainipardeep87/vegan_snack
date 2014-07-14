@@ -19,9 +19,8 @@
 
     <div class="modal-body">
 
-
-          <%= form_for @card, url: main_app.pay_creditcards_path,
-                   html:  {id: "subscription_payment", autocomplete: 'off'}, remote: true do |f| %>
+    <!-- url: main_app.pay_creditcards_path -->
+          <%= form_for @card,  html:  {id: "subscription_payment", autocomplete: 'off'}, remote: true do |f| %>
 
               <div id="payment_card_error">Invalid Card Details Submitted. </div>
 
