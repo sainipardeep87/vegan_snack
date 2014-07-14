@@ -4,7 +4,7 @@
   before_action :get_user, only: [:pause, :resume]
   respond_to :html, :xml, :js
   include ApplicationHelper
-
+  include MySubscriptionsHelper
 
 #Description: Following action sets the @user & @address_details to be populated in the users#profile Section.
   def profile

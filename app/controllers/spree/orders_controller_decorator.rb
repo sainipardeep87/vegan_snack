@@ -194,6 +194,16 @@ module Spree
 
     end #end of populate action.
 
+=begin
+managed this controller actions functionality in my_suscriptions Get_payment_info action itself, temporarily marked in commented.
+    #Description: Following action will fetch the creditcard used for the order placed & returns the id.
+    def get_card
+      subscription_id = params[:subscription_id]
+      card_id = Spree::Order.extract_card_info(subscription_id) if subscription_id.present?
+      result = card_id.present? ? {message: "success", card_id: card_id} : {message: "error"}
+      render json: result.to_json
+    end
+=end
 
   private
 =begin

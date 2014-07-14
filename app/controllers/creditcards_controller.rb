@@ -1,4 +1,7 @@
 class CreditcardsController < ApplicationController
+
+  before_action :authenticate_spree_user!
+
   include CreditcardsHelper
   respond_to :html, :xml, :js, :json
 
@@ -49,6 +52,21 @@ class CreditcardsController < ApplicationController
       @card = Creditcard.update_creditcard(@braintree_cc_return, user.id)
     end
 
+  end
+
+  def update
+    #@card = Creditcard.new(creditcard_params)
+    @card = Creditcard.where(id: params[:id]).first
+    user = current_user
+
+    if @card.present?
+      @card.assign_attributes(creditcard_params)
+        if @card.valid?
+          result = Creditcard.update_creditcard_at_braintree(@card)
+          @braintree_cc_return = result.success? ? result.credit_card : nil
+        end
+        @card = Creditcard.update_creditcard(@braintree_cc_return, user.id) if @braintree_cc_return.present?
+    end
   end
 
   private

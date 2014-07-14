@@ -4,7 +4,7 @@ class MySubscriptionsController < ApplicationController
   include MySubscriptionsHelper
 	#before_filter :get_subscription, :only => [:edit, :update, :show]
   before_action :prepare_subscription, only: [:show, :cancel]
-  before_action :get_subscription, only: [:edit, :pause, :prompt_confirmation_modal]
+  before_action :get_subscription, only: [:edit, :pause, :prompt_confirmation_modal, :block]
 
   # This will list all the active subscriptions in the list.
   def index
@@ -71,8 +71,37 @@ class MySubscriptionsController < ApplicationController
     end
 
     render json: result.to_json
-
   end
+
+  #Action will block a subscription because of insufficient fund or invalid creditcard details.
+  def block
+    #first pause those subscriptions as those will be reactivated once customer alters his payment details.
+    @my_subscription.cancel_or_pause_subscription("paused")
+    #now, mark those subscription blocked.
+    @my_subscription.block_subscription
+
+    flash[:sub_cancelled] = "#{@my_subscription.id}  subscription has been paused "
+    redirect_to main_app.profile_users_path and return
+  end
+
+  #Action will unblock a subscription after proper payment has been done for the same.
+  def unblock
+    card_id = params[:card_id]
+    subscription = UserSubscription.get_my_paused_subscription(current_user, params[:id])
+
+    if subscription.present?
+      unblocked_subscription = subscription.resume_subscription(card_id)
+      subscription.unblock_subscription
+    end
+
+    if unblocked_subscription.present?
+      result = { key: "success", message: "#{unblocked_subscription} has been unblocked Successfully. Please wait..."}
+    else
+      result = { key: 'error', message: "Sorry, you are not authorized for this subscription." }
+    end
+    render json: result.to_json
+  end
+
   # Action will fetch the subscriptions final amount(considering the coupon code(valid/invalid/without code)) and
   #return necessary message.
   def fetch_subscriptions_payment
@@ -80,11 +109,23 @@ class MySubscriptionsController < ApplicationController
 
     if subscription.present?
       message = subscription.get_payment_message
+      #we need the payment details for the paused orders hence passing "paused" to this function.
+      card_id = subscription.get_card("paused")
     else
       flash[:error] = "Sorry, you are not authorized for this subscription."
       redirect_to main_app.profile_users_path and return
     end
-    render json: message.to_json
+
+    render json: {message: message, card_id: card_id}.to_json
+  end
+
+  def fetch_used_card
+    subscription  = UserSubscription.where(id: params[:id]).first
+    #we need the payment details for the confirmed order hence passing "confirm" to below function.
+    card_id = subscription.get_card("confirm") if subscription.present?
+    result = card_id.present? ? { key: "success", card_id: card_id } : { key: 'error', message: "Your are not authorized for this action." }
+
+    render json: result.to_json
   end
 
   def edit
