@@ -18,22 +18,14 @@ $(document).ready(function(){
 
 
     //will open the payment info modal, when customer clicks for subscription resume.
-    ask_payment_on_subscription_resume();
+    prompt_for_payment();
     //on any cancel/pause option selection in subscription update page, loader will be shown.
     show_loader_on_subscription_update();
-
     show_modal_on_payment_submit();
-
     hide_subscription_notification();
-
+    update_creditcard();
 });
 
-/*
-$(window).bind("load", function(){
-
-
-});
-*/
     function hide_subscription_notification(){
 
         setTimeout(function(){
@@ -54,36 +46,84 @@ $(window).bind("load", function(){
     Description: Below method will ask for payment info when customer wishes to resume his subscription.
 */
 
-    function ask_payment_on_subscription_resume(){
+    function prompt_for_payment(){
 
-        $("#profile_sub_list").on("click", "#sub_resume", function(){
+        $("#profile_sub_list").on("click", ".sub-action", function(){
 
             var subscription_id = $(this).attr('data-sub-id');
-            console.log("subscription_id is " + subscription_id);
+            var action = $(this).attr('data-target');
+            console.log("Going for action"+ action);
 
             $.ajax({
                 url: '/my_subscriptions/fetch_subscriptions_payment',
                 data: {subscription_id: subscription_id},
+                async: false,
                 type: "post",
-                success: function(payment_message){
+                success: function(result){
                     preserve_subscription(subscription_id);
-                    $("#pay_charge").removeClass();
-                    $("#pay_charge").text(payment_message);
-                    $("#card_modal").modal("show");
+                    var used_card = result["card_id"]
+                    //var used_card = preserve_creditcard(subscription_id);
+                    if (action == "resume")
+                        prepare_modal_for_resume();
+                    if (action == 'unblock')
+                        prepare_modal_for_unblock(used_card);
+                    show_credit_card_modal(result["message"]);
                 },
 
                 failure: function(error){
-                    console.log("oops, some error occured" + error);
+                    console.log("some error occured" + error);
                 }
             });
         });
     }
 
+    function prepare_modal_for_resume(){
+        $("#subscription_payment").attr("action", "/creditcards/pay");
+        $("#subscription_payment").attr("method", "post");
+        $("#resume_form_submit").val("complete payment and resume subscription");
+    }
+
+    function prepare_modal_for_unblock(card_id){
+        var target_url  = "/creditcards/".concat(card_id);
+        console.log("The target url is " + target_url);
+        $("#subscription_payment").attr("action", target_url);
+        $("#subscription_payment").attr("method", "post");
+        $("#resume_form_submit").val("Update Card and unblock subscription");
+    }
+
+    function show_credit_card_modal(payment_message){
+        $("#pay_charge").removeClass();
+        $("#pay_charge").text(payment_message);
+        $("#card_modal").modal("show");
+    }
+
+
     function preserve_subscription(subscription_id){
-        console.log("preserved id" + subscription_id);
+        //value will be stored in the hidden field.
         $("#resume_subscription").val(subscription_id);
     }
 
+/*
+    Description: Managed this functionality with prompt_for_payment defined ajax call, marking it commented for now.
+    function preserve_creditcard(subscription_id){
+        $.ajax({
+            url: '/spree/orders/get_card',
+            method: "get",
+            async: false,
+            data: {subscription_id: subscription_id},
+            success: function(result){
+                if(result["message"] == "success")
+                    $("#target_card").val(result["card_id"]);
+                else
+                    window.location.reload();
+            },
+            failure: function(error){
+                console.log("Error occured "+ error);
+            }
+        });
+        $("#target_card").val();
+    }
+*/
     function show_loader_on_subscription_update(){
 
         $("#sub_update_section").on("click", ".vegan-sub-btns", function(){
@@ -125,4 +165,73 @@ $(window).bind("load", function(){
             }
         });
 
+    }
+
+    function unblock_subscription(card_id, subscription_id){
+
+
+        $("#profile_sub_list").on("click", ".sub-action", function(){
+
+            var subscription_id = $(this).attr('data-sub-id');
+            var action = $(this).attr('data-target');
+            console.log("Going for action"+ action);
+
+            $.ajax({
+                url: '/my_subscriptions/fetch_subscriptions_payment',
+                data: {subscription_id: subscription_id},
+                async: false,
+                type: "post",
+                success: function(result){
+                    preserve_subscription(subscription_id);
+                    var used_card = result["card_id"]
+                    //var used_card = preserve_creditcard(subscription_id);
+                    if (action == "resume")
+                        prepare_modal_for_resume();
+                    if (action == 'unblock')
+                        prepare_modal_for_unblock(used_card);
+                    show_credit_card_modal(result["message"]);
+                },
+
+                failure: function(error){
+                    console.log("some error occured" + error);
+                }
+            });
+        });
+
+    }
+
+    function update_creditcard(){
+
+        $("#profile_sub_list").on("click", "#sub_pay_update", function(){
+            var subscription_id = $(this).attr('data-sub-id');
+
+            $.ajax({
+                url: "/my_subscriptions/fetch_used_card",
+                type: 'get',
+                datatype: "json",
+                data: {id: subscription_id},
+                success: function(result){
+                    if(result["key"] == "success"){
+                        prepare_modal_for_card_update(result["card_id"]);
+                        show_credit_card_modal("");
+                    }
+                    if(result["key"] == "error"){
+                        //handle this to dismiss the modal window and show error at the top of the page.
+                        console.log(result["message"])
+                    }
+                },
+                failure: function(error){
+                    console.log("Error Occured" + error);
+                }
+            });//end of ajax call.
+        });
+
+    }
+
+    function prepare_modal_for_card_update(card_id){
+        var target_url  = "/creditcards/".concat(card_id);
+        console.log("The target url is " + target_url);
+        $("#subscription_payment").attr("action", target_url);
+        $("#subscription_payment").attr("method", "post");
+        $("#resume_form_submit").val("Update Card");
     }
