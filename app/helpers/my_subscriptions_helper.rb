@@ -35,4 +35,26 @@ module MySubscriptionsHelper
     is_cancel?(action_name) || is_pause?(action_name)
   end
 
+=begin
+  Description: Method will check whether subscription eligible for unblock
+  argument: subscription hash
+   {:id=>293,:type=>"Basic Snack Pack",:delivery_date=>"July 14, 2014",:status=>"active", :is_blocked=>false}
+  return: boolean
+=end
+  def unblock_subscription?(subscription)
+    subscription[:status] == "paused" && subscription[:is_blocked] == true
+    #false
+  end
+
+=begin
+  Description: Method will check whether subscription eligible for resume
+  argument: subscription hash
+  {:id=>293,:type=>"Basic Snack Pack",:delivery_date=>"July 14, 2014",:status=>"active", :is_blocked=>false}
+  return: boolean
+=end
+  def resume_subscription?(subscription)
+    subscription[:status] == "paused" && subscription[:is_blocked] == false
+    #true
+  end
+
 end
