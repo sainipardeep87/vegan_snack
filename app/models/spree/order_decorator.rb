@@ -601,4 +601,34 @@ Return : input limit/FixNum
      discount.to_s
   end
 
+=begin
+  Description: Following method will collect customer email IDs and other required parameters in order to Email to customer & Admin.
+  Argument List: Card_ids
+  Return: nil
+=end
+  def self.collect_customer_emails_of_expiring_cards(card_ids)
+    expiring_orders =  Spree::Order.select('id, user_subscription_id, email, delivery_date').where(state: 'confirm',
+        payment_state: "pending",shipment_state: "pending", creditcard_id: card_ids).group(:creditcard_id)
+    result = []
+
+    expiring_orders.each_with_index do |order, index|
+      result[index]= {
+        subscription_id: order.user_subscription_id,
+        email: order.email,
+        subscription_type: order.user_subscription.subscription.subscription_type,
+        delivery_date: order.delivery_date.strftime("%B %d, %Y")
+      }
+    end
+    #[{:email=>"a@a.com", :subscription_type=>"Basic Snack Pack", :delivery_date=>"July 24, 2014"}]
+    result
+  end
+=begin
+  Description: Following action will collect the user_subscription ids for the creditcards which are expiring in Current Month.
+  Argument List: card_ids
+  return: user_subscription_ids
+=end
+  def self.collect_user_subscription_ids_for_expired_cards(card_ids)
+    Spree::Order.where(state: "confirm", payment_state: "pending", shipment_state: "pending", creditcard_id: card_ids).pluck(:user_subscription_id).uniq
+  end
+
 end

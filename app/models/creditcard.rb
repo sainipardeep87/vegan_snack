@@ -38,7 +38,8 @@ class Creditcard < ActiveRecord::Base
 
  #added conditional validation to check for card expiry only if user has entered a valid year/month from list.
   def should_check_for_card_expiry?
-    self.month.present? && self.year.present?
+    false
+    #self.month.present? && self.year.present?
   end
 
 =begin
@@ -172,23 +173,41 @@ hence currently we are just updating those over the existing creditcards
 =end
 
   def self.update_creditcard(credit_card, user_id)
-
     card = Creditcard.where(user_id: user_id).last
     #We will be updating the creditcard details which was last created by the logged in User.
     #cc was created in creditcards_controller, add_card_complete_payment action.
+    card.token = credit_card.token
+    card.customer_id = credit_card.customer_id
+    card.cc_part_1 = credit_card.bin
+    card.cc_part_2= credit_card.last_4
+    card.cc_type =credit_card.card_type
+    card.cc_holder_name = credit_card.cardholder_name
+    card.expiration_month = credit_card.expiration_month
+    card.expiration_year = credit_card.expiration_year
+    card.default = credit_card.default?
+    card.is_expiring = false
 
-      card.token = credit_card.token
-      card.customer_id = credit_card.customer_id
-      card.cc_part_1 = credit_card.bin
-      card.cc_part_2= credit_card.last_4
-      card.cc_type =credit_card.card_type
-      card.cc_holder_name = credit_card.cardholder_name
-      card.expiration_month = credit_card.expiration_month
-      card.expiration_year = credit_card.expiration_year
-      card.default = credit_card.default?
+    card.save(:validate => false)
+    card
+  end
 
-      card.save(:validate => false)
-      card
+=begin
+  Description: Following method will update/replace the Old Creditcard with the new creditcard info which was added to Braintree.
+  Argument List: credit_card(params list returned from Braintree.)
+  Return: nil
+=end
+  def replace_old_card(credit_card)
+    self.token = credit_card.token
+    self.customer_id = credit_card.customer_id
+    self.cc_part_1 = credit_card.bin
+    self.cc_part_2= credit_card.last_4
+    self.cc_type =credit_card.card_type
+    self.cc_holder_name = credit_card.cardholder_name
+    self.expiration_month = credit_card.expiration_month
+    self.expiration_year = credit_card.expiration_year
+    self.default = credit_card.default?
+    self.is_expiring = false
+    self.save(:validate => false)
   end
 
 =begin
@@ -201,9 +220,63 @@ hence currently we are just updating those over the existing creditcards
   def self.get_payment_token(customer_id)
     Creditcard.where(customer_id: customer_id, default: true).first.token
   end
-  #Description: method will return the token value of the chosen card.
+
+=begin
+  Description: method will return the token value of the chosen card.
+  Argument List: card_id
+  Return: creditcards token.
+=end
   def self.get_token(card_id)
     Creditcard.where(id: card_id).first.token
+  end
+
+=begin
+  Description: method will mark the creditcards expired which will be expired in Braintree following Month.
+  If customer did not update this creditcard info then related subscriptions will also get Blocked.
+  argument : nil
+  return: nil
+=end
+  def self.mark_expiring_cards
+    next_month_complete_date = Time.now.next_month #2014-08-15 14:38:38 + 0530
+    year = next_month_complete_date.year
+    month = next_month_complete_date.month
+    day = 1
+    from_date = to_date =  Time.mktime(year,month, day)
+
+    begin
+      expiring_cards = Braintree::CreditCard.expiring_between(from_date, to_date)
+      expiring_tokens = []
+
+      expiring_cards.each  do |card|
+        expiring_tokens.push card.token
+      end
+
+      if expiring_tokens.present?
+        #marking those creditcards which are active in local db but expired from braintree side.
+        Creditcard.where(token: expiring_tokens, is_expiring: false).update_all(is_expiring: true)
+        card_ids = Creditcard.where(token: expiring_tokens).pluck(:id)
+      else
+        puts ' #creditcard.rb #232 In mark_expiring_cards else block : No Card is expiring Next Month.'
+      end
+
+      card_ids #returns user_ids.
+
+    rescue => error
+      logger.info "Some Error Occured " + error.to_s
+    end #end of the exception handing section.
+
+  end #nd of the method.
+
+  def self.get_expired_cards
+    #current_month = Time.now.
+    # Time.now.prev_month.month
+    current_month = Time.now.next_month.month
+    #current_month = Time.now.month
+    current_year = Time.now.year
+    Creditcard.where(is_expiring: true, expiration_month: current_month, expiration_year: current_year).pluck(:id)
+  end
+  def self.get_customer_emails(card_ids)
+
   end
 
 end

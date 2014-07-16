@@ -178,16 +178,16 @@ class UserSubscription < ActiveRecord::Base
 
       order_with_coupon.update_total_and_item_total if order_with_coupon.present?
 
-      self.update_attributes(braintree_token: token, status: "active", resumed_at: Time.now)
+      self.update_attributes(braintree_token: token, status: "active", resumed_at: Time.now, blocked_at: nil, is_blocked: false)
       paused_orders = self.orders.where(state: 'paused')
 
       paused_orders.each_with_index do |order, index|
         order.assign_attributes(state: "confirm",
-          delivery_date: FIRST_DELIVERY_DAYS.days.from_now, subscription_token: token) if index == 0
+          delivery_date: FIRST_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 0
         order.assign_attributes(state: "confirm",
-          delivery_date: SECOND_DELIVERY_DAYS.days.from_now, subscription_token: token) if index == 1
+          delivery_date: SECOND_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 1
         order.assign_attributes(state: "confirm",
-          delivery_date: THIRD_DELIVERY_DAYS.days.from_now, subscription_token: token) if index == 2
+          delivery_date: THIRD_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 2
         order.assign_attributes(creditcard_id: card_id)
 
         #disabling the validation as this might effect total/item total value
@@ -273,15 +273,38 @@ class UserSubscription < ActiveRecord::Base
   Return: NIL
 =end
   def block_subscription
-    self.update_attributes(is_blocked: true)
+    self.update_attributes(is_blocked: true, blocked_at: Time.now)
     order_ids = self.orders.where("state = ? and payment_state = ? and shipment_state = ? ", 'paused', 'pending', 'pending').pluck(:id)
     Spree::Order.block_order(order_ids)
   end
 
   def unblock_subscription
-    self.update_attributes(is_blocked: false)
+    self.update_attributes(is_blocked: false, blocked_at: nil)
     order_ids = self.orders.where(is_blocked: true).pluck(:id)
     Spree::Order.unblock_order(order_ids)
+  end
+
+  def self.block_subscription_and_orders(subscription_ids)
+    result =  {}
+    subscriptions = ""
+
+    subscription_ids.each_with_index do |sub_id, index|
+
+      subscription = UserSubscription.where(id: sub_id).first
+      subscription.cancel_or_pause_subscription("paused")
+      subscription.block_subscription
+
+    #  result[index] = {
+     #   subscription_id: subscription.id,
+      #  email: subscription.orders.first.email,
+       # subscription_type: subscription.subscription.subscription_type
+      #}
+      result[:email] = subscription.orders.first.email
+      subscriptions  << subscription.subscription.subscription_type + " "
+    end
+    result[:subscriptions_types] = subscriptions
+
+    result
   end
 
 end
