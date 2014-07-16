@@ -43,7 +43,6 @@ module MySubscriptionsHelper
 =end
   def unblock_subscription?(subscription)
     subscription[:status] == "paused" && subscription[:is_blocked] == true
-    #false
   end
 
 =begin
@@ -54,7 +53,6 @@ module MySubscriptionsHelper
 =end
   def resume_subscription?(subscription)
     subscription[:status] == "paused" && subscription[:is_blocked] == false
-    #true
   end
 
 end

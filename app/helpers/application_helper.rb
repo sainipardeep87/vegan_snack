@@ -79,9 +79,9 @@ Return : NIL
       content = REXML::Document.new( view_context.product_image(product))
       snack_image =  content.get_elements("//img")[0].attribute('src')
       image_path = "https://www.vegansnackpacks.com"+snack_image.to_s
-      
+
       vendor_email = item.product.vendor.email
-      vendor_name  = item.product.vendor.name 
+      vendor_name  = item.product.vendor.name
 
       line_item_rows += '
       <tr><td><table align="center" border="0" cellpadding="0" cellspacing="0" style="border-bottom: 1px solid #dedfdf" width="444">
@@ -91,10 +91,10 @@ Return : NIL
       </td><td style="text-align: right" width="140">' + item.quantity.to_s + '</td></tr><tr><td colspan="3" height="25"/>
       </tr></table><td></tr>'
     end
-    
+
     result = {
       :line_item_rows => line_item_rows,
-      :vendor_email =>  vendor_email, 
+      :vendor_email =>  vendor_email,
       :vendor_name => vendor_name
     }
 
