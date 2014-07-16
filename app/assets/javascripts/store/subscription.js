@@ -1,22 +1,4 @@
-/*$(document).ready(function(){
-
-    $('.sub-snack-tab').on("click", function(){
-        var line_item_id = $(this).attr('id');
-        var quantity = 1 ;
-
-        $.ajax({
-            url: "/spree/cart",
-            data: {line_item_id: line_item_id, quantity: quantity},
-            type: "patch"
-        });
-    });
-
-});
-*/
-
 $(document).ready(function(){
-
-
     //will open the payment info modal, when customer clicks for subscription resume.
     prompt_for_payment();
     //on any cancel/pause option selection in subscription update page, loader will be shown.
@@ -45,7 +27,6 @@ $(document).ready(function(){
 /*
     Description: Below method will ask for payment info when customer wishes to resume his subscription.
 */
-
     function prompt_for_payment(){
 
         $("#profile_sub_list").on("click", ".sub-action", function(){
@@ -96,7 +77,6 @@ $(document).ready(function(){
         $("#pay_charge").text(payment_message);
         $("#card_modal").modal("show");
     }
-
 
     function preserve_subscription(subscription_id){
         //value will be stored in the hidden field.
@@ -166,12 +146,12 @@ $(document).ready(function(){
         });
 
     }
-
+/*
     function unblock_subscription(card_id, subscription_id){
 
 
         $("#profile_sub_list").on("click", ".sub-action", function(){
-
+            console.log("target chosen");
             var subscription_id = $(this).attr('data-sub-id');
             var action = $(this).attr('data-target');
             console.log("Going for action"+ action);
@@ -199,10 +179,32 @@ $(document).ready(function(){
         });
 
     }
+*/
+    function unblock_subscription(card_id, subscription_id){
+        $.ajax({
+            url: '/my_subscriptions/unblock',
+            method: "post",
+            dataType: "json",
+            data: {id: subscription_id, card_id: card_id},
+            success: function(result){
+                if(result["key"]== "success"){
+                    $("#pay_charge").removeClass().addClass("succ-msg");
+                    card_unblocked_confirmation(result["message"]);
+                }
+                if(result["key"]=="false"){
+                    $("#pay_charge").removeClass().addClass("unathorized-error");
+                    card_unblocked_confirmation(result["message"]);
+                }
+            },
+            failure: function(error){
+                console.log("some error occured" + error);
+            }
+        });
+    }
 
     function update_creditcard(){
 
-        $("#profile_sub_list").on("click", "#sub_pay_update", function(){
+        $("#sub_update_section").on("click", "#sub_pay_update", function(){
             var subscription_id = $(this).attr('data-sub-id');
 
             $.ajax({
@@ -212,8 +214,10 @@ $(document).ready(function(){
                 data: {id: subscription_id},
                 success: function(result){
                     if(result["key"] == "success"){
+                        console.log("sub.js #217 Going to update creditcard "+ result["card_id"]);
                         prepare_modal_for_card_update(result["card_id"]);
                         show_credit_card_modal("");
+                        App.unBlockUI($('.snack-queue-page'));
                     }
                     if(result["key"] == "error"){
                         //handle this to dismiss the modal window and show error at the top of the page.
@@ -229,9 +233,33 @@ $(document).ready(function(){
     }
 
     function prepare_modal_for_card_update(card_id){
-        var target_url  = "/creditcards/".concat(card_id);
+        var target_url = "/creditcards/"+ card_id + "?update=true"
         console.log("The target url is " + target_url);
         $("#subscription_payment").attr("action", target_url);
         $("#subscription_payment").attr("method", "post");
         $("#resume_form_submit").val("Update Card");
+    }
+
+    function card_updated_confirmation(){
+        $("#pay_charge").text("Your Creditcard has been updated successfully. Please Wait...");
+        App.unBlockUI($("#cc_show_modal_content"));
+        reload_account();
+    }
+
+    function card_unblocked_confirmation(confirmation_message){
+        $("#pay_charge").text(confirmation_message);
+        App.unBlockUI($("#cc_show_modal_content"));
+        reload_account();
+    }
+
+    function show_invalid_card_error(){
+        $("#pay_charge").text("Invalid card details submitted.");
+        $("#pay_charge").removeClass().addClass("unathorized-error");
+        App.unBlockUI($("#cc_show_modal_content"));
+    }
+
+    function reload_account(){
+        setTimeout(function(){
+            window.location.reload();
+        },2500);
     }
