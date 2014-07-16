@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140714060341) do
+ActiveRecord::Schema.define(version: 20140715074912) do
 
   create_table "augury_environments", force: true do |t|
     t.string "url"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140714060341) do
     t.string  "expiration_year"
     t.boolean "default"
     t.integer "user_id"
+    t.boolean "is_expiring",      default: false
   end
 
   create_table "posts", force: true do |t|
