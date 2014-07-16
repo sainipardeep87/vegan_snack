@@ -194,5 +194,51 @@ Return: nil
                     'LINK' => data[:url]
                   }
   end
+=begin
+ subscription_id: order.user_subscription_id,
+        email: order.email,
+        subscription_type: order.user_subscription.subscription.subscription_type,
+        delivery_date: order.delivery_date.strftime("%B %d, %Y")
+=end
+  def card_expiry_notification_for_customer( customer_email, subscription_type, delivery_date)
+    mandrill_mail :template => 'notify_customer',
+      :subject => 'Your Credicard is expiring soon.',
+
+      :to => {
+        :email => customer_email,
+        :name => "User"
+      },
+      :vars => {
+        'NAME' => "user",
+        'SUBSCRIPTION' => subscription_type,
+        'DELIVERY_DATE' => delivery_date
+      }
+  end
+
+  def card_expiry_notification_for_admin(customer_email_ids, admin_email_id)
+    mandrill_mail :template => 'notify_admin',
+      :subject => 'Customer Credicards expiring soon.',
+      :to => {
+        :email => admin_email_id,
+        :name => "Admin"
+      },
+      :vars => {
+        'CUSTOMER_EMAILS' => customer_email_ids
+      }
+
+  end
+
+
+  def subscription_blocked_notification(customer_email, subscriptions)
+    mandrill_mail :template => 'block_notification',
+    :subject => 'Your Subscription has been blocked.',
+    :to => {
+      :email => customer_email,
+      :name => 'Customer'
+    },
+    :vars => {
+      'SUBSCRIPTIONS' => subscriptions
+    }
+  end
 
 end
