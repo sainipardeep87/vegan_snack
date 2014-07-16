@@ -33,6 +33,9 @@
             prompt_confirmation_modal_my_subscriptions_path(id: @my_subscription.id, target: 'submit_cancel', method: 'post'),
             remote: true, id: 'cancel_subscription_submit', class: 'vegan-sub-btns' if @enable_cancel %>
 
+            <%= link_to "Update Payment Info", "javascript:void(0)", id: "sub_pay_update", class: 'vegan-sub-btns',
+                  data: {sub_id: @my_subscription.id} %>
+
         <% end %>
     </div>
 <% end %>

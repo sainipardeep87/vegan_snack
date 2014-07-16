@@ -1,19 +1,22 @@
 
 <% if @braintree_cc_return.present? %>
-
+    //this function will perform an ajax call to resume action defined inside my_subscriptions controller
+    // resume_subscription(card_id, subscription_id);
+    //unblock_subscription(card_id, subscription_id);
     var subscription_id = $("#resume_subscription").val();
     var card_id = <%= @card.id %> ;
 
-    $("#pay_charge").text("Your payment was successful, please wait...");
-
-    //this function will perform an ajax call to resume action defined inside my_subscriptions controller
-    // resume_subscription(card_id, subscription_id);
-    unblock_subscription(card_id, subscription_id);
+    <% if @is_update.present? %>
+        // card_updated_confirmation();
+        $("#pay_charge").text("Your Creditcard has been updated successfully. Please Wait...");
+        App.unBlockUI($("#cc_show_modal_content"));
+        <% flash[:sub_cancelled] = "Your Creditcard has been updated successfully." %>
+        window.location = '/users/profile'
+    <% else %>
+        $("#pay_charge").text("Your payment was successful, please wait...");
+        unblock_subscription(card_id, subscription_id);
+    <% end %>
 
 <% else %>
-
-    $("#pay_charge").text("Invalid card details submitted..");
-    $("#pay_charge").removeClass().addClass("unathorized-error");
-    App.unBlockUI($("#cc_show_modal_content"));
-
+    show_invalid_card_error();
 <% end %>

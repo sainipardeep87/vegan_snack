@@ -32,31 +32,32 @@
         You have got following active Subscriptions.
 
         <% @active_subscriptions.each do |subscription| %>
-            <div class = "change-font-size">
+            <div class = "change-font-size <%= 'blocked-subscription' if unblock_subscription?(subscription) %>" >
               <span> </span>
-              <span> <%= subscription[:type] %>  </span> ,
+              <span> <%= subscription[:type] %> , </span>
               <span> <%= subscription[:delivery_date] %> </span>
-              <span> <%= link_to 'block', block_my_subscription_path(id: subscription[:id]), method: :post %></span>
+              <span> <%#= link_to 'block', block_my_subscription_path(id: subscription[:id]), method: :post %></span>
               <span>
                 <%#= link_to "Pause", pause_my_subscriptions_path(id: subscription[:id]),
                 method: :post, id: "sub_pause" if subscription[:status] == "active"%>
 
 
-              <%= link_to "Resume", "javascript:void(0)", id: "sub_resume", class: "sub-action",
+              <%#= link_to "Resume", "javascript:void(0)", id: "sub_resume", class: "sub-action",
                    data: {sub_id: subscription[:id], target: "resume"}  if subscription[:status] == "paused" %>
 
-                <%#= link_to "Resume", "javascript:void(0)", id: "sub_resume",
-                   data: {sub_id: subscription[:id]}  if resume_subscription?(subscription) %>
+                <%= link_to "Resume", "javascript:void(0)", id: "sub_resume", class: 'sub-action',
+                   data: {sub_id: subscription[:id], target: "resume"}  if resume_subscription?(subscription) %>
 
                 <%= link_to "Unblock", "javascript:void(0)", id: "sub_unblock", class: "sub-action",
                   data: {sub_id: subscription[:id], target: "unblock"}  if unblock_subscription?(subscription) %>
 
-                <%= link_to "Update Payment Info", "javascript:void(0)", id: "sub_pay_update",
+                <%#= link_to "Update Payment Info", "javascript:void(0)", id: "sub_pay_update",
                   data: {sub_id: subscription[:id]} %>
 
                 <!-- resume_my_subscriptions_path(id: subscription[:id]), method: :post, -->
               </span>
             </div>
+           <em class='blocked-line'> <%= "Subscription is blocked as creditcard has expired." if unblock_subscription?(subscription) %> </em>
         <% end %>
 
     <% end %>
