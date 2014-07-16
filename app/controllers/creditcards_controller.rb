@@ -32,10 +32,15 @@ class CreditcardsController < ApplicationController
         billing_address.update_attributes(is_complete: true)
         shipping_address.update_attributes(is_complete: true)
       end
+    else
+      logger.info @card.errors.messages
     end
 
   end
-
+=begin
+  Description: Action will perform payment during subscription resume functionality. On collected creditcard details the card will
+  be added to users creditcard list.
+=end
   def pay
     @card = Creditcard.new(creditcard_params)
 
@@ -46,6 +51,7 @@ class CreditcardsController < ApplicationController
       @braintree_cc_return = result.success? ? result.credit_card : nil
     end
 
+
     if @braintree_cc_return.present?
       @card.save
       @card.update_attributes(user_id: user.id)
@@ -54,8 +60,16 @@ class CreditcardsController < ApplicationController
 
   end
 
+=begin
+  Description: Action will update the creditcard if the user wishes to change the creditcard info associated with a subscription/order.
+  this action is also responsible for updating creditcard in case the subscription has been blocked because of invalid creditcard(mostly
+  the card has expired). In both scenarios this action will be used with a extra param to recognize for which feature this action is being called.
+  During normal update an extra param(update= true) will be sent where as during an expired creditcard no such params will be received.
+  depending on this further redirection/flow will be decided.
+=end
   def update
     #@card = Creditcard.new(creditcard_params)
+    @is_update =params[:update] #this flag will be used to track it's for unblocking card or for simple Card Update.
     @card = Creditcard.where(id: params[:id]).first
     user = current_user
 
@@ -65,7 +79,8 @@ class CreditcardsController < ApplicationController
           result = Creditcard.update_creditcard_at_braintree(@card)
           @braintree_cc_return = result.success? ? result.credit_card : nil
         end
-        @card = Creditcard.update_creditcard(@braintree_cc_return, user.id) if @braintree_cc_return.present?
+        #@card = Creditcard.update_creditcard(@braintree_cc_return, user.id) if @braintree_cc_return.present?
+        @card.replace_old_card(@braintree_cc_return) if @braintree_cc_return.present?
     end
   end
 
