@@ -25,10 +25,10 @@ namespace :block_subscription do
 
         if customer_data.present?
                 customer_data.each do |data|
-                    #result =VeganMailer.subscription_blocked_notification(data[:customer_name], data[:customer_email],
-                    #data[:card_type], data[:card_expiry_date]).deliver
+                    result =VeganMailer.subscription_blocked_notification(data[:customer_name], data[:customer_email],
+                    data[:card_type], data[:card_expiry_date]).deliver
                     #puts 'blocked_subscription# 32 subscirption blocked completely'
-                    #puts result
+                    puts result
                 end
        end
 
