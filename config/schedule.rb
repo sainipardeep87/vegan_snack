@@ -22,9 +22,13 @@ set :output, 'log/whenever.log'
 
 every :day, :at => '12:20am', :roles => [:app] do
   rake "push_order_to_hub:push_order"
+  rake "block_subscription:block_expired_subscriptions"
+  rake "notification:notify_customer_and_admin"
 end
 
+=begin
 every 2.minutes, :roles => [:app] do
     rake "block_subscription:block_expired_subscriptions"
     rake "notification:notify_customer_and_admin"
 end
+=end
