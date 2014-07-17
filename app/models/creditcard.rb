@@ -282,9 +282,9 @@ hence currently we are just updating those over the existing creditcards
     current_year = Time.now.year
 
     #fetch the cards which will be marked in next line.
-    expired_credit_cards = self.where(is_expiring: true, is_expired: false, expiration_month: current_month, expiration_year: current_year).pluck(:id)
+    expired_credit_cards = Creditcard.where(is_expiring: true, is_expired: false, expiration_month: current_month, expiration_year: current_year).pluck(:id)
     #now mark it expired permanently.
-    self.where(is_expired: false, is_expiring: true, expiration_month: current_month, expiration_year: current_year).update_all(is_expired: true)
+    Creditcard.where(is_expired: false, is_expiring: true, expiration_month: current_month, expiration_year: current_year).update_all(is_expired: true)
 
     expired_credit_cards
   end
