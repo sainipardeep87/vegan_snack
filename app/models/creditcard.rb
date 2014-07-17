@@ -186,6 +186,7 @@ hence currently we are just updating those over the existing creditcards
     card.expiration_year = credit_card.expiration_year
     card.default = credit_card.default?
     card.is_expiring = false
+    card.is_expired = false
 
     card.save(:validate => false)
     card
@@ -207,6 +208,7 @@ hence currently we are just updating those over the existing creditcards
     self.expiration_year = credit_card.expiration_year
     self.default = credit_card.default?
     self.is_expiring = false
+    self.is_expired = false
     self.save(:validate => false)
   end
 
@@ -253,8 +255,13 @@ hence currently we are just updating those over the existing creditcards
 
       if expiring_tokens.present?
         #marking those creditcards which are active in local db but expired from braintree side.
-        Creditcard.where(token: expiring_tokens, is_expiring: false).update_all(is_expiring: true)
-        card_ids = Creditcard.where(token: expiring_tokens).pluck(:id)
+        #Creditcard.where(token: expiring_tokens, is_expiring: false).update_all(is_expiring: true)
+        #card_ids = Creditcard.where(token: expiring_tokens).pluck(:id)
+
+        Creditcard.where(token: expiring_tokens, is_expired: false).update_all(is_expiring: true)
+        #fetch the card_ids which are not yet blocked and has been marked is_expiring for next month.
+        card_ids = Creditcard.where(token: expiring_tokens, is_expiring: true, is_expired: false).pluck(:id)
+
       else
         puts ' #creditcard.rb #232 In mark_expiring_cards else block : No Card is expiring Next Month.'
       end
@@ -267,14 +274,21 @@ hence currently we are just updating those over the existing creditcards
 
   end #nd of the method.
 
-  def self.get_expired_cards
+  def self.expire_cards
     #current_month = Time.now.
     # Time.now.prev_month.month
     current_month = Time.now.next_month.month
     #current_month = Time.now.month
     current_year = Time.now.year
-    Creditcard.where(is_expiring: true, expiration_month: current_month, expiration_year: current_year).pluck(:id)
+
+    #fetch the cards which will be marked in next line.
+    expired_credit_cards = self.where(is_expiring: true, is_expired: false, expiration_month: current_month, expiration_year: current_year).pluck(:id)
+    #now mark it expired permanently.
+    self.where(is_expired: false, is_expiring: true, expiration_month: current_month, expiration_year: current_year).update_all(is_expired: true)
+
+    expired_credit_cards
   end
+
   def self.get_customer_emails(card_ids)
 
   end
