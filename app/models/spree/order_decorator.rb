@@ -636,7 +636,9 @@ Return : input limit/FixNum
   return: user_subscription_ids
 =end
   def self.collect_user_subscription_ids_for_expired_cards(card_ids)
-    Spree::Order.where(state: "confirm", payment_state: "pending", shipment_state: "pending", creditcard_id: card_ids).pluck(:user_subscription_id).uniq
+    allowed_states = ["confirm", "paused"]
+    Spree::Order.where(state: allowed_states, payment_state: "pending",
+      shipment_state: "pending", creditcard_id: card_ids).pluck(:user_subscription_id).uniq
   end
 
 end
