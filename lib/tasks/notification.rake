@@ -19,10 +19,10 @@ namespace :notification do
 
         if customer_data.present?
             customer_data.each do |data|
-                #customer_name, customer_email, card_type, card_expiry_date)
-                result = VeganMailer.card_expiry_notification_for_customer(data[:name], data[:email], data[:card_type], data[:card_expiry]).deliver
+
+                #result = VeganMailer.card_expiry_notification_for_customer(data[:name], data[:email], data[:card_type], data[:card_expiry]).deliver
                 puts 'customer result'
-                puts result
+                #puts result
             end
         end
         if customer_email_ids.present?
