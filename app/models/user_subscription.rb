@@ -285,26 +285,30 @@ class UserSubscription < ActiveRecord::Base
   end
 
   def self.block_subscription_and_orders(subscription_ids)
-    result =  {}
-    subscriptions = ""
+    result =  []
+    index = 0
 
-    subscription_ids.each_with_index do |sub_id, index|
 
+    subscription_ids.each do |sub_id|
       subscription = UserSubscription.where(id: sub_id).first
       subscription.cancel_or_pause_subscription("paused")
       subscription.block_subscription
+      blocked_orders = subscription.orders.select('id, user_id, creditcard_id').where(is_blocked: true)
 
-    #  result[index] = {
-     #   subscription_id: subscription.id,
-      #  email: subscription.orders.first.email,
-       # subscription_type: subscription.subscription.subscription_type
-      #}
-      result[:email] = subscription.orders.first.email
-      subscriptions  << subscription.subscription.subscription_type + " "
-    end
-    result[:subscriptions_types] = subscriptions
+      blocked_orders.each do |order|
+        result[index] = {
+          customer_name: order.user.first_name,
+          customer_email:order.user.email,
+          card_type: order.creditcard.cc_type,
+          card_expiry_date: order.creditcard.expiration_month + "/" + order.creditcard.expiration_year
+        }
+        index = index + 1
+      end #end of the blocked_orders section.
+
+    end #nd of the subscriptions loop.
 
     result
+
   end
 
 end

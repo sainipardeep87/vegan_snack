@@ -607,17 +607,25 @@ Return : input limit/FixNum
   Return: nil
 =end
   def self.collect_customer_emails_of_expiring_cards(card_ids)
-    expiring_orders =  Spree::Order.select('id, user_subscription_id, email, delivery_date').where(state: 'confirm',
+    expiring_orders =  Spree::Order.select('id, user_subscription_id, email, delivery_date, creditcard_id, user_id').where(state: 'confirm',
         payment_state: "pending",shipment_state: "pending", creditcard_id: card_ids).group(:creditcard_id)
     result = []
 
+  #data[:name], data[:email], data[:card_type], data[:card_expiry]
     expiring_orders.each_with_index do |order, index|
+
+      card = order.creditcard
+
       result[index]= {
-        subscription_id: order.user_subscription_id,
+        name: order.user.first_name,
         email: order.email,
+        card_type:  card.cc_type,
+        card_expiry: card.expiration_month + "/" + card.expiration_year,
+        subscription_id: order.user_subscription_id,
         subscription_type: order.user_subscription.subscription.subscription_type,
         delivery_date: order.delivery_date.strftime("%B %d, %Y")
       }
+
     end
     #[{:email=>"a@a.com", :subscription_type=>"Basic Snack Pack", :delivery_date=>"July 24, 2014"}]
     result
