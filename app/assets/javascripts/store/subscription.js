@@ -18,11 +18,14 @@ $(document).ready(function(){
 
     function show_modal_on_payment_submit(){
 
+    //resume_form_footer
+    //profile_render
         $("#resume_form_footer").on("click", "#resume_form_submit", function(){
             $("#pay_charge").removeClass();
-            $("#pay_charge").text("Payment in progress. Please wait...");
+            $("#pay_charge").text("Processing your card. Please wait...");
             App.blockUI($("#cc_show_modal_content"));
         });
+
     }
 /*
     Description: Below method will ask for payment info when customer wishes to resume his subscription.
