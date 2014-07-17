@@ -30,11 +30,8 @@ every :hour, :roles => [:app] do
     rake "notification:notify_customer_and_admin"
 end
 
-=begin
 
 every :hour, :roles => [:app] do
     rake "block_subscription:block_expired_subscriptions"
     rake "notification:notify_customer_and_admin"
 end
-
-=end
