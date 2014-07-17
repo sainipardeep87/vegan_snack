@@ -14,10 +14,13 @@ namespace :notification do
         end
         puts 'notify_customer_and_admin ## the card ids which we have marked is_expiring'
         puts card_ids
+        puts '*********************************Task is running at time****************************** '
+        puts Time.now
 
         if customer_data.present?
             customer_data.each do |data|
-                result = VeganMailer.card_expiry_notification_for_customer(data[:email], data[:subscription_type], data[:delivery_date]).deliver
+                #customer_name, customer_email, card_type, card_expiry_date)
+                result = VeganMailer.card_expiry_notification_for_customer(data[:name], data[:email], data[:card_type], data[:card_expiry]).deliver
                 puts 'customer result'
                 puts result
             end
