@@ -5,7 +5,7 @@ namespace :block_subscription do
 
         puts "~~~~~2#block_expired_subscriptions_raketask~~~~~"
         #this returns the card_ids which are exipiring in current month hence we'll mark the associated subscrption_orders as blocked.
-        expired_card_ids = Creditcard.get_expired_cards
+        expired_card_ids = Creditcard.expire_cards
 
         if expired_card_ids.blank?
             puts 'block_subscription###No cards to expire in current Month #block_subscription.rake 9th line'
