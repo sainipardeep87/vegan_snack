@@ -200,45 +200,36 @@ Return: nil
         subscription_type: order.user_subscription.subscription.subscription_type,
         delivery_date: order.delivery_date.strftime("%B %d, %Y")
 =end
-  def card_expiry_notification_for_customer( customer_email, subscription_type, delivery_date)
+  def card_expiry_notification_for_customer( customer_name, customer_email, subscription_type, delivery_date)
     mandrill_mail :template => 'notify_customer',
-      :subject => 'Your Credicard is expiring soon.',
+      :subject => 'Your Credicard is expiring soon',
 
       :to => {
         :email => customer_email,
-        :name => "User"
+        :name =>customer_name
       },
       :vars => {
-        'NAME' => "user",
-        'SUBSCRIPTION' => subscription_type,
+        'FNAME'=> customer_name,
+        'SUBSCRIPTION_TYPE' => subscription_type,
         'DELIVERY_DATE' => delivery_date
       }
   end
 
-  def card_expiry_notification_for_admin(customer_email_ids, admin_email_id)
-    mandrill_mail :template => 'notify_admin',
-      :subject => 'Customer Credicards expiring soon.',
-      :to => {
-        :email => admin_email_id,
-        :name => "Admin"
-      },
-      :vars => {
-        'CUSTOMER_EMAILS' => customer_email_ids
-      }
-
-  end
 
 
-  def subscription_blocked_notification(customer_email, subscriptions)
+  def subscription_blocked_notification(customer_name, customer_email, card_type, card_expiry_date)
     mandrill_mail :template => 'block_notification',
-    :subject => 'Your Subscription has been blocked.',
+    :subject => 'Trouble in snack land',
     :to => {
       :email => customer_email,
-      :name => 'Customer'
+      :name => customer_name
     },
     :vars => {
-      'SUBSCRIPTIONS' => subscriptions
+      'NAME' => customer_name, #albert
+      'CARD_TYPE' => card_type, #visa
+      'CARD_EXPIRY_DATE' => card_expiry_date, #08/2014
     }
+
   end
 
 end
