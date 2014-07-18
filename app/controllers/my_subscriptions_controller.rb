@@ -2,7 +2,7 @@ class MySubscriptionsController < ApplicationController
   require 'braintree'
   include ApplicationHelper
   include MySubscriptionsHelper
-	#before_filter :get_subscription, :only => [:edit, :update, :show]
+  #before_filter :get_subscription, :only => [:edit, :update, :show]
   before_action :prepare_subscription, only: [:show, :cancel]
   before_action :get_subscription, only: [:edit, :pause, :prompt_confirmation_modal, :block]
 
@@ -131,7 +131,10 @@ class MySubscriptionsController < ApplicationController
   def edit
 
     if @my_subscription.present?
-      @order = @my_subscription.orders.where(state: :confirm).first
+      #@order = @my_subscription.orders.where(state: :confirm).first
+      @order= @my_subscription.orders.where('state = ? and delivery_date > ?',
+      'confirm', (ORDER_UPDATE_LIMIT+1).days.from_now.to_date).first
+
 
       updated_subscription = Subscription.where(:id => params['updated_subscriber_id']).first
       @cart = Cart.get_cart(current_user.id)
@@ -151,7 +154,6 @@ class MySubscriptionsController < ApplicationController
   end
 
   def update
-
       get_subscription
       @cart = Cart.where('id = ?', params[:cart_id]).first
 
@@ -159,10 +161,12 @@ class MySubscriptionsController < ApplicationController
       @current_cart_items = @cart.get_cart_items
       updated_subscription = Subscription.where(:id => params['updated_subscriber_id']).first
       user_subscription_id = params[:id]
-      @order = @my_subscription.orders.where(state: :confirm).first
-
+      @undelivered_orders= @my_subscription.orders.where('state = ?
+        and delivery_date > ?', 'confirm', (ORDER_UPDATE_LIMIT+1).days.from_now.to_date)
+      #@order = @my_subscription.orders.where(state: :confirm).first
+       @order = @undelivered_orders.first if @undelivered_orders.present?
       if @cart.is_full?
-        @undelivered_orders = @my_subscription.orders.where(state: :confirm)
+        #@undelivered_orders = @my_subscription.orders.where(state: :confirm)
 
         #to avoid the back button page crash issue.
         redirect_to main_app.profile_users_path and return if @undelivered_orders.blank?
@@ -224,36 +228,36 @@ class MySubscriptionsController < ApplicationController
       render 'show'
   end
 
-	def show
+  def show
     @enable_cancel = true
     @enable_pause = true
     @enable_update = true
     @card = Creditcard.new
-	end
+  end
 
   # Description: action will create a new subscription.
   def create_new_subscription
     @subscription_offers = Subscription.get_subscription_list
   end
 
-	protected
+  protected
 
   #Description: action will fetch all subscriptions of a user.
-	def get_subscription
+  def get_subscription
     @subscriptions = Subscription.all
-		@my_subscription = current_user.user_subscriptions.includes(:subscription).where("user_subscriptions.id = ? and user_subscriptions.status = ?", params[:id], "active").first
+    @my_subscription = current_user.user_subscriptions.includes(:subscription).where("user_subscriptions.id = ? and user_subscriptions.status = ?", params[:id], "active").first
 
-		if @my_subscription.blank?
+    if @my_subscription.blank?
 
-			respond_to do |format|
+      respond_to do |format|
         format.html{ flash[:error] = "Sorry, You are not authorized for this subscription." }
         format.js{ render js: %{location.reload();} }
-			end
+      end
 
       redirect_to main_app.profile_users_path and return
-		end
+    end
 
-	end
+  end
 
 =begin
   Description: action will feth the active subscriptions of a User & prepare other parameters like order, card, snacks content
@@ -267,7 +271,10 @@ class MySubscriptionsController < ApplicationController
       flash[:error] = "Sorry, You are not authorized for this subscription."
       redirect_to main_app.profile_users_path and return
     else
-      @order = @my_subscription.orders.where(state: :confirm).first
+      #@order = @my_subscription.orders.where(state: :confirm).first
+       @order= @my_subscription.orders.where('state = ? and delivery_date > ?',
+        'confirm', (ORDER_UPDATE_LIMIT+1).days.from_now.to_date).first
+
       @cart = Cart.get_cart(current_user.id)
       @cart.prepare_cart(current_user.id, @order.subscription_id)
       order_subscription_token = @cart.copy_order_to_cart(@order.id)
