@@ -114,7 +114,9 @@ class UserSubscription < ActiveRecord::Base
   #this will return the orders which can be cancelled(having state: confirm, payment: pending, shipment: pending)
   def get_order_ids_for_cancel_or_pause
     #here sending back the order ids which are supposed to be marked canceled.
-    self.orders.where("state = ? and payment_state = ? and shipment_state = ? ", 'confirm', 'pending', 'pending').pluck(:id)
+    #delivery_date > (ORDER_UPDATE_LIMIT+1).days.from_now.to_date)
+    self.orders.where("state = ? and payment_state = ? and shipment_state = ? and delivery_date > ?",
+      'confirm', 'pending', 'pending',(ORDER_UPDATE_LIMIT+1).days.from_now.to_date).pluck(:id)
   end
 
 =begin
@@ -167,34 +169,8 @@ class UserSubscription < ActiveRecord::Base
 
     if result.success?
       token = result.subscription.id
-      order_with_coupon = self.orders.where("state = ? and coupon_id is not ?", "paused", nil).first
-
-      self.update_attributes(coupon_id: coupon["id"]) if coupon.present?
-
-      if coupon.present? && order_with_coupon.present?
-        order_with_coupon.assign_attributes(coupon_id: coupon["id"])
-        order_with_coupon.save(validate: false)
-      end
-
-      order_with_coupon.update_total_and_item_total if order_with_coupon.present?
-
-      self.update_attributes(braintree_token: token, status: "active", resumed_at: Time.now, blocked_at: nil, is_blocked: false)
-      paused_orders = self.orders.where(state: 'paused')
-
-      paused_orders.each_with_index do |order, index|
-        order.assign_attributes(state: "confirm",
-          delivery_date: FIRST_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 0
-        order.assign_attributes(state: "confirm",
-          delivery_date: SECOND_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 1
-        order.assign_attributes(state: "confirm",
-          delivery_date: THIRD_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 2
-        order.assign_attributes(creditcard_id: card_id)
-
-        #disabling the validation as this might effect total/item total value
-        #(those are calculated as spree provided state machine rule)
-        order.save(validate: false)
-      end
-
+      activate_subscription(token, coupon)
+      activate_orders(token, coupon, card_id)
     end #end of the result.success?
 
     type = self.subscription.subscription_type.to_s
@@ -202,6 +178,47 @@ class UserSubscription < ActiveRecord::Base
     type + " " + date  #"BasicPack  20thjuly"
 
   end #end of the function.
+
+=begin
+  Description: Function will activate the subscription & update the braintree token & coupon field.
+  Argument List: token, coupon
+  return: nil
+=end
+  def activate_subscription(token, coupon)
+    coupon.present? ? self.update_attributes(coupon_id: coupon["id"])  : self.update_attributes(coupon_id: nil)
+    self.update_attributes(braintree_token: token, status: "active", resumed_at: Time.now, blocked_at: nil, is_blocked: false)
+  end
+
+=begin
+  Description: Function will activate the orders & update coupon field.
+  Argument List: token, coupon, card_id
+  return: nil
+=end
+
+  def activate_orders(token, coupon,card_id)
+    order_with_coupon = self.orders.where("state = ? and coupon_id is not ?", "paused", nil).first
+    order_with_coupon.assign_attributes(coupon_id: coupon["id"]) if coupon.present? && order_with_coupon.present?
+    order_with_coupon.assign_attributes(coupon_id: nil) if order_with_coupon.present? && coupon.blank?
+
+
+    if order_with_coupon.present?
+      order_with_coupon.save(validate: false)
+      order_with_coupon.update_total_and_item_total
+    end
+
+    paused_orders = self.orders.where(state: 'paused')
+
+    paused_orders.each_with_index do |order, index|
+      order.assign_attributes(state: "confirm",
+        delivery_date: FIRST_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 0
+      order.assign_attributes(state: "confirm",
+        delivery_date: SECOND_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 1
+      order.assign_attributes(state: "confirm",
+        delivery_date: THIRD_DELIVERY_DAYS.days.from_now, subscription_token: token, is_blocked: false) if index == 2
+      order.assign_attributes(creditcard_id: card_id)
+      order.save(validate: false)
+    end
+  end
 
 =begin
   Description: Following function will check whether the order is associated with any coupon code or not.
@@ -278,37 +295,40 @@ class UserSubscription < ActiveRecord::Base
     Spree::Order.block_order(order_ids)
   end
 
+=begin
+  Description: Function will unblock the subscriptions by marking their is_blocked status to false & will mark subsequent
+  orderes also unblock.
+  Argument List: NIL
+  Return: NIL
+=end
   def unblock_subscription
     self.update_attributes(is_blocked: false, blocked_at: nil)
     order_ids = self.orders.where(is_blocked: true).pluck(:id)
     Spree::Order.unblock_order(order_ids)
   end
 
+=begin
+  Description: Function will be blocking the subscriptions and orders as blocked as per the passed subscription IDs.
+  Argument List: subscription IDs.
+  Return: result array(for Email notification)
+=end
   def self.block_subscription_and_orders(subscription_ids)
     result =  []
-    index = 0
 
-
-    subscription_ids.each do |sub_id|
+    subscription_ids.each_with_index do |sub_id, index|
       subscription = UserSubscription.where(id: sub_id).first
       subscription.cancel_or_pause_subscription("paused")
       subscription.block_subscription
-      blocked_orders = subscription.orders.select('id, user_id, creditcard_id').where(is_blocked: true)
+      order = subscription.orders.select('id, user_id, creditcard_id').where(is_blocked: true).first
 
-      blocked_orders.each do |order|
-        result[index] = {
-          customer_name: order.user.first_name,
-          customer_email:order.user.email,
-          card_type: order.creditcard.cc_type,
-          card_expiry_date: order.creditcard.expiration_month + "/" + order.creditcard.expiration_year
-        }
-        index = index + 1
-      end #end of the blocked_orders section.
-
+      result[index] = {
+        customer_name: order.user.first_name,
+        customer_email:order.user.email,
+        card_type: order.creditcard.cc_type,
+        card_expiry_date: order.creditcard.expiration_month + "/" + order.creditcard.expiration_year
+      } if order.present?
     end #nd of the subscriptions loop.
-
     result
-
   end
 
 end

@@ -168,8 +168,10 @@ Return: object returned by braintree(success), error object(On failure)
   end
 
 =begin
- Description: as card is already created by default when @user.save is getting called while creating a new user,
-hence currently we are just updating those over the existing creditcards
+  Description: as card is already created by default when @user.save is getting called while creating a new user,
+    hence currently we are just updating those over the existing creditcards
+  Argument: creditcard, user_id
+  Return: NIL
 =end
 
   def self.update_creditcard(credit_card, user_id)
@@ -195,8 +197,9 @@ hence currently we are just updating those over the existing creditcards
 =begin
   Description: Following method will update/replace the Old Creditcard with the new creditcard info which was added to Braintree.
   Argument List: credit_card(params list returned from Braintree.)
-  Return: nil
+  Return: NIL
 =end
+
   def replace_old_card(credit_card)
     self.token = credit_card.token
     self.customer_id = credit_card.customer_id
@@ -219,6 +222,7 @@ hence currently we are just updating those over the existing creditcards
   Argument List: customer_id
   Return List: token
 =end
+
   def self.get_payment_token(customer_id)
     Creditcard.where(customer_id: customer_id, default: true).first.token
   end
@@ -272,25 +276,29 @@ hence currently we are just updating those over the existing creditcards
       logger.info "Some Error Occured " + error.to_s
     end #end of the exception handing section.
 
-  end #nd of the method.
+  end
+
+=begin
+  Description: Function will mark the creditcards expired which are having expiration month/year is current month/year,
+  then it will reutrn the expired_card_ids which will be used for notifying the related customers.
+  Argument: nil
+  Return: expired_credit_cards.
+=end
 
   def self.expire_cards
-    #current_month = Time.now.
-    # Time.now.prev_month.month
     current_month = Time.now.next_month.month
-    #current_month = Time.now.month
+    #current_month = Time.now.month #enable this while pushing for production.
     current_year = Time.now.year
 
     #fetch the cards which will be marked in next line.
-    expired_credit_cards = Creditcard.where(is_expiring: true, is_expired: false, expiration_month: current_month, expiration_year: current_year).pluck(:id)
+    expired_credit_cards = Creditcard.where(is_expiring: true, is_expired: false,
+      expiration_month: current_month, expiration_year: current_year).pluck(:id)
+
     #now mark it expired permanently.
-    Creditcard.where(is_expired: false, is_expiring: true, expiration_month: current_month, expiration_year: current_year).update_all(is_expired: true)
+    Creditcard.where(is_expired: false, is_expiring: true,
+      expiration_month: current_month, expiration_year: current_year).update_all(is_expired: true)
 
     expired_credit_cards
-  end
-
-  def self.get_customer_emails(card_ids)
-
   end
 
 end
