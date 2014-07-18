@@ -52,15 +52,17 @@ class Spree::Admin::CouponsController <  Spree::Admin::BaseController
     new_coupon = Coupon.new(coupon_params)
     new_coupon.set_discount_ID
     new_coupon.validate_couponcode = true unless new_coupon.coupon_code.strip == @coupon.coupon_code
-
+    #binding.pry
     if new_coupon.valid?
       if is_changed_coupon?(@coupon, new_coupon)
+        #binding.pry
         @coupon.update_column(:deleted, true)
+        #binding.pry
         new_coupon.save
       else
         @coupon.update_attributes(updated_at: Time.now)
       end
-
+      #binding.pry
       flash[:success] = Spree.t('Coupon has been successfully updated.')
       redirect_to '/spree/admin/coupons'
     else
