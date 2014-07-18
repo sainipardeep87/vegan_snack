@@ -24,8 +24,14 @@ every :day, :at => '12:20am', :roles => [:app] do
   rake "push_order_to_hub:push_order"
 end
 
+=begin
+every 1.minutes, :roles => [:app] do
+    rake "notification:notify_customer_and_admin"
+    rake "block_subscription:block_expired_subscriptions"
+end
+=end
 
 every :hour, :roles => [:app] do
-    rake "block_subscription:block_expired_subscriptions"
     rake "notification:notify_customer_and_admin"
+    rake "block_subscription:block_expired_subscriptions"
 end
