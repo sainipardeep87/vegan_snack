@@ -200,7 +200,7 @@ Return: nil
         subscription_type: order.user_subscription.subscription.subscription_type,
         delivery_date: order.delivery_date.strftime("%B %d, %Y")
 =end
-  def card_expiry_notification_for_customer( customer_name, customer_email, subscription_type, delivery_date)
+  def card_expiry_notification_for_customer(customer_name, customer_email, subscription_type, delivery_date)
     mandrill_mail :template => 'notify_customer',
       :subject => 'Your Credicard is expiring soon',
 
