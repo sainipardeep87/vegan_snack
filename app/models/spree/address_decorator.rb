@@ -19,9 +19,9 @@ Spree::Address.class_eval do
   validates  :city,  presence: { message:  "City is required." },
              length: {maximum: 50, message: "Maximum 50 characters allowed." }
 
-  #validates  :phone,  presence: { message:  "Phone no.  is required." },
-   #          length: {maximum: 50, message: "Maximum 50 characters allowed." },
-    #         format: {with: phone_no_regex, message: "Invalid phone no entered."}
+  validates  :phone,  presence: { message:  "Phone no.  is required." },
+             length: {maximum: 50, message: "Maximum 50 characters allowed." },
+             format: {with: phone_no_regex, message: "Invalid phone no entered."}
 
   validates  :state_name,  presence: { message:  "State name is required." },
              length: {maximum: 50, message: "Maximum 50 characters allowed." }
