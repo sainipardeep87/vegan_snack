@@ -3,20 +3,21 @@ Spree::UserRegistrationsController.class_eval do
   layout 'application'
 
 	#skip_before_action :current_user, only:  [:new, :create]
-  skip_filter(*_process_action_callbacks.map(&:filter), only:[:create, :new, :show_address_form])
-  before_action :check_current_user_1, :get_subscription_offers
+  skip_filter(*_process_action_callbacks.map(&:filter), only:[:create, :new, :show_address_form, :check_phone_no_format, :get_phone_no])
+  before_action :check_current_user_1, :get_subscription_offers, except:[:check_phone_no_format, :get_phone_no]
   include Spree::OrdersHelper
   include ApplicationHelper
   include UserRegistrationsHelper
   respond_to :html, :xml, :js
   #before_action :get_credit_card, only: [:create]
+  before_action :get_phone_no, only: :check_phone_no_format
 
 # Description: new action has been overridden over spree provided new action; mainly initialization of users address has been done in this Section.
   def new
      if request.env['omniauth.auth'].present?
       params = request.env["omniauth.params"]
 
-      @fb_data = fetch_facebook_params 
+      @fb_data = fetch_facebook_params
       @user = Spree::User.where(email: @fb_data[:email]).first
 
 
@@ -25,7 +26,7 @@ Spree::UserRegistrationsController.class_eval do
       #here need to check if it's a fb registered user + in params we must receive login
       #if !is_ordinary_user?(@user.facebook_token) && params["login"].present?
        #use the @not_yet_fb_signed_up to notify the message at the top.
-       
+
         @not_yet_fb_signed_up = true
         @user = Spree::User.new
         @user.addresses.build
@@ -53,7 +54,7 @@ Spree::UserRegistrationsController.class_eval do
       end
 
     else
-      @user = Spree::User.new 
+      @user = Spree::User.new
       @user.addresses.build
       @user.creditcards.build
 
@@ -61,12 +62,11 @@ Spree::UserRegistrationsController.class_eval do
     @subscriptions = Subscription.select('id, subscription_type', 'plan_price')
     @snacks = Spree::Product.limit(5)
     @snacks.sort_by! { |x| x[:name].downcase }
-    
+
   end
 
 # Description: create action of Spree has been overridden here and address attributes are being saved #in respective Model
   def create
-    
     sub_id = params[:spree_user][:sub_type].blank? ? "1" : params[:spree_user][:sub_type]
     coupon_code = params[:spree_user][:coupon_code]
     @cart = Cart.new
@@ -79,7 +79,7 @@ Spree::UserRegistrationsController.class_eval do
       result = Creditcard.create_customer_and_creditcard_over_braintree(billing_address, @user.email,credit_card_params)
       @success = result.success? ? true : false
 
-   
+
       if @success && @user.save
         customer =result.customer
         @credit_card_details = Creditcard.update_creditcard(customer.credit_cards.first, @user.id)
@@ -95,9 +95,9 @@ Spree::UserRegistrationsController.class_eval do
         new_token_1 = @order_1.get_unique_ID
         new_token_subscr = Spree::Order.get_unique_subscription_token
         #entry in user subscription
-        
+
         coupon = Coupon.get_briantree_discount_id_and_calculate_final_amount(plan_price, coupon_code)
-        
+
         if coupon.present?
           user_subscription_id = UserSubscription.create_user_subscription(sub_id, @user.id, new_token_subscr, coupon["id"])
           sub_result = Subscription.place_subscription_with_coupon(@order_1.delivery_date, @order_1.subscription_id, @credit_card_details.id, new_token_subscr, coupon)
@@ -107,7 +107,7 @@ Spree::UserRegistrationsController.class_eval do
           user_subscription_id = UserSubscription.create_user_subscription(sub_id, @user.id, new_token_subscr)
           sub_result = Subscription.place_subscription_without_coupon(@order_1.delivery_date, @order_1.subscription_id, @credit_card_details.id, new_token_subscr)
         end
-         
+
         @order_1.update_attributes(number: new_token_1, user_subscription_id: user_subscription_id, subscription_token: new_token_subscr)
 
         # second order
@@ -121,7 +121,7 @@ Spree::UserRegistrationsController.class_eval do
         @order_3.update_attributes(number: new_token_3, subscription_token: new_token_subscr, user_subscription_id: user_subscription_id)
 
         #creating new line-items-default
-                      
+
         create_new_line_items(sub_id,@order_1)
         create_new_line_items(sub_id,@order_2)
         create_new_line_items(sub_id,@order_3)
@@ -138,7 +138,7 @@ Spree::UserRegistrationsController.class_eval do
        VeganMailer.signup_email(result).deliver
 
        result = vendor_email_params(@order_1)
-       VeganMailer.vendor_email(result).deliver 
+       VeganMailer.vendor_email(result).deliver
 
 		   render js: %(window.location.href='/spree/orders/snack_queue') and return
 
@@ -158,7 +158,7 @@ Spree::UserRegistrationsController.class_eval do
 =end
 =begin
   def new_facebook_signup
-    @fb_data = fetch_facebook_params 
+    @fb_data = fetch_facebook_params
 
     @user = Spree::User.where(email: @fb_data[:email]).first
 
@@ -167,7 +167,7 @@ Spree::UserRegistrationsController.class_eval do
       @user.addresses.build
       @user.addresses.first.firstname = @fb_data[:firstname]
       @user.addresses.first.lastname = @fb_data[:lastname]
-      
+
 
     else
       @user.update_attributes(facebook_token: @fb_data[:fb_token]) if @user.facebook_token != @fb_data[:fb_token] #update the token if @user_founds token is not same as the @fb_token
@@ -229,13 +229,10 @@ Spree::UserRegistrationsController.class_eval do
   end
 
 #Descripton: Following action will check entered phone number is in proper format or not(XXX-XXX-XXXX)
-=begin
    def check_phone_no_format
-    #@valid = Spree::Address.is_phone_valid?(params[:spree_user][:addresses_attributes]["0"]["phone"].strip)
-     @valid = true
-    render text: @valid
+    is_valid = Spree::Address.is_phone_valid?(@phone)
+    render text: is_valid
    end
-=end
 
 # Description: Adding parameters to permission list; so those will be allowed for create/update action
   private
@@ -258,7 +255,7 @@ Spree::UserRegistrationsController.class_eval do
 
     def get_subscription_offers
       @subscription_offers = Subscription.get_subscription_list
-    end  
+    end
 
     def place_order_registration(sub_id, date, user, card, ip = nil, plan_price)
          Spree::Order.create(
@@ -277,8 +274,8 @@ Spree::UserRegistrationsController.class_eval do
              :payment_state => "pending"
         )
 
-          
-    end  
+
+    end
 
     def create_new_line_items(sub_id, order)
       @item_array = []
@@ -306,6 +303,13 @@ Spree::UserRegistrationsController.class_eval do
         cnt_chk = item.id
       end
 
+    end
+
+    # action will validate the phone number field and strip input if it's coming with any kind of spaces then assign it to
+    # a @phone variable.
+    def get_phone_no
+      phone_no = params[:phone_no] if params[:phone_no].present?
+      @phone = phone_no.respond_to?("strip") ? phone_no.strip : nil
     end
 
 

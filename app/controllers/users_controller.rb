@@ -49,16 +49,17 @@
 
    def edit_address
         address_id = params[:id]
-        @address = Spree::Address.select('id, firstname, lastname, address1,address2, city, zipcode,
-                  state_name, address_type').where(id: address_id).first
+        @address = Spree::Address.select('id, firstname, lastname, phone, address1,address2,
+          city, zipcode, state_name, address_type').where(id: address_id).first
    end
 
    #Description: Following action will update logged in users address Related Details.
    def update_address
      @address = Spree::Address.where(id: params[:address][:id]).first
      @address.update_attributes(address_params_list) if @address.present?
-
+     @user = current_user
    end
+
   #Description: below action will remove address from my acount section.
   def remove_address
      address_id = params[:id]
