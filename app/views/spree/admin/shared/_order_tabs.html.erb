@@ -12,7 +12,10 @@
       <dl class="additional-info">
 
       <dt data-hook><%= Spree.t(:order_date) %>:</dt>
-        <dd id='order_total'><%= @order.created_at.strftime("%m-%d-%Y") %></dd>
+
+        <dd id='order_total'>
+        <%= @order.created_at.strftime("%m-%d-%Y") %>
+        </dd>
 
             <dt data-hook><%= Spree.t(:lockdown_date) %>:</dt>
         <dd id='order_total'><%= lockdown_date(@order.delivery_date) %></dd>

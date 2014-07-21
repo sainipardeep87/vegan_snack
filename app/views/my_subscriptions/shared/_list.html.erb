@@ -8,7 +8,7 @@
 
   <% unless @my_subscriptions.blank? %>
     <% @my_subscriptions.each_with_index do |my_subscription, index| %>
-      <%= link_to "#{my_subscription.subscription.try(:subscription_type)} (#{my_subscription.updated_at.strftime("%d %b, %Y")})", "/my_subscriptions/#{my_subscription.id}", :class => 'btn btn-primary btn-link' %>
+      <%= link_to "#{my_subscription.subscription.try(:subscription_type)} (#{my_subscription.created_at.strftime("%d %b, %Y")})", "/my_subscriptions/#{my_subscription.id}", :class => 'btn btn-primary btn-link' %>
     <%end%>
   <% else %>
 
