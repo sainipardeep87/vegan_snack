@@ -160,6 +160,15 @@ function validate_account_edit_address_form(){
                 required: true,
                 maxlength: 50
             },
+            "address[phone]":{
+                required: true,
+                maxlength: 50,
+                remote: {
+                    url: '/check_phone_no_format',
+                    data: {'phone_no':function(){return $('#add_phone').val()}},
+                    async: false
+                }
+            },
             "address[address1]":{
                 required: true,
                 maxlength:50
@@ -188,6 +197,11 @@ function validate_account_edit_address_form(){
             "address[lastname]":{
                 required: "Last Name is required",
                 maxlength: "Maximum {0} characters allowed."
+            },
+            "address[phone]":{
+                required: 'Phone no. is required',
+                maxlength: 'Maximum {0} characters allowed.',
+                remote: 'Invalid phone no entered.'
             },
             "address[address1]":{
                 required: 'Address is required.',

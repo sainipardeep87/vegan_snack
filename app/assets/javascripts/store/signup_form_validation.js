@@ -8,22 +8,7 @@ $(document).ready(function(){
         validate_email_field_before_signup();
     });
 
-    /*$("#vegan_user_signup").on("submit", "#vegan_signup", function(e){
-        e.preventDefault();
-    });
-    */
 
-/*
-    $("#vegan_user_signup").on("keypress", "#vegan_signup", function(e){
-        var keyCode = e.keyCode || e.which;
-
-        if(keyCode == 13){
-            e.preventDefault();
-            on_validate_show_billing_form();
-        }
-
-    });
-*/
     /* Same as above feature, enabled the enter key hit to validate the Email Field in Sign up */
     $("#facebook_email_div").on("keypress", "#email", function(e){
         var keyCode = e.keyCode  || e.which;
@@ -111,7 +96,8 @@ function on_validate_show_billing_form(){
             $("#signup_ship_address").hide();
             $("#signup_bill_address").removeClass("hide");
             $("#signup_bill_address").show();
-            $("#order_billing").height($(window).height()+200);
+            console.log("setting height of order_billing");
+            $("#order_billing").height($(window).height()+ 300);
         }
 
 }
@@ -120,6 +106,16 @@ function validate_signup_cum_ship_address_form(form_id){
 
     var result = $(form_id).validate({
         rules: {
+            "spree_user[addresses_attributes][0][phone]":{
+                required: true,
+                maxlength: 50,
+                phoneUS: true
+               /* remote: {
+                    url: '/check_phone_no_format',
+                    data: {'phone_no':function(){return $('#add_phone_shipping').val()}},
+                    async: false
+                }*/
+            },
             "spree_user[addresses_attributes][0][firstname]": {
                 required: true,
                 maxlength: 50
@@ -128,6 +124,7 @@ function validate_signup_cum_ship_address_form(form_id){
                 required: true,
                 maxlength: 50
             },
+
             "spree_user[email]":{
                 required: true,
                 maxlength: 50,
@@ -172,6 +169,18 @@ function validate_signup_cum_ship_address_form(form_id){
             "spree_user[addresses_attributes][1][lastname]": {
                 required: true,
                 maxlength: 50
+            },
+            "spree_user[addresses_attributes][1][phone]":{
+                required: true,
+                maxlength: 50,
+                phoneUS: true
+                /*
+                remote: {
+                    url: '/check_phone_no_format',
+                    data: {'phone_no':function(){return $('#add_phone_billing').val()}},
+                    async: false
+                }
+                */
             },
             "spree_user[addresses_attributes][1][address1]":{
                 required: true,
@@ -230,6 +239,12 @@ function validate_signup_cum_ship_address_form(form_id){
                 required: 'Last name is required',
                 maxlength: 'Maximum {0} characters allowed.'
             },
+            "spree_user[addresses_attributes][0][phone]":{
+                required: 'Phone no. is required',
+                maxlength: 'Maximum {0} characters allowed.',
+                // phoneUS: 'Invalid phone no entered.'
+                // remote: 'Invalid phone no entered.'
+            },
             "spree_user[email]":{
                 required: "Email is required.",
                 maxlength: 'Maximum {0} characters allowed.',
@@ -271,6 +286,12 @@ function validate_signup_cum_ship_address_form(form_id){
             "spree_user[addresses_attributes][1][lastname]": {
                 required: 'Last name is required',
                 maxlength: 'Maximum {0} characters allowed.'
+            },
+            "spree_user[addresses_attributes][1][phone]":{
+                required: 'Phone no. is required',
+                maxlength: 'Maximum {0} characters allowed.'
+                // remote: 'Invalid phone no entered.'
+                //phoneUS: 'Invalid phone no entered.'
             },
             "spree_user[addresses_attributes][1][address1]":{
                 required: 'Address is required.',
@@ -330,6 +351,7 @@ function validate_signup_cum_ship_address_form(form_id){
  Argument LIst: form
  Return: NIL
  */
+ /*
 function validate_user_signup_form(form){
     console.log(form);
     $(form).validate({
@@ -350,9 +372,12 @@ function validate_user_signup_form(form){
                 remote: '/check_email'
             },
             "spree_user[addresses_attributes][0][phone]":{
-                remote: '/check_phone_no_format',
                 required: true,
-                maxlength: 50
+                maxlength: 50,
+                remote: {
+                    url: '/check_phone_no_format',
+                   data: { phone_no: billing_phone_no}
+                }
             },
             "spree_user[addresses_attributes][0][company]":{
                 maxlength: 50
@@ -445,6 +470,8 @@ function validate_user_signup_form(form){
         }
     });
 }
+*/
+
 // Below function will perform validation on the signup form.
 function validate_user_signin_form(form){
     $(form).validate({

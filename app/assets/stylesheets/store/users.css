@@ -458,6 +458,10 @@ form#new_address div div {
     padding-bottom: 3% !important;
 }
 
+.phone-form{
+    padding-bottom: 0% !important;
+}
+
 #address_profile_update div label.error {
     position: absolute;
     color: #FF0000;

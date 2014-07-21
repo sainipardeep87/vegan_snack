@@ -39,6 +39,7 @@ ready = function(){
             $("#spree_user_addresses_attributes_1_address1").val($("#spree_user_addresses_attributes_0_address1").val());
             $("#spree_user_addresses_attributes_1_address2").val($("#spree_user_addresses_attributes_0_address2").val());
             $("#spree_user_addresses_attributes_1_city").val($("#spree_user_addresses_attributes_0_city").val());
+            $("#add_phone_billing").val($("#add_phone_shipping").val());
             $("#spree_user_addresses_attributes_1_state_name").val($("#spree_user_addresses_attributes_0_state_name").val());
             $("#spree_user_addresses_attributes_1_zipcode").val($("#spree_user_addresses_attributes_0_zipcode").val());
 

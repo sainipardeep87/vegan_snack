@@ -159,7 +159,15 @@ $(document).ready(function(){
                 required: true,
                 maxlength: 50
             },
-
+            "phone":{
+                required: true,
+                maxlength: 50,
+                remote: {
+                    url: '/check_phone_no_format',
+                    data: {'phone_no':function(){return $('#add_phone').val()}},
+                    async: false
+                }
+            },
             "address1":{
                 required: true,
                 maxlength: 50
@@ -188,6 +196,11 @@ $(document).ready(function(){
             "lastname": {
                 required: 'Last name is required',
                 maxlength: 'Maximum {0} characters allowed.'
+            },
+            "phone":{
+                required: 'Phone no. is required',
+                maxlength: 'Maximum {0} characters allowed.',
+                remote: 'Invalid phone no entered.'
             },
             "address1":{
                 required: 'Address is required',
