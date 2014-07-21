@@ -14,7 +14,7 @@
       <dt data-hook><%= Spree.t(:order_date) %>:</dt>
         <dd id='order_total'><%= @order.created_at.strftime("%m-%d-%Y") %></dd>
 
-        <dt data-hook><%= Spree.t(:lockdown_date) %>:</dt>
+            <dt data-hook><%= Spree.t(:lockdown_date) %>:</dt>
         <dd id='order_total'><%= lockdown_date(@order.delivery_date) %></dd>
 
         <dt data-hook><%= Spree.t(:delivery_date) %>:</dt>
@@ -28,7 +28,8 @@
             <%= Spree.t(:subscription_type) %>: </dt>
         <dd id='subscription_type'>
             <%#= Spree::Order.where(id: @order.id).first.total.to_f %>
-            <%= @order.user_subscription.subscription.subscription_type %>
+            <%#= @order.user_subscription.subscription.subscription_type %>
+            <%= Subscription.where(id: @order.subscription_id).first.subscription_type %>
         </dd>
 
         <%# if checkout_steps.include?("delivery") && @order.ship_total > 0 %>
