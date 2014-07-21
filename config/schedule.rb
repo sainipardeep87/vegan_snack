@@ -22,16 +22,22 @@ set :output, 'log/whenever.log'
 
 every :day, :at => '12:20am', :roles => [:app] do
   rake "push_order_to_hub:push_order"
+  rake "notification:notify_customer_and_admin"
+  rake "block_subscription:block_expired_subscriptions"
 end
 
 =begin
+#enable this for development env.
 every 1.minutes, :roles => [:app] do
     rake "notification:notify_customer_and_admin"
     rake "block_subscription:block_expired_subscriptions"
 end
 =end
 
+=begin
+# Enable this for staging Env.
 every :hour, :roles => [:app] do
     rake "notification:notify_customer_and_admin"
     rake "block_subscription:block_expired_subscriptions"
 end
+=end
