@@ -286,8 +286,8 @@ Return: object returned by braintree(success), error object(On failure)
 =end
 
   def self.expire_cards
-    current_month = Time.now.next_month.month
-    #current_month = Time.now.month #enable this while pushing for production.
+    #current_month = Time.now.next_month.month
+    current_month = Time.now.month #enable this while pushing for production.
     current_year = Time.now.year
 
     #fetch the cards which will be marked in next line.
