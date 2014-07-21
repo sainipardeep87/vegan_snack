@@ -21,6 +21,12 @@
       </div>
 
       <div class="form-group">
+        <label>phone</label>
+        <%= f.text_field  :phone, :id => "add_phone", :class => "form-control" %>
+        <label for="phone", class="phone-err"></label>
+      </div>
+
+      <div class="form-group">
         <label>Address 1 </label>
         <%= f.text_field  :address1, :id => "add_add1", :class => "form-control" %>
         <label for="add_address1", class="address-err"></label>

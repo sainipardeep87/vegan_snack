@@ -28,7 +28,15 @@
           </div>
 
           <div class="form-group move-down">
+              <div>
+                <%= label_tag "Phone" %>
+                <%= address.text_field :phone, :class => 'form-control', :id => 'add_phone_billing' %>
+                <label class="bill-error" for="bill_phone"></label>
+              </div>
+          </div>
 
+
+          <div class="form-group move-down">
               <div>
                 <%= label_tag "address 1" %>
                 <%= address.text_field :address1, :class => 'form-control' %>

@@ -54,7 +54,16 @@
                 </span>
               </div>
 
-              
+              <div class="v-wide-div v-signup-div">
+                <span>
+                  <%= builder.text_field :phone, placeholder: 'Phone(xxx-xxx-xxxx) *', id: 'add_phone_shipping' %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.phone"][0] if @user.errors.messages[:"addresses.phone"].present? %>
+                  </label>
+                </span>
+              </div>
+
+
               <div class="v-wide-div v-signup-div">
                 <span>
                   <%= builder.text_field :address1, placeholder: 'Address Line 1 *' %>

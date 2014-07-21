@@ -15,6 +15,12 @@
             <label for="add_lname",  class="address-err"></label>
           </div>
 
+          <div class="form-group phone-form">
+            <label>Phone </label>
+            <%= f.text_field :phone, :id => "add_phone", :class => "form-control" %>
+            <label for="add_phone", class="phone-err"></label>
+          </div>
+
           <div class="form-group">
             <label>Address 1 </label>
             <%= f.text_field  :address1, :id => "add_add1", :class => "form-control" %>
