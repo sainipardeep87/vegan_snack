@@ -1,4 +1,3 @@
-
 <%= render :partial => 'spree/admin/shared/order_tabs', :locals => { :current => 'Customer Details' } %>
 
 <%= csrf_meta_tags %>
@@ -26,7 +25,13 @@
   </fieldset>
 </div>
 
-<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+<%#= render :partial => 'spree/shared/error_messages', :locals => { :target => @order } %>
+<% if @order.errors.present? %>
+<div id="customer_error_summary">
+
+    <%= @order.errors.messages.count %> errors prohibited this record from being saved.
+  </div>
+<% end %>
 
 <%= form_for @order, :url => admin_order_customer_url(@order) do |f| %>
     <%= render 'form', :f => f %>

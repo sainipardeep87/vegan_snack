@@ -44,7 +44,6 @@ class Coupon < ActiveRecord::Base
  	#will validate the duplicacy of coupon code, if its already taken.
  	def coupon_code_taken?
  		#coupon_found = Coupon.where('coupon_code like BINARY ?', self.coupon_code).first.present?
- 		#binding.pry
  		coupon_found = Coupon.where('coupon_code like BINARY ? and deleted = ?', self.coupon_code, false).first.present?
  		errors.add(:coupon_code, "Sorry, Coupon code  already in use.") if coupon_found
  	end

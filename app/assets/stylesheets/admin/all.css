@@ -179,3 +179,23 @@ padding: 0% 0% 2% 0% !important;
 #filter_submit:hover {
 	background-color: rgba(0, 62, 134, 1) !important;
 }
+
+.customer-error {
+	color: #f57e80;
+	font-weight: bold;
+	position: absolute;
+	font-size: 0.8em;
+}
+
+#customer_error_summary {
+	text-align: center;
+	font-weight: bold;
+	font-size: 1.75em;
+	color: #F57E80;
+}
+
+
+#customer_email_field{
+	text-align: center;
+	margin-left: 35%;
+}

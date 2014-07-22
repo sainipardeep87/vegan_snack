@@ -1,36 +1,59 @@
 <% s_or_b = type.chars.first %>
 
 <div id="<%= type %>" data-hook="address_fields">
+
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :firstname, Spree.t(:first_name) %>
+    <span>*</span>
     <%= f.text_field :firstname, :class => 'fullwidth' %>
+    <div class='customer-error'>
+      <%= customer_details_error(address_type, "firstname", errors) %>
+    </div>
   </div>
+
 
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :lastname, Spree.t(:last_name) %>
+    <span>*</span>
     <%= f.text_field :lastname, :class => 'fullwidth' %>
+    <div class='customer-error'>
+    <%= customer_details_error(address_type, "lastname", errors ) %>
+    </div>
   </div>
 
-  <% if Spree::Config[:company] %>
-      <div class="field <%= "#{type}-row" %>">
-        <%= f.label :company, Spree.t(:company) %>
-        <%= f.text_field :company, :class => 'fullwidth' %>
+<!--
+  <%# if Spree::Config[:company] %>
+      <div class="field <%#= "#{type}-row" %>">
+        <%#= f.label :company, Spree.t(:company) %>
+        <%#= f.text_field :company, :class => 'fullwidth' %>
+        <%#= customer_details_error(address_type, "company", errors ) %>
       </div>
-  <% end %>
-
+  <%# end %>
+-->
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :address1, Spree.t(:Address_1) %>
+    <span>*</span>
     <%= f.text_field :address1, :class => 'fullwidth' %>
+    <div class='customer-error'>
+    <%= customer_details_error(address_type, "address1", errors) %>
+    </div>
   </div>
 
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :address2, Spree.t(:Address_2) %>
     <%= f.text_field :address2, :class => 'fullwidth' %>
+    <div class='customer-error'>
+      <%= customer_details_error(address_type, "address2",errors) %>
+    </div>
   </div>
 
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :city, Spree.t(:city) %>
+    <span>*</span>
     <%= f.text_field :city, :class => 'fullwidth' %>
+    <div class='customer-error'>
+    <%= customer_details_error(address_type, "city", errors) %>
+    </div>
   </div>
 
   <!--
@@ -53,11 +76,17 @@
     <div id="<%= s_or_b %>state" class='single-line'>
     <%= f.label :state_id, Spree.t(:state) %>
       <%= f.text_field :state_name, value: state_name, class: 'fullwidth' %>
+      <div class='customer-error'>
+        <%= customer_details_error(address_type, "state_name" ,errors) %>
+      </div>
   </div>
 
 <div class="field <%= "#{type}-row" %> single-line">
     <%= f.label :zipcode, Spree.t(:zip) %>
     <%= f.text_field :zipcode, :class => 'fullwidth' %>
+    <div class='customer-error'>
+      <%= customer_details_error(address_type, "zipcode" ,errors) %>
+      </div>
   </div>
 
 
@@ -73,6 +102,9 @@
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :phone, Spree.t(:phone_number) %>
     <%= f.phone_field :phone, :class => 'fullwidth' %>
+     <div class='customer-error'>
+      <%= customer_details_error(address_type, "phone" ,errors) %>
+    </div>
   </div>
 
 </div>

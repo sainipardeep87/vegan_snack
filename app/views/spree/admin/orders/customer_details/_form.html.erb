@@ -4,7 +4,7 @@
     <legend align="center"><%= Spree.t(:account) %></legend>
 
     <div data-hook="customer_fields" class="row">
-      <div class="alpha eight columns">
+      <div class="alpha four columns" id="customer_email_field">
         <div class="field">
           <%= f.label :email, Spree.t(:email) %>
           <%= f.email_field :email, :class => 'fullwidth', readonly: true %>
@@ -37,8 +37,9 @@
     <fieldset class="no-border-bottom">
       <legend align="center"><%= Spree.t(:billing_address) %></legend>
       <%= f.fields_for :bill_address do |ba_form| %>
-        <%= render :partial => 'spree/admin/shared/address_form',
-        :locals => { :f => ba_form, :type => "billing", :state_name => @order.billing_address.state_name } %>
+        <%= render :partial => 'spree/admin/shared/address_form',:locals => {
+          :f => ba_form, :type => "billing",:state_name => @order.billing_address.state_name,
+          :address_type => "bill_address",:errors => @order.errors.messages  } %>
       <% end %>
     </fieldset>
   </div>
@@ -57,18 +58,17 @@
           -->
         </div>
 
-        <%= render :partial => 'spree/admin/shared/address_form',
-          :locals => { :f => sa_form, :type => 'shipping', :state_name => @order.shipping_address.state_name }
-        %>
+        <%= render :partial => 'spree/admin/shared/address_form',:locals => {
+            :f => sa_form, :type => 'shipping',:state_name => @order.shipping_address.state_name,
+            :address_type => 'ship_address',:errors => @order.errors.messages } %>
       <% end %>
     </fieldset>
   </div>
 
   <div class="clear"></div>
 
-<!--in our app there is no need for admin to update users address Details -->
-  <div class="form-buttons filter-actions actions" data-hook="buttons">
-    <%#= button Spree.t('actions.update'), 'icon-refresh' %>
+  <div class="form-buttons filter-actions actions" data-hook="buttons" id="update_button">
+    <%= button Spree.t('actions.update'), 'icon-refresh' %>
   </div>
 
   <% content_for :head do %>

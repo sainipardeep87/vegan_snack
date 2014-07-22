@@ -11,8 +11,10 @@ $(document).ready(function(){
     // Add US Phone Validation
     jQuery.validator.addMethod('phoneUS', function(phone_number, element) {
         phone_number = phone_number.replace(/\s+/g, '');
+        reg_expression = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/
+
         return this.optional(element) || phone_number.length > 9 &&
-            phone_number.match(/^(1-?)?(\([2-9]\d{2}\)|[2-9]\d{2})-?[2-9]\d{2}-?\d{4}$/);
+            phone_number.match(reg_expression);
     }, 'Invalid phone no entered.');
 
 
@@ -113,7 +115,7 @@ function validate_signup_cum_ship_address_form(form_id){
         rules: {
             "spree_user[addresses_attributes][0][phone]":{
                 required: true,
-                maxlength: 50,
+                maxlength: 15,
                 phoneUS: true
                /* remote: {
                     url: '/check_phone_no_format',
@@ -177,7 +179,7 @@ function validate_signup_cum_ship_address_form(form_id){
             },
             "spree_user[addresses_attributes][1][phone]":{
                 required: true,
-                maxlength: 50,
+                maxlength: 15,
                 phoneUS: true
             },
             "spree_user[addresses_attributes][1][address1]":{

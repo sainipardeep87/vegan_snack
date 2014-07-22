@@ -1,9 +1,11 @@
 Spree::Address.class_eval do
   before_validation :clear_validations_on_country
-  before_validation :clear_validations_on_phone
+  #before_validation :clear_validations_on_phone
   belongs_to :user
 
-  phone_no_regex = /\A[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{10}|[(][0-9]{3}[)][0-9]{3}-[0-9]{4}\Z/
+  #phone_no_regex = /\A[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{10}|[(][0-9]{3}[)][0-9]{3}-[0-9]{4}\Z/
+   phone_no_regex = /\A^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})\Z/
+
   #Adding new attribute Variety into address_attributes permission list.
   Spree::PermittedAttributes.address_attributes.push :variety
 
@@ -20,7 +22,7 @@ Spree::Address.class_eval do
              length: {maximum: 50, message: "Maximum 50 characters allowed." }
 
   validates  :phone,  presence: { message:  "Phone no.  is required." },
-             length: {maximum: 50, message: "Maximum 50 characters allowed." },
+             length: {maximum: 15, message: "Maximum 15 characters allowed." },
              format: {with: phone_no_regex, message: "Invalid phone no entered."}
 
   validates  :state_name,  presence: { message:  "State name is required." },
