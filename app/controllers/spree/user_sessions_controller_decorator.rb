@@ -8,6 +8,7 @@ Spree::UserSessionsController.class_eval do
     @user = Spree::User.new
     @user.addresses.build
     @hide_signin = true
+    redirect_to root_path
   end
 
   # Description: Following action will perform login functionality & create Session.
