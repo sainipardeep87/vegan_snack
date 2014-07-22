@@ -104,7 +104,7 @@
         <% end %>
 
         $("#proper-nav").on("click", "#snacks_scroll", function(){
-
+          <% unless spree_current_user %>
             var current_link = window.location.pathname == "/"  || window.location.pathname == "/spree/signup/"  || window.location.pathname == "/spree/signup" ;
 
             if(!current_link){
@@ -114,6 +114,7 @@
             $('#whats_inside_the_box').ScrollTo({
                 duration: 1000
             });
+          <% end %>
 
         });
 
