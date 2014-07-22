@@ -458,8 +458,9 @@ form#new_address div div {
     padding-bottom: 3% !important;
 }
 
-.phone-form{
-    padding-bottom: 0% !important;
+.phone-form {
+    height: 100%;
+    max-height: 80px;
 }
 
 #address_profile_update div label.error {

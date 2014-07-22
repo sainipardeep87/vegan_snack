@@ -33,7 +33,6 @@ ready = function(){
         var checked = $(this).is(":checked");
 
         if(checked) {
-            console.log("checked");
             $("#spree_user_addresses_attributes_1_firstname").val($("#spree_user_addresses_attributes_0_firstname").val());
             $("#spree_user_addresses_attributes_1_lastname").val($("#spree_user_addresses_attributes_0_lastname").val());
             $("#spree_user_addresses_attributes_1_address1").val($("#spree_user_addresses_attributes_0_address1").val());
@@ -50,7 +49,6 @@ ready = function(){
 
         }
         else{
-            console.log("unchecked");
             $("#copy_add input[type='text']").val("");
             $("#copy_add input[type='text']").attr("readonly", false)
         }
@@ -190,7 +188,6 @@ $(window).bind("load", function() {
 
 function reset_admin_login_text(){
     var admin_login_text = $("div#wrapper div.notice").html();
-    console.log(admin_login_text);
 
     if(admin_login_text == "Signed out successfully."){
         $("div#wrapper div.notice").html("Signed in Successfully");

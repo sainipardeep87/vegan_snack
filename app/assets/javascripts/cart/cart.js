@@ -17,7 +17,6 @@ ready = function(){
 
    //binding the remove snack option in new subscription section.
     $("#new_subscription_list").on("click", ".new-sub-snack-remove", function(){
-        console.log("RM_19");
         remove_snack_item($(this));
     });
 
