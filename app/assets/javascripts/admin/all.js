@@ -41,7 +41,7 @@ ready = function() {
   reset_form_for_export();
   reset_form_for_filteration();
   add_ajax_to_links();
-
+  drop_ajax_link_from_users_list();
 };
 
 $(document).ready(ready);
@@ -121,3 +121,8 @@ $(document).on('page:load', ready);
       $("nav.pagination span a").attr("data-remote", "true");
       $("#order_column th a.sort_link").attr("data-remote", "true");
     }
+
+/* Description: Function will remove the remote true links from the pagination section */
+function drop_ajax_link_from_users_list(){
+  $("#user_list_pagination nav span a").removeAttr("data-remote");
+}
