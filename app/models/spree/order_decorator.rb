@@ -1,6 +1,7 @@
 Spree::Order.class_eval do
 
   belongs_to :user_subscription
+  belongs_to :subscription
   has_many :order_line_items, :class_name => 'Spree::LineItem', :foreign_key => 'order_id'
   has_one :shipment, :class_name => 'Spree::Shipment', :foreign_key => 'order_id'
 
@@ -9,8 +10,9 @@ Spree::Order.class_eval do
 
 
 =begin
-  has_many :line_items
-  has_many :users, through: :line_items
+  Description: Following method will check the orders associated coupon is still valid or not.
+  Argument list: order object.
+  return: boolean.
 =end
 
   def has_valid_coupon?
