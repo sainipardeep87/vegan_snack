@@ -225,7 +225,6 @@ function validate_signup_cum_ship_address_form(form_id){
             "spree_user[coupon_code]":{
                 remote: {
                     type: "get",
-                    async: false,
                     url: '/spree/admin/coupons/check_valid_coupon/'
                 }
             }
