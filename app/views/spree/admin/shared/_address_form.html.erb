@@ -101,7 +101,7 @@
 
   <div class="field <%= "#{type}-row" %>">
     <%= f.label :phone, Spree.t(:phone_number) %>
-    <%= f.phone_field :phone, :class => 'fullwidth' %>
+    <%= f.phone_field :phone, placeholder: "XXX-XXX-XXXX",:class => 'fullwidth' %>
      <div class='customer-error'>
       <%= customer_details_error(address_type, "phone" ,errors) %>
     </div>

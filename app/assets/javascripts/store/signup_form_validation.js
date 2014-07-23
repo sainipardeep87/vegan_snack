@@ -212,7 +212,6 @@ function validate_signup_cum_ship_address_form(form_id){
             },
             "spree_user[creditcards_attributes][0][cvv]":{
                 required: true,
-                //number: true,
                 maxlength: 4
             },
 
