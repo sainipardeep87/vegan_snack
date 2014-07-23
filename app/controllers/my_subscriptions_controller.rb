@@ -188,7 +188,7 @@ class MySubscriptionsController < ApplicationController
         plan_id = Subscription.get_current_plan(@cart.subscription_id)
 
 
-        if @undelivered_orders.first.has_coupon?
+        if @undelivered_orders.first.has_valid_coupon?
           gifted_coupon = @my_subscription.coupon.coupon_code
           coupon = Coupon.get_briantree_discount_id_and_calculate_final_amount(price.to_f, gifted_coupon)
           result = Subscription.update_subscription_with_coupon(old_subscription_id, new_subscription_id, payment_token, price, plan_id, coupon)

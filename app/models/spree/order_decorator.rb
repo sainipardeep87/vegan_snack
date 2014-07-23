@@ -13,8 +13,8 @@ Spree::Order.class_eval do
   has_many :users, through: :line_items
 =end
 
-  def has_coupon?
-    self.coupon.present?
+  def has_valid_coupon?
+    self.coupon.present? ? Coupon.is_valid?(self.coupon.coupon_code).present? : false
   end
 
 =begin
