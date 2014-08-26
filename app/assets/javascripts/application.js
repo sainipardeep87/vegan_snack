@@ -18,7 +18,7 @@
 //= require jquery.tagsinput
 //= require jquery.plugin
 //= require jquery.countdown
-//= require ckeditor/override
+
 //= require ckeditor/init
 //= require_tree .
 

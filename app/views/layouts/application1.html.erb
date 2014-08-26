@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vegan Snack Packs</title>
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0;" />
+  <meta http-equiv="pragma" content="no-cache" />
+
+  <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "admin/spree_backend" if @spree_admin_js%>
+  <%= favicon_link_tag '/assets/favicon/vegan.ico' %>
+
+  <%= csrf_meta_tags %>
+</head>
+
+<script type="text/javascript">
+    if(navigator.userAgent.match(/iPhone/i)) {
+        viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute('content', 'width=600');
+    }
+    if(navigator.userAgent.match(/iPad/i)) {
+        viewport = document.querySelector("meta[name=viewport]");
+        viewport.setAttribute('content', 'width=1200');
+    }
+</script>
+ 
+<body data-no-turbolink>
+    <noscript>
+        <div class="js-disabled-header">
+            <%= render 'overrides/Home/no_javascript_header' %>
+        </div>
+    </noscript>
+
+    <div class="js-enabled-header">
+        <%= render 'overrides/Home/header' %>
+    </div>
+
+<%= yield %>
+
+
+
+<div class="modal fade" id="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop = "static" >
+  <div class="modal-dialog">
+    <div id="modalContent" class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel"></h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
+        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

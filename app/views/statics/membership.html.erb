@@ -1,0 +1,91 @@
+
+
+
+<body>
+<section class="membership-section-member">
+   <div class="heading-snack-sec">Choose Your Membership</div>  
+   <div class="wrapper-membership">
+     <div class="main-membership">
+	 
+	   <div class="first-membership">
+	      <div class="image-sec-mem"><img src="../assets/new-design/img1-mem.jpg"></div>
+		  <div class="det-sec-mem">
+		    <div class="heading-det-mem">
+			   Basic Snack Pack
+			</div>
+			<div class="price-det-mem">$34.95<span>/ month</span></div>
+			<div class="tag-det-mem">5 delicious snacks delivered every month</div>
+			<div class="tag2-det-mem">Free Shipping</div>
+			<div class="button-det-mem"><input type="submit" value="SELECT"></div>
+		  </div>
+	   </div>
+	   
+	    <div class="first-membership">
+	      <div class="image-sec-mem"><img src="../assets/new-design/img2-mem.jpg"></div>
+		  <div class="det-sec-mem">
+		    <div class="heading-det-mem">
+			   Double Snack Pack
+			</div>
+			<div class="price-det-mem">$64.95<span>/ month</span></div>
+			<div class="tag-det-mem">10 delicious snacks delivered every months</div>
+			<div class="tag2-det-mem">Save $ 4.95 / month + Free Shipping</div>
+			<div class="button-det-mem"><input type="submit" value="SELECT"></div>
+		  </div>
+	   </div>
+	   
+	    <div class="third-membership">
+	      <div class="image-sec-mem"><img src="../assets/new-design/img3-mem.jpg"></div>
+		  <div class="det-sec-mem">
+		    <div class="heading-det-mem">
+			   Family Snack Pack
+			</div>
+			<div class="price-det-mem">$124.95<span>/ month</span></div>
+			<div class="tag-det-mem">20 delicious snacks delivered every month</div>
+			<div class="tag2-det-mem">Save $ 14.85 / month + Free Shipping</div>
+			<div class="button-det-mem"><input type="submit" value="SELECT"></div>
+		  </div>
+	   </div>
+	   
+	 </div>
+   </div>
+  
+</section>
+
+
+
+
+<script>
+/*$(document).ready(function(){
+ $('#myButton').click(function() {
+
+   $.scrollTo($('#myDiv'), 1000);
+});
+});*/
+
+
+$(document).ready(function(){
+ $('.how-it-works-text a').click(function(){
+    $('html, body').animate({
+        scrollTop: $( $(this).attr('href') ).offset().top-150
+    }, 1500);
+	$('.green-trans').hide();
+    return false;
+});
+});
+
+    
+</script>
+
+<script>$(function () {
+    "use strict";
+    var $bgobj = $(".ha-bg-parallax"); // assigning the object
+    $(window).on("scroll", function () {
+        var yPos = -($(window).scrollTop() / $bgobj.data('speed'));
+        // Put together our final background position
+        var coords = '100% ' + yPos + 'px';
+        // Move the background
+        $bgobj.css({ backgroundPosition: coords });
+    });
+});</script>
+
+</body>

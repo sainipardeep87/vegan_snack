@@ -37,4 +37,8 @@ Spree::ProductsController.class_eval do
 
   end
 
+  def list_products
+    
+  end
+
  end

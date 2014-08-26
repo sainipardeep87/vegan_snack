@@ -1,0 +1,474 @@
+/**
+ * BxSlider v4.0 - Fully loaded, responsive content slider
+ * http://bxslider.com
+ *
+ * Written by: Steven Wanderski, 2012
+ * http://stevenwanderski.com
+ * (while drinking Belgian ales and listening to jazz)
+ *
+ * CEO and founder of bxCreative, LTD
+ * http://bxcreative.com
+ */
+
+
+/** RESET AND LAYOUT
+===================================*/
+
+.bx-wrapper {
+	position: relative;	
+	padding: 0;
+	*zoom: 1;
+}
+
+.bx-wrapper img {
+	width: 100%;
+	display: block;
+}
+
+/** THEME
+===================================*/
+
+.bx-wrapper .bx-viewport {	
+		
+}
+
+.bx-wrapper .bx-pager,
+.bx-wrapper .bx-controls-auto {
+	position: absolute;
+	bottom: -30px;
+	width: 100%;
+}
+
+/* LOADER */
+
+.bx-wrapper .bx-loading {
+	min-height: 50px;
+	background: url(../assets/new-design/bx_loader.gif) center center no-repeat #fff;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2000;
+}
+
+/* PAGER */
+
+.slider-bottom-vid .bx-wrapper .bx-pager { display:none;}
+
+.bx-wrapper .bx-pager {
+	text-align: center;
+	font-size: .85em;
+	font-family: Arial;
+	font-weight: bold;
+	color: #666;
+	padding-top: 20px;
+}
+
+.bx-wrapper .bx-pager .bx-pager-item,
+.bx-wrapper .bx-controls-auto .bx-controls-auto-item {
+	display:none;
+	*zoom: 1;
+	*display: inline;behavior: url(css/PIE.htc);
+	position: relative;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a {
+	background: #666;
+	text-indent: -9999px;
+	display: block;
+	width: 10px;
+	height: 10px;
+	margin: 0 5px;
+	outline: 0;
+	behavior: url(PIE.htc);
+	position: relative;
+	z-index:0;
+	border-radius: 50%;
+}
+
+.bx-wrapper .bx-pager.bx-default-pager a:hover,
+.bx-wrapper .bx-pager.bx-default-pager a.active {
+	background: #000;
+}
+
+/* DIRECTION CONTROLS (NEXT / PREV) */
+
+.bx-wrapper .bx-prev {
+	left: -30px;
+	background: url("../assets/new-design/ltarrow-slider.png") no-repeat 0 0;
+}
+
+.slider-ind-sec .bx-wrapper .bx-prev {
+    background: url("../assets/new-design/arrow-lt-ind.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    left:0px;
+}
+
+
+.slider-ind-sec  .bx-wrapper .bx-controls-direction a {
+    height: 123px;
+    margin-top: -16px;
+    outline: 0 none;
+    position: absolute;
+    text-indent: -9999px;
+    top: 40%;
+    width: 79px;
+    z-index: 9999;
+}
+
+.slider-ind-sec  .bx-wrapper .bx-next {
+    background: url("../assets/new-design/arrow-rt-ind.png") no-repeat scroll 20px 0 rgba(0, 0, 0, 0);
+    right: 0px;
+}
+
+.vertical-arrow .bx-wrapper .bx-prev {
+	left: 10px;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 -21px;
+}
+
+.vertical-arrow .bx-wrapper .bx-prev:hover {
+	background-position: 0 -21px;
+}
+
+
+.vertical-arrow1 .bx-wrapper .bx-prev {
+	left: 10px;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 -21px;
+}
+
+.vertical-arrow1 .bx-wrapper .bx-prev:hover {
+	background-position: 0 -21px;
+}
+
+
+
+.ver-slider .bx-wrapper .bx-prev {
+    background: url("../assets/new-design/controls-v.png") no-repeat scroll 0 -21px rgba(0, 0, 0, 0);
+    left: 45px;
+    top: 250px;
+}
+.ver-slider .bx-wrapper .bx-prev:hover {
+	background-position: 0 -21px;
+}
+
+
+
+.bx-wrapper .bx-next {
+	right: -35px;
+	background: url("../assets/new-design/rtarrow-slider.png") no-repeat 20px 0;
+}
+
+.vertical-arrow .bx-wrapper .bx-next {
+	right: 10px;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 0;
+}
+
+.vertical-arrow .bx-wrapper .bx-next:hover {
+	background-position: 20px 0;
+}
+
+.vertical-arrow1 .bx-wrapper .bx-next {
+	right: 10px;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 0;
+}
+
+.vertical-arrow1 .bx-wrapper .bx-next:hover {
+	background-position: 0 0;
+}
+
+
+
+.ver-slider .bx-wrapper .bx-next {
+    background: url("../assets/new-design/controls-v.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    right: 33px;
+    top: 22px;
+}
+
+.ver-slider .bx-wrapper .bx-next:hover {
+	background-position: 0 0;
+}
+
+
+.bx-wrapper .bx-prev:hover {
+	background-position: 0 0;
+}
+
+.bx-wrapper .bx-next:hover {
+	background-position: 20px 0;
+}
+
+.bx-wrapper .bx-controls-direction a {
+	position: absolute;
+	top: 50%;
+	margin-top: -16px;
+	outline: 0;
+	width: 40px;
+	height:45px;
+	text-indent: -9999px;
+	z-index: 9999;
+}
+
+.bx-wrapper .bx-controls-direction a.disabled {
+	display: none;
+}
+
+
+
+
+
+
+
+
+/* AUTO CONTROLS (START / STOP) */
+
+.bx-wrapper .bx-controls-auto {
+	text-align: center;
+}
+
+.bx-wrapper .bx-controls-auto .bx-start {
+	display: block;
+	text-indent: -9999px;
+	width:16px;
+	height: 45px;
+	outline: 0;
+	background: url("../assets/new-design/rtarrow-slider.png") 0 0 no-repeat;
+	margin: 0 3px;
+}
+
+.bx-wrapper .bx-controls-auto .bx-start:hover,
+.bx-wrapper .bx-controls-auto .bx-start.active {
+	background-position: -86px 0;
+}
+
+
+.bx-wrapper .bx-controls-auto .bx-stop {
+    background: url("../assets/new-design/controls-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    display: block;
+    height: 15px;
+    margin: 0 3px;
+    outline: 0 none;
+    text-indent: -9999px;
+    width: 23px;
+}
+
+.bxslider10 .bx-controls-auto{ display:none;}
+
+.bx-wrapper .bx-controls-auto .bx-stop:hover,
+.bx-wrapper .bx-controls-auto .bx-stop.active {
+	background-position: 0 0;
+}
+
+/* PAGER WITH AUTO-CONTROLS HYBRID LAYOUT */
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-pager {
+	text-align: left;
+	width: 80%;
+}
+
+.bx-wrapper .bx-controls.bx-has-controls-auto.bx-has-pager .bx-controls-auto {
+	right: 0;
+	width: 35px;
+}
+
+/* IMAGE CAPTIONS */
+
+
+.bx-wrapper .bx-caption {
+    background: none repeat scroll 0 0 rgba(80, 80, 80, 0.75);
+    bottom: 30px;
+    left: 0;
+    margin: 0 33px;
+    position: absolute;
+    width: 15%;
+}
+.bx-wrapper .bx-caption span {
+	color: #fff;
+	font-family: Arial;
+	display: block;
+	font-size: .85em;
+	padding: 10px;
+}
+
+.bx-caption p{color: #fff;
+	font-family: Arial; font-size:12px; padding:10px;}
+
+
+.slider-bottom {
+    margin: 0;
+    position: relative;
+}
+
+.slider-bottom1{
+    margin: 20px 0;
+	position:relative;
+	float:left;
+}
+
+.slider-bottom-vid{
+    margin: 20px 0;
+	position:relative;
+	float:left;
+	width:100%;
+	
+}
+
+.internal-vid{ width:60%; margin:0 auto;}
+
+
+.bx-caption > a {
+    position: absolute;
+    right: -8px;
+    top: -8px;
+}
+
+
+
+
+.bx-caption {
+    bottom: 170px;
+    position: absolute;
+    width: 280px;
+	background: none repeat scroll 0 0 rgba(80, 80, 80, 0.75);
+}
+
+.caption-wrapper{ width:470px; margin:0 auto; position:relative;}
+
+
+#bx-pager {
+    text-align: center;
+}
+
+
+
+#bx-pager1 {
+    bottom: 50px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+
+
+
+
+#bx-pager1 a {
+    background: none repeat scroll 0 0 rgba(80, 80, 80, 0.75);
+    color: #FFFFFF;
+    float: left;
+    font-family: "open Sans";
+    font-size: 16px;
+    margin: 0 1%;
+    padding: 10px;
+    width: 28%;
+}
+
+.sec-wrapper {
+    margin: 0 auto;
+    width:54%;
+}
+
+
+#bx-pager1 a.active{background:#000;}
+
+
+.outer-bg {
+    background-color: #FFFFFF;
+    display: none;
+    height: 100%;
+    left: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;	
+}
+
+
+	
+.slider-bottom:hover .outer-bg{ display:block;}
+
+
+h3 {
+    color: #555555;
+    font-family: open sans;
+    font-size: 26px;
+    text-align: center;
+}
+
+.hover-effect > span {
+    float: left;
+    text-align: center;
+    width: 100%;
+	color: #222;
+    font-family: open sans;
+    font-size: 18px;
+}
+
+
+.slider-bottom.vertical-arrow1 {
+    float: left;
+    width: 75%;
+}
+
+
+.ver-slider {
+    float: left;
+    width: 20%;
+}
+
+
+
+.heading {
+    color: #555555;
+    font-family: "open Sans";
+    font-size: 24px;
+    padding: 10px 30px;
+    text-align: left;
+    width: 97%;
+}
+
+
+
+.outside {
+    font-family: open sans;
+    font-size: 16px;
+    padding: 0 35px;
+    width: 97%;
+}
+
+.outside a{ color:#000;} 
+
+.bx-pager .bx-default-pager{display:none;}
+
+@media only screen and (max-width:520px) {
+.slider-ind-sec .bx-wrapper .bx-controls-direction a {  
+  
+    top: 30%;
+   }
+
+}
+
+@media only screen and (max-width:480px) {
+.slider-ind-sec .bx-wrapper .bx-prev {
+    background: url("../assets/new-design/arrow-lt-ind-sml.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+    left:0px;
+}
+
+.slider-ind-sec .bx-wrapper .bx-next {
+    background: url("../assets/new-design/arrow-rt-ind-sml.png") no-repeat scroll 20px 0 rgba(0, 0, 0, 0);
+    right: 0;
+}
+
+
+.slider-ind-sec .bx-wrapper .bx-controls-direction a {
+    height: 64px;  
+    
+    width: 50px;
+    top: 40%;
+}
+
+}
+
+
+
+

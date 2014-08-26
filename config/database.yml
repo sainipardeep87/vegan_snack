@@ -13,24 +13,24 @@ development:
   encoding: utf8
   database: vegan_development
   pool: 5
-  username: root
-  password: mindfire
-  socket: /var/run/mysqld/mysqld.sock
+  # username: 
+  # password: 
+  # socket: /var/run/mysqld/mysqld.sock
 
 test:
   adapter: mysql2
   encoding: utf8
   database: vegan_test
   pool: 5
-  username: root
-  password: mindfire
-  socket: /var/run/mysqld/mysqld.sock
+  # username: root
+  # password: ""
+  # socket: /var/run/mysqld/mysqld.sock
 
 production:
   adapter: mysql2
   encoding: utf8
   database: vegan_production
   pool: 5
-  username: root
-  password: mindfire
-  socket: /var/run/mysqld/mysqld.sock
+  # username: root
+  # password: mindfire
+  # socket: /var/run/mysqld/mysqld.sock

@@ -7,7 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.tagsinput
-//= require ckeditor/override
+
 //= require ckeditor/init
 //= require jquery_nested_form
 //= require jquery-ui.min

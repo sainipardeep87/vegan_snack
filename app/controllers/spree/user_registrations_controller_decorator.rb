@@ -13,6 +13,35 @@ Spree::UserRegistrationsController.class_eval do
   before_action :get_phone_no, only: :check_phone_no_format
 
 # Description: new action has been overridden over spree provided new action; mainly initialization of users address has been done in this Section.
+  #trigma wizard code
+ def wizard_new
+    session[:registration_params] ||= {}
+    @user = Spree::User.new
+        @user.addresses.build
+        @user.creditcards.build       
+   puts @user.current_step   
+  end
+
+
+def wizard_save
+
+puts "i am in wizard_save with para,s#{params}"
+ sub_id = params[:spree_user][:sub_type].blank? ? "1" : params[:spree_user][:sub_type]
+    coupon_code = params[:spree_user][:coupon_code]
+    @cart = Cart.new
+    @user = build_resource(user_params_list)
+end
+
+
+  #trigma wizard code end
+
+
+
+
+
+
+
+
   def new
      if request.env['omniauth.auth'].present?
       params = request.env["omniauth.params"]
@@ -60,7 +89,7 @@ Spree::UserRegistrationsController.class_eval do
 
     end
     @subscriptions = Subscription.select('id, subscription_type', 'plan_price')
-    @snacks = Spree::Product.limit(5)
+    @snacks = Spree::Product.limit(6)
     @snacks.sort_by! { |x| x[:name].downcase }
 
   end

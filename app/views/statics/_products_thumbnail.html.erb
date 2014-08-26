@@ -1,28 +1,25 @@
 
-<div class="whats-box-snacks" >
+<!--    
+  <div class="image1-snack"><a href="javscript:void(0)"><img src="images/img1-snack.jpg"></a><div class="trans-snack-name col1-snk-nme">Vivamus mauris</div></div>
 
-    <% @snacks.each do |snack| %>
-    <div class="ind-item-section static-snacks-individual-snack">
+  <div class="image1-snack"><a href="javascript:void(0)"><img src="images/img2-snack.jpg"></a><div class="trans-snack-name col2-snk-nme">Donec fermentum</div></div>
 
-      <span id="image-span">
-        <%#= product_image(snack, :itemprop => "large", :size => "100X100", :class => 'img-thumbnail layout-image') %>
-        <%= image_tag(snack.images.first.attachment.url(:large), class: 'img-thumbnail layout-image') %>
-        
-      </span>
-      
-      <div class="ind-item-name"><%= snack.name  %>  </div>
-      <div class="ind-item-desc"> <%#=truncate (snack.description),  length:  40 %> </div>
-      <div class="hidden-item-desc"> <%= snack.description  %></div>
+  <div class="image1-snack rt-mrg"><a href="javascript:void(0)"><img src="images/img3-snack.jpg"></a><div class="trans-snack-name col3-snk-nme">Nullam venenatis</div></div>
 
-      <div class = "hidden-item-nutrifact-image"><%= image_tag snack.nutritional_fact_image.url %></div>
-      <div class = "hidden-ingredients"><%= raw snack.ingredients %></div>
+  <div class="image1-snack"><a href="javascript:void(0)"><img src="images/img4-snack.jpg"></a><div class="trans-snack-name col4-snk-nme">Pellentesque</div></div>
 
-      <div class='detail-vegan' style='display:none !important'>
-       <div class='snack-d'> click here for details</div>
-      </div>
+  <div class="image1-snack"><a href="javascript:void(0)"><img src="images/img5-snack.jpg"></a><div class="trans-snack-name col5-snk-nme">Suscipit et</div></div>
 
-    </div>
+  <div class="image1-snack rt-mrg"><a href="javascript:void(0)"><img src="images/img6-snack.jpg"></a><div class="trans-snack-name col6-snk-nme">Vestibulum id</div></div> -->  
 
-    <% end %>
+
+  
+  <% @snacks.each_with_index do |snack,i| %>
+  	<% if i != 2 && i != 5%>
+  		<div class="image1-snack "><a href="statics/snack_detail"><%= image_tag(snack.images.first.attachment.url(:large)) %></a><div class="trans-snack-name col<%=i+1%>-snk-nme">Vivamus mauris</div></div>
+  	<%else%>
+  		<div class="image1-snack rt-mrg"><a href="statics/snack_detail"><%= image_tag(snack.images.first.attachment.url(:large)) %></a><div class="trans-snack-name col1-snk-nme">Vivamus mauris</div></div>
+  	<%end%>
+  <% end %>
    
-</div>
+ 

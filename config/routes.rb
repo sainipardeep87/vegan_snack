@@ -17,6 +17,9 @@ Vegan::Application.routes.draw do
       get :snacks
       get :contactus
       get :faq
+      get :membership
+      get :snack_detail
+      get :individual_product
     end
   end
 
@@ -137,6 +140,7 @@ Vegan::Application.routes.draw do
 
   get "/snack_list", to: 'spree/products#snack_list'
   get "/snack_show", to: 'spree/products#snack_show'
+  # get "/snack_detail", to: 'spree/products#list_products'
 
   authenticated :user do
     root to: 'user#show', as: :authenticated_root
@@ -147,6 +151,8 @@ Vegan::Application.routes.draw do
     get 'users/auth/:provider/callback' => 'spree/user_registrations#new'
     post '/fb_auth' => 'spree/user_registrations#create_facebook_auth_user'
     get '/check_email' => 'spree/user_registrations#check_email'
+    get '/wizard_new' => 'spree/user_registrations#wizard_new'
+    post '/wizard_save'=>'spree/user_registrations#wizard_save'
     get '/check_phone_no_format', to: 'spree/user_registrations#check_phone_no_format'
     get :admin, :to => 'spree/user_sessions#new'
   end
@@ -178,6 +184,7 @@ Vegan::Application.routes.draw do
     resources :products do
       collection do
         post :product_details
+        # get :list_products
       end
     end
   end

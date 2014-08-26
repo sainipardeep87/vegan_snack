@@ -1,0 +1,113 @@
+  <div class="blog-top-title">chef's blog</div>
+  <div class="wrapper">
+    <div class="jcarousel-wrapper">
+    
+
+      <div class="slide-header-title">   
+      <%= link_to @first_banner.post.title, post_path(@first_banner.post_id) unless @first_banner.blank? %>
+        
+      </div>
+
+      <div class='read-post'> <%= link_to "Read Post", post_path(@first_banner.post_id) unless @first_banner.blank?  %> </div>
+
+      <div class="jcarousel">
+        <ul>
+          <% @banners.each do |banner| %>
+            <li><%= image_tag banner.image.url unless banner.image.blank? %></li>
+          <% end %>
+        </ul>
+      </div>
+
+      <a href="#" class="jcarousel-control-prev" id="prev_slide">&lsaquo;</a>
+      <a href="#" class="jcarousel-control-next" id="next_slide">&rsaquo;</a>
+    </div> <!-- End of jcarousel-wrapper div -->
+  </div> <!-- End of the wrapper division -->
+
+  <div id="hidden_snack_list">
+    <%  @banners.each do |banner| %>
+        <% if banner.post.present? %>
+            <%= link_to banner.post.title, post_path(banner.post_id) %>  <br>
+        <% end %> <!--end of if condition -->
+    <% end %> <!-- end of the loop -->
+  </div>
+
+  <div class="container-fluid mobile-full-layout">
+    <div class="row-fluid">
+      <div class="col-md-9 col-md-offset-1 move-right">
+
+        <div class="legend-title move-bit-bottom post-mob-hide">
+          <span class="featured-post-up inner-span"> Featured posts  </span>
+      </div>
+
+
+      <div class="row post-mob-hide">
+        <% @feature_posts.each do |post| %>
+            <div class="col-md-4">
+
+              <div class="row  set-div-image">
+                <div><%= post.post_image.present? ? (link_to image_tag(post.post_image.url(:feature), class: 'feature-image'),post) : (link_to (image_tag "blog/blog_default.png", class: 'feature-image'), post) %> </div>
+              </div>
+
+              <div class="recipe-item">
+                <div class="row recipe-blogged"><span>MEALS</span> / <%= post.created_at.strftime("%B %e, %Y").upcase %></div>
+                <div class="row recipe-name" style="word-wrap: break-word;"><%= link_to post.title, post %> </div>
+
+                <div class="row"><%#= @val %> </div>
+              </div>
+
+            </div>
+        <% end %>
+      </div>
+
+<div class="row recent-post-section">
+        <div class="legend-title">
+          <span class="featured-post-up inner-span move-right">  recent posts  </span>
+        </div>
+
+
+        <div class="recent-section">
+            <div class="col-md-9">
+              <%#= will_paginate(@recent_posts) %>
+
+              <% @recent_posts.each do |post| %>
+
+              <div class="row">
+                <div class="col-md-6 set-div-image">
+                  <div><%= post.post_image.present? ? (link_to image_tag(post.post_image.url(:recent), :alt => "recipe image",  class: 'feature-image' ), post) : (link_to (image_tag "blog/blog_default.png", class: 'feature-image'), post) %></div>
+                </div>
+                <div class="col-md-6 mob-post-dsc">
+                  <div class="left-item">
+                    <div class="row recipe-blogged"><span>MEALS</span> / <%= post.created_at.strftime("%B %e, %Y").upcase %></div>
+                    <div class="recent-recipe-name" style="word-wrap: break-word;"><%= link_to post.title, post %></div>
+
+
+                    <div class="row"><%#= post.content.truncate(90) %>
+                      <%=  Nokogiri::HTML(post.content).text.truncate(150) %>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+                <span class="recent-borders"></span>
+               <% end %>
+               <%= will_paginate(@recent_posts) %>
+
+
+            </div>
+
+        <div class="col-md-3 border-line" id="latest_post_div">
+
+          <div class="latest-post-title">  latest posts  </div>
+
+    <% @latest_posts.each do |post| %>
+            <div class="row">
+              <%= post.post_image.present? ? (link_to image_tag( post.post_image(:latest), :alt => "recipe image", class: 'latest-post-image'), post) : (link_to (image_tag "blog/blog_default.png", class: 'latest-post-image'), post) %>
+            </div>
+
+            <div class="row recipe-name lat-recipe"><%= link_to post.title, post %> </div>
+      <% end %>
+
+        </div>
+          </div> <!--End of the recent Section -->
+      </div>
+    </div>

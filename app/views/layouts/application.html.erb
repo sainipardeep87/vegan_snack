@@ -26,15 +26,7 @@
 </script>
  
 <body data-no-turbolink>
-    <noscript>
-        <div class="js-disabled-header">
-            <%= render 'overrides/Home/no_javascript_header' %>
-        </div>
-    </noscript>
-
-    <div class="js-enabled-header">
-        <%= render 'overrides/Home/header' %>
-    </div>
+    <%= render 'overrides/Home/header' %>
 
 <%= yield %>
 
