@@ -161,7 +161,7 @@ $(document).ready(function(){
 							});
 });
 
-/*tabs ends here */
 
+/*tabs ends here */
 
 

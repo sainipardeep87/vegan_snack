@@ -1,540 +1,613 @@
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="icon" type="image/png" href="../assets/new-design/fav-icon.png" />
-<title>Vegan Snack Pack</title>
-<!-- css file -->
-
-<!--Javascript file -->
-
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="icon" type="image/png" href="../assets/new-design/fav-icon.png" />
+	<title>Vegan Snack Pack</title>
+	<!-- css file -->
+	
+	<!--Javascript file -->
 
 </head>
 
 <body>
 
-<section class="slider-sec">
-  <div class="wrapper-slider">
-    <div class="left-slider"><a href="#"><img src="../assets/new-design/fb-likes.png"></a></div>
-  <div class="right-slider">
-    <div class="heading-rt-slider">Looking for the healthiest snacks on 
-the planet? We make them! </div>      
-    <div class="sign-up-btn"><a href="#">Sign up with Facebook</a></div>
-    <div class="join-input">    
-         <input class="input-text-join" type="text" value="Email">
-          <input class="submit-btn" type="submit" value="Join">    
-    </div>
+	<section class="slider-sec">
+		<div class="wrapper-slider">
+			<div class="left-slider">
+				<a href="#"><img src="/../assets/new-design/fb-likes.png"></a>
+			</div>
+			<div class="right-slider">
+				<div class="heading-rt-slider">
+					Looking for the healthiest snacks on
+					the planet? We make them!
+				</div>
+				<div class="sign-up-btn">
+					<a href="/users/auth/facebook" id ="fb_connect">Sign up with Facebook</a>
+				</div>
+				<div id="facebook_email_div_new" class="join-input">
 
+					<%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-text-join'%>
+					<input class="submit-btn" id="fb_get_started" type="submit" value="Join">
+					
+					<div id="fb_email_error">
+						Invalid Email ID entered.
+					</div>
 
-    
-    <div class="slider-inner">   
+				</div>
 
-         <ul class="bxslider1">   
-       <li>
-           <div class="heading-slider-inner">Here’s why our snacks will rock your taste buds:</div>
-      <div class="list-inner-slider">
-      <ul>
-         <li>Our snacks are made with the best organic ingredients!</li>     
-            <li>Our snacks are GMO free!</li>
-            <li> Our snacks are gluten free! </li>
-      <li>Our snacks are 100% vegan!</li>
-      </ul>
-      </div>       
-       </li>
-       <li>
-       
-         <div class="heading-slider-inner">Here’s why our snacks will rock your taste buds:</div>
-      <div class="list-inner-slider">
-      <ul>
-         <li>Our snacks are made with the best organic ingredients!</li>     
-            <li>Our snacks are GMO free!</li>
-            <li> Our snacks are gluten free! </li>
-      <li>Our snacks are 100% vegan!</li>
-      </ul>
-      </div>
-       </li>
-       <li>
-       
-         <div class="heading-slider-inner">Here’s why our snacks will rock your taste buds:</div>
-      <div class="list-inner-slider">
-      <ul>
-         <li>Our snacks are made with the best organic ingredients!</li>     
-            <li>Our snacks are GMO free!</li>
-            <li> Our snacks are gluten free! </li>
-      <li>Our snacks are 100% vegan!</li>
-      </ul>
-      </div>
-       
-       </li>
-         </ul>       
-            
-         <div class="clr"></div>          
-    </div>    
-    
-  </div>
-  <div class="clr"></div>
-  </div>    
-  
-  <div class="green-trans" id="green-strip"><div class="how-it-works-text"><a id="myButton" href="#myDiv" class="kjhfdks">How It Works<img src="../assets/new-design/bottom-arrow.png"></a></div></div>
-  
-  
-</section>
+				<div class="slider-inner">
 
-<section class="section-working" id="myDiv">
-  <div class="working-inner">
-    <div class="working1">
-     <div class="img1-working"><img src="../assets/new-design/working-img1.png">
-       <a class="number-image"><Span>1</span></a>    
-     <a class="number-image2"><Span>2</span></a>    
-     <a class="number-image3"><Span>3</span></a>    
-     <a class="number-image4"><Span>4</span></a>    
-     </div> 
-     
-     <div class="para-working">
-        Order your snacks directly from 
-your smartphone or computer.
-     </div>
-  </div>
-  
-  
-      <div class="arrow-working"><img src="../assets/new-design/arrow-working.png"></div>
-    
-    
- 
-    <div class="working2">
-     <div class="img1-working"><img src="../assets/new-design/working-img2.png">
-      <a class="number-image"><Span>2</span></a>     
-     <a class="number-image2"><Span>2</span></a>    
-     <a class="number-image3"><Span>3</span></a>    
-     <a class="number-image4"><Span>4</span></a>  
-     </div> 
-     
-     <div class="para-working">
-     We will create your snack box 
-from the best organic ingredients.
-     </div>
-  </div>
-  
-    
-    <div class="arrow-working"><img src="../assets/new-design/arrow-working.png"></div>
-  
-  
-  
-    <div class="working3">
-     <div class="img1-working"><img src="../assets/new-design/working-img3.png">
-       <a class="number-image"><Span>3</span></a>    
-     <a class="number-image2"><Span>2</span></a>    
-     <a class="number-image3"><Span>3</span></a>    
-     <a class="number-image4"><Span>4</span></a>       
-     </div> 
-     
-     <div class="para-working">
-       Your snack box will be shipped 
-every month. Free shipping!
-     </div>
-  </div>
- 
-    
-    <div class="arrow-working"><img src="../assets/new-design/arrow-working.png"></div>
-  
-  
-  
-    <div class="working4">
-     <div class="img1-working"><img src="../assets/new-design/working-img4.png">
-       <a class="number-image"><Span>4</span></a>    
-     <a class="number-image2"><Span>2</span></a>    
-     <a class="number-image3"><Span>3</span></a>    
-     <a class="number-image4"><Span>4</span></a>     
-     </div> 
-     
-     <div class="para-working">
-       Your snacks will arrive at your 
-door at home or your office.
-     </div>
-  </div>
-  </div>
-    
- 
+					<ul class="bxslider1">
+						<li>
+							<div class="heading-slider-inner">
+								Here’s why our snacks will rock your taste buds:
+							</div>
+							<div class="list-inner-slider">
+								<ul>
 
-</section>
+									<li>
+										Made with only the best organic ingredients
+									</li>
+									<li>
+										GMO free
+									</li>
+									<li>
+										Gluten free
+									</li>
+									<li>
+										100% vegan
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
 
+							<div class="heading-slider-inner">
+								Here’s why our snacks will rock your taste buds:
+							</div>
+							<div class="list-inner-slider">
+								<ul>
+									<li>
+										Our snacks are made with the best organic ingredients!
+									</li>
+									<li>
+										Our snacks are GMO free!
+									</li>
+									<li>
+										Our snacks are gluten free!
+									</li>
+									<li>
+										Our snacks are 100% vegan!
+									</li>
+								</ul>
+							</div>
+						</li>
+						<li>
 
-<div class="clr"></div>
+							<div class="heading-slider-inner">
+								Here’s why our snacks will rock your taste buds:
+							</div>
+							<div class="list-inner-slider">
+								<ul>
+									<li>
+										Our snacks are made with the best organic ingredients!
+									</li>
+									<li>
+										Our snacks are GMO free!
+									</li>
+									<li>
+										Our snacks are gluten free!
+									</li>
+									<li>
+										Our snacks are 100% vegan!
+									</li>
+								</ul>
+							</div>
 
-<div class="container-fluid">
-    <div>
-            <div class="ha-bg-parallax text-center block-marginb-none" data-type="background" data-speed="20">
-        <div class="ha-parallax-body">
-            <div class="ha-content ha-content-whitecolor">
-  <div class="image-tell-me-parallax"></div>
-            </div>
-            <div class="ha-parallax-divider-wrapper">
-      
- <div class="content-tell-me">
-   <div class="wrapper-tell-me">
-     <div class="left-wrapper-tell">
-     <div class="heading-left-tell">Our Model</div>
-     <div class="para-left-tell"><p>Our model is simple; we make kick a$$ snacks, we let you pick the ones you like 
-best, and we send them to your doorstep every month.</p>
-<p>
-Why are we set up as a subscription service? Uh well did you only want to eat 
-healthy amazing snacks just once? Yeah we didn’t think so. Listen - our goal is 
-to make it easy to eat delicious healthy snacks no matter where you live in the 
-U.S. and to do so on a consistent basis.</p></div>
-   </div>
-   <div class="right-wrapper-tell">
-    <div class="heading-left-tell">Our Guarantee</div>
-     <div class="para-left-tell"><p>We guarantee you’ll love our snacks and if for any reason you don’t we’ll refund 
-100% of your money, no questions asked, even if all that’s left of the snacks we’ve 
-sent you are a few small crumbs.</p>
+						</li>
+					</ul>
 
-<p>All our subscriptions are made to make you a happy customer. There’s zero 
-commitment required and you can cancel or pause your subscription anytime with 
-the click of a button - no calling customer service or submitting a support ticket. 
-Yes we’ve used sites that don’t make it as easy as we have and we weren’t happy 
-either.</p></div>
-   </div>
-   <div class="clr"></div>
-   </div>
- </div>
-            </div>
-           
-        </div>
-    </div>
+					<div class="clr"></div>
+				</div>
 
-    </div>
-</div>
-<!--end: parallax-->
-    
-    <div class="clr"></div>
+			</div>
+			<div class="clr"></div>
+		</div>
 
-<section class="tell-me-more" id="myDiv">
+		<div class="green-trans" id="green-strip">
+			<div class="how-it-works-text">
+				<a id="myButton" href="#myDiv" class="kjhfdks">How It Works<img src="/../assets/new-design/bottom-arrow.png"></a>
+			</div>
+		</div>
 
+	</section>
 
+	<section class="section-working" id="myDiv">
+		<div class="working-inner">
+			<div class="working1">
+				<div class="img1-working"><img src="/../assets/new-design/working-img1.png">
+					<a class="number-image"><Span>1</span></a>
+					<a class="number-image2"><Span>2</span></a>
+					<a class="number-image3"><Span>3</span></a>
+					<a class="number-image4"><Span>4</span></a>
+				</div>
 
+				<div class="para-working">
+					Order your snacks directly from
+					your smartphone or computer.
+				</div>
+			</div>
 
+			<div class="arrow-working"><img src="/../assets/new-design/arrow-working.png">
+			</div>
 
+			<div class="working2">
+				<div class="img1-working"><img src="/../assets/new-design/working-img2.png">
+					<a class="number-image"><Span>2</span></a>
+					<a class="number-image2"><Span>2</span></a>
+					<a class="number-image3"><Span>3</span></a>
+					<a class="number-image4"><Span>4</span></a>
+				</div>
 
-</section>
+				<div class="para-working">
+					We will create your snack box
+					from the best organic ingredients.
+				</div>
+			</div>
 
+			<div class="arrow-working"><img src="/../assets/new-design/arrow-working.png">
+			</div>
 
-<section class="snacks-eng">
-<div class="heading-snack-sec">Snacks engineered to get you healthy and help keep you fit</div>
-<div class="subheading-snack-sec">All of our snacks are packed with nutrient rich super foods. Check out what's inside our Chocolate Banana Granola!</div>
+			<div class="working3">
+				<div class="img1-working"><img src="/../assets/new-design/working-img3.png">
+					<a class="number-image"><Span>3</span></a>
+					<a class="number-image2"><Span>2</span></a>
+					<a class="number-image3"><Span>3</span></a>
+					<a class="number-image4"><Span>4</span></a>
+				</div>
 
-<div class="wrapper-snack-eng">
-<div class="left-section-snack-eng">
-  <img src="../assets/new-design/img-snack-eng.jpg">
-  
-  <div class="name-tag-snack-eng">
-    <span>Cacao</span>
-    <img src="../assets/new-design/Ellipse-img.png">
-    
-  </div>
-  
-  <div class="name-tag2-snack-eng">
-    <span>Agave</span>
-   <img src="../assets/new-design/Ellipse-img.png">
-  </div>
-  
-  
-  <div class="name-tag3-snack-eng">
-    <span>Sunflower seeds</span>
-   <img src="../assets/new-design/Ellipse-img.png">
-  </div>
-  
-  <div class="name-tag4-snack-eng">
-   <span>Coconut</span>
-   <img src="../assets/new-design/Ellipse-img.png">
-  </div>
-  
-  <div class="name-tag5-snack-eng">
-   <span>Pumpkin Seeds</span>
-   <img src="../assets/new-design/Ellipse-img.png">
-  </div>
-  
-</div>
+				<div class="para-working">
+					Your snack box will be shipped
+					every month. Free shipping!
+				</div>
+			</div>
 
-<div class="right-snack-eng">
-  <div class="main-right-eng">
-  <div class="lt-des-img-eng"><img src="../assets/new-design/img1-eng.jpg"></div>
-  <div class="rt-des-eng">
-    <h1 class="color1-eng">Cranberries</h1>
-  <span>Better for you than dark chocolate</span>
-  </div>
-  </div>
-  
-   <div class="main-right-eng">
-  <div class="lt-des-img-eng"><img src="../assets/new-design/img2-eng.jpg"></div>
-  <div class="rt-des-eng">
-    <h1 class="color2-eng">Sunflower Seeds</h1>
-  <span>Best whole food source of Vitamin E. 
-Sunflower seeds offer 2x more protein 
-than walnuts and pecans.</span>
-  </div>
-  </div>
-  
-  
-   <div class="main-right-eng">
-  <div class="lt-des-img-eng"><img src="../assets/new-design/img3-eng.jpg"></div>
-  <div class="rt-des-eng">
-    <h1 class="color3-eng">Agave</h1>
-  <span>High in calcium and boosts your 
-immune system</span>
-  </div>
-  </div>
-  
-   <div class="main-right-eng">
-  <div class="lt-des-img-eng"><img src="../assets/new-design/img4-eng.jpg"></div>
-  <div class="rt-des-eng">
-    <h1 class="color4-eng">Coconut</h1>
-  <span>Good source of Iron and Zinc</span>
-  </div>
-  </div>
-  
-   <div class="main-right-eng">
-  <div class="lt-des-img-eng"><img src="../assets/new-design/img5-eng.jpg"></div>
-  <div class="rt-des-eng">
-    <h1 class="color5-eng">Pumpkin Seeds</h1>
-  <span>Omega 3s good for your skin. Rich in 
-healthy fats, antioxidants and fibers 
-promotes a healthy heart and liver.</span>
-  </div>
-  </div>
-  
-</div>
+			<div class="arrow-working"><img src="/../assets/new-design/arrow-working.png">
+			</div>
 
-</div>  
-</section>
+			<div class="working4">
+				<div class="img1-working"><img src="/../assets/new-design/working-img4.png">
+					<a class="number-image"><Span>4</span></a>
+					<a class="number-image2"><Span>2</span></a>
+					<a class="number-image3"><Span>3</span></a>
+					<a class="number-image4"><Span>4</span></a>
+				</div>
 
-<section class="newsletter">
-  <div class="newsletter-wrapper">
-  <div class="subscribe-text">Sign up for our newsletter</div>
-  <div class="email-sec">
-    <input class="email-input-news" type="text" value="">
-  <input class="submit-text-news" type="submit" value="Submit">
-  </div>
-  </div>
-</section>
+				<div class="para-working">
+					Your snacks will arrive at your
+					door at home or your office.
+				</div>
+			</div>
+		</div>
 
-<div class="clr"></div>
+	</section>
 
-<section class="snack-section">
-<div class="heading-snack-sec">Real Snacks, Real Food</div>
-  <%= render 'statics/products_thumbnail' %>
-  
-  <div class="clr"></div>
-  
- <div class="snack-caption"><a href="javascript:(void)0">Oh snap, a snack queue?</a></div>
-  
-</section>
+	<div class="clr"></div>
 
-<div class="clr"></div>
+	<div class="container-fluid">
+		<div>
+			<div class="ha-bg-parallax text-center block-marginb-none" data-type="background" data-speed="20">
+				<div class="ha-parallax-body">
+					<div class="ha-content ha-content-whitecolor">
+						<div class="image-tell-me-parallax"></div>
+					</div>
+					<div class="ha-parallax-divider-wrapper">
 
-<section class="testimonial">
- <div class="heading-test">What They Say About Vegan Snack Pack</div>  
-  <div class="bg-test">
-  <div class="wrapper-test">   
-   
-    
-    <div class="right-test">
-    <div class="right-tst-ul">
-       <ul class="clr">
-       <li class="quote-1 active"><a href="javascript:void(0)"><img src="../assets/new-design/img1-test.jpg" alt="David Hew - Director, TS co" /></a></li>
-       <li class="quote-2"><a href="javascript:void(0)"><img src="../assets/new-design/img2-test.jpg" alt="Cali Lewis - GeekBeat.TV" /></a></li>
-       <li class="quote-3"><a href="javascript:void(0)"><img src="../assets/new-design/img3-test.jpg" alt="Darren - Founder" /></a></li>
-       <li class="quote-4"><a href="javascript:void(0)"><img src="../assets/new-design/img4-test.jpg" alt="Kim Hew - TomKat Studio" /></a></li>
-       <li class="quote-5"><a href="javascript:void(0)"><img src="../assets/new-design/img5-test.jpg" alt="Kim Hew - TomKat Studio" /></a></li>
-       <li class="quote-6"><a href="javascript:void(0)"><img src="../assets/new-design/img6-test.jpg" alt="Jay.K - Real Estate" /></a></li>
-     </ul>
-    
-     </div>
-      <div class="author">David Hew - <span>Director,TS co</div>
-    
-      </div> 
-     
-      
-  <div class="left-test">
-      <div class="para-left-test">
-    <ul>
-       <li class="quote-1 active">
-      <p>Cras laoreet nulla nec odio tincidunt, tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-      </p> 
-       </li>
-       
-       <li class="quote-2">
-      <p>Cras laoreet nulla nec odio tincidunt, tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-      viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-      </p> 
-       </li>
-       
-       <li class="quote-3">
-      <p>Cras laoreet nulla nec odio tincidunt, tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-        vel sapien. In semper sodales metus.
-      </p> 
-       </li>
-       
-       <li class="quote-4">
-      <p>Cras laoreet nulla nec odio tincidunt, tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-       tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-      </p> 
-       </li>
-       
-       <li class="quote-5">
-      <p>Cras laoreet nulla nec odio tincidunt, tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-      </p> 
-       </li>
-       
-       <li class="quote-6">
-      <p>Cras laoreet nulla nec odio tincidunt, tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis viverra, est libero sollicitudin orci, at rutrum lacus libero 
-        vel sapien. In semper sodales metus.
-      tincidunt commodo enim elementum.Phasellus sed arcu diam. Proin sed feugiat tellus. Maecenas sollicitudin, nulla non convallis
-      </p> 
-       </li>
-        </ul>
-        </div>
-    </div>
-      
-  
-    
-  </div>
-  </div>
-</section>
+						<div class="content-tell-me">
+							<div class="wrapper-tell-me">
+								<div class="left-wrapper-tell">
+									<div class="heading-left-tell">
+										Our Model
+									</div>
+									<div class="para-left-tell">
+										<p>
+											Our model is simple; first we make kick a$$ healthy snacks, then we let you pick the ones you like best, and finally we deliver them to your doorstep every month.
+										</p>
+										<p>
+											Why are we set up as a subscription service? Uh well did you only want to eat healthy amazing snacks just once? Yeah we didn’t think so. Listen, our goal is to make it easy to eat delicious healthy snacks no matter where you live in the U.S. and to do so on a consistent basis.
+										</p>
+									</div>
+								</div>
+								<div class="right-wrapper-tell">
+									<div class="heading-left-tell">
+										Our Guarantee
+									</div>
+									<div class="para-left-tell">
+										<p>
+											We guarantee you’ll love our snacks and if for any reason you don’t we’ll refund 100% of your money, no questions asked, even if all that’s left of the snacks we’ve sent you are a few small crumbs.
+										</p>
 
+										<p>
+											All our subscriptions are made to make you a happy customer. There’s zero commitment required and you can cancel or pause your subscription anytime with the click of a button - no calling customer service or submitting a support ticket. Why so easy? Because we’ve used websites that don’t make it easy and we weren’t happy either.
+										</p>
+									</div>
+								</div>
+								<div class="clr"></div>
+							</div>
+						</div>
+					</div>
 
-<section class="membership-section">
-   <div class="heading-snack-sec">Choose Your Membership</div>  
-   <div class="wrapper-membership">
-     <div class="main-membership">
-   
-     <div class="first-membership">
-        <div class="image-sec-mem"><img src="../assets/new-design/img1-mem.jpg"></div>
-      <div class="det-sec-mem">
-        <div class="heading-det-mem">
-         Basic Snack Pack
-      </div>
+				</div>
+			</div>
 
-      <div class="price-det-mem"><%= show_plan_name_and_price(@subscriptions[0]) %><span>/ month</span></div>
-      <div class="tag-det-mem">5 delicious snacks delivered every month</div>
-      <div class="tag2-det-mem">Free Shipping</div>
-              <div class="clr"></div>
-      <div class="button-det-mem"><input type="submit" value="SELECT"></div>
-      </div>
-     </div>
-     
-      <div class="first-membership">
-        <div class="image-sec-mem"><img src="../assets/new-design/img1-mem.jpg"></div>
-      <div class="det-sec-mem">
-        <div class="heading-det-mem">
-         Double Snack Pack
-      </div>
-      <div class="price-det-mem"><%= show_plan_name_and_price(@subscriptions[1]) %><span>/ month</span></div>
-      <div class="tag-det-mem">10 delicious snacks delivered every month</div>
-      <div class="tag2-det-mem">Save $ 4.95 / month + Free Shipping</div>
-              <div class="clr"></div>
-      <div class="button-det-mem"><input type="submit" value="SELECT"></div>
-      </div>
-     </div>
-     
-      <div class="third-membership">
-        <div class="image-sec-mem"><img src="../assets/new-design/img1-mem.jpg"></div>
-      <div class="det-sec-mem">
-        <div class="heading-det-mem">
-         Family Snack Pack
-      </div>
-      <div class="price-det-mem"><%= show_plan_name_and_price(@subscriptions[2]) %><span>/ month</span></div>
-      <div class="tag-det-mem">20 delicious snacks delivered every month</div>
-      <div class="tag2-det-mem">Save $ 14.85 / month + Free Shipping</div>
-              <div class="clr"></div>
-      <div class="button-det-mem"><input type="submit" value="SELECT"></div>
-      </div>
-     </div>
-     
-   </div>
-   </div>
-  
-</section>
+		</div>
+	</div>
+	<!--end: parallax-->
 
-<footer>
-<%= render 'statics/application_footer' %>
-  
-</footer> 
+	<div class="clr"></div>
 
-<script>
+	<section class="tell-me-more" id="myDiv">
+
+	</section>
+
+	<section class="snacks-eng">
+		<div class="heading-snack-sec">
+			Snacks engineered to get you healthy and help keep you fit
+		</div>
+		<div class="subheading-snack-sec">
+			All of our snacks are packed with nutrient rich super foods. Check out what's inside our Chocolate Banana Granola!
+		</div>
+
+		<div class="wrapper-snack-eng">
+			<div class="left-section-snack-eng">
+				<img src="/../assets/new-design/img-snack-eng.jpg">
+
+				<div class="name-tag-snack-eng">
+					<span>Cranberries</span>
+					<img src="/../assets/new-design/Ellipse-img.png">
+
+				</div>
+
+				<div class="name-tag2-snack-eng">
+					<span>Agave</span>
+					<img src="/../assets/new-design/Ellipse-img.png">
+				</div>
+
+				<div class="name-tag3-snack-eng">
+					<span>Sunflower seeds</span>
+					<img src="/../assets/new-design/Ellipse-img.png">
+				</div>
+
+				<div class="name-tag4-snack-eng">
+					<span>Coconut</span>
+					<img src="/../assets/new-design/Ellipse-img.png">
+				</div>
+
+				<div class="name-tag5-snack-eng">
+					<span>Pumpkin Seeds</span>
+					<img src="/../assets/new-design/Ellipse-img.png">
+				</div>
+
+			</div>
+
+			<div class="right-snack-eng">
+				<div class="main-right-eng">
+					<div class="lt-des-img-eng"><img src="/../assets/new-design/img1-eng.jpg">
+					</div>
+					<div class="rt-des-eng">
+						<h1 class="color1-eng">Cranberries</h1>
+						<span>Packed with antioxidants, cranberries help fight cancers and heart disease. These magic little berries improve mental health, strengthen the immune system and contain anti-aging properties.</span>
+					</div>
+				</div>
+
+				<div class="main-right-eng">
+					<div class="lt-des-img-eng"><img src="/../assets/new-design/img2-eng.jpg">
+					</div>
+					<div class="rt-des-eng">
+						<h1 class="color2-eng">Sunflower Seeds</h1>
+						<span>Best whole food source of Vitamin E. Sunflower seeds offer 2x more protein than walnuts and pecans.</span>
+					</div>
+				</div>
+
+				<div class="main-right-eng">
+					<div class="lt-des-img-eng"><img src="/../assets/new-design/img3-eng.jpg">
+					</div>
+					<div class="rt-des-eng">
+						<h1 class="color3-eng">Agave</h1>
+						<span>A natural sweetener high in calcium that boosts your immune system.</span>
+					</div>
+				</div>
+
+				<div class="main-right-eng">
+					<div class="lt-des-img-eng"><img src="/../assets/new-design/img4-eng.jpg">
+					</div>
+					<div class="rt-des-eng">
+						<h1 class="color4-eng">Coconut</h1>
+						<span>Good source of Iron and Zinc, coconuts are known to increase metabolism, regulate hormones, and improve digestion.</span>
+					</div>
+				</div>
+
+				<div class="main-right-eng">
+					<div class="lt-des-img-eng"><img src="/../assets/new-design/img5-eng.jpg">
+					</div>
+					<div class="rt-des-eng">
+						<h1 class="color5-eng">Pumpkin Seeds</h1>
+						<span>Omega 3s are good for your skin. Rich in healthy fats, antioxidants and fibers promotes a healthy heart and liver.</span>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</section>
+
+	<section class="newsletter">
+		<div class="newsletter-wrapper">
+			<div class="subscribe-text">
+				Sign up for our newsletter
+			</div>
+			<div class="email-sec">
+				<input class="email-input-news" type="text" value="">
+				<input class="submit-text-news" type="submit" value="Submit">
+			</div>
+		</div>
+	</section>
+
+	<div class="clr"></div>
+
+	<section class="snack-section">
+		<div class="heading-snack-sec">
+			Real Snacks, Real Food
+		</div>
+		<%= render 'statics/products_thumbnail' %>
+
+		<div class="clr"></div>
+
+		<div class="snack-caption">
+			<a href="#" onclick="return confirm('Have you scanned the QR code ? by entering in the 6 digit code')">Oh snap, a snack queue?</a>
+		</div>
+
+	</section>
+
+	<div class="clr"></div>
+
+	<section class="testimonial">
+		<div class="heading-test">
+			What They Say About Vegan Snack Pack
+		</div>
+		<div class="bg-test">
+			<div class="wrapper-test">
+
+				<div class="right-test">
+					<div class="right-tst-ul">
+						<ul class="clr">
+							<li class="quote-1 active">
+								<a href="javascript:void(0)"><img src="/../assets/new-design/img1-test.jpg" alt="David Hew - Director, TS co" /></a>
+							</li>
+							<li class="quote-2">
+								<a href="javascript:void(0)"><img src="/../assets/new-design/img2-test.jpg" alt="Cali Lewis - GeekBeat.TV" /></a>
+							</li>
+							<li class="quote-3">
+								<a href="javascript:void(0)"><img src="/../assets/new-design/img3-test.jpg" alt="Darren - Founder" /></a>
+							</li>
+							<li class="quote-4">
+								<a href="javascript:void(0)"><img src="/../assets/new-design/img4-test.jpg" alt="Kim Hew - TomKat Studio" /></a>
+							</li>
+							<li class="quote-5">
+								<a href="javascript:void(0)"><img src="/../assets/new-design/img5-test.jpg" alt="Kim Hew - TomKat Studio" /></a>
+							</li>
+							<li class="quote-6">
+								<a href="javascript:void(0)"><img src="/../assets/new-design/img6-test.jpg" alt="Jay.K - Real Estate" /></a>
+							</li>
+						</ul>
+
+					</div>
+					<div class="author">
+						Matt Messina - <span>Musician
+					</div>
+
+				</div>
+
+				<div class="left-test">
+					<div class="para-left-test">
+						<ul>
+							<li class="quote-1 active">
+								<p>
+									Great health requires great food. Vegan Snack Packs fuel my life quest for optimum health and fitness, in the raw!!
+								</p>
+							</li>
+
+							<li class="quote-2">
+								<p>
+									"I am totally in love with VSP, nothing better nurtures my body than their outstanding quality snacks. Obsessed with the chocolate chip macaroons..."
+								</p>
+							</li>
+
+							<li class="quote-3">
+								<p>
+									Vegan Snack Packs have been the perfect climbing fuel for me and have made living a vegan lifestyle so much easier! As a very active athlete I get hungry a lot throughout the day. Vegan Snack Packs have not only made it easier to avoid eating convenient junk between meals, but they have also proven to be delicious and satisfying fuel that I can eat during physical activity! I'm starting to wonder how I managed without them before I started getting my monthly shipments!
+								</p>
+							</li>
+
+							<li class="quote-4">
+								<p>
+									I love Vegan Snack Packs because they are convenient, healthy and delicious! As a mom I am always looking for an easy way to get more good nutrition into my children... Vegan Snack Packs are an amazing solution!
+								</p>
+							</li>
+
+							<li class="quote-5">
+								<p>
+									As a professional athlete I need clean foods that fuel my body. If they also happen to taste good that’s a huge bonus and that’s exactly what I’ve discovered from Vegan Snack Packs. I’m also a cancer survivor and live with fibromyalgia so incorporating a plant based diet is one of the most important things in my life...thank you Chef Nay for making such a great product!
+								</p>
+							</li>
+
+							<li class="quote-6">
+								<p>
+									Vegan Snack Packs are my must have item when I’m on the road or in between teaching classes. The granolas give me sustained energy for intense classes without making my stomach feel full in twists and bends. I love that your company is helping make the planet a better place with healthier foods, no animal suffering and reduced environmental impact! Go VSP!
+								</p>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</section>
+
+	<section class="membership-section">
+		<div class="heading-snack-sec">
+			Choose Your Membership
+		</div>
+		<div class="wrapper-membership" id="vegan_user_signup">
+			<div class="main-membership">
+
+				<div class="first-membership">
+					<div class="image-sec-mem"><img src="/../assets/new-design/img1-mem.jpg">
+					</div>
+					<div class="det-sec-mem">
+						<div class="heading-det-mem">
+							Basic Snack Pack
+						</div>
+
+						<div class="price-det-mem">
+							<%= show_plan_name_and_price(@subscriptions[0]) %><span>/ month</span>
+						</div>
+						<div class="tag-det-mem">
+							5 delicious snacks delivered every month
+						</div>
+						<div class="tag2-det-mem">
+							Free Shipping
+						</div>
+						<div class="clr"></div>
+						<div class="button-det-mem">
+							<input type="button" onclick="window.location.href='/wizard_new?sub_type=<%=@subscriptions[0].id%>&location=footer'" value="SELECT">
+						</div>
+					</div>
+				</div>
+
+				<div class="first-membership">
+					<div class="image-sec-mem"><img src="/../assets/new-design/img1-mem.jpg">
+					</div>
+					<div class="det-sec-mem">
+						<div class="heading-det-mem">
+							Double Snack Pack
+						</div>
+						<div class="price-det-mem">
+							<%= show_plan_name_and_price(@subscriptions[1]) %><span>/ month</span>
+						</div>
+						<div class="tag-det-mem">
+							10 delicious snacks delivered every month
+						</div>
+						<div class="tag2-det-mem">
+							Save $ 4.95 / month + Free Shipping
+						</div>
+						<div class="clr"></div>
+						<div class="button-det-mem">
+							<input type="button" onclick="window.location.href='/wizard_new?sub_type=<%=@subscriptions[1].id%>&location=footer '" value="SELECT">
+						</div>
+					</div>
+				</div>
+
+				<div class="third-membership">
+					<div class="image-sec-mem"><img src="/../assets/new-design/img1-mem.jpg">
+					</div>
+					<div class="det-sec-mem">
+						<div class="heading-det-mem">
+							Family Snack Pack
+						</div>
+						<div class="price-det-mem">
+							<%= show_plan_name_and_price(@subscriptions[2]) %><span>/ month</span>
+						</div>
+						<div class="tag-det-mem">
+							20 delicious snacks delivered every month
+						</div>
+						<div class="tag2-det-mem">
+							Save $ 14.85 / month + Free Shipping
+						</div>
+						<div class="clr"></div>
+						<div class="button-det-mem">
+							<input type="button" onclick="window.location.href='/wizard_new?sub_type=<%=@subscriptions[2].id%>&location=footer'" value="SELECT">
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</section>
+
+	<footer>
+		<%= render 'statics/application_footer' %>
+
+	</footer>
+
+	<script>
 
 jQuery(function( $ ){
-    
-  /* --- Testimonial --- */
-  
-  /* Show random testimonial by default */
-  playTestimonial();
-  
-  /* Clear click action on links */
-  $('.testimonial .right-test ul li a').click( function(){ return false; } );
-  
-  /* Mouseover action on testimonial photos */
-  $('.testimonial .right-test ul li').hover( function(){
-    
-    // clear timer
-    window.clearTimeout(timeout);
-    
-    $('.testimonial .right-test ul li.active').removeClass('active');
-    
-    quoteclass = $(this).attr('class');
-    
-    author = $(this).find('img').attr('alt');
-    author = author.split('-');
-    author = author[0] + '<span> - ' + author[1] + '</span>';
-    
-    $('.testimonial .para-left-test ul li.active').fadeOut('slow', function(){
-      $(this).removeClass('active');
-      $('.testimonial .para-left-test ul li.' + quoteclass).fadeIn().addClass('active');
-      $('.testimonial .right-test .author').html(author);
-    });
-    
-    $(this).addClass('active');
-    
-  }, function(){
-    
-    // go back to random testimonial
-    timeout = window.setTimeout( playTestimonial, 5000 );
-    
-    return false;
-  });
-  
-  /* Play random testimonial */
-  function playTestimonial() {
-    
-    $('.testimonial .right-test ul li.active').removeClass('active');
-    
-    randomnumber = Math.floor( (Math.random()*10) + 1 );
-    
-    author = $('.testimonial .right-test ul li.quote-' + randomnumber).find('img').attr('alt');
-    author = author.split('-');
-    author = author[0] + '<span> - ' + author[1] + '</span>';
-    
-    $('.testimonial .para-left-test ul li.active').fadeOut('slow', function(){
-      $(this).removeClass('active');
-      $('.testimonial .para-left-test ul li.quote-' + randomnumber).fadeIn().addClass('active');
-      $('.testimonial .photos .author').html(author);
-    });
-    
-    $('.testimonial .right-test ul li.quote-' + randomnumber).addClass('active');
-    
-    timeout = window.setTimeout( playTestimonial, 5000 );
-  }
-  
+		
+	/* --- Testimonial --- */
+	
+	/* Show random testimonial by default */
+	playTestimonial();
+	
+	/* Clear click action on links */
+	$('.testimonial .right-test ul li a').click( function(){ return false; } );
+	
+	/* Mouseover action on testimonial photos */
+	$('.testimonial .right-test ul li').hover( function(){
+		
+		// clear timer
+		window.clearTimeout(timeout);
+		
+		$('.testimonial .right-test ul li.active').removeClass('active');
+		
+		quoteclass = $(this).attr('class');
+		
+		author = $(this).find('img').attr('alt');
+		author = author.split('-');
+		author = author[0] + '<span> - ' + author[1] + '</span>';
+		
+		$('.testimonial .para-left-test ul li.active').fadeOut('slow', function(){
+			$(this).removeClass('active');
+			$('.testimonial .para-left-test ul li.' + quoteclass).fadeIn().addClass('active');
+			$('.testimonial .right-test .author').html(author);
+		});
+		
+		$(this).addClass('active');
+		
+	}, function(){
+		
+		// go back to random testimonial
+		timeout = window.setTimeout( playTestimonial, 5000 );
+		
+		return false;
+	});
+	
+	/* Play random testimonial */
+	function playTestimonial() {
+		
+		$('.testimonial .right-test ul li.active').removeClass('active');
+		
+		randomnumber = Math.floor( (Math.random()*10) + 1 );
+		
+		author = $('.testimonial .right-test ul li.quote-' + randomnumber).find('img').attr('alt');
+		author = author.split('-');
+		author = author[0] + '<span> - ' + author[1] + '</span>';
+		
+		$('.testimonial .para-left-test ul li.active').fadeOut('slow', function(){
+			$(this).removeClass('active');
+			$('.testimonial .para-left-test ul li.quote-' + randomnumber).fadeIn().addClass('active');
+			$('.testimonial .photos .author').html(author);
+		});
+		
+		$('.testimonial .right-test ul li.quote-' + randomnumber).addClass('active');
+		
+		timeout = window.setTimeout( playTestimonial, 5000 );
+	}
+	
 });
 
 </script>
-
-
 
 </body>

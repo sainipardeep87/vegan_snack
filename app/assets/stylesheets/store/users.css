@@ -38,10 +38,10 @@
 }
 
 .account-context {
-    /*border-bottom-style: groove;
+    border-bottom-style: groove;
     border-bottom-width: 1px;
     padding-bottom: 3%;
-    */
+    
 }
 #credit_card_section{
     border-bottom-style: none;
@@ -493,10 +493,10 @@ form#new_address div div {
     background-color: #39a848;
 }
 
-#personal_profile_update div input[type='text'], input[type='email'] {
+/*#personal_profile_update div input[type='text'], input[type='email'] {
     color: #000000;
     font-family: Arial;
-}
+}*/
 
 #personal_profile_update div input.error {
     border-color: #FF0000;

@@ -1,6 +1,40 @@
-<%= form_for :spree_user,:url=>"/wizard_save" do |f| %>
 
-  <%= render "#{@user.current_step}_step", :f => f %>
-  <p><%= f.submit "Continue" %></p>
-  <p><%= f.submit "Back", :name => "back_button" unless @user.first_step? %></p>
-<% end %>
+ <div class="" id="vegan_user_signup1">
+ <section class="main-bmem">
+    <%= form_for @user, :as => :spree_user, :url => spree.registration_path(@user), :html => {:id => "vegan_signup", autocomplete: 'off'}, :remote => true  do |f| %>
+
+       <%if params[:location]=="footer"%>
+          <span id="footer_singup" class="">
+            <%= render :partial => 'footer_step', locals: {f: f} %>
+          </span>  
+       
+          <span id="signup_ship_address" class="hide">
+            <%= render :partial => 'order_today_shipping', locals: {f: f} %>
+          </span>
+       
+          <span id="signup_bill_address" class='hide'>
+            <%= render :partial => 'order_today_billing', locals: {f: f} %>
+          </span>
+      
+          <span id="confirm_signup" class="hide">
+    	     <%= render :partial => 'confirm_signup', locals: {f: f}%>
+          </span>
+
+      <%else%>
+
+       <span id="signup_ship_address">
+         <%= render :partial => 'order_today_shipping', locals: {f: f} %>
+       </span>
+       
+       <span id="signup_bill_address" class='hide'>
+         <%= render :partial => 'order_today_billing', locals: {f: f} %>
+       </span>
+      
+      <span id="confirm_signup" class="hide">
+        <%= render :partial => 'confirm_signup', locals: {f: f}%>
+      </span>
+      
+      <%end%>
+    <% end %>  <!-- End of the Complete Form -->
+ </section>  
+</div>

@@ -17,28 +17,58 @@ ready = function(){
     /* ON clicking the back button in billing address section it'll hide the bill form and populate the previous shipping address form */
 
     $("#submit_bill").on("click", "#bill_back", function(){
-
+		
         $("#signup_bill_address").hide();
         $("#signup_ship_address").show();
 
     });
 
+    $(".left-btm-btn").on("click","#back_to_footer", function(){
+        $("#signup_ship_address").addClass('hide');
+        $("#footer_singup").removeClass('hide');
+
+    });
+
+    $("#confirm_bill").on("click", "#cofirm_back", function(){
+    	// alert ("ehllo");
+    	$("#signup_bill_address").show();
+    	$("#signup_ship_address").hide();
+    	$("#confirm_signup").addClass('hide');
+    	
+    });
+    
+	// $("#submit_bill").on("click", "#submit2", function(){
+		// $("#signup_bill_address").hide();
+        // $("#signup_ship_address").hide();
+        // $("#confirm_signup").removeClass('hide');
+        // $('div#ship_first_name').text($("#spree_user_addresses_attributes_0_firstname").val());
+        // $('div#ship_address_1').text($("#spree_user_addresses_attributes_0_address1").val());
+        // $('div#ship_address_2').text($("#spree_user_addresses_attributes_0_address2").val());
+        // $('div#ship_city').text($("#spree_user_addresses_attributes_0_city").val());
+//         
+        // $('div#bill_first_name').text($("#spree_user_addresses_attributes_1_firstname").val());
+        // $('div#bill_address_1').text($("#spree_user_addresses_attributes_2_address1").val());
+        // $('div#bill_address_2').text($("#spree_user_addresses_attributes_2_address2").val());
+        // // $('div#bill_city').text($("#spree_user_addresses_attributes_2_city").val());
+	// });
+	
     $("#billing_form_div").on("blur", "#spree_user_creditcards_attributes_0_card_no", function(){
         $(this).val($(this).val().split(" ").join(""));
     });
 
 
-    $("div.checkbox").on("click", "input#address_check", function(){
-
+    $("div#address_check").on("click", "input#address_check", function(){
+    	
         var checked = $(this).is(":checked");
 
         if(checked) {
+        	
             $("#spree_user_addresses_attributes_1_firstname").val($("#spree_user_addresses_attributes_0_firstname").val());
             $("#spree_user_addresses_attributes_1_lastname").val($("#spree_user_addresses_attributes_0_lastname").val());
             $("#spree_user_addresses_attributes_1_address1").val($("#spree_user_addresses_attributes_0_address1").val());
             $("#spree_user_addresses_attributes_1_address2").val($("#spree_user_addresses_attributes_0_address2").val());
             $("#spree_user_addresses_attributes_1_city").val($("#spree_user_addresses_attributes_0_city").val());
-            $("#add_phone_billing").val($("#add_phone_shipping").val());
+            $("#add_phone_billing").val($("#spree_user_addresses_attributes_0_phone").val());
             $("#spree_user_addresses_attributes_1_state_name").val($("#spree_user_addresses_attributes_0_state_name").val());
             $("#spree_user_addresses_attributes_1_zipcode").val($("#spree_user_addresses_attributes_0_zipcode").val());
 
@@ -74,7 +104,7 @@ ready = function(){
 
     });
 
-    $("#signup_password").on("click", "#signup_link", function(){
+    $(".join").on("click", "#signup_link", function(){
         var current_link = window.location.pathname =="/"  || window.location.pathname == "/spree/signup/"  || window.location.pathname == "/spree/signup" ;
 
         if(!current_link){
@@ -302,7 +332,7 @@ $(function() {
 
 
 function scroll_to_signup_section(){
-    $('.order-today-section').ScrollTo({
+    $('.wrapper-membership').ScrollTo({
         duration: 2000
     });
 }

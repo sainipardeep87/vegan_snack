@@ -1,0 +1,243 @@
+<div class="row">
+
+<div class="col-md-5 col-sm-5 col-xs-5 col-move-right billing-section">
+
+  <div class="bill-title">
+
+    <% if is_ordinary_user?(@user.facebook_token) %>
+
+
+        <div id="facebook_signup">
+
+          <div id="fb_signup_img">
+            <%= link_to(image_tag("/assets/home/signup_facebook.png", :alt => "Facebook Signup", :id => 'fb_connect'), '/users/auth/facebook') %>
+          </div>
+
+          <div class="col-md-2 pull-right fb-line" id="signup_fb_line">
+            <span> Or </span>
+          </div>
+
+
+          <div id="facebook_email_div">
+            <%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-large'%>
+            <%= link_to "Sign Up", "javascript:void(0)", :class => 'btn btn-large', :id => 'fb_get_started' %>
+            <div id="fb_email_error">Invalid Email ID entered.</div>
+          </div>
+
+        </div>
+
+    <% end %>
+
+  </div>
+
+        <span class="<%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>" >
+
+            <span class="bill-title <%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>" >
+                Where Should We Ship Your Snacks?
+              </span>
+
+          <%= f.fields_for :addresses do |builder| %>
+
+              <div class="v-signup-div">
+                <span>
+                  <%= builder.text_field :firstname, :placeholder => "First Name *" %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.firstname"][0] if   @user.errors.messages[:"addresses.firstname"].present? %>
+                  </label>
+                </span>
+
+                <span>
+                  <%= builder.text_field :lastname, :placeholder => "Last Name *" %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.lastname"][0] if @user.errors.messages[:"addresses.lastname"].present? %>
+                  </label>
+                </span>
+              </div>
+
+              <div class="v-wide-div v-signup-div">
+                <span>
+                  <%= builder.text_field :phone, placeholder: 'Phone(xxx-xxx-xxxx) *', id: 'add_phone_shipping' %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.phone"][0] if @user.errors.messages[:"addresses.phone"].present? %>
+                  </label>
+                </span>
+              </div>
+
+
+              <div class="v-wide-div v-signup-div">
+                <span>
+                  <%= builder.text_field :address1, placeholder: 'Address Line 1 *' %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.address1"][0] if @user.errors.messages[:"addresses.address1"].present? %>
+                  </label>
+                </span>
+              </div>
+
+              <div class="v-wide-div v-signup-div">
+                <span>
+                  <%= builder.text_field :address2, placeholder: 'Address Line 2(Apartment #, Suite #, etc.)' %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.address2"][0] if @user.errors.messages[:"addresses.address2"].present? %>
+                  </label>
+                </span>
+              </div>
+
+              <div class="v-wide-div v-signup-div">
+                <span> <%= builder.text_field :city, placeholder: 'City *' %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.city"][0] if @user.errors.messages[:"addresses.city"].present? %>
+                  </label>
+                </span>
+              </div>
+
+              <div class="v-signup-div">
+                <span>
+                  <%= builder.text_field :state_name, :placeholder => "State *" %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.state_name"][0] if @user.errors.messages[:"addresses.state_name"].present? %>
+                  </label>
+                </span>
+
+                <span><%= builder.text_field :zipcode, :placeholder => "Zip *" %>
+                  <label class="error">
+                    <%= @user.errors.messages[:"addresses.zipcode"][0]  if @user.errors.messages[:"addresses.zipcode"].present?  %>
+                  </label>
+                </span>
+              </div>
+
+              <div class="v-signup-div v-wide-div">
+                <span>
+                  <%= f.text_field :email, :placeholder => "Email *", :readonly => true %>
+                  <label class="error">
+                    <%= f.object.errors.messages[:email][0] if @user.errors.messages[:email].present? %>
+                  </label>
+                </span>
+              </div>
+
+              <% if is_ordinary_user?(@user.facebook_token) %>
+
+                  <div class="v-signup-div">
+                <span>
+                  <%= f.password_field :password, :placeholder => "Create Password *" %>
+                  <label class="error">
+                    <%= f.object.errors.messages[:password][0] if @user.errors.messages[:password].present?  %>
+                  </label>
+                </span>
+
+                <span>
+                  <%= f.password_field :password_confirmation, :placeholder => "Confirm Password *" %>
+                  <label class="error">
+                    <%= f.object.errors.messages[:password_confirmation][0] if @user.errors.messages[:password_confirmation].present? %>
+                  </label>
+                </span>
+                  </div>
+              <% end %>
+
+              <div class="coupon-title">Coupon </div>
+              <div class="v-wide-div v-signup-div coupon-field">
+                <span>
+                <%= f.text_field :coupon_code, placeholder: 'Discount Code' %>
+                </span>
+              </div>
+
+              <div class="submission-mobile">
+                <%#= f.text_field :sub_type, id: 'plan_id'  %>
+                <%= image_tag('/assets/home/vegan-final_21.png', :class => 'place-my-order', :id => 'user_sign_up') %>
+                <span> <%= image_tag('/assets/home/vegan-final_23.png', :class => 'place-up') %> </span>
+              </div>
+          <% end %>
+        </span>
+</div>
+
+
+<div class="col-md-5 col-sm-5 col-xs-5 order-summary-column">
+
+  <div class="summary-title">
+
+    <span class="<%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>" > Choose Your Subscription</span>
+
+  </div>
+
+  <div class="order-summary-div">
+
+    <div class='sum-div-explain'>
+      We offer 3 different subscriptions to suit your appetite! Sign up and start customizing your snack box today!
+    </div>
+
+    <div class="summary-line">
+      <%= image_tag('/assets/home/Snacks 1.jpg', :class => 'img-thumbnail pull-left sum-image') %>
+      <span class="img-thumbnail pull-right offer-bubble sum-selection-active
+            <%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>" id="1"> </span>
+
+      <h4 class="offer-name">
+        <%= show_plan_name_and_price(@subscriptions[0]) %>
+      </h4>
+
+      <p>Your choice of any 5 snacks. Delivered monthly.<br> FREE SHIPPING!</p>
+    </div>
+
+    <div class="summary-line">
+      <%= image_tag('/assets/home/Snacks 2.jpg', :class => 'img-thumbnail pull-left sum-image') %>
+      <span class="img-thumbnail pull-right offer-bubble sum-selection-inactive
+            <%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>" id="2"> </span>
+
+      <h4 class="offer-name">
+        <%= show_plan_name_and_price(@subscriptions[1]) %>
+      </h4>
+      <p>Your choice of any 10 snacks. Delivered monthly.<br> FREE SHIPPING! <u>GREAT VALUE!</u> </p>
+
+    </div>
+
+    <div class="summary-line">
+      <%= image_tag('/assets/home/Snacks 3.jpg', :class => 'img-thumbnail pull-left sum-image') %>
+      <span class="img-thumbnail pull-right offer-bubble sum-selection-inactive
+            <%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>" id="3"> </span>
+      <h4 class="offer-name"><%=show_plan_name_and_price(@subscriptions[2]) %></h4>
+      <p>Your choice of any 20 snacks. Delivered monthly.<br> FREE SHIPPING! <u>BEST VALUE!</u></p>
+    </div>
+
+    <!--<div id="drop_mail">
+      <div>Want more? Drop us a line and we'll make sure to keep your belly filled.</div>
+    </div> -->
+
+    <div class="submission">
+      <%= f.hidden_field :sub_type, :id => 'plan_id' %>
+      <%= f.hidden_field :image %>
+      <%= f.hidden_field :facebook_token %>
+      <span class="<%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>"><%= image_tag('/assets/home/vegan-final_21.png', :class => 'place-my-order', :id => 'user_sign_up') %></span>
+      <span class='<%= "hide-until-email" if is_ordinary_user?(@user.facebook_token) %>'> <%= image_tag('/assets/home/vegan-final_23.png', :class => 'place-up') %> </span>
+    </div>
+  </div>
+
+  <div class="cleardiv"></div>
+</div>
+</div>
+
+
+<script type="text/javascript">
+
+    $(window).bind("load", function() {
+
+        <% if @user.email.present? %>
+        $("#vegan_user_signup").ScrollTo({
+            duration: 2000
+        });
+
+        <% end %>
+
+        <% if @not_yet_fb_signed_up.present? %>
+        console.log("You are not yet registered buddy!");
+        toggle_the_signin_header();
+        $(".welcome-message").html("<div> You do not have an account with us.</div> <div> Please get started <span id='go_signup'> here. </span> </div>");
+        $(".welcome-message").addClass('no-account');
+        <% end %>
+
+        <% if @registered_email.present? %>
+
+        show_user_already_registered_notification("<%= @registered_email %>");
+
+        <% end %>
+
+    });
+
+</script>

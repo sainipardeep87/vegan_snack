@@ -12,6 +12,7 @@
  *= require jquery.tagsinput
  *= require jquery.countdown
  *= require_tree .
+ *= require media-queries
  *= require_self
 */
 .public-error{

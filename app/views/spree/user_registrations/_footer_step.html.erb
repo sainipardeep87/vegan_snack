@@ -1,0 +1,90 @@
+<body class="main-bg-bmem">
+
+	<section class="main-bmem">
+		<div class="inner-sec-bmem">
+			<div class="logo-bmem">
+				<a href="index.html"><img src="../assets/new-design/logo.png"></a>
+			</div>
+			<div class="outer-top-num">
+				<div class="top-num-bmem">
+					<div class="number-green">
+						<span>1</span>
+					</div>
+					<div class="number-white">
+						<span>2</span>
+					</div>
+					<div class="number-white2">
+						<span>3</span>
+					</div>
+				</div>
+				<div class="heading-bmem">
+					Become a member
+				</div>
+
+			</div>
+
+			<div class="main-content-sec" style="display:block;">
+				<div class="left-bmem">
+					<div class="heading-left-bmem">
+						<%= @package%>
+					</div>
+					<div class="image-left-bmem"><img src="../assets/new-design/img-left-bmem.jpg">
+					</div>
+					<div class="price-left">
+						<%= show_plan_name_and_price(@subscription) %>
+					</div>
+					<div class="shipping-txt-left">
+						Free Shipping
+					</div>
+					<div class="shipping-txt2-left">
+						Renews Automatically
+					</div>
+					<div class="shipping-txt2-left">
+						Cancel Anytime
+					</div>
+				</div>
+				<div class="right-bmem">
+					<div class="heading-right-bmem">
+						Shipping Information
+					</div>
+
+					<div class="sign-up-btn">
+						<a href="/users/auth/facebook" id ="fb_connect">Sign up with Facebook</a>
+					</div>
+					<div id="facebook_email_div_new" class="join-input">
+
+						<%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-text-join'%>
+						<input class="submit-btn" id="fb_get_started" type="submit" value="Join">
+					
+						<div id="fb_email_error">
+							Invalid Email ID entered.
+						</div>
+
+					</div>
+					<!-- <div id="facebook_email_div_new" class="join-input">
+
+						<%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-text-join-facebook'%>
+						<%= link_to "Join", "javascript:void(0)", :class => 'submit-btn-facebook', :id => 'fb_get_started_from_footer' %>
+						<div id="fb_email_error">
+							Invalid Email ID entered.
+						</div>
+
+					</div> -->
+					<div class="bottom-text-rt">
+							Delivery Via USPS
+						</div>
+						
+				</div>
+				<div class="clr"></div>
+			</div>
+		</div>
+
+	</section>
+
+</body>
+
+<style type="text/css">
+	#fb_email_error{
+		padding-right: 200px
+	}
+</style>>

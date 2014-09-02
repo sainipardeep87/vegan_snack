@@ -147,12 +147,11 @@ Vegan::Application.routes.draw do
   end
 
   devise_scope :spree_user do
-  #  get 'users/auth/:provider/callback' => 'spree/user_registrations#new_facebook_signup'
-    get 'users/auth/:provider/callback' => 'spree/user_registrations#new'
+    get 'users/auth/:provider/callback' => 'spree/user_registrations#new_facebook_signup'
+    #get 'users/auth/:provider/callback' => 'spree/user_registrations#new'
     post '/fb_auth' => 'spree/user_registrations#create_facebook_auth_user'
     get '/check_email' => 'spree/user_registrations#check_email'
     get '/wizard_new' => 'spree/user_registrations#wizard_new'
-    post '/wizard_save'=>'spree/user_registrations#wizard_save'
     get '/check_phone_no_format', to: 'spree/user_registrations#check_phone_no_format'
     get :admin, :to => 'spree/user_sessions#new'
   end
@@ -190,7 +189,7 @@ Vegan::Application.routes.draw do
   end
   Spree::Core::Engine.routes.prepend do
     namespace :admin do
-      #get '/spree/admin/vendors', to: 'spree/admin/vendors#index', as: 'vendors'
+      # get '/spree/admin/vendors', to: 'spree/admin/vendors#index', as: 'vendors'
 
       resources :blogs
       #get '/spree/admin/vendors', to: 'spree/admin/vendors#index'

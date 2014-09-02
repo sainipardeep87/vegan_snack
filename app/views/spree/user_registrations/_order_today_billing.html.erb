@@ -1,161 +1,106 @@
-
-<div class="row" id="order_billing">
-
-  <div id="billing_form_div" class="col-md-12 col-sm-12 col-xs-12">
-    <div id="billing_add_title">billing address</div>
-    <span id="copy_add">
-
-      <%= f.fields_for :addresses do |address| %>
-          <div class="checkbox">
-            <label>
-              <%= check_box_tag :address_check %>
-              <%= label_tag  "Check if same as shipping address" %>
-            </label>
-          </div>
-
-          <div class="form-group">
-            <div class="short-div">
-              <%= label_tag "first Name" %>
-              <%= address.text_field :firstname, :class => 'form-control' %>
-              <label class="bill-error" for="bill_firstname"></label>
-            </div>
-
-            <div class="short-div">
-              <%= label_tag "last Name" %>
-              <%= address.text_field :lastname, :class => 'form-control' %>
-              <label class="bill-error" for="bill_lastname"></label>
-            </div>
-          </div>
-
-          <div class="form-group move-down">
-              <div>
-                <%= label_tag "Phone" %>
-                <%= address.text_field :phone, :class => 'form-control', :id => 'add_phone_billing' %>
-                <label class="bill-error" for="bill_phone"></label>
-              </div>
-          </div>
-
-
-          <div class="form-group move-down">
-              <div>
-                <%= label_tag "address 1" %>
-                <%= address.text_field :address1, :class => 'form-control' %>
-                <label class="bill-error" for="bill_address1"></label>
-              </div>
-          </div>
-
-
-          <div class="form-group">
-
-            <div>
-              <%= label_tag "address 2" %>
-              <%= address.text_field :address2, :class => 'form-control' %>
-              <label class="bill-error" for="bill_address2"></label>
-            </div>
-          </div>
-
-          <div class="form-group">
-
-            <div>
-              <%= label_tag "city" %>
-              <%= address.text_field :city, :class => 'form-control' %>
-              <label class="bill-error" for="bill_city"></label>
-            </div>
-
-          </div>
-
-          <div class="form-group">
-
-            <div class="short-div">
-                <%= label_tag "State" %>
-                <%= address.text_field :state_name, :class => 'form-control' %>
-                <label class="bill-error" for="bill_state"></label>
-            </div>
-
-            <div class="short-div">
-                <%= label_tag "Zipcode" %>
-                <%= address.text_field :zipcode, :class => 'form-control' %>
-                <label class="bill-error" for="bill_zipcode"></label>
-            </div>
-
-          </div>
-      <% end %>
-    </span>
-
-    <div class="text-center">
-      <p>Credit Card Information</p>
-      <em>Invalid card details submitted.</em>
-    </div>
-
-    <%= f.fields_for :creditcards, as: :creditcards  do |card| %>
-
-    <span id="credit_section">
-
-        <div class="form-group">
-          <div>
-            <%= label_tag "Cardholder's name" %>
-            <%= card.text_field :cardholder_name, :class => 'form-control' %>
-            <label class="bill-error" for="card_name"></label>
-          </div>
-        </div>
-
-        <!--<div class="form-group">
-          <div>
-            <%#= label_tag "Credit card no." %>
-            <%#= card.text_field :card_no, :class => 'form-control' %>
-            <label class="bill-error" for="card_no"></label>
-          </div>
-        </div> -->
-
-         <div class="form-group">
-           <div class="short-div">
-             <%= label_tag "Credit card no." %>
-             <%= card.text_field :card_no, :class => 'form-control' %>
-             <!-- <label class="bill-error" for="card_no"></label> -->
-             <!-- <label for="spree_user_creditcards_attributes_0_card_no" class="bill-error" /> -->
-             <!-- Card no is mandatory.</label> -->
-           </div>
-
-           <div class="short-div">
-             <%= label_tag "Security Code (CVV)" %>
-             <%= card.password_field :cvv, :class => 'form-control' %>
-             <!-- <label class="bill-error" for="cvv"></label> -->
-           </div>
-         </div>
-               <!--
-        <div class="form-group">
-          <div>
-            <%#= label_tag "CCV" %>
-            <%#= card.text_field :ccv, :class => 'form-control' %>
-            <label class="bill-error" for="ccv"></label>
-          </div>
-        </div> -->
-
-        <div class="form-group" id="calendar_error">
-          <div class="short-div mobo-line horizon-mob desk-left">
-            <%= label_tag "Expiration Date" %>
-            <%= card.select :month, 1..12,  {:prompt => 'Month'}, :class => 'wide-select form-control requied pull-left' %>
-            <label class="bill-error" for="card_month" id="month_error"></label>
-          </div>
-
-          <div class="short-div mobo-line get-down">
-            <%= card.select :year, 2014..2030, {:prompt => 'Year'}, :class => 'wide-select form-control required pull-right' %>
-            <label class="bill-error" for="card_year id="year_error></label>
-          </div>
-        </div>
-
-    <% end %>
-
-      <div class="form-group">
-      <div id="submit_bill">
-        <div>  <%= button_tag 'Back', :id => 'bill_back', :type => "button", :class => 'btn btn-default' %> </div>
-     </span>
-
-      <%= f.submit 'Complete Payment', :class => " form-control btn btn-default", :id => "submit" %>
-    </div>
-  </div>
-
-
-  </div>
-
+<div class="inner-sec-bmem">
+	<div class="logo-bmem"><a href="index.html"><img src="../assets/new-design/logo.png"></a></div>
+	<div class="outer-top-num">
+		<div class="top-num-bmem">
+	    	<div class="number-green">
+		  		<span>1</span>
+			</div>
+		 	<div class="number-white">
+		  		<span>2</span>
+			</div>
+		 	<div class="number-white2">
+		  		<span>3</span>
+			</div>
+	 	</div>
+	 	<div class="heading-bmem">Payment Information</div>	 
+	</div> 
+	<div class="main-content-sec" style="display:block;">	 
+		<div class="left-bmem">
+	   		<div class="heading-left-bmem">
+	  			<%= @package%>
+	   		</div>
+	   		<div class="image-left-bmem"><img src="../assets/new-design/img2-left-bmem.jpg"></div>
+	   		<div class="price-left"><%= show_plan_name_and_price(@subscription) %><span>/ month</span></div>
+	   		<div class="shipping-txt-left">Free Shipping</div>
+	   		<div class="shipping-txt2-left">Renews Automatically</div>
+	   		<div class="shipping-txt2-left">Cancel Anytime</div>
+	    	<div class="shipping-txt2-left">Money backed guarantee</div>
+	 	</div>
+	 	<div class="right-bmem">
+	    	<div class="heading-right-bmem">
+	    		Credit Card
+	   		</div>
+	    	<%= f.fields_for :creditcards, as: :creditcards  do |card| %>
+	   			<div class="form-rt">
+	      			<div class="outer-input">
+		    			<div class="first-input-frm2">
+		    	 			<%= card.text_field :cardholder_name, :class => 'form-control',:placeholder=>"Cradholder name" %>
+            					<label class="bill-error" for="card_name"></label>
+		    			</div>			
+		  			</div>
+          			<div class="outer-input">
+		    			<div class="sec-input-frm2">
+		    				<div class="third-input-frm2">
+		    		  			<%= card.text_field :card_no, :class => 'form-control',:placeholder=>"Credit Card Number" %>		    	
+		    				</div>
+		    				<div class="fourth-input-frm2">
+		    					<%= card.password_field :cvv, :class => 'form-control',:placeholder=>"CCV" %>		    		
+		    				</div>
+		    			</div>				
+		  			</div>
+          			<div class="outer-input">
+		    			<div class="fifth-input-frm2"><div class="six-input-frm2"><%= card.select :month, 1..12,  {:prompt => 'Month'} %></div><div class="six-input-frm2"><%= card.select :year, 2014..2030, {:prompt => 'Year'}%></div></div>
+		  			</div>	 		  
+		 		</div>
+	   		<%end%>
+	   	    <div class="heading2-right-bmem">
+	    		<span>Billing Address</span>
+			    <div class="form-rt">
+	   				<%= f.fields_for :addresses do |address| %>
+	   	
+	   					<div class="check-rt-bmem" id="address_check">
+            				<label>
+              					<%= check_box_tag :address_check %>
+              					<%= label_tag  "Same as Shipping" %>
+            				</label>
+          				</div>
+	   	
+	   					<div class="outer-input">
+		    				<div class="first-input"><%= address.text_field :firstname,:placeholder=>"First Name" %></div>
+			 				<div class="sec-input"><%= address.text_field :lastname ,:placeholder=>"Last Name"%></div>
+		  				</div>         
+          				<div class="outer-input">
+		    				<div class="first-input"> <%= address.text_field :address1,:placeholder=>"Address 1 " %></div>
+			 				<div class="sec-input">  <%= address.text_field :address2,:placeholder=>"Address 2 " %></div>
+		  				</div>
+		  				<div class="outer-input">
+		    				<div class="first-input"> <%= address.text_field :city,:placeholder=>"City " %></div>
+			 				<div class="sec-input">  <%= address.text_field :state_name,:placeholder=>"State " %></div>
+		  				</div>
+		  				<div class="outer-input">
+		    				<div class="first-input"><%= address.text_field :zipcode, :placeholder => 'Zip' %></div>
+							<div class="sec-input"><%= address.text_field :phone,:id => 'add_phone_billing',:placeholder=>"Phone" %></div>
+		  				</div> 		  
+		 			<%end%>
+		  		</div>
+	   		</div>
+	 		<div class="clr"></div>
+	 	</div>
+		<div id ="submit_bill" class="btm-btns">
+	   		<div class="left-btm-btn"><a href="javascript:void(0)" id="bill_back">Back</a></div>
+	   		<div class="right-btm-btn"><a id ="submit2" href="javascript:void(0)">Next</a></div>
+		</div>
+	</div>
 </div>
+
+
+
+
+<script>
+		
+
+$(function() {
+	$('input, textarea').placeholder();				//Placeholder for IE   
+});	
+
+</script>

@@ -4,8 +4,13 @@ $(document).ready(function(){
     /* on clicking the "Get started" link in signup section it'll validate the email fields
      value before moving to shipping address section */
 
-    $("#facebook_email_div").on("click", "#fb_get_started", function(){
+    $("#facebook_email_div_new").on("click", "#fb_get_started", function(){
         validate_email_field_before_signup();
+    });
+
+    $("#facebook_email_div_new").on("click", "#fb_get_started_from_footer", function(){
+        validate_email_field_before_signup_from_wizard();
+        
     });
 
     // Add US Phone Validation
@@ -19,7 +24,7 @@ $(document).ready(function(){
 
 
     /* Same as above feature, enabled the enter key hit to validate the Email Field in Sign up */
-    $("#facebook_email_div").on("keypress", "#email", function(e){
+    $("#facebook_email_div_new").on("keypress", "#email", function(e){
         var keyCode = e.keyCode  || e.which;
         if(keyCode == 13){
              e.preventDefault();
@@ -51,7 +56,7 @@ $(document).ready(function(){
     validate_user_signin_form("#user_login form");
 
     /*On clicking  "Place my Order" it will perform validation on shipping address form */
-    $("#signup_ship_address").on("click", "img#user_sign_up", function(e){
+    $("#signup_ship_address").on("click", "#user_sign_up", function(e){
         e.preventDefault();
         $("#credit_section div div  label.error").empty();
         $("#copy_add div div  label.error").empty();
@@ -62,22 +67,40 @@ $(document).ready(function(){
     validation and on success the form will be submitted to user_registrations create action.
 */
 
-    $("#submit_bill").on("click", "#submit", function(e){
+    $("#submit_bill").on("click", "#submit1", function(e){
         e.preventDefault();
         on_validate_submit_complete_signup_form();
+    });
+    
+    $("#submit_bill").on("click", "#submit2", function(e){
+        e.preventDefault();
+        on_validate_billing_form();
     });
 
 /* Description:  On focus out from email field(present in signup form) it will hide the error
     message below the Email field
 */
-    $("#facebook_email_div").on("focus", "input#email", function(){
+    $("#facebook_email_div_new").on("focus", "input#email", function(){
         $("#fb_email_error").hide();
-        $("#facebook_email_div input").css("border-color", "none");
+        $("#facebook_email_div_new input").css("border-color", "none");
     });
 
     $(".sub-login").on("click", function(){
         add_error_section_to_header();
     });
+
+
+    $("#confirm_edit_1").on("click", "#edit1", function(e){
+        $("#confirm_signup").addClass('hide');
+        $("#signup_ship_address").show();
+
+    });
+
+    $("#confirm_edit_2").on("click", "#edit2", function(e){
+        $("#confirm_signup").addClass('hide');
+        $("#signup_bill_address").show();        
+    });
+
 });
 
 function on_validate_submit_complete_signup_form(){
@@ -89,11 +112,39 @@ function on_validate_submit_complete_signup_form(){
             $("#vegan_signup").submit();
         }
 }
+function on_validate_billing_form(){
+	var result = validate_signup_cum_ship_address_form("#vegan_signup");
+	$("#copy_add input").focusout();
+    $("#credit_section input").focusout();
+     if (result.valid()){
+            /* On clicking place my order icon in signup_shipping section it will hide the ship address
+             and show the billing address section */
+            // $("#billing_form_div label.error").show();
+            // $("#signup_ship_address").hide();
+            // $("#signup_bill_address").removeClass("hide");
+            // $("#signup_bill_address").show();
+            // $("#order_billing").height($(window).height()+ 300);
+        $("#signup_bill_address").hide();
+        $("#signup_ship_address").hide();
+        $("#confirm_signup").removeClass('hide');
+        $('div#ship_first_name').text($("#spree_user_addresses_attributes_0_firstname").val());
+        $('div#ship_address_1').text($("#spree_user_addresses_attributes_0_address1").val());
+        $('div#ship_address_2').text($("#spree_user_addresses_attributes_0_address2").val());
+        $('div#ship_city').text($("#spree_user_addresses_attributes_0_city").val());
+        
+        $('div#bill_first_name').text($("#spree_user_addresses_attributes_1_firstname").val());
+        $('div#bill_address_1').text($("#spree_user_addresses_attributes_1_address1").val());
+        $('div#bill_address_2').text($("#spree_user_addresses_attributes_1_address2").val());
+        }
+
+	
+}
+
 
 function on_validate_show_billing_form(){
 
     var result = validate_signup_cum_ship_address_form("#vegan_signup");
-
+		console.log(result);
         $("#copy_add input").focusout();
         $("#credit_section input").focusout();
 
@@ -167,7 +218,7 @@ function validate_signup_cum_ship_address_form(form_id){
             "spree_user[password_confirmation]":{
                 required: true,
                 minlength: 6,
-                equalTo: "#spree_user_password"
+                // equalTo: "#spree_user_password"
             },
             "spree_user[addresses_attributes][1][firstname]": {
                 required: true,
@@ -495,7 +546,7 @@ function validate_user_signin_form(form){
 
             }
         },
-        errorLabelContainer: '.welcome-message'
+        // errorLabelContainer: '.welcome-mess'
     });
 }
 
@@ -516,8 +567,8 @@ function add_error_section_to_header(){
 
 function validate_email_field_before_signup(){
 
-    var email_id = $("#facebook_email_div input").val().trim();
-
+    var email_id = $("#facebook_email_div_new input").val().trim();
+ 
     $.ajax({
         url: '/check_email',
         data: {spree_user: {email: email_id}},
@@ -527,17 +578,18 @@ function validate_email_field_before_signup(){
         success: function(result){
 
             if(Object.keys(result)[0] == "success"){
+            	window.location.href="/statics/membership";
                 $("#spree_user_email").val(email_id);
                 $("#fb_email_error").hide();
-                $('span.hide-until-email').addClass('show-got-email');
-                $('span.show-got-email').removeClass('hide-until-email');
-                $("#facebook_signup").addClass('hide-until-email');
+               
+                // $('span.show-got-email').removeClass('hide-until-email');
+                // $("#facebook_signup").addClass('hide-until-email');
             }
 
             if(Object.keys(result)[0] == "error"){
                 $("#fb_email_error").html(result["error"]);
                 $("#fb_email_error").show();
-                $("#facebook_email_div input").css("border-color", "red");
+                $("#facebook_email_div_new input").css("border-color", "red");
             }
         },
         failure: function(){
@@ -546,6 +598,43 @@ function validate_email_field_before_signup(){
     });
 }
 
+function validate_email_field_before_signup_from_wizard(){
+
+    var email_id = $("#facebook_email_div_new input").val().trim();
+ 
+    $.ajax({
+        url: '/check_email',
+        data: {spree_user: {email: email_id}},
+        dataType: "json",
+        type: "get",
+
+        success: function(result){
+
+            if(Object.keys(result)[0] == "success"){
+                $("#signup_ship_address").removeClass('hide');
+                $("#footer_singup").addClass('hide');
+                $(".first-input #spree_user_email").val($("#email").val()).attr('readonly', true);
+                // window.location.href="/statics/membership";
+                // $("#spree_user_email").val(email_id);
+                // $("#fb_email_error").hide();
+               
+                // $('span.show-got-email').removeClass('hide-until-email');
+                // $("#facebook_signup").addClass('hide-until-email');
+            }
+
+            if(Object.keys(result)[0] == "error"){
+                $("#fb_email_error").html(result["error"]);
+                $("#fb_email_error").show();
+                $("#facebook_email_div_new input").css("border-color", "red");
+            }
+        },
+        failure: function(){
+            console.log("Some Error Occured");
+        }
+    });
+}
+
+
 /* Description: if already signed up user is trying to signup again the it will prevent user from signup/signin
  and slide down to registration section and show respective notification message.
  This function is being called in _order_today_shipping.html.erb partial.
@@ -553,9 +642,9 @@ function validate_email_field_before_signup(){
 
 function show_user_already_registered_notification(registered_email){
 
-    $("#facebook_email_div #email").val(registered_email);
+    $("#facebook_email_div_new #email").val(registered_email);
     $("#fb_email_error").html("Email ID already used.");
-    $("#facebook_email_div input").css("border-color", "red");
+    $("#facebook_email_div_new input").css("border-color", "red");
     $("#fb_email_error").show();
     $("#vegan_user_signup").ScrollTo({
         duration: 2000

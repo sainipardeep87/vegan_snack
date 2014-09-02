@@ -1,0 +1,86 @@
+<div class="inner-sec-bmem">
+	<div class="logo-bmem"><a href="javascript:void(0)"><img src="../assets/new-design/logo.png"></a></div>
+	<div class="outer-top-num">
+		<div class="top-num-bmem">
+			<div class="number-green">
+				<span>1</span>
+			</div>
+			<div class="number-white">
+				<span>2</span>
+			</div>
+			<div class="number-white2">
+				<span>3</span>
+			</div>
+		</div>
+		<div class="heading-bmem">Complete Membership</div>
+    </div> 
+	 
+	 
+	<div class="main-content-sec" style="display:block;">	 
+		<div class="left-bmem">
+	   		<div class="heading-left-bmem">
+	  			<%= @package%>
+	   		</div>
+	   		<div class="image-left-bmem"><img src="../assets/new-design/img2-left-bmem.jpg"></div>
+	   		<div class="price-left"><%= show_plan_name_and_price(@subscription) %><span>/ month</span></div>
+	   		<div class="shipping-txt-left">Free Shipping</div>
+	   		<div class="shipping-txt2-left">Renews Automatically</div>
+	   		<div class="shipping-txt2-left">Cancel Anytime</div>
+	    	<div class="shipping-txt2-left">Money backed guarantee</div>
+	 	</div>
+	 	<div class="right-bmem">
+	 		<div id="form_errors_div"></div>
+	 
+	 		<div class="left-content-third">
+	    		<div class="heading-right-bmem">
+	    			Billing Address
+	   			</div>
+	   			<div class="add-detail-lft-third" id='ship_first_name'>David Hawk </div>
+	   			<div class="add-detail-lft-third" id='ship_address_1'>3022 , Biscayne Blvd,</div>
+	    		<div class="add-detail-lft-third" id='ship_address_2'>Lane-lh</div>
+		 		<div class="add-detail-lft-third" id='ship_city'>AK-10078</div>
+		 
+		  		<div class="edit-lft-third" id="confirm_edit_1"><a id = "edit1" href="javascript:void(0)">edit</a></div>
+	   		</div>  
+	 
+    		<div class="right-content-third">
+	    		<div class="heading-right-bmem">
+	    			Shipping Info
+	   			</div>
+	   			<div class="add-detail-lft-third" id='bill_first_name'>David Hawk </div>	   
+	    		<div class="add-detail-lft-third" id='bill_address_1'>320 street,</div>
+		 		<div class="add-detail-lft-third" id='bill_address_2'>Miami Beach  AK-10078</div>
+		 
+		  		<div class="edit-lft-third" id="confirm_edit_2"><a id="edit2" href="javascript:void(0)">edit</a></div>		
+	 		</div>       
+	   
+	    	<div class="right-join-third"><%= button_tag 'Join Vegan' %></div>
+	    	<div class="clr"></div>
+		
+		
+			<div class="bottom-para-third"><p>Nullam sed tincidunt erat. Ut iaculis 	suscipit dignissim. Ut consequat ante a dolor 
+tempus, aliquam commodo urna pellentesque. Aenean eget sem in tellus vehicula 
+iaculis. Integer rhoncus sapien consectetur justo feugiat, nec malesuada est 
+interdum. Aliquam eu <a href="javascript:void(0)">sem elementum</a></p></div>
+	 	</div>
+	 	<div class="clr"></div>
+	</div>	 
+	<div class="btm-btns" id="confirm_bill">
+		<div class="left-btm-btn"><a id ="cofirm_back" href="javascript:void(0)">Back</a></div>
+	</div>
+	 
+</div>
+
+<script>
+
+$(function() {
+	$('input, textarea').placeholder();				//Placeholder for IE   
+});	
+
+</script>
+<style type="text/css">
+	#form_errors_div{
+		color: red;
+
+	}
+</style>

@@ -11,18 +11,23 @@ $("div.text-center em").css("display", "none");
 <% logger.info @user.errors.messages if @user.errors.present? %>
 
 <% if @user.errors.present? %>
-$("label[for='bill_firstname']").html("<%=  @user.errors.messages[:"addresses.firstname"][0] if @user.errors.to_hash.has_key?(:"addresses.firstname") %>");
-$("label[for='bill_lastname']").html("<%=  @user.errors.messages[:"addresses.lastname"][0] if @user.errors.to_hash.has_key?(:"addresses.lastname") %>");
-$("label[for='bill_address1']").html("<%=  @user.errors.messages[:"addresses.address1"][0] if @user.errors.to_hash.has_key?(:"addresses.address1") %>");
-$("label[for='bill_address2']").html("<%=  @user.errors.messages[:"addresses.address2"][0] if @user.errors.to_hash.has_key?(:"addresses.address2") %>");
-$("label[for='bill_city']").html("<%=  @user.errors.messages[:"addresses.city"][0] if @user.errors.to_hash.has_key?(:"addresses.city") %>");
-$("label[for='bill_state']").html("<%=  @user.errors.messages[:"addresses.state_name"][0] if @user.errors.to_hash.has_key?(:"addresses.state_name") %>");
-$("label[for='bill_zipcode']").html("<%=  @user.errors.messages[:"addresses.zipcode"][0] if @user.errors.to_hash.has_key?(:"addresses.zipcode") %>");
-$("label[for='card_name']").html("<%=  @user.errors.messages[:"creditcards.cardholder_name"][0] if @user.errors.to_hash.has_key?(:"creditcards.cardholder_name") %>");
-$("label[for='spree_user_creditcards_attributes_0_card_no']").html("<%=  @user.errors.messages[:"creditcards.card_no"][0] if @user.errors.to_hash.has_key?(:"creditcards.card_no") %>");
-$("label[for='cvv']").html("<%=  @user.errors.messages[:"creditcards.cvv"][0] if @user.errors.to_hash.has_key?(:"creditcards.cvv") %>");
-$("label[for='card_month']").html("<%=  @user.errors.messages[:"creditcards.month"][0] if @user.errors.to_hash.has_key?(:"creditcards.month") %>");
-$("label[for='card_year']").html("<%=  @user.errors.messages[:"creditcards.year"][0] if @user.errors.to_hash.has_key?(:"creditcards.year") %>");
+$("#form_errors_div").empty();
+<% @user.errors.full_messages.each do |error| %>
+	$("#form_errors_div").append("<li><%= error %></li>")	
+<%end%>
+// $("#form_errors_div").html("<%=  @user.errors.messages%>")
+// $("label[for='bill_firstname']").html("<%=  @user.errors.messages[:"addresses.firstname"][0] if @user.errors.to_hash.has_key?(:"addresses.firstname") %>");
+// $("label[for='bill_lastname']").html("<%=  @user.errors.messages[:"addresses.lastname"][0] if @user.errors.to_hash.has_key?(:"addresses.lastname") %>");
+// $("label[for='bill_address1']").html("<%=  @user.errors.messages[:"addresses.address1"][0] if @user.errors.to_hash.has_key?(:"addresses.address1") %>");
+// $("label[for='bill_address2']").html("<%=  @user.errors.messages[:"addresses.address2"][0] if @user.errors.to_hash.has_key?(:"addresses.address2") %>");
+// $("label[for='bill_city']").html("<%=  @user.errors.messages[:"addresses.city"][0] if @user.errors.to_hash.has_key?(:"addresses.city") %>");
+// $("label[for='bill_state']").html("<%=  @user.errors.messages[:"addresses.state_name"][0] if @user.errors.to_hash.has_key?(:"addresses.state_name") %>");
+// $("label[for='bill_zipcode']").html("<%=  @user.errors.messages[:"addresses.zipcode"][0] if @user.errors.to_hash.has_key?(:"addresses.zipcode") %>");
+// $("label[for='card_name']").html("<%=  @user.errors.messages[:"creditcards.cardholder_name"][0] if @user.errors.to_hash.has_key?(:"creditcards.cardholder_name") %>");
+// $("label[for='spree_user_creditcards_attributes_0_card_no']").html("<%=  @user.errors.messages[:"creditcards.card_no"][0] if @user.errors.to_hash.has_key?(:"creditcards.card_no") %>");
+// $("label[for='cvv']").html("<%=  @user.errors.messages[:"creditcards.cvv"][0] if @user.errors.to_hash.has_key?(:"creditcards.cvv") %>");
+// $("label[for='card_month']").html("<%=  @user.errors.messages[:"creditcards.month"][0] if @user.errors.to_hash.has_key?(:"creditcards.month") %>");
+// $("label[for='card_year']").html("<%=  @user.errors.messages[:"creditcards.year"][0] if @user.errors.to_hash.has_key?(:"creditcards.year") %>");
 
 <% end %>
 

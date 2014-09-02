@@ -13,10 +13,10 @@
 		    <div class="heading-det-mem">
 			   Basic Snack Pack
 			</div>
-			<div class="price-det-mem">$34.95<span>/ month</span></div>
+			<div class="price-det-mem"><%= show_plan_name_and_price(@subscriptions[0]) %><span>/ month</span></div>
 			<div class="tag-det-mem">5 delicious snacks delivered every month</div>
 			<div class="tag2-det-mem">Free Shipping</div>
-			<div class="button-det-mem"><input type="submit" value="SELECT"></div>
+			<div class="button-det-mem"><input type="button" onclick="window.location.href='/wizard_new?sub_type=<%=@subscriptions[0].id%>'" value="SELECT"></div>
 		  </div>
 	   </div>
 	   
@@ -26,10 +26,10 @@
 		    <div class="heading-det-mem">
 			   Double Snack Pack
 			</div>
-			<div class="price-det-mem">$64.95<span>/ month</span></div>
+			<div class="price-det-mem"><%= show_plan_name_and_price(@subscriptions[1]) %><span>/ month</span></div>
 			<div class="tag-det-mem">10 delicious snacks delivered every months</div>
 			<div class="tag2-det-mem">Save $ 4.95 / month + Free Shipping</div>
-			<div class="button-det-mem"><input type="submit" value="SELECT"></div>
+			<div class="button-det-mem"><input type="button" onclick="window.location.href='/wizard_new?sub_type=<%=@subscriptions[1].id%>'" value="SELECT"></div>
 		  </div>
 	   </div>
 	   
@@ -39,10 +39,10 @@
 		    <div class="heading-det-mem">
 			   Family Snack Pack
 			</div>
-			<div class="price-det-mem">$124.95<span>/ month</span></div>
+			<div class="price-det-mem"><%= show_plan_name_and_price(@subscriptions[2]) %><span>/ month</span></div>
 			<div class="tag-det-mem">20 delicious snacks delivered every month</div>
 			<div class="tag2-det-mem">Save $ 14.85 / month + Free Shipping</div>
-			<div class="button-det-mem"><input type="submit" value="SELECT"></div>
+			<div class="button-det-mem"><input type="button" onclick="window.location.href='/wizard_new?sub_type=<%=@subscriptions[2].id%>'" value="SELECT"></div>
 		  </div>
 	   </div>
 	   

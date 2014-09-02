@@ -1,0 +1,71 @@
+<div class="slider-nav">
+  <ul>
+    <li class="active-bullet first-bullet" data-target=".first-win"> </li>
+    <li class="second-bullet" data-target=".second-win"> </li>
+    <li class="third-bullet" data-target=".third-win"> </li>
+    <li class="forth-bullet" data-target=".forth-win"></li>
+    <li class="fifth-bullet" data-target=".fifth-win"></li>
+  </ul>
+
+</div>
+
+<div id="fullpage">
+
+  <div class=" section container get-started first-win">
+    <div class="get-started-button">
+      <%= image_tag('/assets/home/get-started.png', class: 'get-started-icon img-thumbnail') %>
+    </div>
+  </div>
+
+  <div class="section container how-it-works second-win">
+    <%= render :partial => 'how_it_works' %>
+  </div>
+
+
+  <div class="row-fluid" id="whats_inside_the_box">
+    <div class="box-image-home  background-image-place  box-padding span12 third-win">
+
+      <div class="white-title">
+        <h1>what's inside the box?</h1>
+        <span> CUSTOMIZE YOUR BOX BY CHOOSING THE SNACKS YOU LIKE </span>
+      </div>
+
+      <div class="product-list-thumbnail">
+        <%= render 'statics/products_thumbnail' %>
+      </div>
+
+      <%= render 'statics/product_individual' %>
+
+      <div class="how-works-get-started">
+        <%= image_tag('/assets/home/get-started.png', class: 'img-thumbnail') %>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="section container order-today-section forth-win" id="vegan_user_signup">
+    <div class="row order-title">SIGN UP TODAY</div>
+
+    <%= form_for @user, :as => :spree_user, :url => spree.registration_path(@user), :html => {:id => "vegan_signup", autocomplete: 'off'}, :remote => true  do |f| %>
+
+      
+       <span id="signup_ship_address">
+         <%= render :partial => 'order_today_shipping', locals: {f: f} %>
+       </span>
+
+       <span id="signup_bill_address" class='hide'>
+         <%= render :partial => 'order_today_billing', locals: {f: f} %>
+       </span>
+
+
+    <% end %>  <!-- End of the Complete Form -->
+
+  </div>
+
+
+  <div class="section fifth-win">
+    <%= render 'statics/application_footer' %>
+  </div>
+
+</div>

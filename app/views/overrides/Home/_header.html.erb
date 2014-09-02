@@ -1,6 +1,8 @@
+
+
 <header>
   <section class="header-wrapper">  
-    <div class="logo"><%=link_to image_tag("../assets/new-design/logo.png"), root_path%><a href="index.html"></div>  
+    <div class="logo"><%=link_to image_tag("../assets/new-design/logo.png"), root_path%></a></div>  
   <div class="social-icons">
     <a href="https://www.facebook.com/vegansnackpacks" target="_blank" class="fb-icon"></a>
     <a href="https://twitter.com/vegansnackpacks" target="_blank" class="t-icon"></a>
@@ -21,17 +23,90 @@
   
   <nav id="nav-wrap">
       <ul id="nav">
-     <li><a href="statics/aboutus">About Us</a></li>
-     <li><a href="#">SNACKS</a></li>
+     <li><a href="/statics/aboutus">About Us</a></li>
+     <li><a href="/statics/snack_detail">SNACKS</a></li>
      <li><a href="/posts">CHEF'S BLOG</a></li>
       </ul>
     </nav>
   
   
+  <% if spree_current_user%>
+    <li class="dropdown header-dropdown"  id="drop_list">
+
+                <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle btn btn-success btn-small" id="drop_dwn_btn">
+                  <%= image_tag spree_current_user.image if spree_current_user.image.present? %>
+                  <span id="act_nav"> MY ACCOUNT </span> <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                  <li id="drop_my_acc"> <%= link_to 'My Account',  main_app.profile_users_path %></li>
+                  <li > <%#= link_to 'Update Subscription', "/my_subscriptions", :class => 'modal-link', :remote => true %> </li>
+                  <li id="drop_snack_list"> <%= link_to 'Snack List', spree.products_path %></li>
+                  <li id="drop_snack_queue"> <%= link_to 'Snack Queue', spree.snack_queue_orders_path %> </li>
+                  <li> <%= link_to 'Sign Out', spree.logout_path, :method => :get %> </li>
+                </ul>
+
+              </li>    
+     <%else%>
+     <div class="join"><a id ="signup_link" href="javascript:void(0)">Join</a></div> 
+     <div class="login" id="login"><a href="javascript:void(0)">Log in</a></div> 
+
   
-   <div class="join"><a href="/statics/membership">Join</a></div> 
-     <div class="login"><a href="#">Log in</a></div>   
-  </div>
-  
+     <%end%>
+
+     
+   
+  </div>  
   </section>
+  
+               
+  
+  <% unless spree_current_user %>
+  <div class="top-toggle" id="top-toggle">  
+      <div class="inner-top-toggle">
+    <!--<div class="left-top-toggle"><a href="index.html"><img src="images/logo.png"></a></div>-->
+          <div class="right-top-toggle">
+         <div class="input-login-top " id="user_login">
+         <div class="sgn_facebook"><a href="/users/auth/facebook" id ="fb_connect"><img src="../assets/new-design/sign-with-facebook.png"></a></div>
+       
+       <div class="or_line"><img src="../assets/new-design/or_bg.png"></div>
+         
+          <%=  form_for Spree::User.new, as: :spree_user, url: spree.spree_user_session_path, remote: true, authenticity_token: true do |f| %>
+         <div class="first-input-login">
+         
+           <%=  f.text_field :email, :id=>"email_id",:placeholder=>'Email Address' %>                          
+         </div>
+         <div class="first-input-login">
+        
+           <%= f.password_field :password, :id=>"password" ,:placeholder=>'Password' %>                         
+         </div>
+
+         <div class="login-btn"><%= f.submit 'Go' ,:class=>""%></div>
+         <div class="welcome-message"> </div>
+         <%end%>
+
+       </div>
+       <div class="forgot-pass"> Don't have an account yet?<a href="#">Sign Up</a><%= link_to 'Forgot password?', "/spree/password/recover" %></div>
+       <li class="nav mobile-errors" style="display: none;"> </li>
+      </div>
+            <div class="clr"></div>       
+    </div>
+   </div>
+   <%end%>
+  
+  
 </header>
+<script type="text/javascript">
+  $("div.nav-outer").on("click", "#user_join", function(){
+               $('.wrapper-membership').ScrollTo({
+                duration: 1000
+            });
+
+        });
+
+</script>
+
+<script>
+  $( "#login" ).click(function() {
+    $( "#top-toggle" ).slideToggle('slow');
+  });
+</script>

@@ -1,0 +1,115 @@
+<body class="main-bg-bmem">
+
+<section class="main-bmem">
+   <div class="inner-sec-bmem">
+     <div class="logo-bmem"><a href="index.html"><img src="../assets/new-design/logo.png"></a></div>
+	 <div class="outer-top-num">
+	 <div class="top-num-bmem">
+	    <div class="number-green">
+		  <span>1</span>
+		</div>
+		 <div class="number-white">
+		  <span>2</span>
+		</div>
+		 <div class="number-white2">
+		  <span>3</span>
+		</div>
+	 </div>
+	 <div class="heading-bmem">Payment Information</div>
+	 
+	 </div> 
+	 
+	 
+	
+	 
+	 
+	 
+	 
+	 
+	 <div class="main-content-sec" style="display:block;">	 
+	 <div class="left-bmem">
+	   <div class="heading-left-bmem">
+	  Basic Snack Pack
+	   </div>
+	   <div class="image-left-bmem"><img src="../assets/new-design/img2-left-bmem.jpg"></div>
+	   <div class="price-left">$34.95<span>/ month</span></div>
+	   <div class="shipping-txt-left">Free Shipping</div>
+	   <div class="shipping-txt2-left">Renews Automatically</div>
+	   <div class="shipping-txt2-left">Cancel Anytime</div>
+	    <div class="shipping-txt2-left">Money backed guarantee</div>
+	 </div>
+	 <div class="right-bmem">
+	    <div class="heading-right-bmem">
+	    Credit Card
+	   </div>
+	   
+	   <!-- <div class="form-rt"> -->
+	   <%= f.fields_for :creditcards, as: :creditcards, :html=>{:class=>"form-rt"}  do |card|%>
+	      <div class="outer-input">
+		    <div class="first-input-frm2"><%= card.text_field :cardholder_name,:placeholder=>"Card Holder Name"%></div>			
+		  </div>
+          <div class="outer-input">
+		    <div class="sec-input-frm2"><div class="third-input-frm2"><%= card.text_field :card_no,:placeholder=>"Card No"%></div><div class="fourth-input-frm2"><%= card.password_field :cvv,:placeholder=>"CVV"%></div></div>				
+		  </div>
+          <div class="outer-input">
+		    <div class="fifth-input-frm2"><div class="six-input-frm2"><%= card.select :month, 1..12,  {:prompt => 'Month'}%></div><div class="six-input-frm2"><%= card.select :year, 2014..2030, {:prompt => 'Year'}%></div></div>
+		  </div>	 		  
+		 
+		  <%end%>
+	   <!-- </div> -->
+	   
+	     <div class="heading2-right-bmem">
+	    <span>Billing Address</span>
+		<div class="check-rt-bmem"><input type="checkbox"><label>Same as shipping</label></div>
+	   </div>
+	   
+	   <!-- <div class="form-rt"> -->
+	    <%= f.fields_for :addresses,:html=>{:class=>"form-rt"} do |address| %>
+	     <div class="outer-input">
+		    <div class="first-input"><%= address.text_field :firstname,:placeholder=>"First Name" %></div>
+			 <div class="sec-input"><%= address.text_field :lastname,:placeholder=>"last Name" %></div>
+		  </div>         
+          <div class="outer-input">
+		    <div class="first-input"><%= address.text_field :address1,:placeholder=>"Address 1" %></div>
+			 <div class="sec-input"><%= address.text_field :address2,:placeholder=>"Address 2" %></div>
+		  </div>
+		  <div class="outer-input">
+		    <div class="first-input"><%= address.text_field :city,:placeholder=>"City" %></div>
+		    <div class="sec-input"><%= address.text_field :state_name,:placeholder=>"state" %></div>
+			
+		  </div>
+		  <div class="outer-input">
+		  	<div class="first-input"><%= address.text_field :zipcode,:placeholder=>"Zipcode" %></div>
+		  	<div class="sec-input"><%= address.text_field :phone,:placeholder=>"Phone" %></div>
+		  </div> 		  
+		 
+		<%end%>
+	   <!-- </div> -->
+	   
+	 
+	 </div>
+	 <div class="clr"></div>
+	 </div>
+	 
+	 
+	  
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+	 <div class="btm-btns">
+	   <div class="left-btm-btn"><a href="become-a-member.html">Back</a></div>
+	   <div class="right-btm-btn"><a href="complete-mem.html">Next</a></div>
+	 </div>
+	 
+   </div>
+  
+
+</section>
+
+</body>

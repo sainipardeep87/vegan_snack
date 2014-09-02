@@ -8,6 +8,8 @@
 Spree.config do |config|
   # Example:
   # Uncomment to override the default site name.
+  # require "omniauth-facebook"
+  # config.omniauth :facebook, "APP_ID", "APP_SECRET"
   config.site_name = "Spree Demo Site"
   config.override_actionmailer_config = false
   config.mails_from = "no-reply@local.com"

@@ -26,18 +26,20 @@
      <div class="inner-sec-slider">
 	   <div class="heading-inner-slider">
            <div id="tabsholder2" class="my-tab">
-           <h1>Aenean<span> eu </span>sagittis</h1>
-           <p>Proin vitae pellentesque nisi.Suspendisse eleifend 
+           <!-- <h1>Aenean<span> eu </span>sagittis</h1> -->
+           <h1><%= @snack.name%></h1>
+          <!--  <p>Proin vitae pellentesque nisi.Suspendisse eleifend 
 posuere imperdiet. Etiam feugiat leo ipsum, id 
-commodo sem </p>
+commodo sem </p> -->
+          <p><%= @snack.description%></p>
         <ul class="tabs">
-            <li id="tabz1">Anenean</li>
+            <li id="tabz1" onclick="window.location.href='/statics/membership';">Add to Box</li>
 
             <li id="tabz2">Ingredients</li>
             <li id="tabz3">Facts</li>
           
         </ul>
-        <div class="contents marginbot">
+        <div class="contents marginbot" id="tabs_1">
             <div style="display: block;" id="contentz1" class="tabscontent">
               <h3>Anenean</h3>
            <p>Suspendisse tincidunt mauris vel ligula fermentum 
@@ -49,17 +51,15 @@ vel diam et convallis.</p>
 
             <div style="display: none;" id="contentz2" class="tabscontent">
                 <h3>Ingredients</h3>
-           <p>Suspendisse tincidunt mauris vel ligula fermentum 
+                <p><%= sanitize(@snack.ingredients,:tags=>['p'])%></p>
+           <!-- <p>Suspendisse tincidunt mauris vel ligula fermentum 
 imperdiet. Quisque vel feugiat urna. Nam auctor 
 blandit risus a dignissim. Etiam a nisl eget nulla 
-vel diam et convallis.</p>
+vel diam et convallis.</p> -->
             </div>
             <div style="display: none;" id="contentz3" class="tabscontent">
              <h3>Facts</h3>
-           <p>Suspendisse tincidunt mauris vel ligula fermentum 
-imperdiet. Quisque vel feugiat urna. Nam auctor 
-blandit risus a dignissim. Etiam a nisl eget nulla 
-vel diam et convallis.</p>
+           <p><%= image_tag @snack.nutritional_fact_image.url %></p>
             </div>
       
         </div>

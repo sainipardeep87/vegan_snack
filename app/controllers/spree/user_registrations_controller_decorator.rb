@@ -15,22 +15,82 @@ Spree::UserRegistrationsController.class_eval do
 # Description: new action has been overridden over spree provided new action; mainly initialization of users address has been done in this Section.
   #trigma wizard code
  def wizard_new
-    session[:registration_params] ||= {}
-    @user = Spree::User.new
+ 
+  @subtype=params[:sub_type]
+  puts "the sub_type is #{params[:sub_type]}"
+  @package = ""
+  if @subtype == "1"
+    @package = "Basic Snack Pack"
+  elsif @subtype == "2"
+    @package = "Double Snack Pack"
+  else
+    @package = "Family Snack Pack"
+  end
+  @subscription = Subscription.find_by_id @subtype
+  unless @subscription.blank?
+    if request.env['omniauth.auth'].present?
+      params = request.env["omniauth.params"]
+
+      @fb_data = fetch_facebook_params
+      @user = Spree::User.where(email: @fb_data[:email]).first
+
+
+      if (@user.blank? && params["login"].present?) || (@user.present? && is_ordinary_user?(@user.facebook_token) && params["login"].present?)
+
+      #here need to check if it's a fb registered user + in params we must receive login
+      #if !is_ordinary_user?(@user.facebook_token) && params["login"].present?
+       #use the @not_yet_fb_signed_up to notify the message at the top.
+
+        @not_yet_fb_signed_up = true
+        @user = Spree::User.new
         @user.addresses.build
-        @user.creditcards.build       
-   puts @user.current_step   
+        @user.creditcards.build
+
+     #user does not registered yet & coming for signup(or login params is blank.)
+      elsif @user.blank? && params["login"].blank?
+        @user = Spree::User.new(email: @fb_data[:email], facebook_token: @fb_data[:fb_token], image: @fb_data[:image])
+        @user.addresses.build
+        @user.creditcards.build
+        @user.addresses.first.firstname = @fb_data[:firstname]
+        @user.addresses.first.lastname = @fb_data[:lastname]
+
+      #user is registered & still trying for signup via facebook
+      elsif @user.present? && params["login"].blank?
+        @registered_email = @user.email
+        @user = Spree::User.new
+        @user.addresses.build
+        @user.creditcards.build
+      else
+        #update the token if @user_founds token is not same as the @fb_token
+        @user.update_attributes(facebook_token: @fb_data[:fb_token], image: @fb_data[:image]) if @user.facebook_token != @fb_data[:fb_token]
+        sign_in(:spree_user, @user)
+        redirect_to spree.snack_queue_orders_path
+      end
+
+    else
+      @user = Spree::User.new
+      @user.addresses.build
+      @user.creditcards.build
+
+    end
+     # @subscription = Subscription.find @subtype
+    # @snacks = Spree::Product.limit(6)
+    # @snacks.sort_by! { |x| x[:name].downcase }
+else
+  redirect_to root_path
+end
+       
   end
 
 
-def wizard_save
-
-puts "i am in wizard_save with para,s#{params}"
- sub_id = params[:spree_user][:sub_type].blank? ? "1" : params[:spree_user][:sub_type]
-    coupon_code = params[:spree_user][:coupon_code]
-    @cart = Cart.new
-    @user = build_resource(user_params_list)
-end
+# def wizard_save
+# 
+# puts "i am in wizard_save with para,s#{params}"
+ # sub_id = params[:spree_user][:sub_type].blank? ? "1" : params[:spree_user][:sub_type]
+    # coupon_code = params[:spree_user][:coupon_code]
+    # @cart = Cart.new
+    # @user = build_resource(user_params_list)
+# end
 
 
   #trigma wizard code end
@@ -102,11 +162,13 @@ end
     @user = build_resource(user_params_list)
 
     credit_card_params = params[:spree_user][:creditcards_attributes]["0"]
-
+    respond_to do |format|
+      format.js do
     if @user.valid?
       billing_address = @user.addresses.last
       result = Creditcard.create_customer_and_creditcard_over_braintree(billing_address, @user.email,credit_card_params)
       @success = result.success? ? true : false
+      puts "i am in user success with params#{@success} and #{billing_address}"
 
 
       if @success && @user.save
@@ -114,7 +176,7 @@ end
         @credit_card_details = Creditcard.update_creditcard(customer.credit_cards.first, @user.id)
         @user.push_subscription_and_customer_id(sub_id, customer.id)
         @cart.prepare_cart(@user.id, sub_id)
-		    @user.update_bill_and_ship_address_details
+        @user.update_bill_and_ship_address_details
         @user.update_address_type_and_name_fields
 
         #####code for creating new orders#####
@@ -160,8 +222,8 @@ end
        @order_3.update_total_and_item_total
        ######################################
 
-		   sign_in(:spree_user, @user)
-		   session[:spree_user_signup] = true
+       sign_in(:spree_user, @user)
+       session[:spree_user_signup] = true
        #MyMailer.notify_user_after_registration(current_user).deliver
        result = signup_mail_params(@order_1)
        VeganMailer.signup_email(result).deliver
@@ -169,11 +231,15 @@ end
        result = vendor_email_params(@order_1)
        VeganMailer.vendor_email(result).deliver
 
-		   render js: %(window.location.href='/spree/orders/snack_queue') and return
+       render js: %(window.location.href='/spree/orders/snack_queue') and return
 
      else
        @user.destroy
-		   @user.remove_errormessages_added_by_spree
+       @user.remove_errormessages_added_by_spree
+     end
+     else
+       puts "i am  invalid#{@user.errors.count}"
+     end
      end
   end
 
@@ -269,7 +335,7 @@ end
       params.require(:spree_user).permit(
           :id, :email, :password, :password_confirmation, :updating_password, :facebook_token, :image, :coupon_code, :sub_type,
           :addresses_attributes => [:id, :firstname, :lastname, :phone, :company, :address1, :address2, :city, :state_name, :zipcode, :country],
-          :creditcards_attributes => [:id, :cardholder_name, :card_no, :cvv, :month, :year]
+          :creditcards_attributes => [:id, :cardholder_name, :card_no, :cvv, :month, :year,:first_name,:last_name]
       )
     end
 

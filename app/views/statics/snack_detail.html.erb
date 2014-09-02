@@ -12,19 +12,19 @@
 <section class="main-ind-snk">
 <%@snacks.each_with_index do |snack,i|%>
 	<% if i != 2 && i != 5%>
-	  	<div class="img1-snk-ind"><%= image_tag(snack.images.first.attachment.url(:large)) %>
+	  	<div class="img1-snk-ind"><%= image_tag(snack.images.first.attachment.url(:large),:id=>snack.id) %>
 	    	<div class="hover-snk">
 		   		<div class="heading-hover-snk"><%= snack.name%></div>
-		   		<div class="subheading-hover-snk"><%= snack.description%></div>
-		   		<div class="view-det-snk"><a href="/statics/individual_product">View Detail</a></div> 
+		   		<div class="subheading-hover-snk"><%= truncate(snack.description,length: 120)%></div>
+		   		<div class="view-det-snk"><%= link_to "View Detail", {:controller => "statics", :action => "individual_product", :snack => snack.id }%></div> 
 		   	</div>	 
 	    </div>
 	<% else %>
 	  	<div class="img1-snk-ind rt-mrg"><%= image_tag(snack.images.first.attachment.url(:large))%>
 	    	<div class="hover-snk">
 		   		<div class="heading-hover-snk"><%= snack.name%></div>
-		   		<div class="subheading-hover-snk"><%= snack.description%></div>
-		   		<div class="view-det-snk"><a href="/statics/individual_product">View Detail</a></div> 
+		   		<div class="subheading-hover-snk"><%= truncate(snack.description,length: 120)%></div>
+		   		<div class="view-det-snk"><%= link_to "View Detail", {:controller => "statics", :action => "individual_product", :snack => snack.id }%></div> 
 		   	</div>	 
 	  	</div>
   	<%end%>

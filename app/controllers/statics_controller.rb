@@ -28,6 +28,7 @@ class StaticsController < ApplicationController
   end
 
   def membership
+    @subscriptions = Subscription.select('id, subscription_type', 'plan_price')
   end
 
   def snack_detail
@@ -36,6 +37,7 @@ class StaticsController < ApplicationController
   end
 
   def individual_product
+    @snack = Spree::Product.find_by_id(params[:snack])
   end
 
 end
