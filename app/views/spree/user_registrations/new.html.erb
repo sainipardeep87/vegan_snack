@@ -365,10 +365,30 @@
 		<div class="clr"></div>
 
 		<div class="snack-caption">
-			<a href="#" onclick="return confirm('Have you scanned the QR code ? by entering in the 6 digit code')">Oh snap, a snack queue?</a>
+			<a href="#" data-toggle="modal"data-target="#basicModal">Oh snap, a snack queue? Learn more
+</a>
+			<!-- <a href="javascript:void(0)" id="oh_snap" >Oh snap, a snack queue?</a> -->
 		</div>
 
 	</section>
+	<div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&amp;times;</button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div> -->
+            <div class="modal-body">
+            <a href="javascript:void(0)" data-dismiss="modal" class="model-image"><img src="/../assets/new-design/cross.jpeg"></a>
+                <h3 class="model-text">Yep, great movies aren’t the only thing that are fun to organize for delivery with anxious anticipation. Our Snack Queue lets you prioritize the snacks you love and new ones you want to try out. If you change your mind or get a sudden craving for extra bags of our Chocolate Chip Macaroons (hey we can’t blame you) you can change your queue with ease. We even built a little countdown button so you know how much time you have to make changes before your order ships out fresh.</h3>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+        </div> -->
+    </div>
+  </div>
+</div>
 
 	<div class="clr"></div>
 
@@ -383,22 +403,22 @@
 					<div class="right-tst-ul">
 						<ul class="clr">
 							<li class="quote-1 active">
-								<a href="javascript:void(0)"><img src="/../assets/new-design/img1-test.jpg" alt="David Hew - Director, TS co" /></a>
+								<a href="javascript:void(0)"><img src="/../assets/new-design/Barbie.jpg" alt="Barbie - Director, TS co" /></a>
 							</li>
 							<li class="quote-2">
-								<a href="javascript:void(0)"><img src="/../assets/new-design/img2-test.jpg" alt="Cali Lewis - GeekBeat.TV" /></a>
+								<a href="javascript:void(0)"><img src="/../assets/new-design/Tania.jpg" alt="Tania - GeekBeat.TV" /></a>
 							</li>
 							<li class="quote-3">
-								<a href="javascript:void(0)"><img src="/../assets/new-design/img3-test.jpg" alt="Darren - Founder" /></a>
+								<a href="javascript:void(0)"><img src="/../assets/new-design/James.jpg" alt="James - Founder" /></a>
 							</li>
 							<li class="quote-4">
-								<a href="javascript:void(0)"><img src="/../assets/new-design/img4-test.jpg" alt="Kim Hew - TomKat Studio" /></a>
+								<a href="javascript:void(0)"><img src="/../assets/new-design/Nori.jpg" alt="Nori - TomKat Studio" /></a>
 							</li>
 							<li class="quote-5">
-								<a href="javascript:void(0)"><img src="/../assets/new-design/img5-test.jpg" alt="Kim Hew - TomKat Studio" /></a>
+								<a href="javascript:void(0)"><img src="/../assets/new-design/Tori.jpg" alt="Tori - TomKat Studio" /></a>
 							</li>
 							<li class="quote-6">
-								<a href="javascript:void(0)"><img src="/../assets/new-design/img6-test.jpg" alt="Jay.K - Real Estate" /></a>
+								<a href="javascript:void(0)"><img src="/../assets/new-design/Matt.jpg" alt="Matt - Real Estate" /></a>
 							</li>
 						</ul>
 
@@ -607,6 +627,9 @@ jQuery(function( $ ){
 	}
 	
 });
+$(document).on("click","#oh_snap",function(){
+	alert("Yep, great movies aren’t the only thing that are fun to organize for delivery with anxious anticipation. Our Snack Queue lets you prioritize the snacks you love and new ones you want to try out. If you change your mind or get a sudden craving for extra bags of our Chocolate Chip Macaroons (hey we can’t blame you) you can change your queue with ease. We even built a little countdown button so you know how much time you have to make changes before your order ships out fresh.");
+})
 
 </script>
 

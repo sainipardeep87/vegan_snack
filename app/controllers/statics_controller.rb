@@ -40,4 +40,12 @@ class StaticsController < ApplicationController
     @snack = Spree::Product.find_by_id(params[:snack])
   end
 
+  def privacy_policy
+    
+  end
+
+  def term_conditions
+    
+  end
+
 end

@@ -1,17 +1,24 @@
 <div class="inner-sec-bmem">
 	<div class="logo-bmem"><a href="index.html"><img src="../assets/new-design/logo.png"></a></div>
 	<div class="outer-top-num">
+		<%if params[:location] %>
+	 <div class="top-num-bmem_step_4">
+	    <ul>
+	    <li class="list "><span>1</span></li>
+		<li class="list1"><span>2</span></li>
+		<li class="list2 active"><span>3</span></li>
+		<li class="list4"><span>4</span></li>
+	   </ul>
+	 </div>
+	<%else%>
 		<div class="top-num-bmem">
-	    	<div class="number-green">
-		  		<span>1</span>
-			</div>
-		 	<div class="number-white">
-		  		<span>2</span>
-			</div>
-		 	<div class="number-white2">
-		  		<span>3</span>
-			</div>
-	 	</div>
+			<ul>
+	    		<li class="list"><span>1</span></li>
+				<li class="list1 active"><span>2</span></li>
+				<li class="list2"><span>3</span></li>
+			</ul>
+		</div>
+		<%end%>
 	 	<div class="heading-bmem">Payment Information</div>	 
 	</div> 
 	<div class="main-content-sec" style="display:block;">	 

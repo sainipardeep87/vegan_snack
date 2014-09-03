@@ -1,27 +1,23 @@
-<body class="main-bg-bmem">
 
-	<section class="main-bmem">
+
+	
 		<div class="inner-sec-bmem">
 			<div class="logo-bmem">
 				<a href="index.html"><img src="../assets/new-design/logo.png"></a>
 			</div>
-			<div class="outer-top-num">
-				<div class="top-num-bmem">
-					<div class="number-green">
-						<span>1</span>
-					</div>
-					<div class="number-white">
-						<span>2</span>
-					</div>
-					<div class="number-white2">
-						<span>3</span>
-					</div>
-				</div>
-				<div class="heading-bmem">
-					Become a member
-				</div>
-
-			</div>
+			 <div class="outer-top-num">
+	 <div class="top-num-bmem_step_4">
+	   <ul>
+	    <li class="list active"><span>1</span></li>
+		<li class="list1 "><span>2</span></li>
+		<li class="list2"><span>3</span></li>
+		<li class="list4 "><span>4</span></li>
+	   </ul>
+	 </div>
+	 
+	 <div class="heading-bmem">Become a member</div>
+	 
+	 </div>
 
 			<div class="main-content-sec" style="display:block;">
 				<div class="left-bmem">
@@ -48,13 +44,14 @@
 						Shipping Information
 					</div>
 
-					<div class="sign-up-btn">
+					<div class="sign-up-btn-wizard">
 						<a href="/users/auth/facebook" id ="fb_connect">Sign up with Facebook</a>
 					</div>
 					<div id="facebook_email_div_new" class="join-input">
 
-						<%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-text-join'%>
-						<input class="submit-btn" id="fb_get_started" type="submit" value="Join">
+						<%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-text-join-facebook'%>
+						<%= link_to "Join", "javascript:void(0)", :class => 'submit-btn-facebook', :id => 'fb_get_started_from_footer' %>
+						<!-- <input class="submit-btn" id="fb_get_started" type="submit" value="Join"> -->
 					
 						<div id="fb_email_error">
 							Invalid Email ID entered.
@@ -79,9 +76,6 @@
 			</div>
 		</div>
 
-	</section>
-
-</body>
 
 <style type="text/css">
 	#fb_email_error{

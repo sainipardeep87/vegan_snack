@@ -13,7 +13,7 @@ $("div.text-center em").css("display", "none");
 <% if @user.errors.present? %>
 $("#form_errors_div").empty();
 <% @user.errors.full_messages.each do |error| %>
-	$("#form_errors_div").append("<li><%= error %></li>")	
+	$("#form_errors_div").append("<li><%= error%></li>")	
 <%end%>
 // $("#form_errors_div").html("<%=  @user.errors.messages%>")
 // $("label[for='bill_firstname']").html("<%=  @user.errors.messages[:"addresses.firstname"][0] if @user.errors.to_hash.has_key?(:"addresses.firstname") %>");

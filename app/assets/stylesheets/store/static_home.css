@@ -766,18 +766,28 @@ h1, h2, h3, h4, h5, h6 {
 
 .green-bullet{ background-image: url('/assets/home/vegan-final_17.png') }
 
-.change-login-box, .password-wrapper{
+.change-login-box{
     border: 1px solid #A4A4A4;
     border-radius: 5px;
     padding: 19px;
     margin: auto !important;
     width: 50%;
 }
+.password-wrapper{
+    border: 1px solid #A4A4A4;
+    border-radius: 5px;
+    padding: 19px;
+    margin: auto !important;
+    width: 50%;
+    height: 200px;
+
+}
 
 .password-wrapper h6, h2 {
     color: #848484 !important;
     text-align: center;
     font-size: 18px;
+    padding-bottom: 15px;
 }
 
 .forget-password {

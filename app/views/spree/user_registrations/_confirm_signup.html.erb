@@ -1,17 +1,24 @@
 <div class="inner-sec-bmem">
 	<div class="logo-bmem"><a href="javascript:void(0)"><img src="../assets/new-design/logo.png"></a></div>
 	<div class="outer-top-num">
+		<%if params[:location] %>
+	 <div class="top-num-bmem_step_4">
+	    <ul>
+	    <li class="list "><span>1</span></li>
+		<li class="list1 "><span>2</span></li>
+		<li class="list2"><span>3</span></li>
+		<li class="list4 active"><span>4</span></li>
+	   </ul>
+	 </div>
+	<%else%>
 		<div class="top-num-bmem">
-			<div class="number-green">
-				<span>1</span>
-			</div>
-			<div class="number-white">
-				<span>2</span>
-			</div>
-			<div class="number-white2">
-				<span>3</span>
-			</div>
+			<ul>
+	    		<li class="list "><span>1</span></li>
+				<li class="list1 "><span>2</span></li>
+				<li class="list2 active"><span>3</span></li>
+			</ul>
 		</div>
+		<%end%>
 		<div class="heading-bmem">Complete Membership</div>
     </div> 
 	 
@@ -39,7 +46,15 @@
 	   			<div class="add-detail-lft-third" id='ship_address_1'>3022 , Biscayne Blvd,</div>
 	    		<div class="add-detail-lft-third" id='ship_address_2'>Lane-lh</div>
 		 		<div class="add-detail-lft-third" id='ship_city'>AK-10078</div>
-		 
+		 		<div class="add-detail-lft-third" id='ship_state'>AK-10078</div>
+		 		<!-- Credit card details here -->
+		 		<div class="heading-right-bmem">
+	    			Credit Card
+	   			</div>
+		 		<div class="add-detail-lft-third" id='ship_credit_card'>AK-10078</div>
+		 		<div class="add-detail-lft-third" id='ship_valid'>AK-10078</div>
+		 		
+		 		<!-- creditcard end-->
 		  		<div class="edit-lft-third" id="confirm_edit_1"><a id = "edit1" href="javascript:void(0)">edit</a></div>
 	   		</div>  
 	 
@@ -50,18 +65,17 @@
 	   			<div class="add-detail-lft-third" id='bill_first_name'>David Hawk </div>	   
 	    		<div class="add-detail-lft-third" id='bill_address_1'>320 street,</div>
 		 		<div class="add-detail-lft-third" id='bill_address_2'>Miami Beach  AK-10078</div>
+		 		<div class="add-detail-lft-third" id='bill_city'>Miami Beach  AK-10078</div>
+		 		<!-- <div class="add-detail-lft-third" id='bill_state'>Miami Beach  AK-10078</div> -->
 		 
 		  		<div class="edit-lft-third" id="confirm_edit_2"><a id="edit2" href="javascript:void(0)">edit</a></div>		
 	 		</div>       
 	   
-	    	<div class="right-join-third"><%= button_tag 'Join Vegan' %></div>
+	    	<div class="right-join-third"><%= button_tag 'Join VSP' %></div>
 	    	<div class="clr"></div>
 		
 		
-			<div class="bottom-para-third"><p>Nullam sed tincidunt erat. Ut iaculis 	suscipit dignissim. Ut consequat ante a dolor 
-tempus, aliquam commodo urna pellentesque. Aenean eget sem in tellus vehicula 
-iaculis. Integer rhoncus sapien consectetur justo feugiat, nec malesuada est 
-interdum. Aliquam eu <a href="javascript:void(0)">sem elementum</a></p></div>
+			<div class="bottom-para-third"><p>Your card will be charded $<%=@subscription.plan_price%> for your 1st box of Vegan Snack Packs and auto-renew at $<%=@subscription.plan_price%> monthly. By clicking "Join VSP", you agree to Vegan Snack Packs' <a href="javascript:void(0)">Term & Conditions</a></p></div>
 	 	</div>
 	 	<div class="clr"></div>
 	</div>	 

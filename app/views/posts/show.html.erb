@@ -1,5 +1,6 @@
+<div class="post_wrapper">
 <div class="post_title entry-title"> <%= @post.title %> </div>
-
+    
     <div class="social-share-top">
       
 
@@ -23,25 +24,8 @@ onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=
 
     <div class="left_content">
       <div id='post_content'>
-        <%= raw @post.content %>
-      </div>
-    </div>
-
-    <div class="col-md-3 border-line show-latest">
-      <div class="latest-post-title"> latest posts </div>
-
-      <% @latest_posts.each do |post| %>
-          <div class="row">
-            <%= post.post_image.present? ? (link_to image_tag( post.post_image(:latest), :alt => "recipe image", class: 'latest-post-image'), post) : (link_to (image_tag "blog/blog_default.png", class: 'latest-post-image'), post) %>
-          </div>
-
-          <div class="row recipe-name lat-recipe"><%= link_to post.title, post %> </div>
-      <% end %>
-
-    </div>
-
-
-    <div class="footer_section">
+        <%= (@post.content).html_safe %>
+        <div class="footer_section">
 
       <div class="tag_list">
         <% @post.tags.each do |tag| %>
@@ -62,3 +46,30 @@ onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=
       </div>
 
       </div>
+      </div>
+    </div>
+
+    <div class="col-md-3 border-line show-latest">
+      <div class="latest-post-title"> latest posts </div>
+
+      <% @latest_posts.each do |post| %>
+          <div class="row">
+            <%= post.post_image.present? ? (link_to image_tag( post.post_image(:latest), :alt => "recipe image", class: 'latest-post-image'), post) : (link_to (image_tag "blog/blog_default.png", class: 'latest-post-image'), post) %>
+          </div>
+
+          <div class="row recipe-name lat-recipe"><%= link_to post.title, post %> </div>
+      <% end %>
+
+    </div>
+
+
+    
+</div>
+<footer>
+  <%= render 'statics/application_footer'%>
+</footer> 
+<style type="text/css">
+  .post_wrapper{
+    padding-top: 100px;
+  }
+</style>

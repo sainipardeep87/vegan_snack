@@ -20,6 +20,8 @@ Vegan::Application.routes.draw do
       get :membership
       get :snack_detail
       get :individual_product
+      get :privacy_policy
+      get :term_conditions
     end
   end
 

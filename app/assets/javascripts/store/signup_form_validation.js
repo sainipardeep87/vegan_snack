@@ -131,10 +131,21 @@ function on_validate_billing_form(){
         $('div#ship_address_1').text($("#spree_user_addresses_attributes_0_address1").val());
         $('div#ship_address_2').text($("#spree_user_addresses_attributes_0_address2").val());
         $('div#ship_city').text($("#spree_user_addresses_attributes_0_city").val());
+        $('div#ship_state').text($("#spree_user_addresses_attributes_0_state_name").val());
         
         $('div#bill_first_name').text($("#spree_user_addresses_attributes_1_firstname").val());
         $('div#bill_address_1').text($("#spree_user_addresses_attributes_1_address1").val());
         $('div#bill_address_2').text($("#spree_user_addresses_attributes_1_address2").val());
+        $('div#bill_city').text($("#spree_user_addresses_attributes_1_city").val());
+        $('div#bill_state').text($("#spree_user_addresses_attributes_2_state_name").val());
+        var credit_card = $("#spree_user_creditcards_attributes_0_card_no").val();
+        var last_four = credit_card.substr(credit_card.length - 4);
+        $('div#ship_credit_card').text("xxxxxx"+last_four);
+        var month = $("#spree_user_creditcards_attributes_0_month").val();
+        var year  = $("#spree_user_creditcards_attributes_0_year").val();
+        $('div#ship_valid').text("valid "+month+"/"+year);
+        
+         
         }
 
 	
@@ -218,7 +229,7 @@ function validate_signup_cum_ship_address_form(form_id){
             "spree_user[password_confirmation]":{
                 required: true,
                 minlength: 6,
-                // equalTo: "#spree_user_password"
+                equalTo: "#spree_user_password"
             },
             "spree_user[addresses_attributes][1][firstname]": {
                 required: true,

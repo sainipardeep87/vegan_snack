@@ -24,23 +24,30 @@ show_user_already_registered_notification("<%= @registered_email %>
 	});
 
 </script>
-
 <div class="inner-sec-bmem">
 	<div class="logo-bmem">
 		<a href="index.html"><img src="../assets/new-design/logo.png"></a>
 	</div>
 	<div class="outer-top-num">
+	<%if params[:location] %>
+	 <div class="top-num-bmem_step_4">
+	    <ul>
+	    <li class="list "><span>1</span></li>
+		<li class="list1 active"><span>2</span></li>
+		<li class="list2"><span>3</span></li>
+		<li class="list4"><span>4</span></li>
+	   </ul>
+	 </div>
+	<%else%>
 		<div class="top-num-bmem">
-			<div class="number-green">
-				<span>1</span>
-			</div>
-			<div class="number-white">
-				<span>2</span>
-			</div>
-			<div class="number-white2">
-				<span>3</span>
-			</div>
+		<ul>
+	    	<li class="list active"><span>1</span></li>
+			<li class="list1 "><span>2</span></li>
+			<li class="list2"><span>3</span></li>
+			
+	   </ul>
 		</div>
+		<%end%>
 		<div class="heading-bmem">
 			Become a member
 		</div>
@@ -84,12 +91,12 @@ show_user_already_registered_notification("<%= @registered_email %>
 							<%= f.text_field :email,:placeholder=>"Email" %>
 						</div>
 						<div class="sec-input">
-							<%= f.text_field :password,:placeholder=>"Password" %>
+							<%= f.password_field :password,:placeholder=>"Password" %>
 						</div>
 					</div>
 					<div class="outer-input">
 						<div class="first-input">
-							<%= f.text_field :password_confirmation,:placeholder=>"Confirm Password " %>
+							<%= f.password_field :password_confirmation,:placeholder=>"Confirm Password " %>
 						</div>
 					</div>
 					<div class="outer-input">
@@ -124,7 +131,7 @@ show_user_already_registered_notification("<%= @registered_email %>
 						Delivery Via USPS
 					</div>
 
-					<div class="coupon-title">
+					<div class="heading-right-bmem">
 						Coupon
 					</div>
 					<div class="v-wide-div v-signup-div coupon-field">
@@ -146,4 +153,3 @@ show_user_already_registered_notification("<%= @registered_email %>
 		</div>
 	</div>
 </div>
-

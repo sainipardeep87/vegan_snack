@@ -1,15 +1,3 @@
-
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<link rel="icon" type="image/png" href="../assets/new-design/fav-icon.png" />
-<title>Vegan Snack Pack</title>
-
-</head>
-
-<body>
-
 <section class="blog-bg">
 <div class="inner-content-bg">
   <div class="heading-main-bg">Chef’s Blog</div>
@@ -36,13 +24,13 @@
 	   
 	   <div class="img-para-blog">
 	     <div class="left-img-para">
-		   <%= post.post_image.present? ? (link_to image_tag(post.post_image.url(:recent), :alt => "recipe image",  class: 'feature-image' ), post) : (link_to (image_tag "blog/blog_default.png", class: 'feature-image'), post) %>
+		   <%= post.post_image.present? ? (image_tag(post.post_image.url(:recent), :alt => "recipe image")) : ((image_tag "blog/blog_default.png")) %>
 		   <!-- <img src="../assets/new-design/blog-img1.jpg"> -->
 		 </div> 
-         <div class="right-img-para">
-		   <p> <%=  Nokogiri::HTML(post.content).text.truncate(150) %> </p>
+         <div class="right-img-para1">
+		   <p> <%=  Nokogiri::HTML(post.content).text.truncate(1000) %> </p>
            
-		   <div class="read-more"><a href="#">Read More</a></div>
+		   <div class="read-more"><%= link_to "Read More", post %></div>
 		    
 		 </div>  
 		 		 
@@ -98,4 +86,3 @@ $(document).ready(function(){
     
 </script>
 
-</body>

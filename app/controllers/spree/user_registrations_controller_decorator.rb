@@ -1,6 +1,7 @@
 # Description: Overriding spree provided UserRegistrationController to customize as per my requirement
 Spree::UserRegistrationsController.class_eval do
-  layout 'application'
+  layout 'application',skip: [:wizard_new]
+  layout 'wizard_layout',only: [:wizard_new]
 
 	#skip_before_action :current_user, only:  [:new, :create]
   skip_filter(*_process_action_callbacks.map(&:filter), only:[:create, :new, :show_address_form, :check_phone_no_format, :get_phone_no])
@@ -73,36 +74,15 @@ Spree::UserRegistrationsController.class_eval do
       @user.creditcards.build
 
     end
-     # @subscription = Subscription.find @subtype
-    # @snacks = Spree::Product.limit(6)
-    # @snacks.sort_by! { |x| x[:name].downcase }
+    
 else
   redirect_to root_path
 end
        
   end
-
-
-# def wizard_save
-# 
-# puts "i am in wizard_save with para,s#{params}"
- # sub_id = params[:spree_user][:sub_type].blank? ? "1" : params[:spree_user][:sub_type]
-    # coupon_code = params[:spree_user][:coupon_code]
-    # @cart = Cart.new
-    # @user = build_resource(user_params_list)
-# end
-
-
   #trigma wizard code end
 
-
-
-
-
-
-
-
-  def new
+ def new
      if request.env['omniauth.auth'].present?
       params = request.env["omniauth.params"]
 
@@ -234,8 +214,10 @@ end
        render js: %(window.location.href='/spree/orders/snack_queue') and return
 
      else
+       puts "the credit card errors are#{@user.creditcards}"
        @user.destroy
        @user.remove_errormessages_added_by_spree
+       @user.errors.add(:creditcards,"invalid credit card details")
      end
      else
        puts "i am  invalid#{@user.errors.count}"

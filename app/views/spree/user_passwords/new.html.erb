@@ -1,7 +1,10 @@
-<div class="container">
-  <div class="row forget-password">
-    
-      <div class="password-wrapper" id = "password_form">
+<body class="main-bg-bmem">
+  <section class="main-bmem">
+    <div class="inner-sec-bmem-forgot">
+      <div class="logo-bmem">
+          <a href="index.html"><img src="/../assets/new-design/logo.png"></a>
+      </div>
+       <div class="password-wrapper" id="password_form">
       <div class= "email-message alert-success"></div>
         <h6><%= Spree.t(:forgot_password) %></h6>
         <p><%= Spree.t(:instructions_to_reset_password) %></p>
@@ -10,13 +13,44 @@
         <div class = "error-message public-error"></div>
         <%= form_for Spree::User.new, :as => :spree_user, :url => spree.reset_password_path, :remote => true do |f| %>
               <div class="form-group">
-                <%= f.label :email, Spree.t(:email) %>
-                <%= f.email_field :email, :class => "form-control" %>
+                <%= f.text_field :email, :class => "input-text-forgot",:placeholder=>"Email" %>
               </div>
 
-              <%= f.submit Spree.t(:reset_password), :class => 'button primary', :id => 'forgot_password_submit' %>
+              <div class="join1"><%= f.submit Spree.t(:reset_password), :class => 'button primary', :id => 'forgot_password_submit' %></div>
             
         <% end %>
       </div>
   </div>
-</div>
+
+
+</section>
+</body>
+<style type="text/css">
+  .join1 input {
+    background: none repeat scroll 0 0 #18bf6a;
+    border: 1px solid #18bf6a;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 4px 30px;
+  }
+  .join1{
+    float: left;
+    margin: 10px -22px 0;
+    padding: 0 24px;
+
+  }
+  .input-text-forgot {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid;
+    border-radius: 2px;
+    color: #b6b6b6;
+    font-family: 'Roboto',sans-serif;
+    font-size: 13px;
+    margin: 0 3px 0 0;
+    padding: 13px;
+    width: 492px;
+}
+</style>

@@ -19,7 +19,7 @@
     font-weight: bold;
     font-size: 3em;
     text-align: center;
-    margin: 8% 0% 3% 0%;
+    /*margin: 8% 0% 3% 0%;*/
     text-transform:  capitalize;
 }
 
@@ -108,6 +108,7 @@ div.show-latest {
 
 #post_content > p {
     font-size: 1.3em;
+    padding-top: 10px;
 }
 
 #post_content > img {
@@ -147,9 +148,9 @@ div.show-latest {
     font-family:  "regular-font";
     font-size: 129%;
     line-height: 225%;
-    margin-left: 20%;
+    margin-left: 6%;
     text-align: center;
-    width: 60%;
+    width: 124%;
     padding: 4%;
     border-top:2px solid #000000;
     border-bottom: 2px solid #000000;
@@ -205,7 +206,7 @@ h5 {
 }
 .latest-post-image{
     padding: 8%;
-    width: 100%;
+    width: 85%;
     border-radius: 25px;
 }
 
@@ -521,8 +522,8 @@ div.recipe-item > div.left-context{
 }
 
 .add-comment{
-    margin-left: 30%;
-    width: 40%;
+    margin-left: 7%;
+    width: 95%;
     font-family: Arial, Helvetica, sans-serif !important;
 }
 
@@ -538,10 +539,13 @@ div.recipe-item > div.left-context{
 }
 .add-comment-element>input,textarea{
 
-    display: block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 9px 0 0;
+    padding: 4px;
     width: 94%;
 }
-
+form#new_comment{ margin:0 0 10px 0;}
 /* css for the pagination section */
 
 div.pagination span, div.pagination a, div.pagination em {

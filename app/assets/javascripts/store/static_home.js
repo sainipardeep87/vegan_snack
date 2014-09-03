@@ -71,6 +71,7 @@ ready = function(){
             $("#add_phone_billing").val($("#spree_user_addresses_attributes_0_phone").val());
             $("#spree_user_addresses_attributes_1_state_name").val($("#spree_user_addresses_attributes_0_state_name").val());
             $("#spree_user_addresses_attributes_1_zipcode").val($("#spree_user_addresses_attributes_0_zipcode").val());
+            
 
             $("#copy_add input[type='text']").attr("readonly", true)
 
