@@ -3082,7 +3082,7 @@ li.token-input-token, div.token-input-dropdown ul li.token-input-selected-dropdo
     color: #000;
     cursor: pointer;
     display: block;
-    font: ;
+    /*font: ;*/
     font-size: 12px;
     line-height: 16px;
     margin: 0;
