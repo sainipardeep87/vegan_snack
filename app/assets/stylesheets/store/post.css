@@ -13,7 +13,7 @@
 }
 
 .post_title {
-    color: #FB6000;
+    /*color: #FB6000;*/
     /*font-family: 'bold-font';*/
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -69,6 +69,7 @@ div.show-latest {
 .footer_section{
     float: left;
     width: 70%;
+    padding-top: 15px;
 }
 
 .comment-section{    margin-left: 15%; }
@@ -107,13 +108,19 @@ div.show-latest {
 #error{  padding: 10%;  }
 
 #post_content > p {
-    font-size: 1.3em;
+    /*font-size: 1.3em;*/
     padding-top: 10px;
 }
 
 #post_content > img {
     border-radius: 10px;
 }
+
+.disqus {
+    /*padding-left: 35px;*/
+    width: 712px;
+}
+
 
 /*----------------------------------------------- CSS for the social Share button  at the top----------------------------------------------- */
 
@@ -148,7 +155,7 @@ div.show-latest {
     font-family:  "regular-font";
     font-size: 129%;
     line-height: 225%;
-    margin-left: 6%;
+    /*margin-left: 6%;*/
     text-align: center;
     width: 124%;
     padding: 4%;
@@ -223,7 +230,7 @@ h5 {
 
 
 .recipe-name a{
-    color: #FF6505;
+    color: #000;
     /*font-family: 'bold-font';*/
     font-size: 1.2em;
     text-align: center;
@@ -327,7 +334,6 @@ div.recipe-item > div.left-context{
     text-transform: uppercase;
 }
 
-.recent-borders:before,
 .recent-borders:after {
     background-color: #CCCCCC;
     content: "";

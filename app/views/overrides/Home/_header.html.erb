@@ -31,6 +31,7 @@
   
   
   <% if spree_current_user%>
+  <div class="join_loged_in">
     <li class="dropdown header-dropdown"  id="drop_list">
 
                 <a href="javascript:void(0)" data-toggle="dropdown" class="dropdown-toggle btn btn-success btn-small" id="drop_dwn_btn">
@@ -45,7 +46,8 @@
                   <li> <%= link_to 'Sign Out', spree.logout_path, :method => :get %> </li>
                 </ul>
 
-              </li>    
+              </li> 
+              </div>   
      <%else%>
      <div class="join"><a id ="signup_link" href="javascript:void(0)">Join</a></div> 
      <div class="login" id="login"><a href="javascript:void(0)">Log in</a></div> 

@@ -297,6 +297,12 @@ nav ul li a:hover {
 	margin: 12px 0 0;
 	padding: 0 24px;
 }
+.join_loged_in {
+	/*border-right: 1px solid #d5d5d5;*/
+	float: left;
+	margin: 12px 0 0;
+	padding: 0 24px;
+}
 .login {
 	float: left;
 }
@@ -309,6 +315,20 @@ nav ul li a:hover {
 	font-weight: 400;
 	padding: 4px 30px;
 	border: 1px solid #18bf6a;
+}
+
+.join_loged_in a {
+	background: none repeat scroll 0 0 #18bf6a;
+	border-radius: 4px;
+	color: #fff;
+	font-family: 'Roboto', sans-serif;
+	/*font-size: 24px;*/
+	font-weight: 400;
+	padding: 4px 30px;
+	border: 1px solid #18bf6a;
+}
+.join_loged_in li{
+	list-style: none;
 }
 .join a:hover {
 	background: #fff;
@@ -523,6 +543,7 @@ nav ul li a:hover {
 	background: url('../assets/new-design/slider-li.png') no-repeat;
 	margin: 13px 0;
 	padding: 0 0 0 25px;
+	list-style: none;
 }
 .green-trans {
 	background: #18bf6a;
@@ -862,6 +883,7 @@ footer {
 }
 .footer-det ul li {
 	margin: 10px 0 0;
+	list-style: none;
 }
 .footer-det ul li a {
 	font-size: 16px;
@@ -1030,8 +1052,8 @@ footer {
 }
 .name-tag-snack-eng {
 	position: absolute;
-	right: 120px;
-	top: 55px;
+	right: 55px;
+	top: 63px;
 }
 .name-tag-snack-eng span {
 	color: #FE2E2E;
@@ -1050,7 +1072,7 @@ footer {
 .name-tag2-snack-eng {
 	position: absolute;
 	right: 10px;
-	top: 120px;
+	top: 130px;
 }
 .name-tag2-snack-eng span {
 	color: #05926c;
@@ -1068,8 +1090,8 @@ footer {
 }
 .name-tag3-snack-eng {
 	position: absolute;
-	right: 150px;
-	top: 145px;
+	right: 190px;
+	top: 180px;
 }
 .name-tag3-snack-eng span {
 	color: #e09900;
@@ -1238,10 +1260,13 @@ footer {
 	line-height: 26px;
 	padding: 60px;
 	text-align: justify;
-	min-height: 364px;
+	min-height: 348px;
 }
 .para-left-test > p {
 	margin: 0 0 20px;
+}
+.para-left-test li {
+	list-style: none;
 }
 .right-test {
 	float: right;
