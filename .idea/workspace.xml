@@ -56,24 +56,20 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_registrations_controller_decorator.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="user_registrations_controller_decorator.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/spree/user_registrations_controller_decorator.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3045" max-vertical-offset="6105">
-              <caret line="230" column="9" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
-              <folding>
-                <marker date="1409576677623" expanded="true" signature="5921:9690" placeholder="if ... end" />
-                <marker date="1409576677623" expanded="true" signature="6240:9669" placeholder="if ... end" />
-                <marker date="1409576677623" expanded="true" signature="7257:7835" placeholder="if ... end" />
-              </folding>
+            <state vertical-scroll-proportion="0.30821916" vertical-offset="4575" max-vertical-offset="5955">
+              <caret line="317" column="70" selection-start-line="317" selection-start-column="70" selection-end-line="317" selection-end-column="70" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="user_decorator.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="user_decorator.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/spree/user_decorator.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.33333334" vertical-offset="2605" max-vertical-offset="4320">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2956" max-vertical-offset="3855">
               <caret line="186" column="6" selection-start-line="186" selection-start-column="6" selection-end-line="186" selection-end-column="6" />
               <folding />
             </state>
@@ -83,7 +79,7 @@
       <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="76965">
+            <state vertical-scroll-proportion="0.0" vertical-offset="420" max-vertical-offset="80400">
               <caret line="28" column="14" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="14" />
               <folding />
             </state>
@@ -182,6 +178,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="RailsProjectView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -257,7 +254,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,7 +436,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19197708" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -483,6 +479,14 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p481@vegan/bundler/gems/spree-82a681c887cd/frontend/app/assets/stylesheets/store/screen.css.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="19500">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3928" max-vertical-offset="35805">
@@ -786,16 +790,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/db33044c/6554b1b5-3b68-4e6f-b955-cf9c8da9808b/vegan_development..spree_users">
-      <provider selected="true" editor-type-id="com.intellij.persistence.database.editor.DatabaseTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="750">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="780">
@@ -851,22 +845,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/spree/user_registrations_controller_decorator.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/spree/user_decorator.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3045" max-vertical-offset="6105">
-          <caret line="230" column="9" selection-start-line="230" selection-start-column="9" selection-end-line="230" selection-end-column="9" />
-          <folding>
-            <marker date="1409576677623" expanded="true" signature="5921:9690" placeholder="if ... end" />
-            <marker date="1409576677623" expanded="true" signature="6240:9669" placeholder="if ... end" />
-            <marker date="1409576677623" expanded="true" signature="7257:7835" placeholder="if ... end" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="2956" max-vertical-offset="3855">
+          <caret line="186" column="6" selection-start-line="186" selection-start-column="6" selection-end-line="186" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/spree/user_decorator.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/spree/user_registrations_controller_decorator.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334" vertical-offset="2605" max-vertical-offset="4320">
-          <caret line="186" column="6" selection-start-line="186" selection-start-column="6" selection-end-line="186" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.30821916" vertical-offset="4575" max-vertical-offset="5955">
+          <caret line="317" column="70" selection-start-line="317" selection-start-column="70" selection-end-line="317" selection-end-column="70" />
           <folding />
         </state>
       </provider>

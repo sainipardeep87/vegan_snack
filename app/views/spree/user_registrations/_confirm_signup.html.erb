@@ -1,40 +1,43 @@
 <div class="inner-sec-bmem">
-	<div class="logo-bmem"><a href="javascript:void(0)"><img src="../assets/new-design/logo.png"></a></div>
-	<div class="outer-top-num">
-		<%if params[:location] %>
-	 <div class="top-num-bmem_step_4">
-	    <ul>
-	    <li class="list "><span>1</span></li>
-		<li class="list1 "><span>2</span></li>
-		<li class="list2"><span>3</span></li>
-		<li class="list4 active"><span>4</span></li>
-	   </ul>
-	 </div>
+	<div class="logo-bmem"><a href="/"><img src="../assets/new-design/logo.png"></a></div>
+	
+	<%if params[:location] %>
+		<div class="outer-top-num">
+			<div class="top-num-bmem_step_4">
+		    	<ul>
+		    		<li class="list "><span>1</span></li>
+					<li class="list1 "><span>2</span></li>
+					<li class="list2"><span>3</span></li>
+					<li class="list4 active"><span>4</span></li>
+		   		</ul>
+		 	</div>
+		</div>
 	<%else%>
-		<div class="top-num-bmem">
-			<ul>
-	    		<li class="list "><span>1</span></li>
-				<li class="list1 "><span>2</span></li>
-				<li class="list2 active"><span>3</span></li>
-			</ul>
+		<div class="outer-top-num-3-step">
+			<div class="top-num-bmem">
+				<ul>
+	    			<li class="list "><span>1</span></li>
+					<li class="list1 "><span>2</span></li>
+					<li class="list2 active"><span>3</span></li>
+				</ul>
+			</div>
 		</div>
 		<%end%>
-		<div class="heading-bmem">Complete Membership</div>
-    </div> 
-	 
-	 
-	<div class="main-content-sec" style="display:block;">	 
-		<div class="left-bmem">
-	   		<div class="heading-left-bmem">
-	  			<%= @package%>
-	   		</div>
-	   		<div class="image-left-bmem"><img src="../assets/new-design/img2-left-bmem.jpg"></div>
-	   		<div class="price-left"><%= show_plan_name_and_price(@subscription) %><span>/ month</span></div>
-	   		<div class="shipping-txt-left">Free Shipping</div>
-	   		<div class="shipping-txt2-left">Renews Automatically</div>
-	   		<div class="shipping-txt2-left">Cancel Anytime</div>
-	    	<div class="shipping-txt2-left">Money backed guarantee</div>
-	 	</div>
+		<div class="outer-top-num-3-step">
+			<div class="heading-bmem-3-step">Complete Membership</div>
+		</div>
+    	<div class="main-content-sec" style="display:block;">	 
+			<div class="left-bmem">
+		   		<div class="heading-left-bmem">
+		  			<%= @package%>
+		   		</div>
+		   		<div class="image-left-bmem"><img src="../assets/new-design/img2-left-bmem.jpg"></div>
+		   		<div class="price-left"><%= show_plan_name_and_price(@subscription) %><span>/ month</span></div>
+		   		<div class="shipping-txt-left">Free Shipping</div>
+		   		<div class="shipping-txt2-left">Renews Automatically</div>
+		   		<div class="shipping-txt2-left">Cancel Anytime</div>
+		    	<div class="shipping-txt2-left">Money backed guarantee</div>
+		 	</div>
 	 	<div class="right-bmem">
 	 		<div id="form_errors_div"></div>
 	 
@@ -47,15 +50,17 @@
 	    		<div class="add-detail-lft-third" id='ship_address_2'>Lane-lh</div>
 		 		<div class="add-detail-lft-third" id='ship_city'>AK-10078</div>
 		 		<div class="add-detail-lft-third" id='ship_state'>AK-10078</div>
+		 		<div class="edit-lft-third" id="confirm_edit_1"><a id = "edit1" href="javascript:void(0)">edit</a></div>
 		 		<!-- Credit card details here -->
-		 		<div class="heading-right-bmem">
+		 		
+		 		<div class="heading-right-bmem_credit">
 	    			Credit Card
 	   			</div>
 		 		<div class="add-detail-lft-third" id='ship_credit_card'>AK-10078</div>
 		 		<div class="add-detail-lft-third" id='ship_valid'>AK-10078</div>
 		 		
 		 		<!-- creditcard end-->
-		  		<div class="edit-lft-third" id="confirm_edit_1"><a id = "edit1" href="javascript:void(0)">edit</a></div>
+		  		
 	   		</div>  
 	 
     		<div class="right-content-third">
@@ -97,4 +102,11 @@ $(function() {
 		color: red;
 
 	}
+	.heading-right-bmem_credit {
+    color: #000;
+    font-family: 'Roboto',sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding-top: 30px;
+}
 </style>

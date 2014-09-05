@@ -21,9 +21,7 @@ Spree::Address.class_eval do
   validates  :city,  presence: { message:  "City is required." },
              length: {maximum: 50, message: "Maximum 50 characters allowed." }
 
-  validates  :phone,  presence: { message:  "Phone no.  is required." },
-             length: {maximum: 15, message: "Maximum 15 characters allowed." },
-             format: {with: phone_no_regex, message: "Invalid phone no entered."}
+  
 
   validates  :state_name,  presence: { message:  "State name is required." },
              length: {maximum: 50, message: "Maximum 50 characters allowed." }
@@ -65,11 +63,11 @@ end
   Argument: phone no.
   Return : true/false (boolean result)
 =end
-  def self.is_phone_valid?(phone)
-    phone_regex = /\A[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{10}|[(][0-9]{3}[)][0-9]{3}-[0-9]{4}\Z/
-    result = phone =~ phone_regex
-    result == 0 ? true : false
-  end
+  # def self.is_phone_valid?(phone)
+  #   phone_regex = /\A[0-9]{3}-[0-9]{3}-[0-9]{4}|[0-9]{10}|[(][0-9]{3}[)][0-9]{3}-[0-9]{4}\Z/
+  #   result = phone =~ phone_regex
+  #   result == 0 ? true : false
+  # end
 
 
 =begin
@@ -86,8 +84,7 @@ end
       v.delete("has already been taken")
       v.delete("Address is required.")
       #v.delete("Firstname is required.")
-      #v.delete("Lastname is required.")
-      #v.delete("phone no. is required.")
+      #v.delete("Lastname is required.")      
       #v.delete("State name is required.")
       #v.delete("zipcode is required.")
     end

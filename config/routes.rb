@@ -189,7 +189,7 @@ Vegan::Application.routes.draw do
       end
     end
   end
-  Spree::Core::Engine.routes.prepend do
+  Spree::Core::Engine.routes.draw do
     namespace :admin do
       # get '/spree/admin/vendors', to: 'spree/admin/vendors#index', as: 'vendors'
 

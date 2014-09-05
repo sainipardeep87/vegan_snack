@@ -26,10 +26,11 @@ show_user_already_registered_notification("<%= @registered_email %>
 </script>
 <div class="inner-sec-bmem">
 	<div class="logo-bmem">
-		<a href="index.html"><img src="../assets/new-design/logo.png"></a>
+		<a href="/"><img src="../assets/new-design/logo.png"></a>
 	</div>
-	<div class="outer-top-num">
+	
 	<%if params[:location] %>
+	<div class="outer-top-num">
 	 <div class="top-num-bmem_step_4">
 	    <ul>
 	    <li class="list "><span>1</span></li>
@@ -38,7 +39,9 @@ show_user_already_registered_notification("<%= @registered_email %>
 		<li class="list4"><span>4</span></li>
 	   </ul>
 	 </div>
+	 </div>
 	<%else%>
+	<div class="outer-top-num-3-step">
 		<div class="top-num-bmem">
 		<ul>
 	    	<li class="list active"><span>1</span></li>
@@ -47,8 +50,10 @@ show_user_already_registered_notification("<%= @registered_email %>
 			
 	   </ul>
 		</div>
+		</div>
 		<%end%>
-		<div class="heading-bmem">
+		<div class="outer-top-num-3-step">
+		<div class="heading-bmem-3-step">
 			Become a member
 		</div>
 	</div>
@@ -127,16 +132,14 @@ show_user_already_registered_notification("<%= @registered_email %>
 						</div>
 					</div>
 
-					<div class="bottom-text-rt">
-						Delivery Via USPS
-					</div>
-
 					<div class="heading-right-bmem">
 						Coupon
 					</div>
-					<div class="v-wide-div v-signup-div coupon-field">
-						<span> <%= f.text_field :coupon_code, placeholder: 'Discount Code' %> </span>
-						<%=f.hidden_field :sub_type,:value=>@subtype%>
+					<div class="outer-input">
+					<div class="fifth-input">
+						 <%= f.text_field :coupon_code, placeholder: 'Discount Code' %> 
+						 <%=f.hidden_field :sub_type,:value=>@subtype%>
+					</div>
 						
 					</div>
 				<% end %>

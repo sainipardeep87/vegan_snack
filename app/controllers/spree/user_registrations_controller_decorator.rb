@@ -214,13 +214,12 @@ end
        render js: %(window.location.href='/spree/orders/snack_queue') and return
 
      else
-       puts "the credit card errors are#{@user.creditcards}"
        @user.destroy
        @user.remove_errormessages_added_by_spree
        @user.errors.add(:creditcards,"invalid credit card details")
      end
      else
-       puts "i am  invalid#{@user.errors.count}"
+       
      end
      end
   end
@@ -316,7 +315,7 @@ end
     def user_params_list
       params.require(:spree_user).permit(
           :id, :email, :password, :password_confirmation, :updating_password, :facebook_token, :image, :coupon_code, :sub_type,
-          :addresses_attributes => [:id, :firstname, :lastname, :phone, :company, :address1, :address2, :city, :state_name, :zipcode, :country],
+          :addresses_attributes => [:id,:phone, :firstname, :lastname, :company, :address1, :address2, :city, :state_name, :zipcode, :country],
           :creditcards_attributes => [:id, :cardholder_name, :card_no, :cvv, :month, :year,:first_name,:last_name]
       )
     end

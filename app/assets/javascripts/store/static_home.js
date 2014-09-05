@@ -104,6 +104,18 @@ ready = function(){
         },2000);
 
     });
+    $(".btm-btns").on("click","#signup_link",function(){
+        var current_link = window.location.pathname =="/"  || window.location.pathname == "/spree/signup/"  || window.location.pathname == "/spree/signup" ;
+
+        if(!current_link){
+            window.location = '/spree/signup/#vegan_user_signup'
+        }
+
+        scroll_to_signup_section();
+        setTimeout(function(){
+            $("#close").click();
+        },2000);
+    })
 
     $(".join").on("click", "#signup_link", function(){
         var current_link = window.location.pathname =="/"  || window.location.pathname == "/spree/signup/"  || window.location.pathname == "/spree/signup" ;

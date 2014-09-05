@@ -1388,7 +1388,12 @@ footer {
 }
 .outer-top-num {
 	width: 292px;
-	margin: 30px auto;
+	margin: 30px auto 30px 310px;
+}
+.outer-top-num-3-step {
+    margin: 30px auto 30px 310px;
+    width: 292px;
+    padding-left: 70px;
 }
 .top-num-bmem {
 	background: url("../assets/new-design/bg-num.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
@@ -1517,9 +1522,19 @@ footer {
 	font-family: 'Roboto', sans-serif;
 	font-size: 26px;
 	font-weight: 300;
-	margin: 40px 0 0;
+	margin: 40px 60px 0;
 	text-align: center;
 	width: 100%;
+}
+.heading-bmem-3-step {
+    color: #18bf6a;
+    float: left;
+    font-family: 'Roboto',sans-serif;
+    font-size: 26px;
+    font-weight: 300;
+    margin: 39px 15px 0;
+    text-align: center;
+    width: 100%;
 }
 .left-bmem {
 	width: 290px;
@@ -1541,6 +1556,7 @@ footer {
 	font-size: 18px;
 	color: #000;
 	font-weight: 400;
+	float:left;
 }
 .heading2-right-bmem {
 	border-top: 1px solid #18bf6a;
@@ -1568,6 +1584,7 @@ footer {
 	font-size: 16px;
 	font-family: 'Roboto', sans-serif;
 	font-weight: 300;
+	text-transform: none;
 }
 .outer-main-content {
 	width: 100%;
@@ -1839,7 +1856,7 @@ footer {
 }
 .edit-lft-third {
 	float: right;
-	margin: 12px 0 0;
+	margin: 0 0 0;
 }
 .edit-lft-third a {
 	color: #009bfd;
@@ -1941,7 +1958,7 @@ footer {
 	font-family: 'Roboto', sans-serif;
 	font-size: 36px;
 	font-weight: 500;
-	margin: 20px 0 0;
+	margin: 70px 0 0;
 	width: 100%;
 }
 .subheading-hover-snk {
@@ -2649,7 +2666,7 @@ ul.tabs li.current {
 }
 .content4-rt-story {
 	float: left;
-	margin: 95px 0 0 45px;
+	margin: 260px 0 0 45px;
 	width: 40%;
 }
 .heading-cont4-story {
@@ -2859,7 +2876,11 @@ ul.tabs li.current {
 /*----------------------------------membership ends here-------------------------------------*/
 
 .sgn_facebook{ width:100%; text-align:center; padding-bottom:5px;}
-.or_line{width:100%; text-align:center; padding-bottom:10px;}	
+.or_line{width:100%; text-align:center; padding-bottom:10px;}
+
+.or_line > img {
+    padding-bottom: 20px;
+}	
 
 .list4 {
 	background: none repeat scroll 0 0 #fff;
@@ -2929,7 +2950,7 @@ ul.tabs li.current {
 
 }
 
-
+ul.btmfootlist{ margin:0 0 0 53px;}
 
 
 

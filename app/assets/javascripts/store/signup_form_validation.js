@@ -156,6 +156,7 @@ function on_validate_show_billing_form(){
 
     var result = validate_signup_cum_ship_address_form("#vegan_signup");
 		console.log(result);
+        $("#spree_user_addresses_attributes_1_phone").val($("#spree_user_addresses_attributes_0_phone").val());
         $("#copy_add input").focusout();
         $("#credit_section input").focusout();
 

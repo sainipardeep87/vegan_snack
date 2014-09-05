@@ -33,7 +33,7 @@
 /* LOADER */
 .bx-wrapper .bx-loading {
 	min-height: 50px;
-	background: url(images/bx_loader.gif) center center no-repeat #fff;
+	background: url(../assets/new-design/loader.gif) center center no-repeat #fff;
 	height: 100%;
 	width: 100%;
 	position: absolute;
@@ -79,10 +79,10 @@
 /* DIRECTION CONTROLS (NEXT / PREV) */
 .bx-wrapper .bx-prev {
 	left: -30px;
-	background: url("../images/ltarrow-slider.png") no-repeat 0 0;
+	background: url("../assets/new-design/ltarrow-slider.png") no-repeat 0 0;
 }
 .slider-ind-sec .bx-wrapper .bx-prev {
-	background: url("../images/arrow-lt-ind.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background: url("../assets/new-design/arrow-lt-ind.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	left: 0px;
 }
 .slider-ind-sec .bx-wrapper .bx-controls-direction a {
@@ -96,25 +96,25 @@
 	z-index: 9999;
 }
 .slider-ind-sec .bx-wrapper .bx-next {
-	background: url("../images/arrow-rt-ind.png") no-repeat scroll 20px 0 rgba(0, 0, 0, 0);
+	background: url("../assets/new-design/arrow-rt-ind.png") no-repeat scroll 20px 0 rgba(0, 0, 0, 0);
 	right: 0px;
 }
 .vertical-arrow .bx-wrapper .bx-prev {
 	left: 10px;
-	background: url("../images/controls-v.png") no-repeat 0 -21px;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 -21px;
 }
 .vertical-arrow .bx-wrapper .bx-prev:hover {
 	background-position: 0 -21px;
 }
 .vertical-arrow1 .bx-wrapper .bx-prev {
 	left: 10px;
-	background: url("../images/controls-v.png") no-repeat 0 -21px;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 -21px;
 }
 .vertical-arrow1 .bx-wrapper .bx-prev:hover {
 	background-position: 0 -21px;
 }
 .ver-slider .bx-wrapper .bx-prev {
-	background: url("../images/controls-v.png") no-repeat scroll 0 -21px rgba(0, 0, 0, 0);
+	background: url("../assets/new-design/controls-v.png") no-repeat scroll 0 -21px rgba(0, 0, 0, 0);
 	left: 45px;
 	top: 250px;
 }
@@ -123,24 +123,24 @@
 }
 .bx-wrapper .bx-next {
 	right: -35px;
-	background: url("../images/rtarrow-slider.png") no-repeat 20px 0;
+	background: url("../assets/new-design/rtarrow-slider.png") no-repeat 20px 0;
 }
 .vertical-arrow .bx-wrapper .bx-next {
 	right: 10px;
-	background: url("../images/controls-v.png") no-repeat 0 0;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 0;
 }
 .vertical-arrow .bx-wrapper .bx-next:hover {
 	background-position: 20px 0;
 }
 .vertical-arrow1 .bx-wrapper .bx-next {
 	right: 10px;
-	background: url("../images/controls-v.png") no-repeat 0 0;
+	background: url("../assets/new-design/controls-v.png") no-repeat 0 0;
 }
 .vertical-arrow1 .bx-wrapper .bx-next:hover {
 	background-position: 0 0;
 }
 .ver-slider .bx-wrapper .bx-next {
-	background: url("../images/controls-v.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background: url("../assets/new-design/controls-v.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	right: 33px;
 	top: 22px;
 }
@@ -176,14 +176,14 @@
 	width: 16px;
 	height: 45px;
 	outline: 0;
-	background: url("../images/rtarrow-slider.png") 0 0 no-repeat;
+	background: url("../assets/new-design/rtarrow-slider.png") 0 0 no-repeat;
 	margin: 0 3px;
 }
 .bx-wrapper .bx-controls-auto .bx-start:hover, .bx-wrapper .bx-controls-auto .bx-start.active {
 	background-position: -86px 0;
 }
 .bx-wrapper .bx-controls-auto .bx-stop {
-	background: url("../images/controls-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background: url("../assets/new-design/controls-arrow.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	display: block;
 	height: 15px;
 	margin: 0 3px;
@@ -352,11 +352,11 @@ h3 {
 }
 @media only screen and (max-width:480px) {
 .slider-ind-sec .bx-wrapper .bx-prev {
-	background: url("../images/arrow-lt-ind-sml.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
+	background: url("../assets/new-design/arrow-lt-ind-sml.png") no-repeat scroll 0 0 rgba(0, 0, 0, 0);
 	left: 0px;
 }
 .slider-ind-sec .bx-wrapper .bx-next {
-	background: url("../images/arrow-rt-ind-sml.png") no-repeat scroll 20px 0 rgba(0, 0, 0, 0);
+	background: url("../assets/new-design/arrow-rt-ind-sml.png") no-repeat scroll 20px 0 rgba(0, 0, 0, 0);
 	right: 0;
 }
 .slider-ind-sec .bx-wrapper .bx-controls-direction a {

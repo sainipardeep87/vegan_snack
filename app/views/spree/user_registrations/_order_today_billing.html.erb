@@ -1,25 +1,30 @@
 <div class="inner-sec-bmem">
-	<div class="logo-bmem"><a href="index.html"><img src="../assets/new-design/logo.png"></a></div>
-	<div class="outer-top-num">
-		<%if params[:location] %>
-	 <div class="top-num-bmem_step_4">
-	    <ul>
-	    <li class="list "><span>1</span></li>
-		<li class="list1"><span>2</span></li>
-		<li class="list2 active"><span>3</span></li>
-		<li class="list4"><span>4</span></li>
-	   </ul>
-	 </div>
+	<div class="logo-bmem"><a href="/"><img src="../assets/new-design/logo.png"></a></div>
+	
+	<%if params[:location] %>
+		<div class="outer-top-num">
+	 		<div class="top-num-bmem_step_4">
+	    		<ul>
+	    			<li class="list "><span>1</span></li>
+					<li class="list1"><span>2</span></li>
+					<li class="list2 active"><span>3</span></li>
+					<li class="list4"><span>4</span></li>
+	   			</ul>
+	 		</div>
+	 	</div>
 	<%else%>
-		<div class="top-num-bmem">
-			<ul>
-	    		<li class="list"><span>1</span></li>
-				<li class="list1 active"><span>2</span></li>
-				<li class="list2"><span>3</span></li>
-			</ul>
+		<div class="outer-top-num-3-step">
+			<div class="top-num-bmem">
+				<ul>
+	    			<li class="list"><span>1</span></li>
+					<li class="list1 active"><span>2</span></li>
+					<li class="list2"><span>3</span></li>
+				</ul>
+			</div>
 		</div>
-		<%end%>
-	 	<div class="heading-bmem">Payment Information</div>	 
+	<%end%>
+	<div class="outer-top-num-3-step">
+		<div class="heading-bmem-3-step">Payment Information</div>	 
 	</div> 
 	<div class="main-content-sec" style="display:block;">	 
 		<div class="left-bmem">
@@ -60,17 +65,21 @@
 		  			</div>	 		  
 		 		</div>
 	   		<%end%>
-	   	    <div class="heading2-right-bmem">
-	    		<span>Billing Address</span>
-			    <div class="form-rt">
-	   				<%= f.fields_for :addresses do |address| %>
-	   	
-	   					<div class="check-rt-bmem" id="address_check">
+	   		</div>
+	   		<div class="right-bmem">
+	   	    <div class="heading-right-bmem">
+	    		Billing Address
+	    	</div>
+	    	<div class="check-rt-bmem" id="address_check">
             				<label>
               					<%= check_box_tag :address_check %>
               					<%= label_tag  "Same as Shipping" %>
             				</label>
           				</div>
+			    <div class="form-rt">
+	   				<%= f.fields_for :addresses do |address| %>
+	   	
+	   					
 	   	
 	   					<div class="outer-input">
 		    				<div class="first-input"><%= address.text_field :firstname,:placeholder=>"First Name" %></div>
@@ -86,7 +95,7 @@
 		  				</div>
 		  				<div class="outer-input">
 		    				<div class="first-input"><%= address.text_field :zipcode, :placeholder => 'Zip' %></div>
-							<div class="sec-input"><%= address.text_field :phone,:id => 'add_phone_billing',:placeholder=>"Phone" %></div>
+								<%= address.hidden_field :phone%>
 		  				</div> 		  
 		 			<%end%>
 		  		</div>
@@ -98,7 +107,7 @@
 	   		<div class="right-btm-btn"><a id ="submit2" href="javascript:void(0)">Next</a></div>
 		</div>
 	</div>
-</div>
+
 
 
 

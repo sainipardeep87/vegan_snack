@@ -28,7 +28,7 @@
 		   <!-- <img src="../assets/new-design/blog-img1.jpg"> -->
 		 </div> 
          <div class="right-img-para1">
-		   <p> <%=  Nokogiri::HTML(post.content).text.truncate(1000) %> </p>
+		   <p> <%=  Nokogiri::HTML(post.content).text.truncate(800) %> </p>
            
 		   <div class="read-more"><%= link_to "Read More", post %></div>
 		    

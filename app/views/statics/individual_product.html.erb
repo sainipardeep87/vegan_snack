@@ -12,9 +12,9 @@
    
       <div class="slider-ind-sec">
          <ul class="bxslider">	  	   
-     		<li><img src="../assets/new-design/ind-slider.jpg"/></li>     
-            <li><img src="../assets/new-design/ind-slider2.jpg"/></li>
-            <li><img src="../assets/new-design/ind-slider3.jpg"/></li>				  
+     		<li><%= image_tag(@snack.images.first.attachment.url(:large),:id=>@snack.id) %></li>     
+        <li><%= image_tag(@snack.images.first.attachment.url(:large),:id=>@snack.id) %></li>
+        <li><%= image_tag(@snack.images.first.attachment.url(:large),:id=>@snack.id) %></li>				  
 		  </ul>  
       </div>		  
             
