@@ -5227,8 +5227,8 @@ ul.tabs li.current {
 }
 .name-tag-snack-eng {
 	position: absolute;
-	right: 50px;
-	top: 18px;
+	right: 22px;
+	top: 31px;
 }
 .name-tag-snack-eng span {
 	font-size: 15px;
@@ -5253,8 +5253,12 @@ ul.tabs li.current {
 	margin: -4px 0 0 50px;
 }
 .name-tag3-snack-eng {
-	top: 87px;
-	right: 92px;
+	top: 92px;
+	right: 105px;
+}
+.model-image {
+    margin-top: 0;
+    padding-left: 270px;
 }
 .name-tag4-snack-eng span {
 	font-size: 15px;
@@ -5368,4 +5372,5 @@ ul.tabs li.current {
 .logo {
 	margin-bottom: 0px;
 }
+
 }

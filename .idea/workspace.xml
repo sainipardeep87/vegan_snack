@@ -130,12 +130,12 @@
         <option value="$PROJECT_DIR$/app/controllers/carts_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/spree/product_decorator.rb" />
         <option value="$PROJECT_DIR$/app/views/overrides/products/shared/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/spree/user_registrations_controller_decorator.rb" />
         <option value="$PROJECT_DIR$/app/models/cart.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/admin/all.js" />
         <option value="dbtable:/db33044c/6554b1b5-3b68-4e6f-b955-cf9c8da9808b/vegan_development..spree_users" />
         <option value="$USER_HOME$/.rvm/gems/ruby-2.0.0-p481@vegan/bundler/gems/spree-82a681c887cd/frontend/app/assets/stylesheets/store/spree_frontend.css" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/style.css" />
+        <option value="$PROJECT_DIR$/app/controllers/spree/user_registrations_controller_decorator.rb" />
       </list>
     </option>
   </component>
@@ -436,7 +436,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1301" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.19197708" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />

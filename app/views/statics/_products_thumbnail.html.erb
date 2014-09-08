@@ -16,9 +16,9 @@
   
   <% @snacks.each_with_index do |snack,i| %>
   	<% if i != 2 && i != 5%>
-  		<div class="image1-snack "><a href="statics/snack_detail"><%= image_tag(snack.images.first.attachment.url(:large)) %></a><div class="trans-snack-name col<%=i+1%>-snk-nme">Vivamus mauris</div></div>
+  		<div class="image1-snack "><a href="statics/snack_detail"><%= image_tag(snack.images.first.attachment.url(:large)) %></a><div class="trans-snack-name col<%=i+1%>-snk-nme"><%= snack.name%></div></div>
   	<%else%>
-  		<div class="image1-snack rt-mrg"><a href="statics/snack_detail"><%= image_tag(snack.images.first.attachment.url(:large)) %></a><div class="trans-snack-name col1-snk-nme">Vivamus mauris</div></div>
+  		<div class="image1-snack rt-mrg"><a href="statics/snack_detail"><%= image_tag(snack.images.first.attachment.url(:large)) %></a><div class="trans-snack-name col1-snk-nme"><%= snack.name%></div></div>
   	<%end%>
   <% end %>
    
