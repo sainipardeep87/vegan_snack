@@ -36,7 +36,7 @@ Spree.config do |config|
     Spree::Hub::Config[:hub_token] = "16ec9a9ee787e1be95e4cd8e683f506c842abab48b5635ee"
 	end
 
-  Spree::Hub::Config[:hub_push_uri] = "https://my.wombat.co/push"
+  Spree::Hub::Config[:hub_push_uri] = "https://push.wombat.co"
   Spree::Hub::Config[:enable_push] = true
   Spree::Config[:tax_using_ship_address] = false
 

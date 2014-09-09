@@ -83,6 +83,7 @@ end
   #trigma wizard code end
 
  def new
+  
      if request.env['omniauth.auth'].present?
       params = request.env["omniauth.params"]
 
@@ -232,14 +233,15 @@ end
   #Arument :NIL
  #REturn :NIL
 =end
-=begin
   def new_facebook_signup
+    
     @fb_data = fetch_facebook_params
 
     @user = Spree::User.where(email: @fb_data[:email]).first
 
     if @user.blank?
       @user = Spree::User.new(email: @fb_data[:email], facebook_token: @fb_data[:fb_token])
+      
       @user.addresses.build
       @user.addresses.first.firstname = @fb_data[:firstname]
       @user.addresses.first.lastname = @fb_data[:lastname]
@@ -252,15 +254,16 @@ end
     end
 
   end
-=end
-=begin
-  def create_facebook_auth_user
 
+
+  def create_facebook_auth_user
+    
     @user = Spree::User.new(user_params_list)
     fb_pass  = @user.facebook_token.last(8)
     @user.password =  @user.password_confirmation = fb_pass #as we are not asking fb authenticated user his password hence assigning the last 8 characters of his fb token as his password.
-
+    
     if @user.save
+      @user.update_address_type_and_name_fields
       sign_in(:spree_user, @user)
       redirect_to main_app.profile_users_path
     else
@@ -269,7 +272,7 @@ end
     end
 
   end
-=end
+
 =begin
     Description: following action will extract required parameters from long facebook params list and will be used in signup form
     Argument LIST: NIL
