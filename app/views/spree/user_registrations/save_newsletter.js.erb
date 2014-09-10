@@ -1,0 +1,6 @@
+<% if @success.present? %>
+alert('<%= @success %>')
+$('#newsletter_email').val('')
+<% elsif @errors.present? %>
+alert('<%= @errors %>')
+<% end %>

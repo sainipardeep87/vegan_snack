@@ -152,6 +152,7 @@ Vegan::Application.routes.draw do
     get 'users/auth/:provider/callback' => 'spree/user_registrations#new_facebook_signup'
     #get 'users/auth/:provider/callback' => 'spree/user_registrations#new'
     post '/fb_auth' => 'spree/user_registrations#create_facebook_auth_user'
+    post '/save_newsletter' => 'spree/user_registrations#save_newsletter'
     get '/check_email' => 'spree/user_registrations#check_email'
     get '/wizard_new' => 'spree/user_registrations#wizard_new'
     get '/check_phone_no_format', to: 'spree/user_registrations#check_phone_no_format'
