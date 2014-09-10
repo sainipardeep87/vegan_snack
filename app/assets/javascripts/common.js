@@ -6,16 +6,16 @@
 
 $(document).ready(function(){					
 					$('.bxslider1').bxSlider({					
-					autoControls: true,
-					autoHover: true,	
+					autoControls: false,
+					autoHover: false,	
 					autoControlsCombine: true,			
 					});				
                     });	
 					
 $(document).ready(function(){					
 					$('.bxslider').bxSlider({
-					auto: true,
-					autoControls: true,
+					auto: false,
+					autoControls: false,
 					autoHover: true,	
 					autoControlsCombine: true		
 					});				

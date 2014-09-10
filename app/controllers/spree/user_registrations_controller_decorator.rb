@@ -25,10 +25,10 @@ Spree::UserRegistrationsController.class_eval do
     @image = "/../assets/new-design/img1-mem.jpg"
   elsif @subtype == "2"
     @package = "Double Snack Pack"
-    @image = "/../assets/new-design/img2-mem.jpg"
+    @image = "/../assets/new-design/img1-mem.jpg"
   else
     @package = "Family Snack Pack"
-    @image = "/../assets/new-design/img3-mem.jpg"
+    @image = "/../assets/new-design/img1-mem.jpg"
   end
   @subscription = Subscription.find_by_id @subtype
   unless @subscription.blank?

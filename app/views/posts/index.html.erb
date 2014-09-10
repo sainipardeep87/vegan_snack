@@ -1,7 +1,7 @@
 <section class="blog-bg">
 <div class="inner-content-bg">
   <div class="heading-main-bg">Chef’s Blog</div>
-  <div class="sub-heading-main-bg">ut suscipit enim. Integer lacinia purus </div>
+  <div class="sub-heading-main-bg"><%=  Nokogiri::HTML(@recent_posts[1].content).text.truncate(50) %> </div>
   <div class="read-main-bg"><%=link_to "Read Post","/posts/1"%></div>
  </div> 
 </section>

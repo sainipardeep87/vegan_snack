@@ -236,6 +236,9 @@ Return: nil
     result = Spree::Hub::Client.push(customer.to_json)
 
   end
+def to_param
+    "#{id}".parameterize
+  end
 
 =begin
   Description: Below method will clear all validation on Password Field if the user has been authenticated

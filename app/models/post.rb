@@ -58,6 +58,9 @@ def get_image
     end
 
 end
+def to_param
+    "#{id}-blog".parameterize
+end
 
   #def save_short_description
   #  self.summary = "Oh to be Vegan! To all the nayasayers that think you can't have a heartly meal well here is an"
