@@ -15,7 +15,8 @@
 	<section class="slider-sec">
 		<div class="wrapper-slider">
 			<div class="left-slider">
-				<a href="#"><img src="/../assets/new-design/fb-likes.png"></a>
+				<div id="fb-root"></div>
+				<div class="fb-like" style="margin-top:70px;" data-href="https://www.facebook.com/vegansnackpacks" data-layout="standard" data-action="like" data-show-faces="true" data-share="true"></div>
 			</div>
 			<div class="right-slider">
 				<div class="heading-rt-slider">
@@ -627,6 +628,15 @@ jQuery(function( $ ){
 	}
 	
 });
+
+// Function to create Facebook Like and Share button
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=<%= ENV['APP_ID'] %>&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
 
 </script>
 

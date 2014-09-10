@@ -102,4 +102,6 @@ Vegan::Application.configure do
   config.forgot_password_url = "http://54.200.135.201/spree/user/spree_user/password/edit?reset_password_token="
 
   config.share_url  = 'www.vegansnackpacks.com/'
+
+  ENV['APP_ID'] = "1482328625360665"
 end
