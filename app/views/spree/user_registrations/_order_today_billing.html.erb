@@ -24,21 +24,22 @@
 		</div>
 	<%end%>
 	<div class="outer-top-num-3-step">
-		<div class="heading-bmem-3-step">Payment Information</div>	 
-	</div> 
+		
+	</div>
+	<div class="heading-bmem-3-step">Payment Information</div>	  
 	<div class="main-content-sec" style="display:block;">	 
 		<div class="left-bmem">
 	   		<div class="heading-left-bmem">
 	  			<%= @package%>
 	   		</div>
-	   		<div class="image-left-bmem"><img src="../assets/new-design/img2-left-bmem.jpg"></div>
+	   		<div class="image-left-bmem"><img src=<%=@image%>></div>
 	   		<div class="price-left"><%= show_plan_name_and_price(@subscription) %><span>/ month</span></div>
 	   		<div class="shipping-txt-left">Free Shipping</div>
 	   		<div class="shipping-txt2-left">Renews Automatically</div>
 	   		<div class="shipping-txt2-left">Cancel Anytime</div>
 	    	<div class="shipping-txt2-left">Money backed guarantee</div>
 	 	</div>
-	 	<div class="right-bmem">
+	 	<div class="right-bmem" style="border-top:none;">
 	    	<div class="heading-right-bmem">
 	    		Credit Card
 	   		</div>
@@ -67,15 +68,19 @@
 	   		<%end%>
 	   		</div>
 	   		<div class="right-bmem">
-	   	    <div class="heading-right-bmem">
+	   	   <!--  <div class="heading-right-bmem" style="margin-top:10px;">
 	    		Billing Address
 	    	</div>
-	    	<div class="check-rt-bmem" id="address_check">
+	    	<div class="check-rt-bmem" style="margin-top:10px" id="address_check">
             				<label>
               					<%= check_box_tag :address_check %>
               					<%= label_tag  "Same as Shipping" %>
             				</label>
-          				</div>
+          				</div> -->
+        <div class="heading2-right-bmem">
+	    	<span>Billing Address</span>
+			<div class="check-rt-bmem" id="address_check"><%= check_box_tag :address_check%><%= label_tag "Same as shipping"%></div>
+	   </div>
 			    <div class="form-rt">
 	   				<%= f.fields_for :addresses do |address| %>
 	   	

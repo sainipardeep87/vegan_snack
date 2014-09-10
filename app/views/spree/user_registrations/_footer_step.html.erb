@@ -24,7 +24,7 @@
 					<div class="heading-left-bmem">
 						<%= @package%>
 					</div>
-					<div class="image-left-bmem"><img src="../assets/new-design/img-left-bmem.jpg">
+					<div class="image-left-bmem"><img src=<%=@image%>>
 					</div>
 					<div class="price-left">
 						<%= show_plan_name_and_price(@subscription) %>
@@ -48,28 +48,18 @@
 						<a href="/users/auth/facebook" id ="fb_connect">Sign up with Facebook</a>
 					</div>
 					<div class="or_line"><img src="/../assets/new-design/or_bg.png"></div>
-					<div id="facebook_email_div_new" class="join-input">
+					<div id="facebook_email_div_new_footer" class="join-input">
 
 						<%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-text-join-facebook'%>
 						<%= link_to "Join", "javascript:void(0)", :class => 'submit-btn-facebook', :id => 'fb_get_started_from_footer' %>
-						<!-- <input class="submit-btn" id="fb_get_started" type="submit" value="Join"> -->
+						
 					
 						<div id="fb_email_error">
 							Invalid Email ID entered.
 						</div>
 
 					</div>
-					<!-- <div id="facebook_email_div_new" class="join-input">
-
-						<%= email_field_tag :email, nil, :placeholder => "Email", :class => 'input-text-join-facebook'%>
-						<%= link_to "Join", "javascript:void(0)", :class => 'submit-btn-facebook', :id => 'fb_get_started_from_footer' %>
-						<div id="fb_email_error">
-							Invalid Email ID entered.
-						</div>
-
-					</div> -->
-					
-						
+											
 				</div>
 				<div class="clr"></div>
 			</div>
@@ -83,4 +73,7 @@
 	#fb_email_error{
 		padding-right: 200px
 	}
-</style>>
+</style>
+<script type="text/javascript">
+
+</script>

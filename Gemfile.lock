@@ -183,6 +183,8 @@ GEM
       execjs
     coffee-script-source (1.7.1)
     colorize (0.7.3)
+    country_state_select (1.0.1)
+      rails (>= 3.0)
     debug_inspector (0.0.2)
     deface (1.0.0)
       colorize (>= 0.5.8)
@@ -394,6 +396,7 @@ DEPENDENCIES
   braintree
   ckeditor
   coffee-rails (~> 4.0.0)
+  country_state_select
   execjs
   jbuilder (~> 1.2)
   jquery-rails (~> 3.1.0)

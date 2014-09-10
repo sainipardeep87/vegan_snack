@@ -8,7 +8,7 @@ $(document).ready(function(){
         validate_email_field_before_signup();
     });
 
-    $("#facebook_email_div_new").on("click", "#fb_get_started_from_footer", function(){
+    $("#facebook_email_div_new_footer").on("click", "#fb_get_started_from_footer", function(){
         validate_email_field_before_signup_from_wizard();
         
     });
@@ -29,6 +29,13 @@ $(document).ready(function(){
         if(keyCode == 13){
              e.preventDefault();
             validate_email_field_before_signup();
+        }
+    });
+    $("#facebook_email_div_new_footer").on("keypress", "#email", function(e){
+        var keyCode = e.keyCode  || e.which;
+        if(keyCode == 13){
+             e.preventDefault();
+            validate_email_field_before_signup_from_wizard();
         }
     });
 
@@ -590,9 +597,13 @@ function validate_email_field_before_signup(){
         success: function(result){
 
             if(Object.keys(result)[0] == "success"){
-            	window.location.href="/statics/membership";
+            	$("#email_dashboard").val(email_id);
+                localStorage.setItem("email",email_id);
+                window.location.href="/statics/membership";
                 $("#spree_user_email").val(email_id);
                 $("#fb_email_error").hide();
+
+
                
                 // $('span.show-got-email').removeClass('hide-until-email');
                 // $("#facebook_signup").addClass('hide-until-email');
@@ -609,11 +620,15 @@ function validate_email_field_before_signup(){
         }
     });
 }
+// $(document).on("click","#fb_get_started",function(){
+//     alert($("#eamil").val());
+//     $("#email_dashboard").val($("#email").val());
+// });
 
 function validate_email_field_before_signup_from_wizard(){
 
-    var email_id = $("#facebook_email_div_new input").val().trim();
- 
+    var email_id = $("#facebook_email_div_new_footer input").val().trim();
+    
     $.ajax({
         url: '/check_email',
         data: {spree_user: {email: email_id}},
@@ -625,10 +640,11 @@ function validate_email_field_before_signup_from_wizard(){
             if(Object.keys(result)[0] == "success"){
                 $("#signup_ship_address").removeClass('hide');
                 $("#footer_singup").addClass('hide');
-                $(".first-input #spree_user_email").val($("#email").val()).attr('readonly', true);
+                $(".first-input #spree_user_email").val(email_id).attr('readonly', true);
+                
                 // window.location.href="/statics/membership";
                 // $("#spree_user_email").val(email_id);
-                // $("#fb_email_error").hide();
+                 $("#fb_email_error").hide();
                
                 // $('span.show-got-email').removeClass('hide-until-email');
                 // $("#facebook_signup").addClass('hide-until-email');
@@ -637,7 +653,8 @@ function validate_email_field_before_signup_from_wizard(){
             if(Object.keys(result)[0] == "error"){
                 $("#fb_email_error").html(result["error"]);
                 $("#fb_email_error").show();
-                $("#facebook_email_div_new input").css("border-color", "red");
+                $("#facebook_email_div_new_footer input").css("border-color", "red");
+                
             }
         },
         failure: function(){

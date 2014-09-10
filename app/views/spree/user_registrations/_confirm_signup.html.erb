@@ -24,14 +24,15 @@
 		</div>
 		<%end%>
 		<div class="outer-top-num-3-step">
-			<div class="heading-bmem-3-step">Complete Membership</div>
+			
 		</div>
+		<div class="heading-bmem-3-step">Complete Membership</div>
     	<div class="main-content-sec" style="display:block;">	 
 			<div class="left-bmem">
 		   		<div class="heading-left-bmem">
 		  			<%= @package%>
 		   		</div>
-		   		<div class="image-left-bmem"><img src="../assets/new-design/img2-left-bmem.jpg"></div>
+		   		<div class="image-left-bmem"><img src=<%=@image%>></div>
 		   		<div class="price-left"><%= show_plan_name_and_price(@subscription) %><span>/ month</span></div>
 		   		<div class="shipping-txt-left">Free Shipping</div>
 		   		<div class="shipping-txt2-left">Renews Automatically</div>

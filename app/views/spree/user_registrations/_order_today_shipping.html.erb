@@ -53,16 +53,17 @@ show_user_already_registered_notification("<%= @registered_email %>
 		</div>
 		<%end%>
 		<div class="outer-top-num-3-step">
-		<div class="heading-bmem-3-step">
+		
+	</div>
+	<div class="heading-bmem-3-step">
 			Become a member
 		</div>
-	</div>
 	<div class="main-content-sec" style="display:block;">
 		<div class="left-bmem">
 			<div class="heading-left-bmem">
 				<%= @package%>
 			</div>
-			<div class="image-left-bmem"><img src="../assets/new-design/img-left-bmem.jpg">
+			<div class="image-left-bmem"><img src=<%=@image%>>
 			</div>
 			<div class="price-left">
 				<%= show_plan_name_and_price(@subscription) %>
@@ -116,8 +117,10 @@ show_user_already_registered_notification("<%= @registered_email %>
 						<div class="first-input">
 							<%= builder.text_field :city,:placeholder=>"City" %>
 						</div>
+						<%@states=CountryStateSelect::Constant::USA_STATES%>
+
 						<div class="sec-input">
-							<%= builder.text_field :state_name,:placeholder=>"State" %>
+							<%= builder.select :state_name,@states,{:prompt => 'State'},:placeholder=>"State"%>
 						</div>
 					</div>
 					<div class="outer-input">
@@ -150,9 +153,22 @@ show_user_already_registered_notification("<%= @registered_email %>
 	<div class="btm-btns" >
 		<%if params[:location]%>
 			<div class="left-btm-btn"><a href ="#" id="back_to_footer">Back</a></div>
+		<%else%>
+			<div class="left-btm-btn"><a href="/">Back</a></div>
 		<%end%>
+		
 		<div class="right-btm-btn">
 			<a href="#" class ='place-my-order' id ="user_sign_up">Next</a>
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+$(function(){
+	var email = localStorage.getItem("email");
+	if (email != '' && email.length != 0){
+		$("#spree_user_email").val(email).attr('readonly', true);
+		localStorage.setItem("email","");
+ 	// alert("text" + localStorage.getItem("email"));
+ 	}
+});
+</script>

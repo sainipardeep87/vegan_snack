@@ -6,7 +6,7 @@
    <div class="heading-snack-sec">Choose Your Membership</div>  
    <div class="wrapper-membership">
      <div class="main-membership">
-	 
+	 	<input type="hidden" id="email_dashboard" value="">
 	   <div class="first-membership">
 	      <div class="image-sec-mem"><img src="../assets/new-design/img1-mem.jpg"></div>
 		  <div class="det-sec-mem">
@@ -76,7 +76,8 @@ $(document).ready(function(){
     
 </script>
 
-<script>$(function () {
+<script>
+$(function () {
     "use strict";
     var $bgobj = $(".ha-bg-parallax"); // assigning the object
     $(window).on("scroll", function () {
@@ -86,6 +87,13 @@ $(document).ready(function(){
         // Move the background
         $bgobj.css({ backgroundPosition: coords });
     });
-});</script>
+});
+</script>
+<script type="text/javascript">
+$(function(){
+	$("#email_dashboard").val(localStorage.getItem("email"));
+ 	// alert("text" + localStorage.getItem("email"));
+});
+</script>
 
 </body>

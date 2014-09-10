@@ -18,14 +18,17 @@ Spree::UserRegistrationsController.class_eval do
  def wizard_new
  
   @subtype=params[:sub_type]
-  puts "the sub_type is #{params[:sub_type]}"
   @package = ""
+  @image = ""
   if @subtype == "1"
     @package = "Basic Snack Pack"
+    @image = "/../assets/new-design/img1-mem.jpg"
   elsif @subtype == "2"
     @package = "Double Snack Pack"
+    @image = "/../assets/new-design/img2-mem.jpg"
   else
     @package = "Family Snack Pack"
+    @image = "/../assets/new-design/img3-mem.jpg"
   end
   @subscription = Subscription.find_by_id @subtype
   unless @subscription.blank?

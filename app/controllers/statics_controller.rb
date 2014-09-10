@@ -38,6 +38,8 @@ class StaticsController < ApplicationController
 
   def individual_product
     @snack = Spree::Product.find_by_id(params[:snack])
+    @previous = Spree::Product.where("id < ?", params[:snack]).order(:id).last   
+    @next = Spree::Product.where("id > ?", params[:snack]).order(:id).first 
   end
 
   def privacy_policy

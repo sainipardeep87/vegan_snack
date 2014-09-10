@@ -512,7 +512,7 @@
         font-size: 0.7em;
     }
     label.error{
-        display: none !important;
+        /*display: none !important;*/
     }
 
     .snacks-title{
@@ -859,7 +859,7 @@
         font-size: 0.7em;
     }
     label.error{
-        display: none !important;
+        /*display: none !important;*/
     }
 
     .snacks-title{
@@ -1183,7 +1183,7 @@
         font-size: 0.7em;
     }
     label.error{
-        display: none !important;
+        /*display: none !important;*/
     }
 
     .snacks-title{
@@ -1457,7 +1457,7 @@
         font-size: 0.7em;
     }
     label.error{
-        display: none !important;
+        /*display: none !important;*/
     }
 
     .snacks-title{

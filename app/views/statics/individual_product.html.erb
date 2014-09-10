@@ -11,10 +11,13 @@
 <section class="main-ind-slider"> 
    
       <div class="slider-ind-sec">
-         <ul class="bxslider">	  	   
-     		<li><%= image_tag(@snack.images.first.attachment.url(:large),:id=>@snack.id) %></li>     
-        <li><%= image_tag(@snack.images.first.attachment.url(:large),:id=>@snack.id) %></li>
-        <li><%= image_tag(@snack.images.first.attachment.url(:large),:id=>@snack.id) %></li>				  
+      <div class="next"></div>
+       <ul class="bxslider">	  	   
+
+     		<li>
+          <div class="pre-btn-slider"><%=link_to image_tag("/../assets/new-design/arrow-lt-ind.png"),"/statics/individual_product?snack=#{@previous.id}" if @previous%></div>
+          <div class="next-btn-slider"><%=link_to image_tag("/../assets/new-design/arrow-rt-ind.png"),"/statics/individual_product?snack=#{@next.id}" if @next %></div>
+        <%= image_tag(@snack.images.first.attachment.url(:large),:id=>@snack.id) %></li>
 		  </ul>  
       </div>		  
             

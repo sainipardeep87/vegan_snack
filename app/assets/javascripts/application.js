@@ -18,6 +18,7 @@
 //= require jquery.tagsinput
 //= require jquery.plugin
 //= require jquery.countdown
+//= require country_state_select
 
 //= require ckeditor/init
 //= require_tree .

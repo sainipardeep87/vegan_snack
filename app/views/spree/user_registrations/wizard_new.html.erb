@@ -1,7 +1,7 @@
 
  <div id="vegan_user_signup">
  <section class="main-bmem">
-    <%= form_for @user, :as => :spree_user, :url => spree.registration_path(@user), :html => {:id => "vegan_signup", autocomplete: 'off'}, :remote => true  do |f| %>
+    <%= form_for @user, :as => :spree_user, :url => spree.registration_path(@user), :html => {:id => "vegan_signup", autocomplete: 'off',:onsubmit=>"return false" }, :remote => true  do |f| %>
 
        <%if params[:location]=="footer"%>
           <span id="footer_singup" class="">

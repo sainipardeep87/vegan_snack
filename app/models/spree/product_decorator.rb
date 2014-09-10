@@ -44,4 +44,6 @@ Return: Products with(id, name)
     @complete_snacks_list = Spree::Product.select('id, name').limit(10).order("updated_at  desc")
   end
 
+  
+
 end

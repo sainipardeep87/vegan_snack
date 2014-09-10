@@ -773,14 +773,14 @@ h1, h2, h3, h4, h5, h6 {
     margin: auto !important;
     width: 50%;
 }
-.password-wrapper{
-    border: 1px solid #A4A4A4;
-    border-radius: 5px;
-    padding: 19px;
-    margin: auto !important;
-    width: 50%;
-    height: 200px;
 
+.password-wrapper {
+    border: 1px solid #a4a4a4;
+    border-radius: 5px;
+    height: 200px;
+    margin: 40px auto 0;
+    padding: 19px;
+    width: 50%;
 }
 
 .password-wrapper h6, h2 {
@@ -1304,6 +1304,42 @@ margin: 0% 20% 0% 0%;
     font-weight: bold;
     text-align: center;
     padding: 2%;
+}
+.join1 input {
+    background: none repeat scroll 0 0 #18bf6a;
+    border: 1px solid #18bf6a;
+    border-radius: 4px;
+    color: #fff;
+    font-family: 'Roboto',sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    padding: 4px 30px;
+  }
+  .join1{
+    float: left;
+    margin: 10px -22px 0;
+    padding: 0 24px;
+
+  }
+  .input-text-forgot {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid;
+    border-radius: 2px;
+    color: #b6b6b6;
+    font-family: 'Roboto',sans-serif;
+    font-size: 13px;
+    margin: 0 3px 0 0;
+    padding: 13px;
+    width: 94%;
+}
+
+div.form-group {
+    width: 100%;
+}
+
+
+form {
+    width: 100%;
 }
 
 /*
