@@ -169,11 +169,16 @@ Spree::User.class_eval do
   Return: nil
 =end
   def update_address_type_and_name_fields
-    self.addresses.first.update_attributes(address_type: SHIP)
-    self.addresses.last.update_attributes(address_type: BILL)
+   
+    #If Sign up using FB, only one address is saved, no need to change address types
+    if self.facebook_token.blank?
+      self.addresses.first.update_attributes(address_type: SHIP)
+      self.addresses.last.update_attributes(address_type: BILL)
+    end
 
-    self.update_attributes(first_name: self.shipping_address.first_name)
-    self.update_attributes(last_name: self.shipping_address.last_name)
+    self.update_attributes(first_name: self.addresses.first.first_name)
+    
+    self.update_attributes(last_name: self.addresses.first.last_name)
   end
 
 =begin
