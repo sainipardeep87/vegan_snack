@@ -171,3 +171,8 @@ div.snack-image-product-view img {
 .blank-footer{
     border: none;
 }
+
+.correct-float{
+    min-height: 199px !important;
+    float: left !important;
+}

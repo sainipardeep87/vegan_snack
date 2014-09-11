@@ -1,6 +1,6 @@
-<div class="container product-listing">
+<div class="container product-listing" style="margin-top:0px;">
 
-  <div class="page-head-title row " id="user_product_list"> Snack List</div>
+  <div class="page-head-title row " id="user_product_list" style="margin-top:10%;"> Snack List</div>
 
   <% if flash[:no_cart].present? %>
   <div id="flash_message"> <%= flash[:no_cart] %> </div>
@@ -9,7 +9,7 @@
   <div class="all-snacks">
 
     <% @snacks.each do |snack| %>
-      <div class="snack-tab">
+      <div class="snack-tab correct-float">
 
         <div id="hover_section">
           <%= hidden_field_tag :snack_id, snack.id %>
