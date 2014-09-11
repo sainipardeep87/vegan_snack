@@ -134,17 +134,21 @@ function on_validate_billing_form(){
         $("#signup_bill_address").hide();
         $("#signup_ship_address").hide();
         $("#confirm_signup").removeClass('hide');
-        $('div#ship_first_name').text($("#spree_user_addresses_attributes_0_firstname").val());
+        var firstname = $("#spree_user_addresses_attributes_0_firstname").val();
+        var lastname  = $("#spree_user_addresses_attributes_0_lastname").val();
+        $('div#ship_first_name').text(firstname+" "+lastname);
         $('div#ship_address_1').text($("#spree_user_addresses_attributes_0_address1").val());
         $('div#ship_address_2').text($("#spree_user_addresses_attributes_0_address2").val());
         $('div#ship_city').text($("#spree_user_addresses_attributes_0_city").val());
         $('div#ship_state').text($("#spree_user_addresses_attributes_0_state_name").val());
         
-        $('div#bill_first_name').text($("#spree_user_addresses_attributes_1_firstname").val());
+        var firstname_bill = $("#spree_user_addresses_attributes_1_firstname").val();
+        var lastname_bill = $("#spree_user_addresses_attributes_1_lastname").val();
+        $('div#bill_first_name').text(firstname_bill+" "+lastname_bill);
         $('div#bill_address_1').text($("#spree_user_addresses_attributes_1_address1").val());
         $('div#bill_address_2').text($("#spree_user_addresses_attributes_1_address2").val());
         $('div#bill_city').text($("#spree_user_addresses_attributes_1_city").val());
-        $('div#bill_state').text($("#spree_user_addresses_attributes_2_state_name").val());
+        $('div#bill_state').text($("#spree_user_addresses_attributes_1_state_name").val());
         var credit_card = $("#spree_user_creditcards_attributes_0_card_no").val();
         var last_four = credit_card.substr(credit_card.length - 4);
         $('div#ship_credit_card').text("xxxxxx"+last_four);

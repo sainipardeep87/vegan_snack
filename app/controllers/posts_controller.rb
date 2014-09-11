@@ -11,6 +11,7 @@ class PostsController < ApplicationController
 
     @banners = BannerImage.joins(:post)
     @first_banner = @banners.first
+    @banner_image = BannerImage.find_all_by_post_id(1,:conditions=>"image_file_name IS NOT NULL")
 
     @posts = Post.select('id, title, content')
     @slide_snacks = Post.get_post(5)

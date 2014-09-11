@@ -96,13 +96,14 @@ show_user_already_registered_notification("<%= @registered_email %>
 						<div class="first-input">
 							<%= f.text_field :email,:placeholder=>"Email" %>
 						</div>
-						<div class="sec-input">
-							<%= f.password_field :password,:placeholder=>"Password" %>
-						</div>
+						
 					</div>
 					<div class="outer-input">
 						<div class="first-input">
-							<%= f.password_field :password_confirmation,:placeholder=>"Confirm Password " %>
+							<%= f.password_field :password,:placeholder=>"Password" %>
+						</div>
+						<div class="sec-input">
+							<%= f.password_field :password_confirmation,:placeholder=>"Confirm Password " %>							
 						</div>
 					</div>
 					<div class="outer-input">

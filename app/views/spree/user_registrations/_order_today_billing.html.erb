@@ -96,7 +96,12 @@
 		  				</div>
 		  				<div class="outer-input">
 		    				<div class="first-input"> <%= address.text_field :city,:placeholder=>"City " %></div>
-			 				<div class="sec-input">  <%= address.text_field :state_name,:placeholder=>"State " %></div>
+		    				<%@states=CountryStateSelect::Constant::USA_STATES%>
+
+							<div class="sec-input">
+								<%= address.select :state_name,@states,{:prompt => 'State'},:placeholder=>"State"%>
+							</div>
+			 				
 		  				</div>
 		  				<div class="outer-input">
 		    				<div class="first-input"><%= address.text_field :zipcode, :placeholder => 'Zip' %></div>
