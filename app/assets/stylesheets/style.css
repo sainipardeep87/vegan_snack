@@ -318,14 +318,14 @@ nav ul li a:hover {
 }
 
 .join_loged_in a {
-	background: none repeat scroll 0 0 #18bf6a;
+	/*background: none repeat scroll 0 0 #18bf6a;*/
 	border-radius: 4px;
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	/*font-size: 24px;*/
 	font-weight: 400;
 	padding: 4px 30px;
-	border: 1px solid #18bf6a;
+	/*border: 1px solid #18bf6a;*/
 }
 .join_loged_in li{
 	list-style: none;
