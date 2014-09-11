@@ -316,8 +316,27 @@ end
     render text: is_valid
    end
 
+
+    def save_newsletter
+      
+      @newsletter = NewsletterEmail.new(newsletter_params)
+      if @newsletter.save
+        @success = "Thank you for Signing up!"
+      else
+        @errors = @newsletter.errors.full_messages.last
+      end
+
+   end
+
+
+
 # Description: Adding parameters to permission list; so those will be allowed for create/update action
   private
+
+    def newsletter_params
+      params.require(:newsletter).permit(:email)
+    end
+
     def user_params_list
       params.require(:spree_user).permit(
           :id, :email, :password, :password_confirmation, :updating_password, :facebook_token, :image, :coupon_code, :sub_type,

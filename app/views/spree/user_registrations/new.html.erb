@@ -346,18 +346,21 @@
 		</div>
 	</section>
 
+	<%= form_for :newsletter, url: main_app.save_newsletter_path, remote: true do |f| %>
+
 	<section class="newsletter">
 		<div class="newsletter-wrapper">
 			<div class="subscribe-text">
 				Sign up for our newsletter
 			</div>
 			<div class="email-sec">
-				<input class="email-input-news" type="text" value="">
-				<input class="submit-text-news" type="submit" value="Submit">
+				<%= f.text_field :email, class: "email-input-news" %>
+				<%= f.submit :submit, class: "submit-text-news" %> 
+				<div id="newsletter-messages"></div>
 			</div>
 		</div>
 	</section>
-
+<% end %>
 	<div class="clr"></div>
 
 	<section class="snack-section">
