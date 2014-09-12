@@ -31,7 +31,7 @@
         </div> <!-- End of the queue-tile -->
 
         <% else %>
-            <div class="queue-tile blank-tile" id="new_item_<%= i %>" onclick="pop_modal(<%= @cart.id.to_s %>);"> Add a Snack</div>
+            <div class="queue-tile blank-tile" id="new_item_<%= i %>" onclick="pop_modal(<%= @cart.id.to_s %>);" style="min-height:100px;"> Add a Snack</div>
         <% end %>
 
         <% i= i+1 %>
