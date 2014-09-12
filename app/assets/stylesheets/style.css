@@ -1386,10 +1386,13 @@ footer {
 .logo-bmem {
 	text-align: center;
 	width: 100%;
+	margin-left: 60px;
 }
 .outer-top-num {
 	width: 292px;
-	margin: 30px auto 30px 310px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:32px;
 }
 .outer-top-num-3-step {
     margin: 30px auto 30px 310px;
@@ -1591,10 +1594,11 @@ footer {
 	width: 100%;
 	float: left;
 }
+
 .main-content-sec {
-	width: 100%;
-	float: left;
-	margin: 30px 0 0;
+    margin: 20px auto;
+    width: 100%;
+    padding-top: 38px;
 }
 .image-left-bmem {
 	margin: 15px 0 0;
@@ -2025,10 +2029,10 @@ footer {
 	height: 575px;
 }
 .heading-main-bg {
-	color: #000;
-	font-family: 'Roboto', sans-serif;
-	font-size: 60px;
-	font-weight: 100;
+    color: #2e2e2e;
+    font-family: "Roboto",sans-serif;
+    font-size: 60px;
+    font-weight: normal;
 }
 .inner-content-bg {
 	position: absolute;
@@ -2037,24 +2041,24 @@ footer {
 	width: 100%;
 }
 .sub-heading-main-bg {
-	color: #000;
-	font-family: 'Roboto', sans-serif;
-	font-size: 26px;
-	font-weight: 100;
-	margin: 10px 0;
+    color: #2e2e2e;
+    font-family: "Roboto",sans-serif;
+    font-size: 34px;
+    font-weight: normal;
+    margin: 10px 0;
 }
 .read-main-bg {
 	margin: 45px 0 0;
 }
 .read-main-bg a {
-	border: 1px solid #000;
-	border-radius: 2px;
-	color: #000;
-	font-family: 'Roboto', sans-serif;
-	font-size: 28px;
-	font-weight: 100;
-	margin: 14px 0 0;
-	padding: 10px 76px;
+    border: 1px solid #2e2e2e;
+    border-radius: 2px;
+    color: #2e2e2e;
+    font-family: "Roboto",sans-serif;
+    font-size: 28px;
+    font-weight: normal;
+    margin: 14px 0 0;
+    padding: 10px 76px;
 }
 .blog-content {
 	float: left;
@@ -4692,6 +4696,8 @@ margin-top: 30px;}
 }
 .logo-bmem {
 	text-align: center;
+	margin-left: 5px;
+
 }
 .heading-bmem {
 	font-size: 22px;
@@ -5192,7 +5198,7 @@ ul.tabs li {
 
 .list1{left: 90px;}
 .list2{left: 180px;}
-.list4{left: 270px;}
+.list4{left: 296px;}
 
 
 
@@ -5554,6 +5560,9 @@ ul.tabs li.current {
 .join1 input {
     padding: 4px 20px; font-size:20px;
 }
+.logo-bmem img {
+    width: 80%;
+}
 
 }
 
@@ -5564,6 +5573,8 @@ ul.tabs li.current {
 .inner-content-bg{
 	top: 34px;
 }
+
+
 
 .join-input {
 	width: 266px;
@@ -5592,6 +5603,9 @@ ul.tabs li.current {
 }
 .logo {
 	margin-bottom: 0px;
+}
+.list4 {
+    left: 259px;
 }
 
 .image-tell-me-parallax {   
