@@ -1,7 +1,13 @@
 <div class="post_wrapper">
 <div class="post_title entry-title"> <%= @post.title %> </div>
     
-    <div class="social-share-top">
+    
+
+    <div class="left_content">
+      <div id='post_content'>
+        <%= (@post.content).html_safe %>
+        <div class="footer_section">
+        <div class="social-share-top">
       
 
       <a href = "https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F<%= Vegan::Application.config.share_url %>posts/<%= @post.id %>" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=no,scrollbars=no,height=400,width=600');return false">
@@ -13,20 +19,14 @@
 onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=no,scrollbars=no,height=400,width=600');return false"><img src="/assets/vegan-share/google-share.png" alt=""/></a>
 
 
-      <a id="ref_lkd" href="http://www.linkedin.com/shareArticle?mini=true&url=<%= Vegan::Application.config.image_url %>posts/<%= @post.id %>&title=Vegan Snack Packs&summary=Blog Post&source=<%= Vegan::Application.config.image_url %>"
-onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=no,scrollbars=no,height=400,width=600');return false;"><img src="/assets/vegan-share/linkedin-share.png" alt=""/></a>
+      <!-- <a id="ref_lkd" href="http://www.linkedin.com/shareArticle?mini=true&url=<%= Vegan::Application.config.image_url %>posts/<%= @post.id %>&title=Vegan Snack Packs&summary=Blog Post&source=<%= Vegan::Application.config.image_url %>"
+onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=no,scrollbars=no,height=400,width=600');return false;"><img src="/assets/vegan-share/linkedin-share.png" alt=""/></a> -->
 
 
       <a id="ref_tw" href="http://twitter.com/home?status=<%= Vegan::Application.config.share_url %>posts/<%= @post.id %>"  onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=no,scrollbars=no,height=400,width=600');return false;"><img src="/assets/vegan-share/twitter-share.png" alt=""/></a>
       
       <%#= social_share_button_tag(@post.title, :url => post_url(@post) ) %>
     </div>
-
-    <div class="left_content">
-      <div id='post_content'>
-        <%= (@post.content).html_safe %>
-        <div class="footer_section">
-        
       <div class="tag_list">
         <% @post.tags.each do |tag| %>
             <span><%= link_to tag.tagname, '#' %></span>
@@ -50,17 +50,7 @@ onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
         </div>
 
-      <%#= render :partial => 'posts/post_share_bottom' %>
-
-     <!--  <div class = "comment-section">
-        <%= render :partial => 'comments/comment', :locals => {:comment => @post.comments} %>
-      </div> -->
-
-      <!-- <div class="add-comment">
-        <h3> Let's Add a Comment </h3>
-        <%= render "comments/form" %>
-      </div> -->
-
+      
       </div>
       </div>
     </div>
